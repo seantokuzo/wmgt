@@ -15,7 +15,7 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse }) => {
 
   const courseDetailsEl = (
     <div
-      className="w-full max-w-2xl
+      className="w-full
       flex flex-col justify-center items-center
       bg-[#f8ff71] text-[#38280e]"
     >
@@ -25,12 +25,24 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse }) => {
         className="w-full px-4 bg-[#38280e] text-[#f8ff71]
       flex justify-center items-center"
       >
-        <div className="flex flex-col justify-end items-center"></div>
+        <div className="flex flex-col justify-end items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
+            <p className="mr-2">Hole</p>
+            {course.parByHole.map((hole, i) => (
+              <div
+                className="w-4 h-4 p-4 my-1
+                flex flex-col justify-center items-center
+                border-2 border-[#f8ff71] rounded-[100%]
+                text-sm"
+                key={`${course.alias}${i + 1}`}
+              >
+                {i + 1}
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="flex flex-col justify-center items-center">
           <h4>Par {course.par}</h4>
-          <div className=''>
-
-          </div>
         </div>
       </div>
     </div>
