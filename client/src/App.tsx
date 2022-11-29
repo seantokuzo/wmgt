@@ -1,20 +1,13 @@
-import { useEffect } from 'react'
 import Course from 'components/course/Course'
 import Header from 'components/Header'
 import MainMenu from 'components/MainMenu'
 import Player from 'components/player/Player'
 import Season from 'components/season/Season'
 import { useAppContext } from 'context/appContext'
-import roundOne from 'data/round-data/s7r1'
+// import { season7Data } from './data/round-data/s7-round-data'
 
 function App() {
   const { darkMode, mode } = useAppContext()
-
-  const updatedRounds = roundOne.map((round) => {
-    const numStrokeOut = round.
-  })
-
-  // console.log(updatedRounds)
 
   const themeClass = darkMode ? 'bg-black' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'

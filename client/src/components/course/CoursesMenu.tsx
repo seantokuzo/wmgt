@@ -3,10 +3,10 @@ import { CourseAlias } from 'data/course-data/wmgt-course-data'
 import React from 'react'
 
 type Props = {
-  selectCourse: React.Dispatch<React.SetStateAction<CourseAlias | ''>>
+  setSelectedCourse: React.Dispatch<React.SetStateAction<CourseAlias | ''>>
 }
 
-const CoursesMenu: React.FC<Props> = ({ selectCourse }) => {
+const CoursesMenu: React.FC<Props> = ({ setSelectedCourse }) => {
   const { darkMode, courseData } = useAppContext()
 
   const borderColorClass = darkMode ? 'border-white' : 'border-black'
@@ -22,7 +22,7 @@ const CoursesMenu: React.FC<Props> = ({ selectCourse }) => {
           flex flex-col justify-center items-center
           border-2 rounded-md text-center
           ${borderColorClass}`}
-          onClick={() => selectCourse(course.alias)}
+          onClick={() => setSelectedCourse(course.alias)}
           key={course.alias}
         >
           <h5 className="text-base font-bold">{`${course.course} ${course.difficulty}`}</h5>

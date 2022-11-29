@@ -1,24 +1,27 @@
-import {
-  courseData,
-  CourseInterface,
-  CourseAlias
-} from 'data/course-data/wmgt-course-data'
+import { courseData, CourseInterface, CourseAlias } from 'data/course-data/wmgt-course-data'
 
 type Props = {
   selectedCourse: CourseAlias
+  setSelectedCourse: React.Dispatch<React.SetStateAction<CourseAlias | ''>>
 }
 
-const CourseDetails: React.FC<Props> = ({ selectedCourse }) => {
-  const course: CourseInterface = courseData.filter(
-    (course) => course.alias === selectedCourse
-  )[0]
+const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) => {
+  const course: CourseInterface = courseData.filter((course) => course.alias === selectedCourse)[0]
 
   const courseDetailsEl = (
     <div
-      className="w-full
+      className="relative w-full px-5 py-3
       flex flex-col justify-center items-center
       bg-[#f8ff71] text-[#38280e]"
     >
+      <button
+        className="absolute top-1 left-1 p-2
+        flex justify-center hover:shadow-lg hover:scale-105
+        border-2 border-[#38280e] rounded-[50%]"
+        onClick={() => setSelectedCourse('')}
+      >
+        <i className="fa-solid fa-arrow-left"></i>
+      </button>
       <h1>{`${course.course} ${course.difficulty}`}</h1>
       <h3>({course.alias})</h3>
       <div
