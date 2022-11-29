@@ -75,7 +75,7 @@ const CourseDetails: React.FC<Props> = ({
           <div
             className="w-20 h-20 p-2 rounded-md ml-0 mt-0
               md:mt-2 md:ml-2
-              flex flex-col justify-center items-center
+              flex flex-col justify-start items-center
               bg-[#f8ff71]"
           >
             <p className="text-xs text-[#38280e]">Total</p>
