@@ -39748,5 +39748,3 @@ export const season7Data: RoundDataInterface[] = [
     ]
   }
 ]
-
-export const hi = 'hi'
