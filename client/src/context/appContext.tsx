@@ -1,6 +1,7 @@
 import { createContext, useReducer, useContext } from 'react'
 import { ActionType } from './actions'
 import reducer from './reducer'
+import { courseData, CourseInterface } from 'data/course-data/wmgt-course-data'
 
 export type AppMode = 'menu' | 'player' | 'season' | 'course'
 export type AlertType = 'danger' | 'success' | ''
@@ -8,6 +9,7 @@ export type AlertType = 'danger' | 'success' | ''
 export interface StateInterface {
   darkMode: boolean
   mode: AppMode
+  courseData: CourseInterface[]
   isLoading: boolean
   showAlert: boolean
   alertType: AlertType
@@ -17,6 +19,7 @@ export interface StateInterface {
 export const initialState: StateInterface = {
   darkMode: true,
   mode: 'menu',
+  courseData: courseData,
   isLoading: false,
   showAlert: false,
   alertType: '',

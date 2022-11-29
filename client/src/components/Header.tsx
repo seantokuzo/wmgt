@@ -1,5 +1,5 @@
 import { useAppContext } from 'context/appContext'
-import NavBtn from './HeaderNavBtn'
+import NavBtn from './NavBtn'
 import ThemeToggler from './ThemeToggler'
 
 const Header: React.FC = () => {
@@ -7,15 +7,15 @@ const Header: React.FC = () => {
 
   return (
     <div
-      className={`w-full fixed py-5 top-0 flex justify-center items-center ${
+      className={`w-full px-4 py-5 flex justify-between items-center ${
         !darkMode ? 'text-black' : 'text-white'
       }`}
     >
-      <div className='absolute top-1 left-1'>
+      <div className="w-1/4">
         <NavBtn btnMode="menu" />
       </div>
-      <h1 className="text-2xl font-semibold">WMGT Stats</h1>
-      <div className="absolute top-2 right-1">
+      <h1 className="text-2xl font-semibold font-orb">WMGT Stats</h1>
+      <div className="w-1/4 h-full flex flex-col justify-start items-start">
         <ThemeToggler />
       </div>
     </div>

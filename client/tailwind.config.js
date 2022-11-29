@@ -4,8 +4,8 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      reg: ['Montserrat', 'sans-serif'],
-      alt: ['Teko', 'serif']
+      reg: ['Roboto Mono', 'Alexandria', 'Montserrat', 'sans-serif'],
+      orb: ['Orbitron', 'serif']
     },
     extend: {
       keyframes: {
@@ -16,11 +16,16 @@ module.exports = {
         revspin: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(4turn)' }
+        },
+        cardflip: {
+          '0%': { transform: 'rotateY(180deg)' },
+          '100%': { transform: 'rotate(0deg)' }
         }
       },
       animation: {
         loadspin: 'spin 3s linear infinite',
-        revspin: 'revspin 3s linear infinite'
+        revspin: 'revspin 3s linear infinite',
+        cardflip: 'cardflip 500ms ease-in-out forwards'
       }
     }
   },
