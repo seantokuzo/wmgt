@@ -5,7 +5,16 @@ module.exports = {
   theme: {
     fontFamily: {
       reg: ['Roboto Mono', 'Alexandria', 'Montserrat', 'sans-serif'],
-      orb: ['Orbitron', 'serif']
+      orb: ['Orbitron', 'serif'],
+      scorecard: [
+        // 'Delius',
+        'Mali',
+        'Coming-Soon',
+        'Montserrat',
+        'Roboto Mono',
+        'Alexandria',
+        'serif'
+      ]
     },
     extend: {
       keyframes: {
