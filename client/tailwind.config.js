@@ -6,15 +6,8 @@ module.exports = {
     fontFamily: {
       reg: ['Roboto Mono', 'Alexandria', 'Montserrat', 'sans-serif'],
       orb: ['Orbitron', 'serif'],
-      scorecard: [
-        // 'Delius',
-        'Mali',
-        'Coming-Soon',
-        'Montserrat',
-        'Roboto Mono',
-        'Alexandria',
-        'serif'
-      ]
+      scoretext: ['Mali', 'Montserrat', 'Roboto Mono', 'Alexandria', 'serif'],
+      scorenum: ['Montserrat', 'Mali', 'Roboto Mono', 'Alexandria', 'serif']
     },
     extend: {
       keyframes: {
