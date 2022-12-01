@@ -18,7 +18,9 @@
     "serve": "vite preview",
     "test": "jest",
     "lint": "eslint src --max-warnings=0",
-    "typecheck": "tsc --project tsconfig.json --noEmit"
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "launch": "sudo netlify deploy",
+    "launch:prod": "sudo netlify deploy --prod"
   },
   "dependencies": {
     "react": "^18.2.0",
