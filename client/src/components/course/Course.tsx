@@ -4,7 +4,7 @@ import CoursesMenu from './CoursesMenu'
 import CourseDetails from './CourseDetails'
 
 const Course: React.FC = () => {
-  const [selectedCourse, setSelectedCourse] = useState<CourseAlias | ''>('OGE')
+  const [selectedCourse, setSelectedCourse] = useState<CourseAlias | ''>('')
 
   return (
     <div className="w-full flex flex-col justify-center items-center">

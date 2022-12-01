@@ -18,7 +18,7 @@ export interface StateInterface {
 
 export const initialState: StateInterface = {
   darkMode: true,
-  mode: 'course',
+  mode: 'menu',
   courseData: courseData,
   isLoading: false,
   showAlert: false,
