@@ -4,18 +4,13 @@ import CoursesMenu from './CoursesMenu'
 import CourseDetails from './CourseDetails'
 
 const Course: React.FC = () => {
-  const [selectedCourse, setSelectedCourse] = useState<CourseAlias | ''>('TTH')
+  const [selectedCourse, setSelectedCourse] = useState<CourseAlias | ''>('OGE')
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      {selectedCourse === '' && (
-        <CoursesMenu setSelectedCourse={setSelectedCourse} />
-      )}
+      {selectedCourse === '' && <CoursesMenu setSelectedCourse={setSelectedCourse} />}
       {selectedCourse !== '' && (
-        <CourseDetails
-          selectedCourse={selectedCourse}
-          setSelectedCourse={setSelectedCourse}
-        />
+        <CourseDetails selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse} />
       )}
     </div>
   )

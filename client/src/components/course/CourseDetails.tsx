@@ -33,12 +33,42 @@ type StatTypes =
 
 const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) => {
   const [selectedStat, setSelectedStat] = useState<StatTypes>('default')
-  console.log(selectedStat)
 
   const course: CourseInterface = courseData.filter((course) => course.alias === selectedCourse)[0]
   const s7Round: RoundDataInterface[] | [] = S7_DATA.filter(
     (round) => round.easyCourse === selectedCourse || round.hardCourse === selectedCourse
   )
+
+  const getHoleStats = (): number[] | string[] => {
+    switch (selectedStat) {
+      case 'default':
+        return new Array(18).fill('')
+      case 'S7_AVG':
+        return CourseStats.getCourseAveragesPerRound(7, selectedCourse)
+      case 'S7_TOP10':
+        return CourseStats.getRoundTopTenAvg(7, selectedCourse)
+      case 'S7_BEST':
+        return CourseStats.getBestRound(7, selectedCourse)
+      case 'S7_ACES':
+        return CourseStats.getNumberOfAces(7, selectedCourse)
+      default:
+        return new Array(18).fill('')
+    }
+  }
+
+  const getTotalScoreStat = (): number | '' => {
+    if (selectedStat === 'default') return ''
+    if (selectedStat === 'S7_BEST') return CourseStats.getLowestScore(7, selectedCourse)
+    if (selectedStat === 'S7_ACES')
+      return (getHoleStats() as number[]).reduce(
+        (sum: number, holeScore: number) => sum + holeScore,
+        0
+      )
+    return Math.round(
+      (getHoleStats() as number[]).reduce((sum: number, holeScore: number) => sum + holeScore, 0) -
+        courseData.find((course) => course.alias === selectedCourse)!.par
+    )
+  }
 
   const statTitle: StatNames = {
     default: 'SCORE',
@@ -61,9 +91,9 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
         md:translate-x-[-50%] md:translate-y-[-50%] mb-4 md:mb-0 font-scoretext"
     >
       <div
-        className="relative w-full px-7 md:px-5 py-6 md:py-3
-      flex flex-col justify-center items-center
-      bg-[#f8ff71] text-[#38280e]"
+        className="relative w-full px-7 md:p-5 py-6 flex
+      flex-col justify-center items-center bg-[#f8ff71]
+      text-[#38280e]"
       >
         {/* ***** TOP OF SCORECARD DIV ***** */}
         <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
@@ -81,7 +111,7 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
             className="w-full md:w-1/3 mt-3 md:mt-0
               flex flex-col justify-center items-center"
           >
-            <h1 className="text-2xl font-semibold">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
+            <h1 className="text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
             <h3>
               ({course.alias} {course.courseMoji})
             </h3>
@@ -109,13 +139,14 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
               {s7Round[0] && (
                 <option value="S7_ACES">{`S7 - R${s7Round[0].round} # OF ACES`}</option>
               )}
-              <option value="AT_AVG">ALL TIME AVG</option>
+              {/* <option value="AT_AVG">ALL TIME AVG</option>
               <option value="AT_TOP10">ALL TIME TOP 10 AVG</option>
               <option value="AT_BEST">ALL TIME BEST SCORE</option>
-              <option value="AT_ACES">ALL TIME # OF ACES</option>
+              <option value="AT_ACES">ALL TIME # OF ACES</option> */}
             </select>
           </div>
         </div>
+        {/* ***** BOTTOM HALF OF SCORECARD - THE SCORES ***** */}
         <div
           className="w-full md:w-auto px-0 md:px-6 py-4 rounded-md
           mt-4
@@ -163,15 +194,7 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
                   flex justify-center items-center
                   rounded-md"
                 >
-                  <p className="text-2xl font-bold text-[#38280e]">
-                    {
-                      CourseStats.getCourseAveragesPerRound(
-                        7,
-                        5,
-                        courseData.filter((course) => course.alias === selectedCourse)[0].parByHole
-                      )[i]
-                    }
-                  </p>
+                  <p className="text-2xl font-bold text-[#38280e]">{getHoleStats()[i]}</p>
                 </div>
               </div>
             ))}
@@ -181,10 +204,11 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
             <div
               className="w-20 h-20 p-2 rounded-md ml-0 mt-0
               md:mt-2 md:ml-2
-              flex flex-col justify-start items-center
-              bg-[#f8ff71]"
+              flex flex-col justify-between items-center
+              bg-[#f8ff71] font-scorenum"
             >
               <p className="text-xs text-[#38280e]">TOTAL</p>
+              <h2 className="text-5xl font-bold text-[#38280e]">{getTotalScoreStat()}</h2>
             </div>
           </div>
         </div>
