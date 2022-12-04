@@ -3,7 +3,7 @@ import {
   PlayerRoundInterface,
   RoundDataInterface,
   season7Data
-} from 'data/round-data/s7-round-data-nums'
+} from 'data/round-data/s7-round-data'
 
 export default abstract class CourseStats {
   private static easyOrHardScorecard(score: PlayerRoundInterface, course: CourseAlias) {
