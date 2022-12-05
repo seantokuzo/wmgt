@@ -6,7 +6,8 @@ const s7sheetIdsByRound = {
   R5: '680113919',
   R6: '1554734905',
   R7: '1379586954R3',
-  R8: '749121011'
+  R8: '749121011',
+  R9: '1407622001'
 }
 
 // const sheetIdsArray = Object.values(s7sheetIdsByRound)
@@ -37,31 +38,31 @@ const stripPlayerRounds = (sheetId, firstRow, collection = []) => {
     // console.log(rowCellsArray)
     // console.log(rowCellsArray.length)
 
-    const easyScoresArray = rowCellsArray.splice(9, 18)
-    const hardScoresArray = rowCellsArray.splice(9, 18)
+    const easyScoresArray = rowCellsArray.splice(9, 18).map(num => +num)
+    const hardScoresArray = rowCellsArray.splice(9, 18).map((num) => +num)
 
     const formattedRowObject = {
-      roundRank: rowCellsArray[2],
+      roundRank: +rowCellsArray[2],
       player: rowCellsArray[4],
-      easyRoundTotal: rowCellsArray[0],
-      hardRoundTotal: rowCellsArray[1],
-      seasonPointsEarned: rowCellsArray[3],
-      easyRoundScore: rowCellsArray[5],
-      hardRoundScore: rowCellsArray[6],
-      totalToPar: rowCellsArray[7],
+      easyRoundTotal: +rowCellsArray[0],
+      hardRoundTotal: +rowCellsArray[1],
+      seasonPointsEarned: +rowCellsArray[3],
+      easyRoundScore: +rowCellsArray[5],
+      hardRoundScore: +rowCellsArray[6],
+      totalToPar: +rowCellsArray[7],
       coconut: rowCellsArray[8] === '🥥',
       easyScorecard: easyScoresArray,
       hardScorecard: hardScoresArray,
-      numPar: rowCellsArray[9],
-      numBirdie: rowCellsArray[10],
-      numEagle: rowCellsArray[11],
-      numAblatross: rowCellsArray[12],
-      numCondor: rowCellsArray[13],
-      numHoleInOne: rowCellsArray[14],
-      numBogey: rowCellsArray[15],
-      numDoubleBogey: rowCellsArray[16],
-      numTripleBogey: rowCellsArray[17],
-      numStrokeOut: rowCellsArray[18]
+      numPar: +rowCellsArray[9],
+      numBirdie: +rowCellsArray[10],
+      numEagle: +rowCellsArray[11],
+      numAblatross: +rowCellsArray[12],
+      numCondor: +rowCellsArray[13],
+      numHoleInOne: +rowCellsArray[14],
+      numBogey: +rowCellsArray[15],
+      numDoubleBogey: +rowCellsArray[16],
+      numTripleBogey: +rowCellsArray[17],
+      numStrokeOut: +rowCellsArray[18]
     }
     collection.push(formattedRowObject)
     stripPlayerRounds(sheetId, firstRow + 1, collection)
@@ -73,7 +74,8 @@ const stripPlayerRounds = (sheetId, firstRow, collection = []) => {
 // console.log(stripPlayerRounds('1310582353', 3))
 // console.log(stripPlayerRounds('2039331353', 3))
 // console.log(stripPlayerRounds('149051212', 3))
-console.log(stripPlayerRounds('680113919', 3))
-console.log(stripPlayerRounds('1554734905', 3))
-console.log(stripPlayerRounds('1379586954', 3))
-console.log(stripPlayerRounds('749121011', 3))
+// console.log(stripPlayerRounds('680113919', 3))
+// console.log(stripPlayerRounds('1554734905', 3))
+// console.log(stripPlayerRounds('1379586954', 3))
+// console.log(stripPlayerRounds('749121011', 3))
+console.log(stripPlayerRounds('1407622001', 3))
