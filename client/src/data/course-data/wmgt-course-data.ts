@@ -12,7 +12,7 @@ export type CourseList =
   | 'Shangri-La'
   | 'El Dorado'
   | 'Labyrinth'
-  | '20K Leagues Under the Sea'
+  | '20K Leagues'
   | 'Myst'
 
 export type CourseAlias =
@@ -284,7 +284,7 @@ export const courseData: CourseInterface[] = [
     parByHole: [3, 3, 4, 5, 3, 3, 3, 3, 5, 3, 3, 4, 3, 5, 4, 3, 4, 4]
   },
   {
-    course: '20K Leagues Under the Sea',
+    course: '20K Leagues',
     difficulty: 'Easy',
     alias: '20E',
     courseMoji: CourseMoji.TwentyK,
@@ -292,7 +292,7 @@ export const courseData: CourseInterface[] = [
     parByHole: [3, 3, 3, 3, 3, 3, 4, 4, 3, 4, 3, 3, 4, 3, 4, 3, 3, 3]
   },
   {
-    course: '20K Leagues Under the Sea',
+    course: '20K Leagues',
     difficulty: 'Hard',
     alias: '20H',
     courseMoji: CourseMoji.TwentyK,
