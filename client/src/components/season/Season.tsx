@@ -9,7 +9,7 @@ export interface SelectedRound {
 }
 
 const Season: React.FC = () => {
-  const [selectedRound, setSelectedRound] = useState<SelectedRound | ''>('')
+  const [selectedRound, setSelectedRound] = useState<SelectedRound | ''>({ season: 7, round: 9 })
 
   return (
     <div className="w-full flex flex-col justify-center items-center">

@@ -1,22 +1,25 @@
-import { RoundDataInterface } from 'data/round-data/s7-round-data'
 import RoundDetailBtn from './RoundDetailBtn'
 import { modes, RoundDetailsMode } from './RoundDetails'
 import { SelectedRound } from './Season'
-import { courseData } from '../../data/course-data/wmgt-course-data'
+import { CourseInterface } from '../../data/course-data/wmgt-course-data'
 
 type Props = {
   mode: RoundDetailsMode
   setMode: React.Dispatch<React.SetStateAction<RoundDetailsMode>>
-  round: RoundDataInterface
+  selectedRound: SelectedRound
+  easyCourse: CourseInterface
+  hardCourse: CourseInterface
   setSelectedRound: React.Dispatch<React.SetStateAction<SelectedRound | ''>>
 }
 
-const RoundDetailsMenu: React.FC<Props> = ({ mode, setMode, round, setSelectedRound }) => {
-  const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
-  const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
-  console.log(easyCourse)
-  console.log(hardCourse)
-
+const RoundDetailsMenu: React.FC<Props> = ({
+  mode,
+  setMode,
+  selectedRound,
+  easyCourse,
+  hardCourse,
+  setSelectedRound
+}) => {
   return (
     <div
       className="relative bg-[#f8ff71] text-[#38280e]
@@ -36,8 +39,8 @@ const RoundDetailsMenu: React.FC<Props> = ({ mode, setMode, round, setSelectedRo
       <h1
         className="absolute top-4 right-4 text-2xl font-semibold p-2
         border-2 border-[#38280e] rounded-[100%]"
-      >{`S${round.season}`}</h1>
-      <h3 className="text-6xl font-bold">{`Round ${round.round}`}</h3>
+      >{`S${selectedRound.season}`}</h1>
+      <h3 className="text-6xl font-bold">{`Round ${selectedRound.round}`}</h3>
       <div className="w-full my-3 flex justify-evenly items-start text-center">
         <div className="py-2 px-4 mx-2">
           <h3 className="text-xl font-semibold">
