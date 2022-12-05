@@ -1,6 +1,9 @@
 import { useState } from 'react'
-import RoundDetailBtn from './RoundDetailBtn'
 import { SelectedRound } from './Season'
+import RoundStats from './roundStats'
+import RoundDetailsMenu from './RoundDetailsMenu'
+import { RoundDataInterface, season7Data as S7_DATA } from '../../data/round-data/s7-round-data'
+import { courseData } from '../../data/course-data/wmgt-course-data'
 
 type Props = {
   selectedRound: SelectedRound
@@ -8,7 +11,7 @@ type Props = {
 }
 
 export type RoundDetailsMode = 'full' | 'easy' | 'hard' | 'aces' | 'coconuts'
-const modes = {
+export const modes = {
   full: 'Full Results',
   easy: 'Easy Course',
   hard: 'Hard Course',
@@ -16,35 +19,24 @@ const modes = {
   coconuts: 'Coconuts'
 }
 
+let round: RoundDataInterface
+
 const RoundDetails: React.FC<Props> = ({ selectedRound, setSelectedRound }) => {
   const [mode, setMode] = useState<RoundDetailsMode>('full')
   console.log(mode)
 
+  if (selectedRound.season === 7) {
+    round = S7_DATA.filter((r) => r.round === selectedRound.round)[0]
+  }
+
   return (
     <div className="relative w-full flex flex-col justify-center items-center">
-      <div className="absolute top-3 left-3">
-        <button
-          className="p-2 text-xl
-              flex justify-center hover:shadow-lg hover:scale-105
-              border-2 border-[#38280e] rounded-[100%]"
-          onClick={() => setSelectedRound('')}
-        >
-          <i className="fa-solid fa-arrow-left"></i>
-        </button>
-      </div>
-      <h1>{`Season ${selectedRound.season}`}</h1>
-      <h3>{`Round ${selectedRound.round}`}</h3>
-      <div className="w-full flex flex-wrap justify-evenly items-center">
-        {(Object.keys(modes) as RoundDetailsMode[]).map((m) => (
-          <RoundDetailBtn
-            key={`mode-btn-${m}`}
-            selected={mode === m}
-            btnText={modes[m]}
-            btnMode={m}
-            updateMode={setMode}
-          />
-        ))}
-      </div>
+      <RoundDetailsMenu
+        mode={mode}
+        setMode={setMode}
+        round={round}
+        setSelectedRound={setSelectedRound}
+      />
     </div>
   )
 }
