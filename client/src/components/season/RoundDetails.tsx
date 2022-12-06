@@ -26,7 +26,8 @@ let round: RoundDataInterface
 
 const RoundDetails: React.FC<Props> = ({ selectedRound, setSelectedRound }) => {
   const [mode, setMode] = useState<RoundDetailsMode>('full')
-  console.log(mode)
+  const [showEasyCourse, setShowEasyCourse] = useState<boolean>(true)
+  const [showScoreTracker, setShowScoreTracker] = useState<boolean>(false)
 
   if (selectedRound.season === 7) {
     round = S7_DATA.filter((r) => r.round === selectedRound.round)[0]
@@ -35,7 +36,7 @@ const RoundDetails: React.FC<Props> = ({ selectedRound, setSelectedRound }) => {
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
 
   return (
-    <div className="relative w-full flex flex-col justify-center items-center">
+    <div className="relative w-full flex flex-col justify-center items-center py-6">
       <RoundDetailsMenu
         mode={mode}
         setMode={setMode}
@@ -44,10 +45,62 @@ const RoundDetails: React.FC<Props> = ({ selectedRound, setSelectedRound }) => {
         hardCourse={hardCourse}
         setSelectedRound={setSelectedRound}
       />
-      <CourseScorecard course={easyCourse} />
-      {round.scores.map((playerRound) => (
-        <PlayerScorecard playerRound={playerRound} coursePars={easyCourse.parByHole} easy={true} key={nanoid()} />
-      ))}
+      <CourseScorecard
+        mode={mode}
+        course={showEasyCourse ? easyCourse : hardCourse}
+        showEasyCourse={showEasyCourse}
+        setShowEasyCourse={setShowEasyCourse}
+        showScoreTracker={showScoreTracker}
+        setShowScoreTracker={setShowScoreTracker}
+      />
+      {mode === 'full' &&
+        round.scores.map((playerRound) => (
+          <PlayerScorecard
+            playerRound={playerRound}
+            coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
+            easy={showEasyCourse}
+            showScoreTracker={showScoreTracker}
+            key={nanoid()}
+          />
+        ))}
+      {/* <PlayerScorecard
+        playerRound={round.scores[0]}
+        coursePars={easyCourse.parByHole}
+        easy={true}
+        key={nanoid()}
+      /> */}
+      {mode === 'easy' && (
+        <div
+          className="border-2 py-8 px-16 rounded-md text-4xl font-bold mt-10 animate-bounce
+          flex justify-center items-center"
+        >
+          COMING SOON
+        </div>
+      )}
+      {mode === 'hard' && (
+        <div
+          className="border-2 py-8 px-16 rounded-md text-4xl font-bold mt-10 animate-bounce
+          flex justify-center items-center"
+        >
+          COMING SOON
+        </div>
+      )}
+      {mode === 'aces' && (
+        <div
+          className="border-2 py-8 px-16 rounded-md text-4xl font-bold mt-10 animate-bounce
+          flex justify-center items-center"
+        >
+          ⛳️ COMING SOON ⛳️
+        </div>
+      )}
+      {mode === 'coconuts' && (
+        <div
+          className="border-2 py-8 px-16 rounded-md text-4xl font-bold mt-10 animate-bounce
+          flex justify-center items-center"
+        >
+          🥥 COMING SOON 🥥
+        </div>
+      )}
     </div>
   )
 }
