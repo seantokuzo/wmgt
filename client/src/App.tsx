@@ -4,13 +4,16 @@ import MainMenu from 'components/MainMenu'
 import Player from 'components/player/Player'
 import Season from 'components/season/Season'
 import { useAppContext } from 'context/appContext'
-// import { season7Data } from './data/round-data/s7-round-data'
+
+import { checkScores } from './data/in_progress/s6r12_raw-data'
 
 function App() {
   const { darkMode, mode } = useAppContext()
 
   const themeClass = darkMode ? 'bg-black' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'
+
+  checkScores(12)
 
   return (
     <div
