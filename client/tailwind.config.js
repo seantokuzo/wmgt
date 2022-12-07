@@ -10,6 +10,13 @@ module.exports = {
       scorenum: ['Montserrat', 'Mali', 'Roboto Mono', 'Alexandria', 'serif']
     },
     extend: {
+      fontSize: {
+        xxxs: '0.25rem',
+        xxs: '0.5rem'
+      },
+      gridTemplateColumns: {
+        scorecard: ''
+      },
       keyframes: {
         spin: {
           '0%': { transform: 'rotate(0deg)' },

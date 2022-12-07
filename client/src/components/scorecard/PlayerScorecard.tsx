@@ -41,7 +41,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, easy, showS
   const scoreToMap = showScoreTracker ? scoreTracker : scorecard
 
   return (
-    <div className="w-full text-lg flex justify-between items-center my-1">
+    <div className="w-full text-xxs flex justify-between items-center my-1">
       <div className="w-1/6 text-base overflow-hidden max-w-1/10 pr-2 flex justify-end">
         {playerRound.player}
       </div>
@@ -51,14 +51,14 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, easy, showS
       >
         {scoreToMap.map((score, i) => (
           <div
-            className={`w-10 h-10 ${scoreDecoration(holeScores[i], true)}
+            className={`w-6 h-6 ${scoreDecoration(holeScores[i], true)}
             flex flex-col justify-center items-center`}
             key={nanoid()}
           >
             <div
-              className={`w-8 h-8 ${scoreDecoration(holeScores[i], false)} ${
+              className={`w-4 h-4 ${scoreDecoration(holeScores[i], false)} ${
                 score === 1 && !showScoreTracker && 'bg-red-400 rounded-[50%]'
-              } ${showScoreTracker && 'text-xs'}
+              } ${showScoreTracker && 'text-xxxs'}
                 flex flex-col justify-center items-center`}
             >
               {score}
@@ -67,18 +67,18 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, easy, showS
         ))}
       </div>
       <div
-        className="w-1/12 px-4
+        className="px-4
         flex justify-center items-center"
       >
         <p
-          className={`flex justify-center items-center min-w-[3.25rem] border-l-2 border-b-2 rounded-md p-2 ${
+          className={`flex justify-center items-center border-l-2 border-b-2 rounded-md p-2 ${
             playerScore < 0 ? 'bg-red-400/[0.5]' : playerScore > 0 ? 'bg-green-400/[0.5]' : ''
           }`}
         >
           {playerScore}
         </p>
       </div>
-      <div className="w-1/12 text-center px-1">
+      <div className="text-center px-1">
         <p
           className={`${
             playerScore < 0 ? 'bg-red-400/[0.5]' : playerScore > 0 ? 'bg-green-400/[0.5]' : ''
@@ -87,17 +87,19 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, easy, showS
           {playerRound.totalToPar}
         </p>
       </div>
-      <div className="w-1/12 flex justify-center text-center px-1">
+      <div className="flex justify-center text-center px-1">
         <p
           className={`w-fit border-l-2 border-b-2 rounded-md px-4 py-2
           ${
-            playerRound.roundRank <= 10
-              ? 'bg-red-400/[0.75]'
-              : playerRound.roundRank <= 20
-              ? 'bg-blue-400/[0.5]'
-              : playerRound.roundRank <= 30
-              ? 'bg-green-400/[0.75]'
-              : 'bg-orange-400/[0.75]'
+            playerRound.roundRank === 1
+              ? 'bg-amber-400/[0.75]'
+              : playerRound.roundRank === 2
+              ? 'bg-slate-400/[0.75]'
+              : playerRound.roundRank === 3
+              ? 'bg-amber-700/[0.75]'
+              : playerRound.roundRank <= 10
+              ? 'border-red-400/[0.75]'
+              : ''
           }`}
         >
           {playerRound.roundRank}

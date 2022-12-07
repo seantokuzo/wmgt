@@ -1,6 +1,8 @@
 import { RoundDetailsMode } from 'components/season/RoundDetails'
 import { CourseInterface } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
+import EasyHardSwitchBtn from './EasyHardSwitchBtn'
+import ScorecardModeBtn from './ScorecardModeBtn'
 
 type Props = {
   mode: RoundDetailsMode
@@ -22,44 +24,22 @@ const CourseScorecard: React.FC<Props> = ({
   console.log(course)
 
   return (
-    <div className="w-full mt-5">
+    <div className="w-full mt-5 text-xs">
       {mode === 'full' && (
         <div className="w-full flex justify-between items-center">
-          <button className="" onClick={() => setShowEasyCourse(!showEasyCourse)}>
-            <span
-              className={`py-1 px-3 rounded-md ${showEasyCourse && 'bg-[#f8ff71] text-[#38280e]'}`}
-            >
-              EASY
-            </span>{' '}
-            |{' '}
-            <span
-              className={`py-1 px-3 rounded-md ${!showEasyCourse && 'bg-[#f8ff71] text-[#38280e]'}`}
-            >
-              HARD
-            </span>
-          </button>
-          <button className="" onClick={() => setShowScoreTracker(!showScoreTracker)}>
-            <span
-              className={`py-1 px-3 rounded-md ${
-                showScoreTracker && 'bg-[#f8ff71] text-[#38280e]'
-              }`}
-            >
-              SCORE TRACKER
-            </span>{' '}
-            |{' '}
-            <span
-              className={`py-1 px-3 rounded-md ${
-                !showScoreTracker && 'bg-[#f8ff71] text-[#38280e]'
-              }`}
-            >
-              SCORECARD
-            </span>
-          </button>
+          <EasyHardSwitchBtn
+            showEasyCourse={showEasyCourse}
+            setShowEasyCourse={setShowEasyCourse}
+          />
+          <ScorecardModeBtn
+            showScoreTracker={showScoreTracker}
+            setShowScoreTracker={setShowScoreTracker}
+          />
         </div>
       )}
       <h2 className="text-center">{`${course.course} ${course.difficulty} (${course.alias}) ${course.courseMoji}`}</h2>
       {/* ****** HOLES ROW ****** */}
-      <div className="w-full text-xl flex justify-between items-center py-2">
+      <div className="w-full text-xxs flex justify-between items-center py-2">
         <div className="w-1/6 max-w-1/10 pr-2 flex justify-end">HOLE</div>
         <div
           className="w-4/5 min-w-4/5
@@ -67,12 +47,12 @@ const CourseScorecard: React.FC<Props> = ({
         >
           {course.parByHole.map((hole, i) => (
             <div
-              className="w-10
+              className="w-6
               flex justify-center items-center"
               key={nanoid()}
             >
               <div
-                className="w-8 h-8 border-2 rounded-[50%] text-sm
+                className="w-4 h-4 border-[1px] rounded-[50%] text-xxs
                 flex flex-col justify-center items-center text-center"
               >
                 {i + 1}
@@ -84,8 +64,8 @@ const CourseScorecard: React.FC<Props> = ({
         <div className="w-1/12 text-center"></div>
         <div className="w-1/12 text-center"></div>
       </div>
-      {/* ****** HOLES ROW ****** */}
-      <div className="w-full text-lg flex justify-between items-center">
+      {/* ****** PARS ROW ****** */}
+      <div className="w-full text-xxs flex justify-between items-center">
         <div className="w-1/6 max-w-1/10 pr-2 flex justify-end">PAR</div>
         <div
           className="w-4/5 min-w-4/5
@@ -93,12 +73,12 @@ const CourseScorecard: React.FC<Props> = ({
         >
           {course.parByHole.map((par) => (
             <div
-              className="w-10
+              className="w-6
             flex flex-col justify-center items-center"
               key={nanoid()}
             >
               <div
-                className="w-8 h-8 rounded-[50%]
+                className="w-4 h-4
                 flex flex-col justify-center items-center"
               >
                 {par}
@@ -106,9 +86,9 @@ const CourseScorecard: React.FC<Props> = ({
             </div>
           ))}
         </div>
-        <div className="w-1/12 text-sm px-4 text-center">{course.par}</div>
-        <div className="w-1/12 text-sm text-center">TOURNEY SCORE</div>
-        <div className="w-1/12 text-sm text-center">FINISH</div>
+        <div className="w-1/12 text-xxs px-4 text-center">{course.par}</div>
+        <div className="w-1/12 text-xxs text-center">TOURNEY SCORE</div>
+        <div className="w-1/12 text-xxs text-center">FINISH</div>
       </div>
     </div>
   )

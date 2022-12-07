@@ -1,5 +1,5 @@
-import { season7Data } from 'data/round-data/s7-round-data'
 import { useState } from 'react'
+import { season7Data } from 'data/round-data/s7-round-data'
 import RoundDetails from './RoundDetails'
 import SeasonMenu from './SeasonMenu'
 
@@ -9,7 +9,8 @@ export interface SelectedRound {
 }
 
 const Season: React.FC = () => {
-  const [selectedRound, setSelectedRound] = useState<SelectedRound | ''>('')
+  const [selectedRound, setSelectedRound] = useState<SelectedRound | ''>({ season: 7, round: 9 })
+  // const [selectedRound, setSelectedRound] = useState<SelectedRound | ''>('')
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
