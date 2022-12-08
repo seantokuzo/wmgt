@@ -1,3 +1,5 @@
+import { useSeasonContext } from 'context/season/seasonContext'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { RoundDataInterface } from '../../data/round-data/s7-round-data'
 
@@ -6,6 +8,12 @@ type Props = {
 }
 
 const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
+  const { changeRoundDetailsMode } = useSeasonContext()
+  useEffect(() => {
+    changeRoundDetailsMode('full')
+    // eslint-disable-next-line
+  }, [])
+
   return (
     <div
       className="w-full max-w-xl rounded-lg px-2 py-4 bg-[#38280e] text-[#f8ff71]

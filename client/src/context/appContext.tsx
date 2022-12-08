@@ -49,6 +49,7 @@ const AppContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const changeWindowSize = (newSize: WindowSize) => {
+    console.log(newSize.width)
     dispatch({ type: ActionType.UPDATE_WINDOW_SIZE, payload: { newSize } })
   }
 

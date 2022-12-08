@@ -10,6 +10,8 @@ import { courseData } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
 import { season7Data } from 'data/round-data/s7-round-data'
 import RoundDetails from 'components/season/RoundDetails'
+import { SeasonContextProvider } from 'context/season/seasonContext'
+import { useEffect } from 'react'
 
 // import { checkScores } from './data/in_progress/s6r12_raw-data'
 // checkScores(12)
@@ -17,10 +19,23 @@ import RoundDetails from 'components/season/RoundDetails'
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
 function App() {
-  const { darkMode } = useAppContext()
+  const { darkMode, changeWindowSize } = useAppContext()
 
   const themeClass = darkMode ? 'bg-black' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'
+
+  // TRACK WINDOW SIZE FOR SCORECARD COMPONENT BIG OR SMALL
+  useEffect(() => {
+    const resizeListener = () => {
+      changeWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    }
+    window.addEventListener('resize', resizeListener)
+    return () => window.removeEventListener('resize', resizeListener)
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <div
@@ -29,7 +44,14 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainMenu />} />
-        <Route path="season" element={<Season />}>
+        <Route
+          path="season"
+          element={
+            <SeasonContextProvider>
+              <Season />
+            </SeasonContextProvider>
+          }
+        >
           {season7Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
