@@ -1,12 +1,7 @@
+import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
-import { CourseAlias } from 'data/course-data/wmgt-course-data'
-import React from 'react'
 
-type Props = {
-  setSelectedCourse: React.Dispatch<React.SetStateAction<CourseAlias | ''>>
-}
-
-const CoursesMenu: React.FC<Props> = ({ setSelectedCourse }) => {
+const CoursesMenu: React.FC = () => {
   const { darkMode, courseData } = useAppContext()
 
   const borderColorClass = darkMode ? 'border-white' : 'border-black'
@@ -14,7 +9,8 @@ const CoursesMenu: React.FC<Props> = ({ setSelectedCourse }) => {
   const coursesEl = (
     <>
       {courseData.map((course, i) => (
-        <button
+        <Link
+          to={`/course/${course.alias.toLowerCase()}`}
           className={`w-2/5 max-w-xs min-h-[7rem]
           m-2 px-4 py-3
           hover:scale-105
@@ -22,12 +18,11 @@ const CoursesMenu: React.FC<Props> = ({ setSelectedCourse }) => {
           flex flex-col justify-center items-center
           border-2 rounded-md text-center
           ${borderColorClass}`}
-          onClick={() => setSelectedCourse(course.alias)}
           key={course.alias}
         >
           <h5 className="text-base font-bold">{`${course.course} ${course.difficulty}`}</h5>
           <p className="text-sm">{`(${course.alias})`}</p>
-        </button>
+        </Link>
       ))}
     </>
   )
@@ -35,9 +30,7 @@ const CoursesMenu: React.FC<Props> = ({ setSelectedCourse }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center px-5">
       <h1 className="text-2xl font-orb font-bold">Courses:</h1>
-      <div className="w-full max-w-lg flex flex-wrap justify-center items-center">
-        {coursesEl}
-      </div>
+      <div className="w-full max-w-lg flex flex-wrap justify-center items-center">{coursesEl}</div>
     </div>
   )
 }

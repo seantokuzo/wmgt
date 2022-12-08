@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { SelectedRound } from './Season'
 import RoundDetailsMenu from './RoundDetailsMenu'
 import CourseScorecard from 'components/scorecard/CourseScorecard'
 import { RoundDataInterface, season7Data as S7_DATA } from '../../data/round-data/s7-round-data'
@@ -9,8 +8,7 @@ import { nanoid } from 'nanoid'
 // import RoundStats from './roundStats'
 
 type Props = {
-  selectedRound: SelectedRound
-  setSelectedRound: React.Dispatch<React.SetStateAction<SelectedRound | ''>>
+  round: RoundDataInterface
 }
 
 export type RoundDetailsMode = 'full' | 'easy' | 'hard' | 'aces' | 'coconuts'
@@ -22,15 +20,13 @@ export const modes = {
   coconuts: 'Coconuts'
 }
 
-let round: RoundDataInterface
-
-const RoundDetails: React.FC<Props> = ({ selectedRound, setSelectedRound }) => {
+const RoundDetails: React.FC<Props> = ({ round }) => {
   const [mode, setMode] = useState<RoundDetailsMode>('full')
   const [showEasyCourse, setShowEasyCourse] = useState<boolean>(true)
   const [showScoreTracker, setShowScoreTracker] = useState<boolean>(false)
 
-  if (selectedRound.season === 7) {
-    round = S7_DATA.filter((r) => r.round === selectedRound.round)[0]
+  if (round.season === 7) {
+    round = S7_DATA.filter((r) => r.round === round.round)[0]
   }
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
@@ -40,10 +36,9 @@ const RoundDetails: React.FC<Props> = ({ selectedRound, setSelectedRound }) => {
       <RoundDetailsMenu
         mode={mode}
         setMode={setMode}
-        selectedRound={selectedRound}
+        round={{ season: round.season, round: round.round }}
         easyCourse={easyCourse}
         hardCourse={hardCourse}
-        setSelectedRound={setSelectedRound}
       />
       <CourseScorecard
         mode={mode}

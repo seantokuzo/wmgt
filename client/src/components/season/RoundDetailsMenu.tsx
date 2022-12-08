@@ -1,25 +1,17 @@
 import RoundDetailBtn from './RoundDetailBtn'
 import { modes, RoundDetailsMode } from './RoundDetails'
-import { SelectedRound } from './Season'
 import { CourseInterface } from '../../data/course-data/wmgt-course-data'
+import { Link } from 'react-router-dom'
 
 type Props = {
   mode: RoundDetailsMode
   setMode: React.Dispatch<React.SetStateAction<RoundDetailsMode>>
-  selectedRound: SelectedRound
+  round: { season: number; round: number }
   easyCourse: CourseInterface
   hardCourse: CourseInterface
-  setSelectedRound: React.Dispatch<React.SetStateAction<SelectedRound | ''>>
 }
 
-const RoundDetailsMenu: React.FC<Props> = ({
-  mode,
-  setMode,
-  selectedRound,
-  easyCourse,
-  hardCourse,
-  setSelectedRound
-}) => {
+const RoundDetailsMenu: React.FC<Props> = ({ mode, setMode, round, easyCourse, hardCourse }) => {
   return (
     <div
       className="relative bg-[#f8ff71] text-[#38280e]
@@ -27,20 +19,20 @@ const RoundDetailsMenu: React.FC<Props> = ({
       flex flex-col justify-center items-center"
     >
       <div className="w-max absolute top-4 left-4">
-        <button
+        <Link
+          to="/season"
           className="p-2 text-2xl font-semibold
               flex justify-center hover:shadow-lg hover:scale-105
               border-2 border-[#38280e] rounded-[100%]"
-          onClick={() => setSelectedRound('')}
         >
           <i className="fa-solid fa-arrow-left"></i>
-        </button>
+        </Link>
       </div>
       <h1
         className="absolute top-4 right-4 text-2xl font-semibold p-2
         border-2 border-[#38280e] rounded-[100%]"
-      >{`S${selectedRound.season}`}</h1>
-      <h3 className="text-6xl font-bold">{`Round ${selectedRound.round}`}</h3>
+      >{`S${round.season}`}</h1>
+      <h3 className="text-6xl font-bold">{`Round ${round.round}`}</h3>
       <div className="w-full my-3 flex justify-evenly items-start text-center">
         <div className="py-2 px-4 mx-2">
           <h3 className="text-xl font-semibold">

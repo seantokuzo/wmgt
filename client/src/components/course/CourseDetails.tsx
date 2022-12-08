@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { courseData, CourseInterface, CourseAlias } from 'data/course-data/wmgt-course-data'
 import { season7Data as S7_DATA, RoundDataInterface } from 'data/round-data/s7-round-data'
 import CourseStats from './courseStats'
+import { Link } from 'react-router-dom'
 
 type Props = {
-  selectedCourse: CourseAlias
-  setSelectedCourse: React.Dispatch<React.SetStateAction<CourseAlias | ''>>
+  course: CourseInterface
 }
 
 interface StatNames {
@@ -31,12 +31,11 @@ type StatTypes =
   | 'S7_BEST'
   | 'S7_ACES'
 
-const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) => {
+const CourseDetails: React.FC<Props> = ({ course }) => {
   const [selectedStat, setSelectedStat] = useState<StatTypes>('default')
 
-  const course: CourseInterface = courseData.filter((course) => course.alias === selectedCourse)[0]
   const s7Round: RoundDataInterface[] | [] = S7_DATA.filter(
-    (round) => round.easyCourse === selectedCourse || round.hardCourse === selectedCourse
+    (round) => round.easyCourse === course.alias || round.hardCourse === course.alias
   )
 
   const getHoleStats = (): number[] | string[] => {
@@ -44,13 +43,13 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
       case 'default':
         return new Array(18).fill('')
       case 'S7_AVG':
-        return CourseStats.getCourseAveragesPerRound(7, selectedCourse)
+        return CourseStats.getCourseAveragesPerRound(7, course.alias)
       case 'S7_TOP10':
-        return CourseStats.getRoundTopTenAvg(7, selectedCourse)
+        return CourseStats.getRoundTopTenAvg(7, course.alias)
       case 'S7_BEST':
-        return CourseStats.getBestRound(7, selectedCourse)
+        return CourseStats.getBestRound(7, course.alias)
       case 'S7_ACES':
-        return CourseStats.getNumberOfAces(7, selectedCourse)
+        return CourseStats.getNumberOfAces(7, course.alias)
       default:
         return new Array(18).fill('')
     }
@@ -58,7 +57,7 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
 
   const getTotalScoreStat = (): number | '' => {
     if (selectedStat === 'default') return ''
-    if (selectedStat === 'S7_BEST') return CourseStats.getLowestScore(7, selectedCourse)
+    if (selectedStat === 'S7_BEST') return CourseStats.getLowestScore(7, course.alias)
     if (selectedStat === 'S7_ACES')
       return (getHoleStats() as number[]).reduce(
         (sum: number, holeScore: number) => sum + holeScore,
@@ -66,7 +65,7 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
       )
     return Math.round(
       (getHoleStats() as number[]).reduce((sum: number, holeScore: number) => sum + holeScore, 0) -
-        courseData.find((course) => course.alias === selectedCourse)!.par
+        courseData.find((c) => c.alias === course.alias)!.par
     )
   }
 
@@ -98,14 +97,14 @@ const CourseDetails: React.FC<Props> = ({ selectedCourse, setSelectedCourse }) =
         {/* ***** TOP OF SCORECARD DIV ***** */}
         <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
           <div className="w-full md:w-1/3">
-            <button
+            <Link
+              to="/course"
               className="p-2 text-xl
               flex justify-center hover:shadow-lg hover:scale-105
               border-2 border-[#38280e] rounded-[100%]"
-              onClick={() => setSelectedCourse('')}
             >
               <i className="fa-solid fa-arrow-left"></i>
-            </button>
+            </Link>
           </div>
           <div
             className="w-full md:w-1/3 mt-3 md:mt-0

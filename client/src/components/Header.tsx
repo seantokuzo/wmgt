@@ -1,5 +1,5 @@
 import { useAppContext } from 'context/appContext'
-import NavBtn from './NavBtn'
+import PageLink from './PageLink'
 import ThemeToggler from './ThemeToggler'
 
 const Header: React.FC = () => {
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="w-1/4">
-        <NavBtn btnMode="menu" />
+        <PageLink path="/" />
       </div>
       <h1 className="text-2xl font-semibold font-orb">WMGT Stats</h1>
       <div className="w-1/4 h-full flex flex-col justify-start items-start">

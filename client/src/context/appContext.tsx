@@ -3,12 +3,12 @@ import { ActionType } from './actions'
 import reducer from './reducer'
 import { courseData, CourseInterface } from 'data/course-data/wmgt-course-data'
 
-export type AppMode = 'menu' | 'player' | 'season' | 'course'
+export type WindowSize = { width: number; height: number }
 export type AlertType = 'danger' | 'success' | ''
 
 export interface StateInterface {
+  windowSize: WindowSize
   darkMode: boolean
-  mode: AppMode
   courseData: CourseInterface[]
   isLoading: boolean
   showAlert: boolean
@@ -17,8 +17,8 @@ export interface StateInterface {
 }
 
 export const initialState: StateInterface = {
+  windowSize: { width: window.innerWidth, height: window.innerHeight },
   darkMode: true,
-  mode: 'season',
   courseData: courseData,
   isLoading: false,
   showAlert: false,
@@ -27,18 +27,18 @@ export const initialState: StateInterface = {
 }
 
 interface AppContextInterface extends StateInterface {
+  changeWindowSize: (newSize: WindowSize) => void
   displayAlert: (alertType: AlertType, msg: string) => void
   clearAlert: () => void
   toggleDarkMode: () => void
-  changeAppMode: (mode: AppMode) => void
 }
 
 const AppContext = createContext<AppContextInterface>({
   ...initialState,
+  changeWindowSize: () => null,
   displayAlert: () => null,
   clearAlert: () => null,
-  toggleDarkMode: () => null,
-  changeAppMode: () => null
+  toggleDarkMode: () => null
 })
 
 type Props = {
@@ -47,6 +47,10 @@ type Props = {
 
 const AppContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const changeWindowSize = (newSize: WindowSize) => {
+    dispatch({ type: ActionType.UPDATE_WINDOW_SIZE, payload: { newSize } })
+  }
 
   const displayAlert = (alertType: AlertType, msg: string) => {
     dispatch({ type: ActionType.SHOW_ALERT, payload: { alertType, msg } })
@@ -63,18 +67,14 @@ const AppContextProvider = ({ children }: Props) => {
     dispatch({ type: ActionType.TOGGLE_DARK_MODE })
   }
 
-  const changeAppMode = (mode: AppMode) => {
-    dispatch({ type: ActionType.CHANGE_APP_MODE, payload: { mode } })
-  }
-
   return (
     <AppContext.Provider
       value={{
         ...state,
+        changeWindowSize,
         displayAlert,
         clearAlert,
-        toggleDarkMode,
-        changeAppMode
+        toggleDarkMode
       }}
     >
       {children}

@@ -1,12 +1,11 @@
+import { Link } from 'react-router-dom'
 import { RoundDataInterface } from '../../data/round-data/s7-round-data'
-import { SelectedRound } from './Season'
 
 type Props = {
   seasonData: RoundDataInterface[]
-  setSelectedRound: React.Dispatch<React.SetStateAction<SelectedRound | '' | ''>>
 }
 
-const SeasonMenu: React.FC<Props> = ({ seasonData, setSelectedRound }) => {
+const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
   return (
     <div
       className="w-full max-w-xl rounded-lg px-2 py-4 bg-[#38280e] text-[#f8ff71]
@@ -18,13 +17,13 @@ const SeasonMenu: React.FC<Props> = ({ seasonData, setSelectedRound }) => {
         flex flex-wrap justify-evenly items-center"
       >
         {seasonData.map((round, i) => (
-          <button
+          <Link
+            to={`/season/s${round.season}r${round.round}`}
             className="bg-[#f8ff71] text-[#38280e] m-2 px-6 py-2 rounded-xl font-bold"
             key={`${round.easyCourse}-${i}`}
-            onClick={() => setSelectedRound({ season: round.season, round: round.round })}
           >
             {`ROUND ${round.round}`}
-          </button>
+          </Link>
         ))}
       </div>
     </div>

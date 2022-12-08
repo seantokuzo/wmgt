@@ -1,5 +1,5 @@
 import { ActionType } from './actions'
-import { StateInterface, AlertType, AppMode } from './appContext'
+import { StateInterface, AlertType, WindowSize } from './appContext'
 
 type Action =
   | { type: ActionType.TOGGLE_DARK_MODE }
@@ -8,10 +8,18 @@ type Action =
       payload: { alertType: AlertType; msg: string }
     }
   | { type: ActionType.CLEAR_ALERT }
-  | { type: ActionType.CHANGE_APP_MODE; payload: { mode: AppMode } }
+  | {
+      type: ActionType.UPDATE_WINDOW_SIZE
+      payload: { newSize: WindowSize }
+    }
 
 const reducer = (state: StateInterface, action: Action): StateInterface => {
   switch (action.type) {
+    case ActionType.UPDATE_WINDOW_SIZE:
+      return {
+        ...state,
+        windowSize: action.payload.newSize
+      }
     case ActionType.SHOW_ALERT:
       return {
         ...state,
@@ -30,11 +38,6 @@ const reducer = (state: StateInterface, action: Action): StateInterface => {
       return {
         ...state,
         darkMode: !state.darkMode
-      }
-    case ActionType.CHANGE_APP_MODE:
-      return {
-        ...state,
-        mode: action.payload.mode
       }
     default:
       throw new Error(`No such action: ${action}`)
