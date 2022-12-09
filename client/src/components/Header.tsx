@@ -14,7 +14,13 @@ const Header: React.FC = () => {
       <div className="w-1/4">
         <PageLink path="/" />
       </div>
-      <h1 className="text-2xl font-semibold font-orb">WMGT Stats</h1>
+      <h1
+        className={`${
+          !darkMode ? 'text-[#38280e]' : 'text-[#f8f771]'
+        } font-orb text-2xl font-semibold`}
+      >
+        WMGT STATS
+      </h1>
       <div className="w-1/4 h-full flex flex-col justify-start items-start">
         <ThemeToggler />
       </div>

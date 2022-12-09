@@ -8,25 +8,29 @@ export interface SeasonStateInterface {
   roundDetailsMode: RoundDetailsMode
   showEasyCourse: boolean
   showScoreTracker: boolean
+  showFrontNine: boolean
 }
 
 export const initialSeasonState: SeasonStateInterface = {
   roundDetailsMode: 'full',
   showEasyCourse: true,
-  showScoreTracker: false
+  showScoreTracker: false,
+  showFrontNine: true
 }
 
 interface SeasonContextInterface extends SeasonStateInterface {
   changeRoundDetailsMode: (newMode: RoundDetailsMode) => void
   toggleCourse: () => void
   toggleScoreTracker: () => void
+  toggleScorecardNine: () => void
 }
 
 const SeasonContext = createContext<SeasonContextInterface>({
   ...initialSeasonState,
   changeRoundDetailsMode: () => null,
   toggleCourse: () => null,
-  toggleScoreTracker: () => null
+  toggleScoreTracker: () => null,
+  toggleScorecardNine: () => null
 })
 
 type Props = {
@@ -48,9 +52,19 @@ const SeasonContextProvider = ({ children }: Props) => {
     dispatch({ type: SeasonActionType.TOGGLE_SCORE_TRACKER })
   }
 
+  const toggleScorecardNine = () => {
+    dispatch({ type: SeasonActionType.TOGGLE_SCORECARD_NINE })
+  }
+
   return (
     <SeasonContext.Provider
-      value={{ ...state, changeRoundDetailsMode, toggleCourse, toggleScoreTracker }}
+      value={{
+        ...state,
+        changeRoundDetailsMode,
+        toggleCourse,
+        toggleScoreTracker,
+        toggleScorecardNine
+      }}
     >
       {children}
     </SeasonContext.Provider>

@@ -1,25 +1,35 @@
 import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseInterface } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
-import EasyHardSwitchBtn from './EasyHardToggleBtn'
-import ScorecardModeBtn from './ScorecardModeBtn'
+import ScorecardToggleBtn from './ScorecardToggleBtn'
 
 type Props = {
   course: CourseInterface
 }
 
 const BigCourseScorecard: React.FC<Props> = ({ course }) => {
-  const { roundDetailsMode } = useSeasonContext()
+  const { roundDetailsMode, showEasyCourse, toggleCourse, showScoreTracker, toggleScoreTracker } =
+    useSeasonContext()
 
   return (
     <div className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs">
       {roundDetailsMode === 'full' && (
         <div className="w-full max-w-4xl flex justify-between items-center">
-          <EasyHardSwitchBtn />
-          <ScorecardModeBtn />
+          <ScorecardToggleBtn
+            show={showEasyCourse}
+            toggle={toggleCourse}
+            text1="EASY"
+            text2="HARD"
+          />
+          <ScorecardToggleBtn
+            show={showScoreTracker}
+            toggle={toggleScoreTracker}
+            text1="TRACKER"
+            text2="SCORECARD"
+          />
         </div>
       )}
-      <div className="flex flex-col justify-center items-center my-4">
+      <div className="flex flex-col justify-center items-center my-4" onClick={toggleCourse}>
         <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
         <p className="text-sm lg:text-base">{`(${course.alias})`}</p>
       </div>

@@ -99,8 +99,9 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
           <div className="w-full md:w-1/3">
             <Link
               to="/course"
-              className="p-2 text-xl
-              flex justify-center hover:shadow-lg hover:scale-105
+              className="w-10 h-10 p-2 text-xl
+              flex justify-center items-center
+              hover:shadow-lg hover:scale-105
               border-2 border-[#38280e] rounded-[100%]"
             >
               <i className="fa-solid fa-arrow-left"></i>
@@ -191,7 +192,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 <div
                   className="w-12 h-12 bg-[#f8ff71]
                   flex justify-center items-center
-                  rounded-md"
+                  rounded-md shadow-insetyellow"
                 >
                   <p className="text-2xl font-bold text-[#38280e]">{getHoleStats()[i]}</p>
                 </div>
@@ -204,7 +205,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
               className="w-20 h-20 p-2 rounded-md ml-0 mt-0
               md:mt-2 md:ml-2
               flex flex-col justify-between items-center
-              bg-[#f8ff71] font-scorenum"
+              bg-[#f8ff71] font-scorenum shadow-insetyellow"
             >
               <p className="text-xs text-[#38280e]">TOTAL</p>
               <h2 className="text-5xl font-bold text-[#38280e]">{getTotalScoreStat()}</h2>

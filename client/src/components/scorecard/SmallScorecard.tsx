@@ -1,5 +1,9 @@
+import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseInterface } from 'data/course-data/wmgt-course-data'
 import { RoundDataInterface } from 'data/round-data/s7-round-data'
+import { nanoid } from 'nanoid'
+import SmallCourseScorecard from './SmallCourseScorecard'
+import SmallPlayerScorecard from './SmallPlayerScorecard'
 
 type Props = {
   round: RoundDataInterface
@@ -8,7 +12,20 @@ type Props = {
 }
 
 const SmallScorecard: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
-  return <div>SmallScorecard</div>
+  const { showEasyCourse } = useSeasonContext()
+
+  return (
+    <>
+      <SmallCourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
+      {round.scores.map((playerRound) => (
+        <SmallPlayerScorecard
+          playerRound={playerRound}
+          coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
+          key={nanoid()}
+        />
+      ))}
+    </>
+  )
 }
 
 export default SmallScorecard

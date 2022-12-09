@@ -41,11 +41,13 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         ) : (
           <SmallScorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
         ))}
-      {roundDetailsMode === 'easy' && <ComingSoon text="COMING SOON" />}
-      {roundDetailsMode === 'hard' && <ComingSoon text="COMING SOON" />}
-      {roundDetailsMode === 'aces' && <ComingSoon text="⛳️ COMING SOON ⛳️" />}
-      {roundDetailsMode === 'coconuts' && <ComingSoon text="🥥 COMING SOON 🥥" />}
-      {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
+      <div className="mt-8">
+        {roundDetailsMode === 'easy' && <ComingSoon text="COMING SOON" />}
+        {roundDetailsMode === 'hard' && <ComingSoon text="COMING SOON" />}
+        {roundDetailsMode === 'aces' && <ComingSoon text="⛳️ COMING SOON ⛳️" />}
+        {roundDetailsMode === 'coconuts' && <ComingSoon text="🥥 COMING SOON 🥥" />}
+        {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
+      </div>
     </div>
   )
 }

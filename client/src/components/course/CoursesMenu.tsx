@@ -4,7 +4,9 @@ import { useAppContext } from 'context/appContext'
 const CoursesMenu: React.FC = () => {
   const { darkMode, courseData } = useAppContext()
 
-  const borderColorClass = darkMode ? 'border-white' : 'border-black'
+  const colors = darkMode
+    ? 'bg-[#38280e] text-[#f8ff71] shadow-insetbrown'
+    : 'bg-[#f8ff71] text-[#38280e] shadow-insetyellow'
 
   const coursesEl = (
     <>
@@ -16,11 +18,12 @@ const CoursesMenu: React.FC = () => {
           hover:scale-105
           transition ease-in
           flex flex-col justify-center items-center
-          border-2 rounded-md text-center
-          ${borderColorClass}`}
+          rounded-md text-center
+          ${colors}`}
           key={course.alias}
         >
           <h5 className="text-base font-bold">{`${course.course} ${course.difficulty}`}</h5>
+          <p className="text-sm">{course.courseMoji}</p>
           <p className="text-sm">{`(${course.alias})`}</p>
         </Link>
       ))}
@@ -29,7 +32,7 @@ const CoursesMenu: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col justify-center items-center px-5">
-      <h1 className="text-2xl font-orb font-bold">Courses:</h1>
+      <h1 className="text-2xl font-scorenum font-bold text-[#f8ff71] my-4">Courses:</h1>
       <div className="w-full max-w-lg flex flex-wrap justify-center items-center">{coursesEl}</div>
     </div>
   )

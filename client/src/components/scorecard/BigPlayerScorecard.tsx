@@ -28,11 +28,11 @@ const BigPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
       if (outer) return ''
     }
     if (score === 1) {
-      decorations = decorations + ' border-green-600'
+      decorations = decorations + ' border-lime-700'
       if (outer) return ''
     }
     if (score >= 2) {
-      decorations = decorations + ' border-green-600'
+      decorations = decorations + ' border-lime-700'
     }
     return decorations
   }
@@ -55,15 +55,15 @@ const BigPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
             key={nanoid()}
           >
             <div
-              className={`lg:w-8 lg:h-8 md:w-6 md:h-6
+              className={`lg:w-9 lg:h-9 md:w-7 md:h-7
               ${scoreDecoration(holeScores[i], true)}
               flex flex-col justify-center items-center`}
             >
               <div
-                className={`lg:w-6 lg:h-6 md:w-4 md:h-4
+                className={`lg:w-7 lg:h-7 md:w-5 md:h-5
                 ${scoreDecoration(holeScores[i], false)}
                 ${score === 1 && !showScoreTracker && 'bg-red-400 rounded-[50%]'}
-                ${showScoreTracker ? 'md:text-xxxs lg:text-xxs' : 'md:text-xxs lg:text-xs'}
+                ${showScoreTracker ? 'md:text-xxs lg:text-xxs' : 'md:text-xxs lg:text-xs'}
                 flex flex-col justify-center items-center`}
               >
                 {score}
@@ -78,7 +78,7 @@ const BigPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
         flex justify-center items-center"
       >
         <div
-          className={`w-3/4 py-2
+          className={`w-3/4 py-2 lg:text-base
           border-l-2 border-b-2 rounded-md
           flex justify-center items-center
           `}
@@ -89,7 +89,7 @@ const BigPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
       {/* ****** ROUND TOTAL ****** */}
       <div className="w-20 flex justify-center text-center">
         <div
-          className={`w-3/4
+          className={`w-3/4 lg:text-base
           border-l-2 border-b-2 rounded-md p-2`}
         >
           {playerRound.totalToPar}

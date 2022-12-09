@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Course from 'pages/Course'
 import CourseDetails from 'components/course/CourseDetails'
 import Header from 'components/Header'
-import MainMenu from 'components/MainMenu'
+import MainMenu from 'pages/Home'
 import Player from 'pages/Player'
 import Season from 'pages/Season'
 import { useAppContext } from 'context/appContext'
@@ -21,7 +21,7 @@ export type PagePath = '/' | 'season' | 'course' | 'player'
 function App() {
   const { darkMode, changeWindowSize } = useAppContext()
 
-  const themeClass = darkMode ? 'bg-black' : 'bg-white'
+  const themeClass = darkMode ? 'bg-[#38280e]' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'
 
   // TRACK WINDOW SIZE FOR SCORECARD COMPONENT BIG OR SMALL
@@ -39,7 +39,9 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen h-full flex flex-col justify-start items-center ${themeClass} ${textColor} font-reg`}
+      className={`w-full min-h-screen h-full
+      ${themeClass} ${textColor} font-reg
+      flex flex-col justify-start items-center`}
     >
       <Header />
       <Routes>
