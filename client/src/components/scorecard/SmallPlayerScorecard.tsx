@@ -40,6 +40,9 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
 
   const scoreToMapFull = showScoreTracker ? scoreTracker : scorecard
   const scoreToMapNine = showFrontNine ? scoreToMapFull.slice(0, 9) : scoreToMapFull.slice(9)
+  const otherScoreFull = !showScoreTracker ? scoreTracker : scorecard
+  const otherScoreNine = showFrontNine ? otherScoreFull.slice(0, 9) : otherScoreFull.slice(9)
+  const holeScoresNine = showFrontNine ? holeScores.slice(0, 9) : holeScores.slice(9)
 
   return (
     <div
@@ -61,17 +64,17 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
           <div
             className={`w-[5%]]
             flex flex-col justify-center items-center`}
-            title={!showScoreTracker ? `${scoreTracker[i]}` : `${scorecard[i]}`}
+            title={`${otherScoreNine[i]}`}
             key={nanoid()}
           >
             <div
               className={`w-4 h-4 sm:w-7 sm:h-7
-              ${scoreDecoration(holeScores[i], true)}
+              ${scoreDecoration(holeScoresNine[i], true)}
               flex flex-col justify-center items-center`}
             >
               <div
                 className={`w-3 h-3 sm:w-5 sm:h-5
-                ${scoreDecoration(holeScores[i], false)}
+                ${scoreDecoration(holeScoresNine[i], false)}
                 ${score === 1 && !showScoreTracker && 'bg-red-400 rounded-[50%]'}
                 ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
                 flex flex-col justify-center items-center`}
