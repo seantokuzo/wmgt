@@ -13,9 +13,10 @@ import RoundDetails from 'components/season/RoundDetails'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 
-import { checkScores } from './data/in_progress/s6r12_raw-data'
+import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // checkScores(12)
-checkScores(4)
+// checkScores(4)
+convertRawRoundData()
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 

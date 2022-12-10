@@ -1,7 +1,7 @@
 import { useSeasonContext } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { RoundDataInterface } from '../../data/round-data/s7-round-data'
+import { RoundDataInterface } from 'data/round-data/roundTypes'
 
 type Props = {
   seasonData: RoundDataInterface[]
