@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { courseData, CourseInterface, CourseAlias } from 'data/course-data/wmgt-course-data'
-import { season7Data as S7_DATA, RoundDataInterface } from 'data/round-data/s7-round-data'
+import { courseData, CourseInterface } from 'data/course-data/wmgt-course-data'
+import { season7Data as S7_DATA } from 'data/round-data/s7-round-data'
+import { RoundDataInterface } from 'data/round-data/roundTypes'
 import CourseStats from './courseStats'
 import { Link } from 'react-router-dom'
 

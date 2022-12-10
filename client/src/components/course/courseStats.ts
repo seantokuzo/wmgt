@@ -1,9 +1,6 @@
 import { CourseAlias } from 'data/course-data/wmgt-course-data'
-import {
-  PlayerRoundInterface,
-  RoundDataInterface,
-  season7Data
-} from 'data/round-data/s7-round-data'
+import { season7Data } from 'data/round-data/s7-round-data'
+import { PlayerRoundInterface, RoundDataInterface } from 'data/round-data/roundTypes'
 
 export default abstract class CourseStats {
   private static easyOrHardScorecard(score: PlayerRoundInterface, course: CourseAlias) {

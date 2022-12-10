@@ -1,6 +1,6 @@
 import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseInterface } from 'data/course-data/wmgt-course-data'
-import { RoundDataInterface } from 'data/round-data/s7-round-data'
+import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 import BigCourseScorecard from './BigCourseScorecard'
 import BigPlayerScorecard from './BigPlayerScorecard'

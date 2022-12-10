@@ -1,5 +1,5 @@
 import { useSeasonContext } from 'context/season/seasonContext'
-import { PlayerRoundInterface } from 'data/round-data/s7-round-data'
+import { PlayerRoundInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 
 type Props = {
