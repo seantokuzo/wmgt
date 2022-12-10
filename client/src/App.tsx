@@ -12,11 +12,12 @@ import { season7Data } from 'data/round-data/s7-round-data'
 import RoundDetails from 'components/season/RoundDetails'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
+import { season6Data } from 'data/round-data/s6-round-data'
 
-import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
+// import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // checkScores(12)
 // checkScores(4)
-convertRawRoundData()
+// convertRawRoundData()
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
@@ -61,6 +62,13 @@ function App() {
           }
         >
           {season7Data.map((round) => (
+            <Route
+              path={`s${round.season}r${round.round}`}
+              element={<RoundDetails round={round} />}
+              key={nanoid()}
+            />
+          ))}
+          {season6Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
               element={<RoundDetails round={round} />}

@@ -16,7 +16,7 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
 
   return (
     <div
-      className="w-full max-w-xl rounded-lg px-2 py-4
+      className="w-full max-w-xl rounded-lg px-2 py-4 my-4
       bg-[#38280e] text-[#f8ff71] shadow-insetbrown
       flex flex-wrap justify-center items-center font-scorenum"
     >

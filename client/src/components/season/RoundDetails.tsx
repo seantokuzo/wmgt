@@ -3,7 +3,7 @@ import { useSeasonContext } from 'context/season/seasonContext'
 import RoundDetailsMenu from './RoundDetailsMenu'
 import ComingSoon from 'components/ComingSoon'
 import { courseData } from '../../data/course-data/wmgt-course-data'
-import { RoundDataInterface } from '../../data/round-data/s7-round-data'
+import { RoundDataInterface } from '../../data/round-data/roundTypes'
 import BigScorecard from 'components/scorecard/BigScorecard'
 import SmallScorecard from 'components/scorecard/SmallScorecard'
 
