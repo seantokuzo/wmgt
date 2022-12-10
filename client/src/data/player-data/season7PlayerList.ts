@@ -1,9 +1,6 @@
-interface PlayerInterface {
-  player: string
-  flag: string
-}
+import { PlayerInterface } from "./AllPlayersList"
 
-export const playerList: PlayerInterface[] = [
+export const season7PlayerList: PlayerInterface[] = [
   {
     player: 'Zanetti',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPOPACE_jXXfSOeqa7uua8HimhMRvvhKYA9BbcH_ytqh95BpaK2mYM657zeTizugyuBfD53frmnT5r4pBqM-GA2P7c=s26-w26-h20'
@@ -486,6 +483,10 @@ export const playerList: PlayerInterface[] = [
   },
   {
     player: 'Jamsamamsa',
+    flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMQuyi0sBjss81Gk-LdA0agu8n3vSl8jeuvs4X2y2T6167y6AT6MhlEMhGo3aN-7cCvwsMPCZUGR-H_SBEFI7L7ng=s26-w26-h20'
+  },
+  {
+    player: 'Brit_The_Elder',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMQuyi0sBjss81Gk-LdA0agu8n3vSl8jeuvs4X2y2T6167y6AT6MhlEMhGo3aN-7cCvwsMPCZUGR-H_SBEFI7L7ng=s26-w26-h20'
   }
 ]

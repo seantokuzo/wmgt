@@ -13,16 +13,20 @@ import RoundDetails from 'components/season/RoundDetails'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 
-// import { checkScores } from './data/in_progress/s6r12_raw-data'
+import { checkScores } from './data/in_progress/s6r12_raw-data'
 // checkScores(12)
+checkScores(4)
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
 function App() {
+  // const { pathname } = useLocation()
   const { darkMode, changeWindowSize } = useAppContext()
 
-  const themeClass = darkMode ? 'bg-[#38280e]' : 'bg-white'
-  const textColor = !darkMode ? 'text-black' : 'text-white'
+  // BG COLOR IF USING BACKGROUND VIDEO
+  // const bgColor = pathname === '/' ? 'bg-none' : darkMode ? 'bg-[#38280e]' : 'bg-white'
+  const bgColor = darkMode ? 'bg-[#38280e]' : 'bg-white'
+  const textColor = !darkMode ? 'text-[#38280e]' : 'text-[#f8ff71]'
 
   // TRACK WINDOW SIZE FOR SCORECARD COMPONENT BIG OR SMALL
   useEffect(() => {
@@ -39,8 +43,9 @@ function App() {
 
   return (
     <div
-      className={`w-full min-h-screen h-full
-      ${themeClass} ${textColor} font-reg
+      className={`w-full min-h-screen h-full font-reg
+      ${bgColor}
+      ${textColor}
       flex flex-col justify-start items-center`}
     >
       <Header />
