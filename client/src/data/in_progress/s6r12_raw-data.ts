@@ -679,71 +679,231 @@ export const season6Data: RawRoundData[] = [
         easyRoundScore: -22,
         hardScorecard: [3, 2, 2, 3, 2, 5, 4, 2, 4, 3, 2, 2, 2, 3, 2, 2, 2, 5],
         hardRoundScore: -10
+      },
+      {
+        player: 'Toaster',
+        group: 19,
+        easyScorecard: [3, 2, 2, 3, 1, 1, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 3],
+        easyRoundScore: -25,
+        hardScorecard: [3, 2, 2, 4, 2, 3, 2, 2, 4, 2, 2, 3, 5, 3, 2, 2, 2, 3],
+        hardRoundScore: -12
+      },
+      {
+        player: 'BANKERPOPS',
+        group: 19,
+        easyScorecard: [3, 4, 2, 3, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 1, 2, 3],
+        easyRoundScore: -21,
+        hardScorecard: [3, 6, 2, 5, 2, 3, 2, 2, 3, 2, 2, 3, 3, 2, 3, 2, 2, 3],
+        hardRoundScore: -10
+      },
+      {
+        player: 'Dude_Lebowski',
+        group: 19,
+        easyScorecard: [2, 3, 2, 5, 1, 2, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4],
+        easyRoundScore: -18,
+        hardScorecard: [3, 2, 2, 3, 2, 2, 2, 3, 6, 3, 3, 2, 3, 6, 2, 2, 3, 4],
+        hardRoundScore: -7
+      },
+      {
+        player: 'ichibuho',
+        group: 19,
+        easyScorecard: [2, 2, 2, 3, 2, 2, 2, 4, 2, 4, 2, 2, 2, 2, 3, 1, 1, 10],
+        easyRoundScore: -15,
+        hardScorecard: [2, 2, 4, 3, 2, 3, 2, 3, 3, 2, 3, 2, 2, 3, 2, 2, 5, 5],
+        hardRoundScore: -10
+      },
+      {
+        player: 'INDY',
+        group: 20,
+        easyScorecard: [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 3],
+        easyRoundScore: -27,
+        hardScorecard: [2, 2, 1, 3, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 3],
+        hardRoundScore: -20
+      },
+      {
+        player: 'KCRob',
+        group: 20,
+        easyScorecard: [2, 3, 2, 3, 2, 2, 2, 2, 1, 5, 2, 2, 2, 2, 1, 1, 2, 3],
+        easyRoundScore: -24,
+        hardScorecard: [2, 2, 1, 3, 2, 2, 2, 2, 3, 2, 2, 2, 2, 4, 2, 1, 2, 3],
+        hardRoundScore: -21
+      },
+      {
+        player: 'Jed',
+        group: 20,
+        easyScorecard: [2, 2, 1, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2],
+        easyRoundScore: -25,
+        hardScorecard: [3, 2, 2, 4, 2, 3, 3, 2, 2, 2, 2, 4, 4, 5, 3, 1, 3, 3],
+        hardRoundScore: -10
+      },
+      {
+        player: 'StrokeLimitReached',
+        group: 20,
+        easyScorecard: [2, 4, 1, 6, 1, 2, 2, 2, 2, 5, 3, 2, 2, 2, 1, 2, 1, 4],
+        easyRoundScore: -19,
+        hardScorecard: [2, 4, 2, 3, 2, 3, 3, 2, 4, 2, 2, 2, 5, 3, 1, 1, 2, 3],
+        hardRoundScore: -14
+      },
+      {
+        player: 'FIRE_321',
+        group: 21,
+        easyScorecard: [2, 2, 3, 3, 1, 2, 2, 3, 2, 5, 2, 2, 2, 2, 1, 1, 3, 3],
+        easyRoundScore: -22,
+        hardScorecard: [2, 2, 2, 3, 2, 4, 2, 2, 2, 3, 2, 2, 3, 5, 2, 2, 2, 3],
+        hardRoundScore: -15
+      },
+      {
+        player: 'SqueezyJibbz',
+        group: 21,
+        easyScorecard: [3, 2, 2, 3, 2, 1, 3, 1, 2, 3, 2, 2, 2, 2, 2, 2, 3, 3],
+        easyRoundScore: -23,
+        hardScorecard: [2, 2, 2, 4, 2, 2, 3, 2, 3, 2, 2, 1, 2, 4, 3, 2, 2, 3],
+        hardRoundScore: -17
+      },
+      {
+        player: 'Mulligan',
+        group: 21,
+        easyScorecard: [3, 2, 2, 3, 2, 2, 2, 2, 1, 3, 2, 2, 2, 2, 2, 1, 2, 3],
+        easyRoundScore: -25,
+        hardScorecard: [6, 2, 3, 3, 3, 3, 2, 2, 3, 2, 2, 3, 1, 4, 2, 1, 4, 2],
+        hardRoundScore: -12
+      },
+      {
+        player: 'Sackdeqb',
+        group: 22,
+        easyScorecard: [2, 2, 2, 3, 2, 2, 3, 2, 2, 4, 4, 2, 2, 2, 2, 1, 2, 4],
+        easyRoundScore: -20,
+        hardScorecard: [3, 4, 2, 3, 2, 2, 3, 2, 2, 3, 2, 3, 1, 8, 2, 2, 4, 3],
+        hardRoundScore: -9
+      },
+      {
+        player: 'DiscflingerADK',
+        group: 22,
+        easyScorecard: [2, 2, 3, 3, 2, 2, 2, 2, 2, 3, 2, 2, 2, 1, 2, 2, 2, 3],
+        easyRoundScore: -24,
+        hardScorecard: [2, 2, 2, 3, 2, 2, 2, 2, 2, 3, 2, 2, 2, 3, 4, 2, 4, 3],
+        hardRoundScore: -16
+      },
+      {
+        player: 'CleverFellow',
+        group: 22,
+        easyScorecard: [2, 3, 2, 2, 1, 1, 2, 2, 2, 3, 2, 2, 1, 2, 2, 1, 2, 3],
+        easyRoundScore: -28,
+        hardScorecard: [2, 2, 3, 5, 2, 3, 3, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 3],
+        hardRoundScore: -19
+      },
+      {
+        player: 'Monsoon',
+        group: 23,
+        easyScorecard: [2, 2, 2, 3, 2, 1, 3, 2, 2, 5, 2, 2, 2, 2, 2, 3, 1, 4],
+        easyRoundScore: -21,
+        hardScorecard: [3, 2, 3, 4, 5, 2, 3, 2, 3, 4, 2, 2, 3, 5, 3, 1, 2, 5],
+        hardRoundScore: -6
+      },
+      {
+        player: 'VenomShadow32',
+        group: 23,
+        easyScorecard: [2, 2, 3, 3, 3, 2, 2, 3, 3, 4, 3, 3, 2, 2, 3, 2, 5, 5],
+        easyRoundScore: -11,
+        hardScorecard: [3, 3, 6, 5, 2, 3, 2, 2, 5, 7, 6, 3, 8, 5, 4, 3, 4, 7],
+        hardRoundScore: 18
+      },
+      {
+        player: 'Rainedrop184',
+        group: 23,
+        easyScorecard: [2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 6],
+        easyRoundScore: -19,
+        hardScorecard: [3, 2, 2, 3, 2, 3, 2, 2, 3, 2, 2, 2, 3, 3, 2, 1, 3, 8],
+        hardRoundScore: -12
+      },
+      {
+        player: 'ARMY_OF_ONE',
+        group: 23,
+        easyScorecard: [2, 5, 1, 2, 2, 2, 2, 2, 2, 4, 3, 2, 2, 2, 2, 1, 2, 3],
+        easyRoundScore: -22,
+        hardScorecard: [3, 2, 3, 3, 2, 3, 2, 3, 3, 2, 2, 2, 2, 8, 2, 1, 2, 4],
+        hardRoundScore: -11
+      },
+      {
+        player: 'RICH8523',
+        group: 24,
+        easyScorecard: [2, 5, 2, 2, 2, 1, 2, 3, 2, 5, 2, 3, 2, 2, 2, 3, 2, 4],
+        easyRoundScore: -17,
+        hardScorecard: [2, 3, 6, 5, 3, 3, 2, 2, 2, 3, 2, 2, 1, 5, 2, 1, 2, 3],
+        hardRoundScore: -11
+      },
+      {
+        player: 'Ludachris',
+        group: 24,
+        easyScorecard: [2, 2, 2, 3, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 5],
+        easyRoundScore: -19,
+        hardScorecard: [2, 2, 5, 4, 3, 3, 3, 2, 2, 4, 2, 2, 8, 5, 3, 3, 2, 5],
+        hardRoundScore: 0
+      },
+      {
+        player: 'ForRealForReal',
+        group: 24,
+        easyScorecard: [5, 2, 2, 4, 1, 1, 2, 2, 2, 1, 2, 3, 2, 2, 2, 2, 2, 3],
+        easyRoundScore: -23,
+        hardScorecard: [2, 2, 1, 3, 2, 3, 3, 3, 3, 2, 2, 2, 4, 3, 2, 2, 2, 3],
+        hardRoundScore: -16
+      },
+      {
+        player: 'Midaswell',
+        group: 24,
+        easyScorecard: [3, 2, 2, 3, 1, 2, 2, 2, 1, 9, 1, 3, 2, 1, 1, 2, 1, 4],
+        easyRoundScore: -21,
+        hardScorecard: [2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4],
+        hardRoundScore: -18
+      },
+      {
+        player: 'Julian1830',
+        group: 25,
+        easyScorecard: [2, 2, 1, 3, 2, 2, 2, 2, 2, 4, 3, 2, 3, 3, 1, 2, 2, 3],
+        easyRoundScore: -22,
+        hardScorecard: [2, 6, 1, 4, 2, 3, 3, 5, 6, 2, 2, 2, 4, 3, 3, 4, 3, 3],
+        hardRoundScore: -2
+      },
+      {
+        player: 'ET154',
+        group: 25,
+        easyScorecard: [2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 3, 4, 2, 2, 2, 1, 1, 3],
+        easyRoundScore: -24,
+        hardScorecard: [3, 2, 4, 3, 2, 2, 3, 2, 4, 3, 2, 2, 2, 5, 3, 3, 3, 3],
+        hardRoundScore: -9
+      },
+      {
+        player: 'Anuebus',
+        group: 25,
+        easyScorecard: [2, 2, 2, 4, 2, 2, 2, 3, 2, 4, 4, 2, 2, 2, 3, 1, 2, 5],
+        easyRoundScore: -17,
+        hardScorecard: [2, 2, 2, 3, 3, 3, 3, 2, 3, 3, 2, 2, 4, 4, 3, 1, 2, 4],
+        hardRoundScore: -12
+      },
+      {
+        player: 'Sarahloo1971',
+        group: 26,
+        easyScorecard: [2, 2, 2, 3, 2, 2, 2, 2, 2, 3, 3, 3, 2, 1, 2, 3, 3, 3],
+        easyRoundScore: -21,
+        hardScorecard: [3, 3, 2, 4, 2, 3, 2, 2, 3, 2, 2, 3, 2, 4, 2, 2, 3, 3],
+        hardRoundScore: -13
+      },
+      {
+        player: 'Indianchief',
+        group: 26,
+        easyScorecard: [2, 3, 2, 3, 2, 2, 2, 2, 2, 4, 2, 3, 2, 2, 2, 2, 2, 4],
+        easyRoundScore: -20,
+        hardScorecard: [4, 2, 3, 4, 2, 4, 2, 3, 4, 4, 2, 1, 7, 6, 4, 2, 4, 3],
+        hardRoundScore: 1
+      },
+      {
+        player: 'NuttyGrandpa',
+        group: 26,
+        easyScorecard: [2, 4, 3, 2, 2, 1, 2, 2, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3],
+        easyRoundScore: -20,
+        hardScorecard: [5, 2, 2, 4, 2, 5, 2, 2, 3, 2, 3, 6, 3, 3, 2, 2, 3, 3],
+        hardRoundScore: -6
       }
-      // {
-      //   player: '',
-      //   group: 19,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
-      // {
-      //   player: '',
-      //   group: 20,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
-      // {
-      //   player: '',
-      //   group: 21,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
-      // {
-      //   player: '',
-      //   group: 22,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
-      // {
-      //   player: '',
-      //   group: 23,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
-      // {
-      //   player: '',
-      //   group: 24,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
-      // {
-      //   player: '',
-      //   group: 25,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
-      // {
-      //   player: '',
-      //   group: 26,
-      //   easyScorecard: [],
-      //   easyRoundScore: 0,
-      //   hardScorecard: [],
-      //   hardRoundScore: 0
-      // },
     ]
   }
   // { season: 6, round: 3, easyCourse: 'TSE', hardCourse: 'TTH', scores: [] },
