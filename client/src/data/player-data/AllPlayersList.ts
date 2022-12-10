@@ -605,10 +605,6 @@ export const allPlayersList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMQuyi0sBjss81Gk-LdA0agu8n3vSl8jeuvs4X2y2T6167y6AT6MhlEMhGo3aN-7cCvwsMPCZUGR-H_SBEFI7L7ng=s26-w26-h20'
   },
   {
-    player: 'rolyt',
-    flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMQuyi0sBjss81Gk-LdA0agu8n3vSl8jeuvs4X2y2T6167y6AT6MhlEMhGo3aN-7cCvwsMPCZUGR-H_SBEFI7L7ng=s26-w26-h20'
-  },
-  {
     player: 'Brit The Elder',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMkJ1QcExN5yQmGm4agq9pc6jNjKaI2iL8IN-HToBWOjhsGBp-JQKB6p23eleLKsTo4lFVFzjZCz44QTSRdILoNQyo=s26-w26-h20'
   },
