@@ -1,9 +1,16 @@
 import { useState } from 'react'
-import { courseData, CourseInterface } from 'data/course-data/wmgt-course-data'
+import {
+  courseData,
+  courseHoleImgLink,
+  CourseInterface,
+  Hole,
+  coursesWithImages
+} from 'data/course-data/wmgt-course-data'
 import { season7Data as S7_DATA } from 'data/round-data/s7-round-data'
 import { RoundDataInterface } from 'data/round-data/roundTypes'
 import CourseStats from './courseStats'
 import { Link } from 'react-router-dom'
+import HoleImg from 'components/HoleImg'
 
 type Props = {
   course: CourseInterface
@@ -34,10 +41,16 @@ type StatTypes =
 
 const CourseDetails: React.FC<Props> = ({ course }) => {
   const [selectedStat, setSelectedStat] = useState<StatTypes>('default')
+  const [hoveredHole, setHoveredHole] = useState<Hole>('')
 
   const s7Round: RoundDataInterface[] | [] = S7_DATA.filter(
     (round) => round.easyCourse === course.alias || round.hardCourse === course.alias
   )
+
+  const handleHoleHover = (hole: Hole) => {
+    if (!coursesWithImages.includes(course.alias)) return
+    setHoveredHole(hole)
+  }
 
   const getHoleStats = (): number[] | string[] => {
     switch (selectedStat) {
@@ -88,12 +101,27 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
     <div
       className="w-4/5 md:w-auto
         md:absolute md:top-1/2 md:left-1/2
-        md:translate-x-[-50%] md:translate-y-[-50%] mb-4 md:mb-0 font-scoretext"
+        md:translate-x-[-50%] md:translate-y-[-50%]
+        mb-4 md:mb-0 z-0
+        font-scoretext"
+      // style={{
+      //   backgroundImage:
+      //     hoveredHole !== ''
+      //       ? `url(${courseHoleImgLink
+      //           .replace('<COURSE>', course.alias)
+      //           .replace('<COURSE>', course.alias)
+      //           .replace('<HOLE>', hoveredHole.toString())})`
+      //       : 'none'
+      // }}
     >
+      {/* ****** HOLE IMG ON HOVER ****** */}
+      {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
+        <HoleImg course={course} hole={hoveredHole} />
+      )}
       <div
-        className="relative w-full px-7 md:p-5 py-6 flex
+        className={`relative w-full px-7 md:p-5 py-6 flex
       flex-col justify-center items-center bg-[#f8ff71]
-      text-[#38280e]"
+      text-[#38280e] ${hoveredHole !== '' && 'opacity-0'}`}
       >
         {/* ***** TOP OF SCORECARD DIV ***** */}
         <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
@@ -110,7 +138,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
           </div>
           <div
             className="w-full md:w-1/3 mt-3 md:mt-0
-              flex flex-col justify-center items-center"
+              flex flex-col justify-center items-center text-center"
           >
             <h1 className="text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
             <h3>
@@ -171,7 +199,6 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
               >
                 {statTitle[selectedStat]}
               </div>
-              {/* <div className="flex justify-center items-center w-1/3 md:w-auto"></div> */}
             </div>
             {course.parByHole.map((par, i) => (
               <div
@@ -186,6 +213,8 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 flex flex-col justify-center items-center
                 border-2 border-[#f8ff71] rounded-[100%]
                 text-lg font-scorenum"
+                  onMouseEnter={() => handleHoleHover(i + 1)}
+                  onMouseLeave={() => handleHoleHover('')}
                 >
                   {i + 1}
                 </div>

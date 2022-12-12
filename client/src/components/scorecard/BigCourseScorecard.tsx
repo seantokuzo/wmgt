@@ -1,6 +1,8 @@
+import HoleImg from 'components/HoleImg'
 import { useSeasonContext } from 'context/season/seasonContext'
-import { CourseInterface } from 'data/course-data/wmgt-course-data'
+import { CourseInterface, coursesWithImages } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
+import { useState } from 'react'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
 
 type Props = {
@@ -10,9 +12,18 @@ type Props = {
 const BigCourseScorecard: React.FC<Props> = ({ course }) => {
   const { roundDetailsMode, showEasyCourse, toggleCourse, showScoreTracker, toggleScoreTracker } =
     useSeasonContext()
+  const [hoveredHole, setHoveredHole] = useState<'' | number>('')
+
+  const handleHoleHover = (hole: '' | number) => {
+    if (!coursesWithImages.includes(course.alias)) return
+    setHoveredHole(hole)
+  }
 
   return (
-    <div className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs">
+    <div className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs z-10">
+      {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
+        <HoleImg course={course} hole={hoveredHole} />
+      )}
       {roundDetailsMode === 'full' && (
         <div className="w-full max-w-4xl flex justify-between items-center">
           <ScorecardToggleBtn
@@ -38,7 +49,12 @@ const BigCourseScorecard: React.FC<Props> = ({ course }) => {
         <div className="w-[20%] pr-2 flex justify-end">HOLE</div>
         <div className="w-full flex justify-between items-center">
           {course.parByHole.map((hole, i) => (
-            <div className="w-[5%] flex justify-center items-center" key={nanoid()}>
+            <div
+              className="w-[5%] flex justify-center items-center"
+              key={nanoid()}
+              onMouseEnter={() => handleHoleHover(i + 1)}
+              onMouseLeave={() => handleHoleHover('')}
+            >
               <div
                 className="md:w-6 lg:w-8 md:h-6 lg:h-8
                 text-xs lg:text-sm
@@ -64,9 +80,9 @@ const BigCourseScorecard: React.FC<Props> = ({ course }) => {
             </div>
           ))}
         </div>
-        <div className="w-20 text-xxs lg:text-xs text-center">{course.par}</div>
-        <div className="w-20 text-xxs lg:text-xs text-center">TOURNEY SCORE</div>
-        <div className="w-20 text-xxs lg:text-xs text-center">FINISH</div>
+        <div className="w-20 text-xxs text-center">COURSE</div>
+        <div className="w-20 text-xxs text-center">TOTAL</div>
+        <div className="w-20 text-xxs text-center">RANK</div>
       </div>
     </div>
   )

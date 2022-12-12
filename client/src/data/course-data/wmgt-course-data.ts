@@ -316,3 +316,10 @@ export const courseData: CourseInterface[] = [
     parByHole: [3, 3, 3, 3, 3, 3, 5, 3, 4, 3, 3, 4, 4, 3, 4, 3, 4, 5]
   }
 ]
+
+export const courseHoleImgLink =
+  'https://wmgt-stats.s3.us-west-1.amazonaws.com/course-assets/<COURSE>/hole-img/<COURSE>_H<HOLE>.JPG'
+
+export type Hole = '' | number
+
+export const coursesWithImages = ['AME', 'CBE']
