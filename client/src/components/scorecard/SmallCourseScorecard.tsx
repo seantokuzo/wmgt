@@ -31,7 +31,7 @@ const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center mt-5 text-xs">
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
-        <div className="absolute w-full">
+        <div className="absolute w-full z-100">
           <HoleImg
             course={course}
             hole={hoveredHole}

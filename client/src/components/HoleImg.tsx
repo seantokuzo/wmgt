@@ -10,7 +10,7 @@ type Props = {
 const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
   return (
     <div
-      className="w-full
+      className="w-full max-w-2xl min-w-[300px]
           z-100 transition-all font-scorenum
           flex flex-col justify-center items-center"
     >
@@ -64,7 +64,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           <i className="fa-solid fa-xmark"></i>
         </div>
         <img
-          className="w-full border-2 border-[#f8ff71] rounded-md shadow-basic"
+          className="w-full border-2 border-[#f8ff71] rounded-b-md shadow-basic"
           src={courseHoleImgLink
             .replaceAll('<COURSE>', course.alias)
             .replace('<HOLE>', hole.toString())}

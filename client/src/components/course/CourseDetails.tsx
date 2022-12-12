@@ -115,12 +115,17 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
     >
       {/* ****** HOLE IMG ON HOVER ****** */}
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
-        <HoleImg
-          course={course}
-          hole={hoveredHole}
-          exit={() => setHoveredHole('')}
-          setHole={setHoveredHole}
-        />
+        <div
+          className="absolute top-1/2 left-1/2
+          translate-x-[-50%] translate-y-[-50%] z-100"
+        >
+          <HoleImg
+            course={course}
+            hole={hoveredHole}
+            exit={() => setHoveredHole('')}
+            setHole={setHoveredHole}
+          />
+        </div>
       )}
       <div
         className={`relative w-full px-7 md:p-5 py-6 flex

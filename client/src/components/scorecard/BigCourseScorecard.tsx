@@ -22,7 +22,7 @@ const BigCourseScorecard: React.FC<Props> = ({ course }) => {
   return (
     <div className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs z-10">
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
-        <div className="absolute w-1/2">
+        <div className="absolute w-1/2 z-100">
           <HoleImg
             course={course}
             hole={hoveredHole}
