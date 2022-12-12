@@ -1,5 +1,4 @@
-import { useSeasonContext } from 'context/season/seasonContext'
-import { RoundDetailsMode } from './RoundDetails'
+import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 
 type Props = {
   btnMode: RoundDetailsMode

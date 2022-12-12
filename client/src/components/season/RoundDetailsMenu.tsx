@@ -1,7 +1,8 @@
 import RoundDetailBtn from './RoundDetailBtn'
-import { modes, RoundDetailsMode } from './RoundDetails'
+import { modes } from './RoundDetails'
 import { CourseInterface } from '../../data/course-data/wmgt-course-data'
 import { Link } from 'react-router-dom'
+import { RoundDetailsMode } from 'context/season/seasonContext'
 
 type Props = {
   round: { season: number; round: number }
