@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {
   courseData,
-  courseHoleImgLink,
   CourseInterface,
   Hole,
   coursesWithImages
@@ -116,7 +115,12 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
     >
       {/* ****** HOLE IMG ON HOVER ****** */}
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
-        <HoleImg course={course} hole={hoveredHole} />
+        <HoleImg
+          course={course}
+          hole={hoveredHole}
+          exit={() => setHoveredHole('')}
+          setHole={setHoveredHole}
+        />
       )}
       <div
         className={`relative w-full px-7 md:p-5 py-6 flex
@@ -212,9 +216,8 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                   className="w-4 h-4 p-4 my-1
                 flex flex-col justify-center items-center
                 border-2 border-[#f8ff71] rounded-[100%]
-                text-lg font-scorenum"
-                  onMouseEnter={() => handleHoleHover(i + 1)}
-                  onMouseLeave={() => handleHoleHover('')}
+                text-lg font-scorenum cursor-pointer"
+                  onClick={() => handleHoleHover(i + 1)}
                 >
                   {i + 1}
                 </div>

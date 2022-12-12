@@ -20,7 +20,7 @@ module.exports = {
         insetyellow: 'inset 12px 12px 24px #b8bd54, inset -12px -12px 24px #ffff8e80',
         yellow: '12px 12px 24px #b8bd54, -12px -12px 24px #ffff8e80',
         insetbrown: 'inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212',
-        basic: '12px 12px 9px #b3b3b3, -12px -12px 9px #ffffff',
+        basic: '2px 2px 15px rgba(0, 0, 0, 0.75), 12px 12px 9px rgba(0, 0, 0, 0.5)',
         insetbasic: 'inset 12px 12px 9px #00000075, inset -12px -12px 9px #00000020'
       },
       keyframes: {

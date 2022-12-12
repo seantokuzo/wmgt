@@ -1,6 +1,8 @@
+import HoleImg from 'components/HoleImg'
 import { useSeasonContext } from 'context/season/seasonContext'
-import { CourseInterface } from 'data/course-data/wmgt-course-data'
+import { CourseInterface, coursesWithImages } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
+import { useState } from 'react'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
 
 type Props = {
@@ -17,11 +19,27 @@ const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
     showFrontNine,
     toggleScorecardNine
   } = useSeasonContext()
+  const [hoveredHole, setHoveredHole] = useState<'' | number>('')
+
+  const handleHoleHover = (hole: '' | number) => {
+    if (!coursesWithImages.includes(course.alias)) return
+    setHoveredHole(hole)
+  }
 
   const nineSlice = showFrontNine ? course.parByHole.slice(0, 9) : course.parByHole.slice(9)
 
   return (
     <div className="w-full flex flex-col justify-center items-center mt-5 text-xs">
+      {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
+        <div className="absolute w-full">
+          <HoleImg
+            course={course}
+            hole={hoveredHole}
+            exit={() => setHoveredHole('')}
+            setHole={setHoveredHole}
+          />
+        </div>
+      )}
       {roundDetailsMode === 'full' && (
         <div
           className="w-full max-w-4xl
@@ -56,7 +74,11 @@ const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
         <div className="w-[25%] pr-2 flex justify-end">HOLE</div>
         <div className="w-full flex justify-between items-center px-0 sm:px-2">
           {nineSlice.map((hole, i) => (
-            <div className="w-[5%] flex justify-center items-center" key={nanoid()}>
+            <div
+              className="w-[5%] flex justify-center items-center"
+              key={nanoid()}
+              onClick={() => handleHoleHover(showFrontNine ? i + 1 : i + 10)}
+            >
               <div
                 className="w-4 h-4 p-1
                 text-xxs

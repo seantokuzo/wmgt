@@ -11,7 +11,6 @@ type Props = {
   round: RoundDataInterface
 }
 
-export type RoundDetailsMode = 'full' | 'easy' | 'hard' | 'aces' | 'coconuts' | 'race'
 export const modes = {
   full: 'Full Results',
   easy: 'Easy Course',

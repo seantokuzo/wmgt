@@ -3,18 +3,19 @@ import { courseHoleImgLink, CourseInterface } from 'data/course-data/wmgt-course
 type Props = {
   course: CourseInterface
   hole: number
+  exit: () => void
+  setHole: (hole: number) => void
 }
 
-const HoleImg: React.FC<Props> = ({ course, hole }) => {
+const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
   return (
     <div
-      className="w-1/2 absolute top-0 left-1/2
-          translate-x-[-50%]
+      className="w-full
           z-100 transition-all font-scorenum
           flex flex-col justify-center items-center"
     >
       <div
-        className="bg-[#f8ff71] text-[#38280e]
+        className="bg-[#f8ff71] text-[#38280e] shadow-insetyellow
             border-x-2 border-t-2 border-[#f8ff71] rounded-t-md
             pt-2 text-center
             flex flex-col justify-center items-center"
@@ -29,19 +30,48 @@ const HoleImg: React.FC<Props> = ({ course, hole }) => {
           {hole}
         </div>
         <div
-          className="w-full text-2xl font-semibold py-1
-              bg-[#38280e] text-[#f8ff71]"
+          className="w-full text-2xl font-semibold py-1 px-2
+          bg-[#38280e] text-[#f8ff71] shadow-insetbrown
+          flex justify-between items-center"
         >
+          <i
+            className="fa-solid fa-arrow-left"
+            onClick={() => {
+              if (hole === 1) return setHole(18)
+              return setHole(hole - 1)
+            }}
+          ></i>
           {'Par ' + course.parByHole[hole - 1]}
+          <i
+            className="fa-solid fa-arrow-right"
+            onClick={() => {
+              if (hole === 18) return setHole(1)
+              return setHole(hole + 1)
+            }}
+          ></i>
         </div>
       </div>
-      <img
-        className="w-full border-2 border-[#f8ff71] rounded-md"
-        src={courseHoleImgLink
-          .replaceAll('<COURSE>', course.alias)
-          .replace('<HOLE>', hole.toString())}
-        alt={`${course.course} ${course.difficulty} Hole ${hole}`}
-      />
+      <div className="relative">
+        <div
+          className="absolute top-2 left-2
+          w-10 h-10 p-5 text-2xl
+          border-2 border-[#38280e]
+          bg-[#38280e] shadow-insetbrown
+          rounded-full
+          flex justify-center items-center"
+          onClick={exit}
+        >
+          <i className="fa-solid fa-xmark"></i>
+        </div>
+        <img
+          className="w-full border-2 border-[#f8ff71] rounded-md shadow-basic"
+          src={courseHoleImgLink
+            .replaceAll('<COURSE>', course.alias)
+            .replace('<HOLE>', hole.toString())}
+          alt={`${course.course} ${course.difficulty} Hole ${hole}`}
+          onClick={exit}
+        />
+      </div>
     </div>
   )
 }

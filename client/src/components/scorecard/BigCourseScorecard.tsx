@@ -22,7 +22,14 @@ const BigCourseScorecard: React.FC<Props> = ({ course }) => {
   return (
     <div className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs z-10">
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
-        <HoleImg course={course} hole={hoveredHole} />
+        <div className="absolute w-1/2">
+          <HoleImg
+            course={course}
+            hole={hoveredHole}
+            exit={() => setHoveredHole('')}
+            setHole={setHoveredHole}
+          />
+        </div>
       )}
       {roundDetailsMode === 'full' && (
         <div className="w-full max-w-4xl flex justify-between items-center">
@@ -50,10 +57,9 @@ const BigCourseScorecard: React.FC<Props> = ({ course }) => {
         <div className="w-full flex justify-between items-center">
           {course.parByHole.map((hole, i) => (
             <div
-              className="w-[5%] flex justify-center items-center"
+              className="w-[5%] flex justify-center items-center cursor-pointer"
               key={nanoid()}
-              onMouseEnter={() => handleHoleHover(i + 1)}
-              onMouseLeave={() => handleHoleHover('')}
+              onClick={() => handleHoleHover(i + 1)}
             >
               <div
                 className="md:w-6 lg:w-8 md:h-6 lg:h-8
