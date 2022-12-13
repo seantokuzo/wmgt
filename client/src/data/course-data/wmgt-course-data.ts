@@ -322,4 +322,4 @@ export const courseHoleImgLink =
 
 export type Hole = '' | number
 
-export const coursesWithImages = ['AME', 'CBE']
+export const coursesWithImages = ['TTE', 'CBE', 'SSE', 'AME', 'OGE', 'TSE']

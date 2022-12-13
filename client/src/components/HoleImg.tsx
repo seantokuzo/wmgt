@@ -12,7 +12,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
     <div
       className="w-full max-w-2xl min-w-[300px]
           z-100 transition-all font-scorenum
-          flex flex-col justify-center items-center"
+          flex flex-col justify-center items-center animate-growfade"
     >
       <div
         className="bg-[#f8ff71] text-[#38280e] shadow-insetyellow
