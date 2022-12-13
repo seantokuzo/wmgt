@@ -1,6 +1,8 @@
 import { useSeasonContext } from 'context/season/seasonContext'
 import { PlayerRoundInterface } from 'data/round-data/roundTypes'
+import { scoreDecoration } from './scorecardUtils'
 import { nanoid } from 'nanoid'
+import { useAppContext } from 'context/appContext'
 
 type Props = {
   playerRound: PlayerRoundInterface
@@ -8,6 +10,7 @@ type Props = {
 }
 
 const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
+  const { darkMode } = useAppContext()
   const { showEasyCourse, showScoreTracker, showFrontNine, toggleScorecardNine } =
     useSeasonContext()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
@@ -17,26 +20,6 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
   const scoreTracker = holeScores.map((score, i) => {
     return holeScores.slice(0, i + 1).reduce((sum, curr) => sum + curr, startingCount)
   })
-
-  const scoreDecoration = (score: number, outer: boolean) => {
-    if (score === 0) return ''
-    let decorations = 'border-[1px]'
-    if (score <= -2) {
-      decorations = decorations + ' border-red-400 rounded-[50%]'
-    }
-    if (score === -1) {
-      decorations = decorations + ' border-red-400 border-[1px] rounded-[50%]'
-      if (outer) return ''
-    }
-    if (score === 1) {
-      decorations = decorations + ' border-green-600'
-      if (outer) return ''
-    }
-    if (score >= 2) {
-      decorations = decorations + ' border-green-600'
-    }
-    return decorations
-  }
 
   const scoreToMapFull = showScoreTracker ? scoreTracker : scorecard
   const scoreToMapNine = showFrontNine ? scoreToMapFull.slice(0, 9) : scoreToMapFull.slice(9)
@@ -69,16 +52,22 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
           >
             <div
               className={`w-4 h-4 sm:w-7 sm:h-7
-              ${scoreDecoration(holeScoresNine[i], true)}
+              ${scoreDecoration(holeScoresNine[i], true, darkMode)}
               flex flex-col justify-center items-center`}
             >
               <div
                 className={`w-3 h-3 sm:w-5 sm:h-5
-                ${scoreDecoration(holeScoresNine[i], false)}
-                ${score === 1 && !showScoreTracker && 'bg-red-400 rounded-[50%]'}
+                ${scoreDecoration(holeScoresNine[i], false, darkMode)}
                 ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
                 flex flex-col justify-center items-center`}
               >
+                {/* <div
+                className={`w-3 h-3 sm:w-5 sm:h-5
+                ${scoreDecoration(holeScoresNine[i], false, darkMode)}
+                ${score === 1 && !showScoreTracker && 'bg-red-400 rounded-[50%]'}
+                ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
+                flex flex-col justify-center items-center`}
+              > */}
                 {score}
               </div>
             </div>

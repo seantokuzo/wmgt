@@ -15,6 +15,8 @@ import { useEffect } from 'react'
 import { season6Data } from 'data/round-data/s6-round-data'
 
 // import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
+// import { convertRawRoundData } from './data/in_progress/s6r12_raw-data'
+// import { checkScores } from './data/in_progress/s6r12_raw-data'
 // checkScores(12)
 // checkScores(4)
 // convertRawRoundData()
@@ -27,8 +29,8 @@ function App() {
 
   // BG COLOR IF USING BACKGROUND VIDEO
   // const bgColor = pathname === '/' ? 'bg-none' : darkMode ? 'bg-[#38280e]' : 'bg-white'
-  const bgColor = darkMode ? 'bg-[#38280e]' : 'bg-white'
-  const textColor = !darkMode ? 'text-[#38280e]' : 'text-[#f8ff71]'
+  const bgColor = darkMode ? 'bg-black' : 'bg-white'
+  const textColor = !darkMode ? 'text-black' : 'text-white'
 
   // TRACK WINDOW SIZE FOR SCORECARD COMPONENT BIG OR SMALL
   useEffect(() => {

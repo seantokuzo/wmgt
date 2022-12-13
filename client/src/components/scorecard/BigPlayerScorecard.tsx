@@ -1,5 +1,7 @@
+import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { PlayerRoundInterface } from 'data/round-data/roundTypes'
+import { scoreDecoration } from './scorecardUtils'
 import { nanoid } from 'nanoid'
 
 type Props = {
@@ -8,6 +10,7 @@ type Props = {
 }
 
 const BigPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
+  const { darkMode } = useAppContext()
   const { showEasyCourse, showScoreTracker } = useSeasonContext()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
   const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
@@ -16,26 +19,6 @@ const BigPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
   const scoreTracker = holeScores.map((score, i) => {
     return holeScores.slice(0, i + 1).reduce((sum, curr) => sum + curr, startingCount)
   })
-
-  const scoreDecoration = (score: number, outer: boolean) => {
-    if (score === 0) return ''
-    let decorations = 'border-[1px]'
-    if (score <= -2) {
-      decorations = decorations + ' border-red-400 rounded-[50%]'
-    }
-    if (score === -1) {
-      decorations = decorations + ' border-red-400 border-[1px] rounded-[50%]'
-      if (outer) return ''
-    }
-    if (score === 1) {
-      decorations = decorations + ' border-lime-700'
-      if (outer) return ''
-    }
-    if (score >= 2) {
-      decorations = decorations + ' border-lime-700'
-    }
-    return decorations
-  }
 
   const scoreToMap = showScoreTracker ? scoreTracker : scorecard
 
@@ -56,17 +39,22 @@ const BigPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
           >
             <div
               className={`lg:w-9 lg:h-9 md:w-7 md:h-7
-              ${scoreDecoration(holeScores[i], true)}
               flex flex-col justify-center items-center`}
             >
               <div
-                className={`lg:w-7 lg:h-7 md:w-5 md:h-5
-                ${scoreDecoration(holeScores[i], false)}
-                ${score === 1 && !showScoreTracker && 'bg-red-400 rounded-[50%]'}
-                ${showScoreTracker ? 'md:text-xxs lg:text-xxs' : 'md:text-xxs lg:text-xs'}
+                className={`lg:w-9 lg:h-9 md:w-7 md:h-7
+                ${scoreDecoration(holeScores[i], true, darkMode)}
                 flex flex-col justify-center items-center`}
               >
-                {score}
+                <div
+                  className={`lg:w-7 lg:h-7 md:w-5 md:h-5
+                  ${scoreDecoration(holeScores[i], false, darkMode)}
+                  ${score === 1 && !showScoreTracker && 'bg-red-600 rounded-[50%]'}
+                  ${showScoreTracker ? 'md:text-xxs lg:text-xxs' : 'md:text-xxs lg:text-sm'}
+                  flex flex-col justify-center items-center`}
+                >
+                  {score}
+                </div>
               </div>
             </div>
           </div>

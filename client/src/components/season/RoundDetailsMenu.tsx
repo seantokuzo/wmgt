@@ -1,8 +1,10 @@
 import RoundDetailBtn from './RoundDetailBtn'
 import { modes } from './RoundDetails'
 import { CourseInterface } from '../../data/course-data/wmgt-course-data'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { RoundDetailsMode } from 'context/season/seasonContext'
+import { season6Data } from 'data/round-data/s6-round-data'
+import { season7Data } from 'data/round-data/s7-round-data'
 
 type Props = {
   round: { season: number; round: number }
@@ -11,6 +13,46 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
+  const { pathname } = useLocation()
+  console.log(pathname.split('/season/')[1])
+
+  const toggleRoundBtn = (nextNotPrev: boolean) => {
+    const seasonData = round.season === 6 ? season6Data : season7Data
+    if (nextNotPrev) {
+      const isThereNext = seasonData.some((r) => r.round === round.round + 1)
+      if (!isThereNext) return <div className="w-20 h-20"></div>
+      return (
+        <Link to={`/season/s${round.season}r${round.round + 1}`}>
+          <div
+            className="w-12 h-12 md:w-20 md:h-20
+            text-sm md:text-xl
+            flex flex-col justify-center items-center
+            font-bold shadow-inyellfocus rounded-full"
+          >
+            {`R${round.round + 1}`}
+            <i className="fa-solid fa-arrow-right"></i>
+          </div>
+        </Link>
+      )
+    }
+
+    const isTherePrev = seasonData.some((r) => r.round === round.round - 1)
+    if (!isTherePrev) return <div className="w-20 h-20"></div>
+    return (
+      <Link to={`/season/s${round.season}r${round.round - 1}`}>
+        <div
+          className="w-12 h-12 md:w-20 md:h-20
+          text-sm md:text-xl
+          flex flex-col justify-center items-center
+          font-bold shadow-inyellfocus rounded-full"
+        >
+          {`R${round.round - 1}`}
+          <i className="fa-solid fa-arrow-left"></i>
+        </div>
+      </Link>
+    )
+  }
+
   const courseLabelEl = (course: CourseInterface) => {
     return (
       <div className="w-1/2 md:w-auto py-2 px-4 mx-2">
@@ -25,29 +67,28 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 
   return (
     <div
-      className="w-full max-w-4xl py-6 rounded-lg
+      className="w-full max-w-4xl pb-2 rounded-lg
       bg-[#f8ff71] text-[#38280e] shadow-insetyellow
-      flex flex-col justify-center items-center"
+      flex flex-col justify-center items-center text-center"
     >
-      <div className="w-full flex justify-between items-center px-4">
-        <Link
-          to="/season"
-          className="w-10 h-10 md:w-12 md:h-12 p-2 text-2xl md:text-3xl font-semibold
-          flex justify-center items-center hover:shadow-lg hover:scale-105
-          bg-[#38280e] shadow-insetbrown text-[#f8ff71] rounded-[100%]"
+      <div
+        className="w-full bg-[#38280e] text-2xl py-3 shadow-insetbrown
+        font-orb font-bold rounded-t-md text-[#f8ff71] tracking-wider"
+      >
+        {`SEASON ${round.season}`}
+      </div>
+      <div className="w-full flex justify-between items-center px-4 mt-3">
+        {toggleRoundBtn(false)}
+        <div
+          className="py-1 px-5 rounded-md mx-5
+            text-2xl sm:text-4xl md:text-6xl font-bold font-scorenum 
+            text-[#38280e] shadow-inyellfocus
+            flex flex-col justify-center items-center"
         >
-          <i className="fa-solid fa-arrow-left"></i>
-        </Link>
-        <div
-          className="py-1 px-4 rounded-md
-          text-2xl sm:text-4xl md:text-6xl font-bold 
-          text-[#f8ff71] bg-[#38280e] shadow-insetbrown"
-        >{`Round ${round.round}`}</div>
-        <div
-          className="w-10 h-10 md:w-12 md:h-12 text-lg md:text-xl font-semibold p-2
-          flex justify-center items-center rounded-[100%] border-2 border-[#38280e]
-          bg-[#38280e] text-[#f8ff71] shadow-insetbrown"
-        >{`S${round.season}`}</div>
+          <div>ROUND</div>
+          <div>{`${round.round}`}</div>
+        </div>
+        {toggleRoundBtn(true)}
       </div>
       <div className="w-full my-3 px-3 flex justify-evenly items-start text-center">
         {courseLabelEl(easyCourse)}

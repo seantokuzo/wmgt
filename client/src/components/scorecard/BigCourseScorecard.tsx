@@ -50,6 +50,9 @@ const BigCourseScorecard: React.FC<Props> = ({ course }) => {
       <div className="flex flex-col justify-center items-center my-4" onClick={toggleCourse}>
         <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
         <p className="text-sm lg:text-base">{`(${course.alias})`}</p>
+        {coursesWithImages.includes(course.alias) && (
+          <p className="mt-1">Click a hole to see details</p>
+        )}
       </div>
       {/* ****** HOLES ROW ****** */}
       <div className="w-full text-xs flex justify-between items-center py-2">
