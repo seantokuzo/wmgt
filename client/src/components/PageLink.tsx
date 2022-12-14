@@ -1,16 +1,21 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useAppContext } from 'context/appContext'
 import { PagePath } from 'App'
+import { useAppContext } from 'context/appContext'
 
 const PageLink: React.FC<{ path: PagePath }> = ({ path }) => {
   const { pathname } = useLocation()
+  const { darkMode } = useAppContext()
 
   const homeBtnSelected = (path: PagePath) => {
     if (path !== '/') return ''
     if (pathname === path) {
-      return 'bg-[#f8ff71] text-[#38280e] shadow-inyellfocus'
+      return darkMode
+        ? 'bg-[#f8ff71] text-[#38280e] shadow-inyellfocus'
+        : 'bg-[38280e] text-[#f8ff71] shadow-insetbrown'
     }
-    return 'bg-none shadow-none text-[#f8ff71] border-[#f8ff71] border-2'
+    return darkMode
+      ? 'bg-none shadow-none text-[#f8ff71] border-[#f8ff71] border-2'
+      : 'bg-none shadow-insetbasic text-[#38280e] border-[#38280e] border-2'
   }
 
   return (

@@ -1,6 +1,10 @@
 import RoundDetailBtn from './RoundDetailBtn'
 import { modes } from './RoundDetails'
-import { CourseInterface } from '../../data/course-data/wmgt-course-data'
+import {
+  courseFullImgLink,
+  CourseInterface,
+  coursesWithImages
+} from '../../data/course-data/wmgt-course-data'
 import { Link } from 'react-router-dom'
 import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 import { season6Data } from 'data/round-data/s6-round-data'
@@ -13,7 +17,10 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
-  const { viewFrontNine, viewScorecard } = useSeasonContext()
+  const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard } = useSeasonContext()
+
+  const courseAlias =
+    showEasyCourse || roundDetailsMode === 'easy' ? easyCourse.alias : hardCourse.alias
 
   const toggleRoundBtn = (nextNotPrev: boolean) => {
     const seasonData = round.season === 6 ? season6Data : season7Data
@@ -24,7 +31,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         <Link to={`/season/s${round.season}r${round.round + 1}`}>
           <div
             className="w-12 h-12 md:w-20 md:h-20
-            text-sm md:text-xl
+            text-sm md:text-xl bg-[#f8ff71]
             flex flex-col justify-center items-center
             font-bold shadow-inyellfocus rounded-full"
             onClick={() => {
@@ -45,7 +52,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       <Link to={`/season/s${round.season}r${round.round - 1}`}>
         <div
           className="w-12 h-12 md:w-20 md:h-20
-          text-sm md:text-xl
+          text-sm md:text-xl bg-[#f8ff71]
           flex flex-col justify-center items-center
           font-bold shadow-inyellfocus rounded-full"
           onClick={viewFrontNine}
@@ -59,7 +66,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 
   const courseLabelEl = (course: CourseInterface) => {
     return (
-      <div className="w-1/2 md:w-auto py-2 px-4 mx-2">
+      <div className="w-1/2 md:w-auto py-2 px-4 mx-2 bg-[#f8ff71] rounded-md shadow-inyellfocus">
         <h3 className="text-base md:text-xl font-semibold">
           {course.course + ' ' + course.difficulty}
         </h3>
@@ -71,9 +78,16 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 
   return (
     <div
-      className="w-full max-w-4xl pb-2 rounded-lg
-      bg-[#f8ff71] text-[#38280e] shadow-insetyellow
-      flex flex-col justify-center items-center text-center"
+      className={`w-full max-w-4xl pb-2 rounded-lg
+      text-[#38280e]
+      ${!coursesWithImages.includes(courseAlias) && 'bg-[#f8ff71] shadow-insetyellow'}
+      bg-no-repeat bg-center bg-cover
+      flex flex-col justify-center items-center text-center`}
+      style={{
+        backgroundImage: coursesWithImages.includes(courseAlias)
+          ? `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
+          : ''
+      }}
     >
       <div
         className="w-full bg-[#38280e] text-2xl py-3 shadow-insetbrown
@@ -86,7 +100,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         <div
           className="py-4 px-5 rounded-b-md mx-5
             text-2xl sm:text-4xl md:text-6xl font-bold font-scorenum 
-            text-[#38280e] shadow-inyellfocus
+            text-[#38280e] bg-[#f8ff71] shadow-inyellfocus
             flex flex-col justify-center items-center"
         >
           <div>ROUND</div>
@@ -94,7 +108,10 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         </div>
         {toggleRoundBtn(true)}
       </div>
-      <div className="w-full my-3 px-3 flex justify-evenly items-start text-center">
+      <div
+        className="w-full my-3 px-3 text-center
+        flex justify-evenly items-start"
+      >
         {courseLabelEl(easyCourse)}
         {courseLabelEl(hardCourse)}
       </div>

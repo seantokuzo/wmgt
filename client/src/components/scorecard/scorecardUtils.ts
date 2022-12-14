@@ -1,5 +1,5 @@
-import { season6Data } from 'data/round-data/s6-round-data'
-import { season7Data } from 'data/round-data/s7-round-data'
+// import { season6Data } from 'data/round-data/s6-round-data'
+// import { season7Data } from 'data/round-data/s7-round-data'
 
 export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean) => {
   if (score === 0) return ''
@@ -30,11 +30,11 @@ export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean
     return decorations + ` border-lime-700 ${darkMode ? 'bg-black' : 'bg-white'}`
   }
   if (score >= 4) {
-    if (!outer) return darkMode ? 'text-[#f8ff71]' : 'text-white'
+    if (!outer) return darkMode ? 'text-black' : 'text-white'
     return decorations + 'border-lime-700 bg-lime-700'
   }
 }
 
-abstract class Scorecard {
-  static getRoundHoleStats(round: number)
-}
+// abstract class Scorecard {
+//   static getRoundHoleStats(round: number)
+// }

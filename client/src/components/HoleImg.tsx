@@ -12,7 +12,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
     <div
       className="w-full max-w-2xl min-w-[300px]
           z-100 transition-all font-scorenum
-          flex flex-col justify-center items-center animate-growfade"
+          flex flex-col justify-center items-center animate-fadein"
     >
       <div
         className="bg-[#f8ff71] text-[#38280e] shadow-insetyellow
@@ -64,7 +64,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           <i className="fa-solid fa-xmark"></i>
         </div>
         <img
-          className="w-full border-2 border-[#f8ff71] rounded-b-md shadow-basic"
+          className="w-full border-2 border-[#f8ff71] rounded-md shadow-basic"
           src={courseHoleImgLink
             .replaceAll('<COURSE>', course.alias)
             .replace('<HOLE>', hole.toString())}

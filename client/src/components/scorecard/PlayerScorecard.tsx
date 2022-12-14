@@ -11,12 +11,13 @@ type Props = {
 
 const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
   const { darkMode, windowSize } = useAppContext()
-  const { showEasyCourse, showScoreTracker, showFrontNine, toggleScorecardNine } =
+  const { roundDetailsMode, showEasyCourse, showScoreTracker, showFrontNine, toggleScorecardNine } =
     useSeasonContext()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
   const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
   const holeScores = scorecard.map((score, i) => score - coursePars[i])
-  const startingCount = showEasyCourse ? 0 : playerRound.easyRoundScore
+  const startingCount =
+    showEasyCourse || roundDetailsMode === 'hard' ? 0 : playerRound.easyRoundScore
   const scoreTracker = holeScores.map((score, i) => {
     return holeScores.slice(0, i + 1).reduce((sum, curr) => sum + curr, startingCount)
   })

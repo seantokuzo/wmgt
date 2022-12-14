@@ -12,7 +12,7 @@ export interface SeasonStateInterface {
 }
 
 export const initialSeasonState: SeasonStateInterface = {
-  roundDetailsMode: 'full',
+  roundDetailsMode: 'hard',
   showEasyCourse: true,
   showScoreTracker: false,
   showFrontNine: true
@@ -46,10 +46,16 @@ const SeasonContextProvider = ({ children }: Props) => {
 
   const changeRoundDetailsMode = (newMode: RoundDetailsMode) => {
     dispatch({ type: SeasonActionType.CHANGE_ROUND_DETAILS_MODE, payload: { newMode } })
+    newMode === 'easy' && viewCourse('easy')
+    newMode === 'hard' && viewCourse('hard')
   }
 
   const toggleCourse = () => {
     dispatch({ type: SeasonActionType.TOGGLE_COURSE })
+  }
+
+  const viewCourse = (course: 'easy' | 'hard') => {
+    dispatch({ type: SeasonActionType.VIEW_COURSE, payload: { showEasy: course === 'easy' } })
   }
 
   const toggleScoreTracker = () => {

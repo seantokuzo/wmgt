@@ -1,7 +1,10 @@
 import HoleImg from 'components/HoleImg'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
-import { CourseInterface, coursesWithImages } from 'data/course-data/wmgt-course-data'
+import {
+  CourseInterface,
+  coursesWithImages
+} from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
 import { useState } from 'react'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
@@ -32,9 +35,11 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
   const holesToMap = windowSize.width > 768 ? course.parByHole : nineSlice
 
   return (
-    <div className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs relative">
+    <div
+      className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs relative"
+    >
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
-        <div className="absolute top-0 w-1/2 z-100">
+        <div className="absolute top-0 w-full sm:w-1/2 z-100">
           <HoleImg
             course={course}
             hole={hoveredHole}
@@ -43,34 +48,39 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
           />
         </div>
       )}
-      {roundDetailsMode === 'full' && (
-        <div
-          className="w-full max-w-4xl
+      <div
+        className="w-full max-w-4xl
           flex flex-col md:flex-row justify-center md:justify-between items-center"
-        >
+      >
+        {roundDetailsMode === 'full' && (
           <ScorecardToggleBtn
             show={showEasyCourse}
             toggle={toggleCourse}
             text1="EASY"
             text2="HARD"
           />
-          {windowSize.width < 768 && (
-            <ScorecardToggleBtn
-              show={showFrontNine}
-              toggle={toggleScorecardNine}
-              text1="FRONT 9"
-              text2="BACK 9"
-            />
-          )}
+        )}
+        {windowSize.width < 768 && (
           <ScorecardToggleBtn
-            show={showScoreTracker}
-            toggle={toggleScoreTracker}
-            text1="TRACKER"
-            text2="SCORECARD"
+            show={showFrontNine}
+            toggle={toggleScorecardNine}
+            text1="FRONT 9"
+            text2="BACK 9"
           />
-        </div>
-      )}
-      <div className="flex flex-col justify-center items-center my-4" onClick={toggleCourse}>
+        )}
+        <ScorecardToggleBtn
+          show={showScoreTracker}
+          toggle={toggleScoreTracker}
+          text1="TRACKER"
+          text2="SCORECARD"
+        />
+      </div>
+      <div
+        className={`flex flex-col justify-center items-center my-4 ${
+          roundDetailsMode === 'full' && 'cursor-pointer'
+        }`}
+        onClick={() => roundDetailsMode === 'full' && toggleCourse()}
+      >
         <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
         <p className="text-sm lg:text-base">{`(${course.alias})`}</p>
         {coursesWithImages.includes(course.alias) && (

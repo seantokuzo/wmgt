@@ -7,6 +7,7 @@ type Action =
       payload: { newMode: RoundDetailsMode }
     }
   | { type: SeasonActionType.TOGGLE_COURSE }
+  | { type: SeasonActionType.VIEW_COURSE; payload: { showEasy: boolean } }
   | { type: SeasonActionType.TOGGLE_SCORE_TRACKER }
   | { type: SeasonActionType.VIEW_SCORECARD }
   | { type: SeasonActionType.TOGGLE_SCORECARD_NINE }
@@ -23,6 +24,11 @@ const seasonReducer = (state: SeasonStateInterface, action: Action): SeasonState
       return {
         ...state,
         showEasyCourse: !state.showEasyCourse
+      }
+    case SeasonActionType.VIEW_COURSE:
+      return {
+        ...state,
+        showEasyCourse: action.payload.showEasy
       }
     case SeasonActionType.TOGGLE_SCORE_TRACKER:
       return {

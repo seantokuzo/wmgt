@@ -31,7 +31,8 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
           <Link
             to={`/season/s${round.season}r${round.round}`}
             className="m-2 px-6 py-2 rounded-xl font-bold
-            bg-[#f8ff71] text-[#38280e] shadow-inyellopp"
+            bg-[#f8ff71] text-[#38280e] shadow-inyellopp
+            hover:scale-105 hover:shadow-insetyellow"
             key={`${round.easyCourse}-${i}`}
           >
             {`ROUND ${round.round}`}

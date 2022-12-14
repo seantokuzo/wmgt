@@ -1,4 +1,3 @@
-import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import RoundDetailsMenu from './RoundDetailsMenu'
 import ComingSoon from 'components/ComingSoon'
@@ -8,6 +7,9 @@ import Scorecard from 'components/scorecard/Scorecard'
 import ScorecardLegend from 'components/scorecard/ScorecardLegend'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import CourseScorecard from 'components/scorecard/CourseScorecard'
+import PlayerScorecard from 'components/scorecard/PlayerScorecard'
+import { nanoid } from 'nanoid'
 
 type Props = {
   round: RoundDataInterface
@@ -35,14 +37,17 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
   }, [])
 
   return (
-    <div className="relative w-full flex flex-col justify-center items-center py-6">
+    <div
+      className="w-full py-6 relative
+      flex flex-col justify-center items-center"
+    >
       <Link
         to="/season"
         className="px-4 py-2 text-2xl md:text-3xl font-semibold
           flex justify-center items-center hover:shadow-lg hover:scale-105
           bg-[#38280e] shadow-insetbrown text-[#f8ff71] rounded-t-md"
       >
-        Round Menu
+        SEASON MENU
       </Link>
       <RoundDetailsMenu
         round={{ season: round.season, round: round.round }}
@@ -52,9 +57,35 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       {roundDetailsMode === 'full' && (
         <Scorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
       )}
+      {roundDetailsMode === 'easy' && (
+        <>
+          <CourseScorecard course={easyCourse} />
+          {round.scores
+            .sort((a, b) => a.easyRoundScore - b.easyRoundScore)
+            .map((playerRound) => (
+              <PlayerScorecard
+                playerRound={playerRound}
+                coursePars={easyCourse.parByHole}
+                key={nanoid()}
+              />
+            ))}
+        </>
+      )}
+      {roundDetailsMode === 'hard' && (
+        <>
+          <CourseScorecard course={hardCourse} />
+          {round.scores
+            .sort((a, b) => a.hardRoundScore - b.hardRoundScore)
+            .map((playerRound) => (
+              <PlayerScorecard
+                playerRound={playerRound}
+                coursePars={hardCourse.parByHole}
+                key={nanoid()}
+              />
+            ))}
+        </>
+      )}
       <div className="mt-8">
-        {roundDetailsMode === 'easy' && <ComingSoon text="COMING SOON" />}
-        {roundDetailsMode === 'hard' && <ComingSoon text="COMING SOON" />}
         {roundDetailsMode === 'aces' && <ComingSoon text="⛳️ COMING SOON ⛳️" />}
         {roundDetailsMode === 'coconuts' && <ComingSoon text="🥥 COMING SOON 🥥" />}
         {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
