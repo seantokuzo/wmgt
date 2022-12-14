@@ -12,7 +12,7 @@ export interface SeasonStateInterface {
 }
 
 export const initialSeasonState: SeasonStateInterface = {
-  roundDetailsMode: 'hard',
+  roundDetailsMode: 'full',
   showEasyCourse: true,
   showScoreTracker: false,
   showFrontNine: true

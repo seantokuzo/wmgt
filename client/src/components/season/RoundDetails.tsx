@@ -60,7 +60,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       {roundDetailsMode === 'easy' && (
         <>
           <CourseScorecard course={easyCourse} />
-          {round.scores
+          {[...round.scores]
             .sort((a, b) => a.easyRoundScore - b.easyRoundScore)
             .map((playerRound) => (
               <PlayerScorecard
@@ -74,7 +74,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       {roundDetailsMode === 'hard' && (
         <>
           <CourseScorecard course={hardCourse} />
-          {round.scores
+          {[...round.scores]
             .sort((a, b) => a.hardRoundScore - b.hardRoundScore)
             .map((playerRound) => (
               <PlayerScorecard
