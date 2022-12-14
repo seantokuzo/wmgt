@@ -7,7 +7,8 @@ const s7sheetIdsByRound = {
   R6: '1554734905',
   R7: '1379586954R3',
   R8: '749121011',
-  R9: '1407622001'
+  R9: '1407622001',
+  R10: '1728697580'
 }
 
 // const sheetIdsArray = Object.values(s7sheetIdsByRound)
@@ -38,7 +39,7 @@ const stripPlayerRounds = (sheetId, firstRow, collection = []) => {
     // console.log(rowCellsArray)
     // console.log(rowCellsArray.length)
 
-    const easyScoresArray = rowCellsArray.splice(9, 18).map(num => +num)
+    const easyScoresArray = rowCellsArray.splice(9, 18).map((num) => +num)
     const hardScoresArray = rowCellsArray.splice(9, 18).map((num) => +num)
 
     const formattedRowObject = {
@@ -78,4 +79,5 @@ const stripPlayerRounds = (sheetId, firstRow, collection = []) => {
 // console.log(stripPlayerRounds('1554734905', 3))
 // console.log(stripPlayerRounds('1379586954', 3))
 // console.log(stripPlayerRounds('749121011', 3))
-console.log(stripPlayerRounds('1407622001', 3))
+// console.log(stripPlayerRounds('1407622001', 3))
+console.log(stripPlayerRounds('1728697580', 3))
