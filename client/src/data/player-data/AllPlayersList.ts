@@ -1,18 +1,18 @@
-// import { season6PlayerList } from './season6FinalPlayerList'
-// import { season7PlayerList } from './season7PlayerList'
+import { season6PlayerList } from './season6FinalPlayerList'
+import { season7PlayerList } from './season7PlayerList'
 
-// export const getComboList = () => {
-//   console.log(season6PlayerList.length)
-//   console.log(season7PlayerList.length)
+export const getComboList = () => {
+  console.log(season6PlayerList.length)
+  console.log(season7PlayerList.length)
 
-//   const comboList = [...season6PlayerList]
-//   season7PlayerList.map((player) => {
-//     if (!season6PlayerList.some((p) => p.player === player.player)) {
-//       comboList.push(player)
-//     }
-//   })
-//   console.log(comboList)
-// }
+  const comboList = [...season6PlayerList]
+  season7PlayerList.map((player) => {
+    if (!season6PlayerList.some((p) => p.player === player.player)) {
+      comboList.push(player)
+    }
+  })
+  console.log(comboList)
+}
 
 export interface PlayerInterface {
   player: string

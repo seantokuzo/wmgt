@@ -1,4 +1,5 @@
 import { CourseAlias } from 'data/course-data/wmgt-course-data'
+import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { PlayerRoundInterface, RoundDataInterface } from 'data/round-data/roundTypes'
 
@@ -138,6 +139,9 @@ export default abstract class CourseStats {
   static getNumberOfAces(season: number, course: CourseAlias): number[] {
     if (season === 7) {
       return this.getNumberOfAcesHelper(season7Data, course)
+    }
+    if (season === 6) {
+      return this.getNumberOfAcesHelper(season6Data, course)
     }
 
     return new Array(18).fill('')

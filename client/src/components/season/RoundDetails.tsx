@@ -4,10 +4,10 @@ import RoundDetailsMenu from './RoundDetailsMenu'
 import ComingSoon from 'components/ComingSoon'
 import { courseData } from '../../data/course-data/wmgt-course-data'
 import { RoundDataInterface } from '../../data/round-data/roundTypes'
-import BigScorecard from 'components/scorecard/BigScorecard'
-import SmallScorecard from 'components/scorecard/SmallScorecard'
+import Scorecard from 'components/scorecard/Scorecard'
 import ScorecardLegend from 'components/scorecard/ScorecardLegend'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 type Props = {
   round: RoundDataInterface
@@ -23,11 +23,16 @@ export const modes = {
 }
 
 const RoundDetails: React.FC<Props> = ({ round }) => {
-  const { windowSize } = useAppContext()
-  const { roundDetailsMode } = useSeasonContext()
+  // const { windowSize } = useAppContext()
+  const { roundDetailsMode, viewFrontNine } = useSeasonContext()
 
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
+
+  useEffect(() => {
+    viewFrontNine()
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <div className="relative w-full flex flex-col justify-center items-center py-6">
@@ -44,12 +49,9 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         easyCourse={easyCourse}
         hardCourse={hardCourse}
       />
-      {roundDetailsMode === 'full' &&
-        (windowSize.width >= 768 ? (
-          <BigScorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
-        ) : (
-          <SmallScorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
-        ))}
+      {roundDetailsMode === 'full' && (
+        <Scorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
+      )}
       <div className="mt-8">
         {roundDetailsMode === 'easy' && <ComingSoon text="COMING SOON" />}
         {roundDetailsMode === 'hard' && <ComingSoon text="COMING SOON" />}

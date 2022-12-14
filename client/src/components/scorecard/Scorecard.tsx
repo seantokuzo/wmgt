@@ -2,8 +2,9 @@ import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseInterface } from 'data/course-data/wmgt-course-data'
 import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
-import SmallCourseScorecard from './SmallCourseScorecard'
-import SmallPlayerScorecard from './SmallPlayerScorecard'
+import { useEffect } from 'react'
+import CourseScorecard from './CourseScorecard'
+import PlayerScorecard from './PlayerScorecard'
 
 type Props = {
   round: RoundDataInterface
@@ -11,14 +12,19 @@ type Props = {
   hardCourse: CourseInterface
 }
 
-const SmallScorecard: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
-  const { showEasyCourse } = useSeasonContext()
+const Scorecard: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
+  const { showEasyCourse, viewFrontNine } = useSeasonContext()
+
+  useEffect(() => {
+    viewFrontNine()
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <>
-      <SmallCourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
+      <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
       {round.scores.map((playerRound) => (
-        <SmallPlayerScorecard
+        <PlayerScorecard
           playerRound={playerRound}
           coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
           key={nanoid()}
@@ -28,4 +34,4 @@ const SmallScorecard: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
   )
 }
 
-export default SmallScorecard
+export default Scorecard

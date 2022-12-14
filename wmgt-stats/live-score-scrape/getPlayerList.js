@@ -6,6 +6,7 @@ const getPlayerList = (rowId, firstRow, collection = []) => {
   if (document.getElementById(`${rowId}R${firstRow}`)) {
     const rowEl = document.getElementById(`${rowId}R${firstRow}`).parentElement
 
+    if (!rowEl.querySelectorAll('img')[0]) return collection
     const flagImgSrc = rowEl.querySelectorAll('img')[0].src
 
     const rowCells = rowEl.querySelectorAll('td')
@@ -15,7 +16,7 @@ const getPlayerList = (rowId, firstRow, collection = []) => {
         rowCellsArray.push(cell.textContent.trim())
       }
     }
-    console.log(rowCellsArray)
+    // console.log(rowCellsArray)
 
     if (rowCellsArray.length < 1) return collection
 
@@ -23,8 +24,6 @@ const getPlayerList = (rowId, firstRow, collection = []) => {
       player: rowCellsArray[3],
       flag: flagImgSrc
     })
-
-    console.log(collection)
 
     getPlayerList(rowId, firstRow + 1, collection)
   }

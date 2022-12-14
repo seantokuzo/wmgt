@@ -35,7 +35,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           flex justify-between items-center"
         >
           <i
-            className="fa-solid fa-arrow-left"
+            className="fa-solid fa-arrow-left cursor-pointer"
             onClick={() => {
               if (hole === 1) return setHole(18)
               return setHole(hole - 1)
@@ -43,7 +43,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           ></i>
           {'Par ' + course.parByHole[hole - 1]}
           <i
-            className="fa-solid fa-arrow-right"
+            className="fa-solid fa-arrow-right cursor-pointer"
             onClick={() => {
               if (hole === 18) return setHole(1)
               return setHole(hole + 1)
@@ -55,7 +55,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
         <div
           className="absolute top-2 left-2
           w-10 h-10 p-5 text-2xl
-          border-2 border-[#38280e]
+          border-2 border-[#38280e] text-[#f8ff71]
           bg-[#38280e] shadow-insetbrown
           rounded-full
           flex justify-center items-center"

@@ -1,4 +1,5 @@
 import HoleImg from 'components/HoleImg'
+import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseInterface, coursesWithImages } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
@@ -9,7 +10,8 @@ type Props = {
   course: CourseInterface
 }
 
-const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
+const CourseScorecard: React.FC<Props> = ({ course }) => {
+  const { windowSize } = useAppContext()
   const {
     roundDetailsMode,
     showEasyCourse,
@@ -27,11 +29,12 @@ const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
   }
 
   const nineSlice = showFrontNine ? course.parByHole.slice(0, 9) : course.parByHole.slice(9)
+  const holesToMap = windowSize.width > 768 ? course.parByHole : nineSlice
 
   return (
-    <div className="w-full flex flex-col justify-center items-center mt-5 text-xs">
+    <div className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs relative">
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
-        <div className="absolute w-full z-100">
+        <div className="absolute top-0 w-1/2 z-100">
           <HoleImg
             course={course}
             hole={hoveredHole}
@@ -51,12 +54,14 @@ const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
             text1="EASY"
             text2="HARD"
           />
-          <ScorecardToggleBtn
-            show={showFrontNine}
-            toggle={toggleScorecardNine}
-            text1="FRONT 9"
-            text2="BACK 9"
-          />
+          {windowSize.width < 768 && (
+            <ScorecardToggleBtn
+              show={showFrontNine}
+              toggle={toggleScorecardNine}
+              text1="FRONT 9"
+              text2="BACK 9"
+            />
+          )}
           <ScorecardToggleBtn
             show={showScoreTracker}
             toggle={toggleScoreTracker}
@@ -68,39 +73,44 @@ const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
       <div className="flex flex-col justify-center items-center my-4" onClick={toggleCourse}>
         <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
         <p className="text-sm lg:text-base">{`(${course.alias})`}</p>
+        {coursesWithImages.includes(course.alias) && (
+          <p className="mt-1">Click a hole to see details</p>
+        )}
       </div>
       {/* ****** HOLES ROW ****** */}
       <div className="w-full text-xs flex justify-between items-center py-2">
         <div className="w-[25%] pr-2 flex justify-end">HOLE</div>
         <div className="w-full flex justify-between items-center px-0 sm:px-2">
-          {nineSlice.map((hole, i) => (
+          {holesToMap.map((hole, i) => (
             <div
-              className="w-[5%] flex justify-center items-center"
+              className={`w-5 md:w-7 lg:w-9
+              flex justify-center items-center
+              ${coursesWithImages.includes(course.alias) && 'cursor-pointer'}`}
               key={nanoid()}
               onClick={() => handleHoleHover(showFrontNine ? i + 1 : i + 10)}
             >
               <div
-                className="w-4 h-4 p-1
-                text-xxs
+                className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8
+                text-xxs sm:text-xs md:text-sm
                 border-[1px] rounded-[50%]
                 flex flex-col justify-center items-center text-center"
               >
-                {showFrontNine ? i + 1 : i + 10}
+                {windowSize.width > 768 || showFrontNine ? i + 1 : i + 10}
               </div>
             </div>
           ))}
         </div>
-        <div title="Total" className="w-14 text-xxs text-center">
+        <div title="Total" className="w-14 md:w-20 text-xxs text-center">
           TTL
         </div>
-        <div className="w-14 text-xs text-center"></div>
-        <div className="w-14 text-xs text-center"></div>
+        <div className="w-14 md:w-20 text-xs text-center"></div>
+        <div className="w-14 md:w-20 text-xs text-center"></div>
       </div>
       {/* ****** PARS ROW ****** */}
       <div className="w-full text-xs flex justify-between items-center">
         <div className="w-[25%] text-xs pr-2 flex justify-end">PAR</div>
         <div className="w-full flex justify-between items-center sm:px-2">
-          {nineSlice.map((par) => (
+          {holesToMap.map((par) => (
             <div className="w-[5%] flex flex-col justify-center items-center" key={nanoid()}>
               <div
                 className="text-xs font-semibold
@@ -111,12 +121,18 @@ const SmallCourseScorecard: React.FC<Props> = ({ course }) => {
             </div>
           ))}
         </div>
-        <div className="w-14 text-xxs lg:text-xs text-center">{course.par}</div>
-        <div className="w-14 text-xxs lg:text-xs text-center">SCORE</div>
-        <div className="w-14 text-xxs lg:text-xs text-center">🏁</div>
+        <div className="w-14 md:w-20 text-xxs sm:text-xs text-center">
+          {windowSize.width > 768 ? 'COURSE' : '⛳️'}
+        </div>
+        <div className="w-14 md:w-20 text-xxs sm:text-xs text-center">
+          {windowSize.width > 768 ? 'TOTAL' : '∑'}
+        </div>
+        <div className="w-14 md:w-20 text-xxs sm:text-xs text-center">
+          {windowSize.width > 768 ? 'RANK' : '🏁'}
+        </div>
       </div>
     </div>
   )
 }
 
-export default SmallCourseScorecard
+export default CourseScorecard

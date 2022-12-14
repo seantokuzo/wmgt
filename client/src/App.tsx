@@ -21,6 +21,9 @@ import { season6Data } from 'data/round-data/s6-round-data'
 // checkScores(4)
 // convertRawRoundData()
 
+// import { getComboList } from 'data/player-data/AllPlayersList'
+// getComboList()
+
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
 function App() {

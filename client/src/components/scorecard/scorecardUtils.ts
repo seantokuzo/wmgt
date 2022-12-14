@@ -1,3 +1,6 @@
+import { season6Data } from 'data/round-data/s6-round-data'
+import { season7Data } from 'data/round-data/s7-round-data'
+
 export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean) => {
   if (score === 0) return ''
   const decorations = 'border-[1px]'
@@ -30,4 +33,8 @@ export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean
     if (!outer) return darkMode ? 'text-[#f8ff71]' : 'text-white'
     return decorations + 'border-lime-700 bg-lime-700'
   }
+}
+
+abstract class Scorecard {
+  static getRoundHoleStats(round: number)
 }

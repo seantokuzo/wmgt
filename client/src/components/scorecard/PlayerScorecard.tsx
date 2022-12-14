@@ -9,8 +9,8 @@ type Props = {
   coursePars: number[]
 }
 
-const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
-  const { darkMode } = useAppContext()
+const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
+  const { darkMode, windowSize } = useAppContext()
   const { showEasyCourse, showScoreTracker, showFrontNine, toggleScorecardNine } =
     useSeasonContext()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
@@ -27,11 +27,15 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
   const otherScoreNine = showFrontNine ? otherScoreFull.slice(0, 9) : otherScoreFull.slice(9)
   const holeScoresNine = showFrontNine ? holeScores.slice(0, 9) : holeScores.slice(9)
 
+  const otherScoreMap = windowSize.width > 768 ? otherScoreFull : otherScoreNine
+  const mapThisScore = windowSize.width > 768 ? scoreToMapFull : scoreToMapNine
+  const whichHoleScores = windowSize.width > 768 ? holeScores : holeScoresNine
+
   return (
     <div
       className="w-full max-w-6xl min-h-10 my-1 text-xxs
       flex justify-between items-center"
-      onClick={toggleScorecardNine}
+      onClick={() => windowSize.width <= 768 && toggleScorecardNine()}
     >
       {/* ****** THE PLAYER NAME ****** */}
       <div
@@ -42,33 +46,28 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
         {playerRound.player}
       </div>
       {/* ****** ALL HOLE SCORES DIV ****** */}
-      <div className="w-full flex justify-between items-center px-0 sm:px-1">
-        {scoreToMapNine.map((score, i) => (
+      <div className="w-full flex justify-between items-center px-0 sm:px-2">
+        {mapThisScore.map((score, i) => (
           <div
-            className={`w-[5%]]
+            className={`w-5 md:w-7 lg:w-9
             flex flex-col justify-center items-center`}
-            title={`${otherScoreNine[i]}`}
+            title={`${otherScoreMap[i]}`}
             key={nanoid()}
           >
-            <div
-              className={`w-4 h-4 sm:w-7 sm:h-7
-              ${scoreDecoration(holeScoresNine[i], true, darkMode)}
-              flex flex-col justify-center items-center`}
-            >
+            <div className="">
               <div
-                className={`w-3 h-3 sm:w-5 sm:h-5
-                ${scoreDecoration(holeScoresNine[i], false, darkMode)}
-                ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
-                flex flex-col justify-center items-center`}
+                className={`w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8
+              ${scoreDecoration(whichHoleScores[i], true, darkMode)}
+              flex flex-col justify-center items-center`}
               >
-                {/* <div
-                className={`w-3 h-3 sm:w-5 sm:h-5
-                ${scoreDecoration(holeScoresNine[i], false, darkMode)}
-                ${score === 1 && !showScoreTracker && 'bg-red-400 rounded-[50%]'}
+                <div
+                  className={`w-3 h-3 md:w-5 md:h-5 lg:w-6 lg:h-6
+                ${scoreDecoration(whichHoleScores[i], false, darkMode)}
                 ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
                 flex flex-col justify-center items-center`}
-              > */}
-                {score}
+                >
+                  {score}
+                </div>
               </div>
             </div>
           </div>
@@ -76,11 +75,11 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
       </div>
       {/* ****** COURSE TOTAL ****** */}
       <div
-        className="w-14
+        className="w-14 md:w-20
         flex justify-center items-center"
       >
         <div
-          className={`p-1
+          className={`p-1 md:p-2
           border-l-2 border-b-2 rounded-md
           text-xxxs sm:text-xs
           flex justify-center items-center
@@ -90,9 +89,9 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
         </div>
       </div>
       {/* ****** ROUND TOTAL ****** */}
-      <div className="w-14 flex justify-center text-center">
+      <div className="w-14 md:w-20 flex justify-center text-center">
         <div
-          className={`p-1
+          className={`p-1 md:p-2
           border-l-2 border-b-2 rounded-md
           text-xxxs sm:text-xs`}
         >
@@ -100,7 +99,7 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
         </div>
       </div>
       {/* ****** ROUND RANK ****** */}
-      <div className="w-14 flex justify-center text-center">
+      <div className="w-14 md:w-20 flex justify-center text-center">
         <div
           className={`w-3/4 p-1 border-l-2 border-b-2 rounded-md text-xxxs sm:text-xs
           ${
@@ -122,4 +121,4 @@ const SmallPlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
   )
 }
 
-export default SmallPlayerScorecard
+export default PlayerScorecard

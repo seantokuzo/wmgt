@@ -1,8 +1,8 @@
 import RoundDetailBtn from './RoundDetailBtn'
 import { modes } from './RoundDetails'
 import { CourseInterface } from '../../data/course-data/wmgt-course-data'
-import { Link, useLocation } from 'react-router-dom'
-import { RoundDetailsMode } from 'context/season/seasonContext'
+import { Link } from 'react-router-dom'
+import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 
@@ -13,8 +13,7 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
-  const { pathname } = useLocation()
-  console.log(pathname.split('/season/')[1])
+  const { viewFrontNine, viewScorecard } = useSeasonContext()
 
   const toggleRoundBtn = (nextNotPrev: boolean) => {
     const seasonData = round.season === 6 ? season6Data : season7Data
@@ -28,6 +27,10 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
             text-sm md:text-xl
             flex flex-col justify-center items-center
             font-bold shadow-inyellfocus rounded-full"
+            onClick={() => {
+              viewScorecard()
+              viewFrontNine()
+            }}
           >
             {`R${round.round + 1}`}
             <i className="fa-solid fa-arrow-right"></i>
@@ -45,6 +48,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           text-sm md:text-xl
           flex flex-col justify-center items-center
           font-bold shadow-inyellfocus rounded-full"
+          onClick={viewFrontNine}
         >
           {`R${round.round - 1}`}
           <i className="fa-solid fa-arrow-left"></i>
@@ -77,10 +81,10 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       >
         {`SEASON ${round.season}`}
       </div>
-      <div className="w-full flex justify-between items-center px-4 mt-3">
+      <div className="w-full flex justify-evenly items-center px-4">
         {toggleRoundBtn(false)}
         <div
-          className="py-1 px-5 rounded-md mx-5
+          className="py-4 px-5 rounded-b-md mx-5
             text-2xl sm:text-4xl md:text-6xl font-bold font-scorenum 
             text-[#38280e] shadow-inyellfocus
             flex flex-col justify-center items-center"

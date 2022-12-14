@@ -8,7 +8,9 @@ type Action =
     }
   | { type: SeasonActionType.TOGGLE_COURSE }
   | { type: SeasonActionType.TOGGLE_SCORE_TRACKER }
+  | { type: SeasonActionType.VIEW_SCORECARD }
   | { type: SeasonActionType.TOGGLE_SCORECARD_NINE }
+  | { type: SeasonActionType.VIEW_FRONT_NINE }
 
 const seasonReducer = (state: SeasonStateInterface, action: Action): SeasonStateInterface => {
   switch (action.type) {
@@ -27,10 +29,20 @@ const seasonReducer = (state: SeasonStateInterface, action: Action): SeasonState
         ...state,
         showScoreTracker: !state.showScoreTracker
       }
+    case SeasonActionType.VIEW_SCORECARD:
+      return {
+        ...state,
+        showScoreTracker: false
+      }
     case SeasonActionType.TOGGLE_SCORECARD_NINE:
       return {
         ...state,
         showFrontNine: !state.showFrontNine
+      }
+    case SeasonActionType.VIEW_FRONT_NINE:
+      return {
+        ...state,
+        showFrontNine: true
       }
     default:
       throw new Error(`No such action: ${action}`)

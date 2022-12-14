@@ -8,9 +8,11 @@ type Props = {
 }
 
 const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
-  const { changeRoundDetailsMode } = useSeasonContext()
+  const { changeRoundDetailsMode, viewFrontNine, viewScorecard } = useSeasonContext()
   useEffect(() => {
     changeRoundDetailsMode('full')
+    viewFrontNine()
+    viewScorecard()
     // eslint-disable-next-line
   }, [])
 

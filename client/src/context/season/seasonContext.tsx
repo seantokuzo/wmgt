@@ -22,7 +22,9 @@ interface SeasonContextInterface extends SeasonStateInterface {
   changeRoundDetailsMode: (newMode: RoundDetailsMode) => void
   toggleCourse: () => void
   toggleScoreTracker: () => void
+  viewScorecard: () => void
   toggleScorecardNine: () => void
+  viewFrontNine: () => void
 }
 
 const SeasonContext = createContext<SeasonContextInterface>({
@@ -30,7 +32,9 @@ const SeasonContext = createContext<SeasonContextInterface>({
   changeRoundDetailsMode: () => null,
   toggleCourse: () => null,
   toggleScoreTracker: () => null,
-  toggleScorecardNine: () => null
+  viewScorecard: () => null,
+  toggleScorecardNine: () => null,
+  viewFrontNine: () => null
 })
 
 type Props = {
@@ -52,8 +56,18 @@ const SeasonContextProvider = ({ children }: Props) => {
     dispatch({ type: SeasonActionType.TOGGLE_SCORE_TRACKER })
   }
 
+  const viewScorecard = () => {
+    console.log('viewScorecard')
+
+    dispatch({ type: SeasonActionType.VIEW_SCORECARD })
+  }
+
   const toggleScorecardNine = () => {
     dispatch({ type: SeasonActionType.TOGGLE_SCORECARD_NINE })
+  }
+
+  const viewFrontNine = () => {
+    dispatch({ type: SeasonActionType.VIEW_FRONT_NINE })
   }
 
   return (
@@ -63,7 +77,9 @@ const SeasonContextProvider = ({ children }: Props) => {
         changeRoundDetailsMode,
         toggleCourse,
         toggleScoreTracker,
-        toggleScorecardNine
+        viewScorecard,
+        toggleScorecardNine,
+        viewFrontNine
       }}
     >
       {children}
