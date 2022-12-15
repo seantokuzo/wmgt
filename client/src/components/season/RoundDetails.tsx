@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import CourseScorecard from 'components/scorecard/CourseScorecard'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import { nanoid } from 'nanoid'
+import { ScorecardUtil } from 'components/scorecard/scorecardUtils'
 
 type Props = {
   round: RoundDataInterface
@@ -60,29 +61,25 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       {roundDetailsMode === 'easy' && (
         <>
           <CourseScorecard course={easyCourse} />
-          {[...round.scores]
-            .sort((a, b) => a.easyRoundScore - b.easyRoundScore)
-            .map((playerRound) => (
-              <PlayerScorecard
-                playerRound={playerRound}
-                coursePars={easyCourse.parByHole}
-                key={nanoid()}
-              />
-            ))}
+          {ScorecardUtil.getCourseLeaderboard([...round.scores], 'easy').map((playerRound) => (
+            <PlayerScorecard
+              playerRound={playerRound}
+              coursePars={easyCourse.parByHole}
+              key={nanoid()}
+            />
+          ))}
         </>
       )}
       {roundDetailsMode === 'hard' && (
         <>
           <CourseScorecard course={hardCourse} />
-          {[...round.scores]
-            .sort((a, b) => a.hardRoundScore - b.hardRoundScore)
-            .map((playerRound) => (
-              <PlayerScorecard
-                playerRound={playerRound}
-                coursePars={hardCourse.parByHole}
-                key={nanoid()}
-              />
-            ))}
+          {ScorecardUtil.getCourseLeaderboard([...round.scores], 'hard').map((playerRound) => (
+            <PlayerScorecard
+              playerRound={playerRound}
+              coursePars={hardCourse.parByHole}
+              key={nanoid()}
+            />
+          ))}
         </>
       )}
       <div className="mt-8">

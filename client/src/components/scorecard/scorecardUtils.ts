@@ -1,6 +1,8 @@
 // import { season6Data } from 'data/round-data/s6-round-data'
 // import { season7Data } from 'data/round-data/s7-round-data'
 
+import { PlayerRoundInterface } from 'data/round-data/roundTypes'
+
 export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean) => {
   if (score === 0) return ''
   const decorations = 'border-[1px]'
@@ -35,6 +37,9 @@ export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean
   }
 }
 
-// abstract class Scorecard {
-//   static getRoundHoleStats(round: number)
-// }
+export abstract class ScorecardUtil {
+  static getCourseLeaderboard(scores: PlayerRoundInterface[], course: 'easy' | 'hard') {
+    if (course === 'easy') return scores.sort((a, b) => a.easyRoundScore - b.easyRoundScore)
+    return scores.sort((a, b) => a.hardRoundScore - b.hardRoundScore)
+  }
+}
