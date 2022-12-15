@@ -994,7 +994,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 2,
     rank: 20,
-    player: 'Brit The Elder',
+    player: 'Brit_The_Elder',
     easyScore: -18,
     hardScore: -18,
     totalScore: -36
@@ -1822,7 +1822,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 3,
     rank: 23,
-    player: 'Brit The Elder',
+    player: 'Brit_The_Elder',
     easyScore: -16,
     hardScore: -8,
     totalScore: -24

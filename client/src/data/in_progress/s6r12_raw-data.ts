@@ -1,6 +1,4 @@
 import { courseData, CourseAlias } from '../course-data/wmgt-course-data'
-import { PlayerRoundInterface, RoundDataInterface } from 'data/round-data/roundTypes'
-import { ScrollRestoration } from 'react-router-dom'
 
 export interface RawPlayerRound {
   player: string
@@ -555,6 +553,78 @@ export const season6RawData: RawRoundData[] = [
         hardScorecard: [4, 4, 4, 4, 3, 3, 3, 2, 5, 1, 3, 3, 2, 7, 5, 2, 4, 4],
         hardRoundScore: -2
       }
+    ]
+  },
+  {
+    season: 6,
+    round: 11,
+    easyCourse: 'BBE',
+    hardCourse: 'EDH',
+    scores: [
+      {
+        player: '4whlr',
+        group: 1,
+        easyScorecard: [1, 2, 3, 2, 3, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2, 1, 1, 2],
+        easyRoundScore: -23,
+        hardScorecard: [2, 2, 2, 3, 2, 2, 4, 3, 5, 4, 3, 2, 1, 3, 3, 2, 2, 3],
+        hardRoundScore: -13
+      },
+      {
+        player: 'Stewie',
+        group: 1,
+        easyScorecard: [2, 1, 4, 2, 2, 3, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 3, 2],
+        easyRoundScore: -20,
+        hardScorecard: [3, 3, 2, 2, 3, 3, 2, 2, 2, 4, 3, 3, 2, 2, 3, 2, 2, 3],
+        hardRoundScore: -15
+      },
+      {
+        player: 'Mau',
+        group: 1,
+        easyScorecard: [2, 3, 3, 2, 3, 2, 1, 2, 3, 2, 2, 2, 3, 5, 2, 1, 1, 2],
+        easyRoundScore: -19,
+        hardScorecard: [2, 2, 3, 2, 4, 3, 2, 2, 2, 2, 4, 3, 1, 3, 2, 2, 2, 3],
+        hardRoundScore: -17
+      },
+      {
+        player: 'Emill',
+        group: 1,
+        easyScorecard: [2, 2, 3, 2, 3, 2, 1, 3, 2, 3, 2, 2, 3, 2, 4, 1, 3, 2],
+        easyRoundScore: -18,
+        hardScorecard: [2, 5, 2, 3, 2, 3, 6, 2, 2, 2, 3, 2, 1, 2, 3, 2, 2, 3],
+        hardRoundScore: -14
+      },
+      {
+        player: 'Bear313',
+        group: 2,
+        easyScorecard: [2, 2, 3, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 2, 2, 1, 1, 2],
+        easyRoundScore: -24,
+        hardScorecard: [2, 3, 2, 4, 2, 4, 2, 2, 3, 4, 5, 2, 1, 2, 2, 2, 3, 3],
+        hardRoundScore: -13
+      },
+      {
+        player: 'Otvormeister',
+        group: 2,
+        easyScorecard: [2, 2, 4, 2, 3, 2, 2, 3, 4, 3, 2, 2, 3, 3, 3, 2, 1, 2],
+        easyRoundScore: -15,
+        hardScorecard: [3, 4, 3, 4, 3, 5, 2, 2, 4, 3, 5, 2, 4, 2, 2, 2, 2, 4],
+        hardRoundScore: -5
+      },
+      {
+        player: 'BaruMonkey',
+        group: 2,
+        easyScorecard: [1, 2, 4, 2, 2, 3, 2, 2, 5, 2, 3, 3, 3, 2, 3, 2, 3, 2],
+        easyRoundScore: -14,
+        hardScorecard: [4, 4, 2, 2, 2, 4, 2, 2, 5, 2, 5, 2, 4, 3, 3, 2, 2, 4],
+        hardRoundScore: -7
+      },
+      {
+        player: 'Brit_The_Elder',
+        group: 2,
+        easyScorecard: [2, 2, 3, 2, 2, 2, 2, 2, 3, 4, 2, 2, 2, 2, 2, 3, 2, 3],
+        easyRoundScore: -18,
+        hardScorecard: [2, 7, 2, 3, 3, 2, 4, 2, 2, 3, 3, 2, 4, 4, 3, 3, 3, 5],
+        hardRoundScore: -4
+      }
       // {
       //   player: '',
       //   group: 0,
@@ -565,7 +635,6 @@ export const season6RawData: RawRoundData[] = [
       // }
     ]
   },
-  // { season: 6, round: 11, easyCourse: 'BBE', hardCourse: 'EDH', scores: [] },
   // { season: 6, round: 10, easyCourse: 'AME', hardCourse: 'SWH', scores: [] },
   // { season: 6, round: 9, easyCourse: 'QVE', hardCourse: 'OGH', scores: [] },
   // { season: 6, round: 8, easyCourse: 'SLE', hardCourse: 'GBH', scores: [] },

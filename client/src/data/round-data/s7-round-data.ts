@@ -2524,7 +2524,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 20,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 42,
         hardRoundTotal: 50,
         seasonPointsEarned: 9,
@@ -4648,7 +4648,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 23,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 38,
         hardRoundTotal: 56,
         seasonPointsEarned: 8,
@@ -7416,7 +7416,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 64,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 44,
         hardRoundTotal: 57,
         seasonPointsEarned: 3,
@@ -9356,7 +9356,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 67,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 49,
         hardRoundTotal: 58,
         seasonPointsEarned: 2,
@@ -10422,7 +10422,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 35,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 36,
         hardRoundTotal: 58,
         seasonPointsEarned: 6,
@@ -12684,7 +12684,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 57,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 56,
         hardRoundTotal: 53,
         seasonPointsEarned: -20,
@@ -14371,7 +14371,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 54,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 43,
         hardRoundTotal: 52,
         seasonPointsEarned: 4,
@@ -17837,7 +17837,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 55,
-        player: 'Brit The Elder',
+        player: 'Brit_The_Elder',
         easyRoundTotal: 55,
         hardRoundTotal: 50,
         seasonPointsEarned: 3,

@@ -66,28 +66,22 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 
   const courseLabelEl = (course: CourseInterface) => {
     return (
-      <div className="w-1/2 md:w-auto py-2 px-4 mx-2 bg-[#f8ff71] rounded-md shadow-inyellfocus">
-        <h3 className="text-base md:text-xl font-semibold">
-          {course.course + ' ' + course.difficulty}
-        </h3>
-        <p className="text-sm md:text-base">({course.alias})</p>
-        <p className="text-base md:text-lg">{course.courseMoji}</p>
+      <div className="w-1/2 py-2 px-4 bg-[#f8ff71] rounded-b-md shadow-inyellfocus">
+        <h3 className="text-base md:text-xl font-semibold">{course.course}</h3>
+        <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3>
+        <p className="text-sm md:text-base">
+          ({course.alias} {course.courseMoji})
+        </p>
       </div>
     )
   }
 
   return (
     <div
-      className={`w-full max-w-4xl pb-2 rounded-lg
+      className={`w-full max-w-4xl rounded-lg
       text-[#38280e]
       ${!coursesWithImages.includes(courseAlias) && 'bg-[#f8ff71] shadow-insetyellow'}
-      bg-no-repeat bg-center bg-cover
       flex flex-col justify-center items-center text-center`}
-      style={{
-        backgroundImage: coursesWithImages.includes(courseAlias)
-          ? `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
-          : ''
-      }}
     >
       <div
         className="w-full bg-[#38280e] text-2xl py-3 shadow-insetbrown
@@ -95,33 +89,49 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       >
         {`SEASON ${round.season}`}
       </div>
-      <div className="w-full flex justify-evenly items-center px-4">
+      <div
+        className="w-full px-4
+        text-[#38280e] bg-[#f8ff71] shadow-inyellfocus
+        flex justify-evenly items-center"
+      >
         {toggleRoundBtn(false)}
         <div
           className="py-4 px-5 rounded-b-md mx-5
-            text-2xl sm:text-4xl md:text-6xl font-bold font-scorenum 
-            text-[#38280e] bg-[#f8ff71] shadow-inyellfocus
+            text-2xl sm:text-4xl md:text-5xl font-bold font-scorenum
             flex flex-col justify-center items-center"
         >
-          <div>ROUND</div>
-          <div>{`${round.round}`}</div>
+          <div>{`ROUND ${round.round}`}</div>
         </div>
         {toggleRoundBtn(true)}
       </div>
       <div
-        className="w-full my-3 px-3 text-center
+        className="w-full text-center
         flex justify-evenly items-start"
       >
         {courseLabelEl(easyCourse)}
         {courseLabelEl(hardCourse)}
       </div>
       <div
-        className="w-full md:w-3/4 max-w-xl py-2 px-1
-        flex flex-wrap justify-evenly items-center"
+        className="w-full pb-10
+        bg-no-repeat bg-center bg-cover
+        flex flex-col justify-center items-center"
+        style={{
+          backgroundImage: `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
+        }}
       >
-        {(Object.keys(modes) as RoundDetailsMode[]).map((m) => (
-          <RoundDetailBtn key={`mode-btn-${m}`} btnText={modes[m]} btnMode={m} />
-        ))}
+        <div className="py-40">
+          <h2>GOLD</h2>
+          <h2>SILVER</h2>
+          <h2>BRONZE</h2>
+        </div>
+        <div
+          className="w-full md:w-3/4 max-w-xl px-1
+        flex flex-wrap justify-evenly items-center"
+        >
+          {(Object.keys(modes) as RoundDetailsMode[]).map((m) => (
+            <RoundDetailBtn key={`mode-btn-${m}`} btnText={modes[m]} btnMode={m} />
+          ))}
+        </div>
       </div>
     </div>
   )

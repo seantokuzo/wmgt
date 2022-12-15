@@ -321,7 +321,7 @@ export const courseHoleImgLink =
   'https://wmgt-stats.s3.us-west-1.amazonaws.com/course-assets/<COURSE>/hole-img/<COURSE>_H<HOLE>.JPG'
 
 export const courseFullImgLink =
-  'https://wmgt-stats.s3.us-west-1.amazonaws.com/course-assets/<COURSE>/<COURSE>_FULL.JPG'
+  'https://wmgt-stats.s3.us-west-1.amazonaws.com/course-assets/full-course-img/<COURSE>_FULL.JPG'
 
 export type Hole = '' | number
 

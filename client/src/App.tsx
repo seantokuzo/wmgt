@@ -16,9 +16,8 @@ import { season6Data } from 'data/round-data/s6-round-data'
 
 // import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // import { convertRawRoundData } from './data/in_progress/s6r12_raw-data'
-// import { checkScores } from './data/in_progress/s6r12_raw-data'
-// checkScores(12)
-// checkScores(4)
+import { checkScores } from './data/in_progress/s6r12_raw-data'
+checkScores(11)
 // convertRawRoundData()
 
 // import { getComboList } from 'data/player-data/AllPlayersList'
