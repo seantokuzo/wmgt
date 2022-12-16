@@ -89,11 +89,11 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           <>
             <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
             {round.scores
-              .filter(
-                (score) =>
-                  score.easyScorecard.some((s) => s === 1) ||
-                  score.hardScorecard.some((s) => s === 1)
-              )
+              .filter((score) => {
+                return showEasyCourse
+                  ? score.easyScorecard.some((s) => s === 1)
+                  : score.hardScorecard.some((s) => s === 1)
+              })
               .map((playerRound) => (
                 <PlayerScorecard
                   playerRound={playerRound}
