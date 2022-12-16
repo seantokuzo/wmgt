@@ -87,7 +87,6 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   }
 
   const podium = ScorecardUtil.getRoundPodium(round)
-  console.log(podium)
 
   const podiumSectionEl = (
     podiumFinishers: { player: string; flag: string }[],

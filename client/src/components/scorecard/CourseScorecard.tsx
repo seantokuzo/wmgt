@@ -36,8 +36,6 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
   const nineSlice = showFrontNine ? course.parByHole.slice(0, 9) : course.parByHole.slice(9)
   const holesToMap = windowSize.width > 768 ? course.parByHole : nineSlice
 
-  console.log(pathname)
-
   return (
     <div
       className="w-full max-w-6xl mt-5

@@ -65,8 +65,6 @@ const SeasonContextProvider = ({ children }: Props) => {
   }
 
   const viewScorecard = () => {
-    console.log('viewScorecard')
-
     dispatch({ type: SeasonActionType.VIEW_SCORECARD })
   }
 
