@@ -27,12 +27,14 @@ export const modes = {
 
 const RoundDetails: React.FC<Props> = ({ round }) => {
   // const { windowSize } = useAppContext()
-  const { roundDetailsMode, viewFrontNine } = useSeasonContext()
+  const { showEasyCourse, roundDetailsMode, changeRoundDetailsMode, viewFrontNine } =
+    useSeasonContext()
 
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
 
   useEffect(() => {
+    changeRoundDetailsMode('full')
     viewFrontNine()
     // eslint-disable-next-line
   }, [])
@@ -83,7 +85,25 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         </>
       )}
       <div className="mt-8">
-        {roundDetailsMode === 'aces' && <ComingSoon text="⛳️ COMING SOON ⛳️" />}
+        {roundDetailsMode === 'aces' && (
+          <>
+            <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
+            {round.scores
+              .filter(
+                (score) =>
+                  score.easyScorecard.some((s) => s === 1) ||
+                  score.hardScorecard.some((s) => s === 1)
+              )
+              .map((playerRound) => (
+                <PlayerScorecard
+                  playerRound={playerRound}
+                  coursePars={hardCourse.parByHole}
+                  aces={true}
+                  key={nanoid()}
+                />
+              ))}
+          </>
+        )}
         {roundDetailsMode === 'coconuts' && <ComingSoon text="🥥 COMING SOON 🥥" />}
         {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
       </div>

@@ -1,9 +1,11 @@
+import CourseStats from 'components/course/courseStats'
 import HoleImg from 'components/HoleImg'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseInterface, coursesWithImages } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
 
 type Props = {
@@ -13,6 +15,7 @@ type Props = {
 export const holeSlotSizes = 'w-5 sm:w-7 lg:w-9'
 
 const CourseScorecard: React.FC<Props> = ({ course }) => {
+  const { pathname } = useLocation()
   const { windowSize } = useAppContext()
   const {
     roundDetailsMode,
@@ -33,6 +36,8 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
   const nineSlice = showFrontNine ? course.parByHole.slice(0, 9) : course.parByHole.slice(9)
   const holesToMap = windowSize.width > 768 ? course.parByHole : nineSlice
 
+  console.log(pathname)
+
   return (
     <div
       className="w-full max-w-6xl mt-5
@@ -48,13 +53,60 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             exit={() => setHoveredHole('')}
             setHole={setHoveredHole}
           />
+          <div
+            className="w-full text-[#38280e]
+            flex justify-evenly"
+          >
+            <div
+              className="px-4 py-2 rounded-b-md shadow-insetyellow
+              text-xl font-semibold uppercase
+              bg-[#f8ff71]
+              flex flex-col justify-center items-center"
+            >
+              <div className="uppercase"># Aces</div>
+              <div
+                className="w-14 h-14 p-2 bg-[#38280e] text-[#f8ff71] rounded-full
+                flex justify-center items-center"
+              >
+                {CourseStats.getNumberOfAces(+pathname[9], course.alias)[hoveredHole - 1]}
+              </div>
+            </div>
+            <div
+              className="px-4 py-2 rounded-b-md shadow-insetyellow
+              text-xl font-semibold uppercase
+              bg-[#f8ff71]
+              flex flex-col justify-center items-center"
+            >
+              <div className="uppercase">Top 10 Avg</div>
+              <div
+                className="w-14 h-14 p-2 bg-[#38280e] text-[#f8ff71] rounded-full
+                flex justify-center items-center"
+              >
+                {CourseStats.getRoundTopTenAvg(+pathname[9], course.alias)[hoveredHole - 1]}
+              </div>
+            </div>
+            <div
+              className="px-4 py-2 rounded-b-md shadow-insetyellow
+              text-xl font-semibold uppercase
+              bg-[#f8ff71]
+              flex flex-col justify-center items-center"
+            >
+              <div className="uppercase">Avg Score</div>
+              <div
+                className="w-14 h-14 p-2 bg-[#38280e] text-[#f8ff71] rounded-full
+                flex justify-center items-center"
+              >
+                {CourseStats.getCourseAveragesPerRound(+pathname[9], course.alias)[hoveredHole - 1]}
+              </div>
+            </div>
+          </div>
         </div>
       )}
       <div
         className="w-full max-w-4xl
           flex flex-col md:flex-row justify-center md:justify-between items-center"
       >
-        {roundDetailsMode === 'full' && (
+        {(roundDetailsMode === 'full' || roundDetailsMode === 'aces') && (
           <ScorecardToggleBtn
             show={showEasyCourse}
             toggle={toggleCourse}
@@ -79,9 +131,11 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
       </div>
       <div
         className={`flex flex-col justify-center items-center my-4 ${
-          roundDetailsMode === 'full' && 'cursor-pointer'
+          (roundDetailsMode === 'full' || roundDetailsMode === 'aces') && 'cursor-pointer'
         }`}
-        onClick={() => roundDetailsMode === 'full' && toggleCourse()}
+        onClick={() =>
+          (roundDetailsMode === 'full' || roundDetailsMode === 'aces') && toggleCourse()
+        }
       >
         <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
         <p className="text-sm lg:text-base">{`(${course.alias})`}</p>

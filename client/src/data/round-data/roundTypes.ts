@@ -24,6 +24,14 @@ export interface PlayerRoundInterface {
   numStrokeOut: number
 }
 
+type AceScorecard = number | ''
+
+export interface PlayerRoundAces {
+  player: string
+  easyAcesScorecard: AceScorecard[]
+  hardAcesScorecard: AceScorecard[]
+}
+
 export interface RoundDataInterface {
   season: number
   round: number

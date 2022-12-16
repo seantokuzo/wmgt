@@ -8,9 +8,10 @@ import { holeSlotSizes } from './CourseScorecard'
 type Props = {
   playerRound: PlayerRoundInterface
   coursePars: number[]
+  aces?: boolean
 }
 
-const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
+const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => {
   const { darkMode, windowSize } = useAppContext()
   const { roundDetailsMode, showEasyCourse, showScoreTracker, showFrontNine, toggleScorecardNine } =
     useSeasonContext()
@@ -32,6 +33,13 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
   const otherScoreMap = windowSize.width > 768 ? otherScoreFull : otherScoreNine
   const mapThisScore = windowSize.width > 768 ? scoreToMapFull : scoreToMapNine
   const whichHoleScores = windowSize.width > 768 ? holeScores : holeScoresNine
+
+  if (aces) {
+    if (showEasyCourse) {
+      if (!playerRound.easyScorecard.some((s) => s === 1)) return <></>
+    }
+    if (!playerRound.hardScorecard.some((s) => s === 1)) return <></>
+  }
 
   return (
     <div
@@ -63,16 +71,18 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
             <div className="">
               <div
                 className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-              ${scoreDecoration(whichHoleScores[i], true, darkMode)}
+              ${!aces && scoreDecoration(whichHoleScores[i], true, darkMode)}
               flex flex-col justify-center items-center`}
               >
                 <div
                   className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6
-                ${scoreDecoration(whichHoleScores[i], false, darkMode)}
+                ${!aces && scoreDecoration(whichHoleScores[i], false, darkMode)}
                 ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
+                ${score === 1 && 'bg-red-600'}
+                ${aces && 'rounded-full'}
                 flex flex-col justify-center items-center`}
                 >
-                  {score}
+                  {aces && score === 1 ? score : aces ? '' : score}
                 </div>
               </div>
             </div>
@@ -107,7 +117,9 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
       {/* ****** ROUND RANK ****** */}
       <div className="w-12 md:w-20 flex justify-center text-center">
         <div
-          className={`w-3/4 p-1 border-l-2 border-b-2 rounded-md text-xxxs sm:text-xs
+          className={`w-3/4 p-1 md:p-2
+          text-xxxs sm:text-xs
+          border-l-2 border-b-2 rounded-md
           ${
             playerRound.roundRank === 1
               ? 'bg-amber-400/[0.85] border-amber-500/[0.25]'

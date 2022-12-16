@@ -2,7 +2,8 @@ import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 
 import { allPlayersList, flagConverter, PlayerInterface } from 'data/player-data/AllPlayersList'
-import { PlayerRoundInterface } from 'data/round-data/roundTypes'
+import { PlayerRoundInterface, RoundDataInterface } from 'data/round-data/roundTypes'
+import { courseData } from 'data/course-data/wmgt-course-data'
 
 export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean) => {
   if (score === 0) return ''
@@ -73,10 +74,6 @@ export abstract class ScorecardUtil {
         : members
             .map((s) => allPlayersList.filter((p) => p.player === s.player)[0])
             .map((player) => {
-              console.log(
-                player,
-                flagConverter.some((p) => p.link === player.flag)
-              )
               return {
                 player: player.player,
                 flag: this.getPlayerFlag(player.flag)
@@ -87,7 +84,16 @@ export abstract class ScorecardUtil {
     const silver = getFinishers(silverMembers)
     const bronze = getFinishers(bronzeMembers)
 
-    console.log({ gold, silver, bronze })
     return { gold, silver, bronze }
+  }
+
+  static convertPlayerRoundsToAcesOnly(round: RoundDataInterface) {
+    return round.scores.map((score) => {
+      return {
+        ...score,
+        easyScorecard: score.easyScorecard.map((s) => (s === 1 ? s : '')),
+        hardScorecard: score.easyScorecard.map((s) => (s === 1 ? s : ''))
+      }
+    })
   }
 }

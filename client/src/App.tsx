@@ -16,18 +16,19 @@ import { season6Data } from 'data/round-data/s6-round-data'
 
 // import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // import { convertRawRoundData } from './data/in_progress/s6r12_raw-data'
-import { checkScores } from './data/in_progress/s6r12_raw-data'
-checkScores(11)
+// import { checkScores } from './data/in_progress/s6r12_raw-data'
+// checkScores(11)
 // convertRawRoundData()
 
 // import { getComboList } from 'data/player-data/AllPlayersList'
 // getComboList()
 
-import { flagConverter, allPlayersList } from 'data/player-data/AllPlayersList'
-const notFound = allPlayersList.filter(
-  (player) => !flagConverter.some((p) => p.link === player.flag)
-)
-console.log('Flag Not Found: ', notFound)
+// FLAG CONVERSION
+// import { flagConverter, allPlayersList } from 'data/player-data/AllPlayersList'
+// const notFound = allPlayersList.filter(
+//   (player) => !flagConverter.some((p) => p.link === player.flag)
+// )
+// console.log('Flag Not Found: ', notFound)
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
