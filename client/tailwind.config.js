@@ -11,7 +11,7 @@ module.exports = {
     },
     extend: {
       fontSize: {
-        xxxs: '0.5rem',
+        xxxs: '0.45rem',
         xxs: '0.6rem'
       },
       boxShadow: {
@@ -21,7 +21,8 @@ module.exports = {
         yellow: '12px 12px 24px #b8bd54, -12px -12px 24px #ffff8e80',
         insetbrown: 'inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212',
         basic: '2px 2px 15px rgba(0, 0, 0, 0.75), 12px 12px 9px rgba(0, 0, 0, 0.5)',
-        insetbasic: 'inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020'
+        insetbasic: 'inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020',
+        insetcondor: 'inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;'
       },
       keyframes: {
         spin: {

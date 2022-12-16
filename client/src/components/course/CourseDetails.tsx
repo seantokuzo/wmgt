@@ -40,7 +40,7 @@ type StatTypes =
 
 const CourseDetails: React.FC<Props> = ({ course }) => {
   const [selectedStat, setSelectedStat] = useState<StatTypes>('default')
-  const [hoveredHole, setHoveredHole] = useState<Hole>('')
+  const [selectedHole, setSelectedHole] = useState<Hole>('')
 
   const s7Round: RoundDataInterface[] | [] = S7_DATA.filter(
     (round) => round.easyCourse === course.alias || round.hardCourse === course.alias
@@ -48,7 +48,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
 
   const handleHoleHover = (hole: Hole) => {
     if (!coursesWithImages.includes(course.alias)) return
-    setHoveredHole(hole)
+    setSelectedHole(hole)
   }
 
   const getHoleStats = (): number[] | string[] => {
@@ -105,152 +105,154 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
         font-scoretext"
       // style={{
       //   backgroundImage:
-      //     hoveredHole !== ''
+      //     selectedHole !== ''
       //       ? `url(${courseHoleImgLink
       //           .replace('<COURSE>', course.alias)
       //           .replace('<COURSE>', course.alias)
-      //           .replace('<HOLE>', hoveredHole.toString())})`
+      //           .replace('<HOLE>', selectedHole.toString())})`
       //       : 'none'
       // }}
     >
       {/* ****** HOLE IMG ON HOVER ****** */}
-      {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
+      {coursesWithImages.includes(course.alias) && selectedHole !== '' && (
         <div
           className="absolute top-1/2 left-1/2
           translate-x-[-50%] translate-y-[-50%] z-100"
         >
           <HoleImg
             course={course}
-            hole={hoveredHole}
-            exit={() => setHoveredHole('')}
-            setHole={setHoveredHole}
+            hole={selectedHole}
+            exit={() => setSelectedHole('')}
+            setHole={setSelectedHole}
           />
         </div>
       )}
-      <div
-        className={`relative w-full px-7 md:p-5 py-6 flex
+      {(!coursesWithImages.includes(course.alias) || selectedHole === '') && (
+        <div
+          className={`relative w-full px-7 md:p-5 py-6 flex
       flex-col justify-center items-center bg-[#f8ff71]
-      text-[#38280e] ${hoveredHole !== '' && 'opacity-0'}`}
-      >
-        {/* ***** TOP OF SCORECARD DIV ***** */}
-        <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
-          <div className="w-full md:w-1/3">
-            <Link
-              to="/course"
-              className="w-10 h-10 p-2 text-xl
+      text-[#38280e] ${selectedHole !== '' && 'opacity-0'}`}
+        >
+          {/* ***** TOP OF SCORECARD DIV ***** */}
+          <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
+            <div className="w-full md:w-1/3">
+              <Link
+                to="/course"
+                className="w-10 h-10 p-2 text-xl
               flex justify-center items-center
               hover:shadow-lg hover:scale-105
               border-2 border-[#38280e] rounded-[100%]"
-            >
-              <i className="fa-solid fa-arrow-left"></i>
-            </Link>
-          </div>
-          <div
-            className="w-full md:w-1/3 mt-3 md:mt-0
+              >
+                <i className="fa-solid fa-arrow-left"></i>
+              </Link>
+            </div>
+            <div
+              className="w-full md:w-1/3 mt-3 md:mt-0
               flex flex-col justify-center items-center text-center"
-          >
-            <h1 className="text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
-            <h3>
-              ({course.alias} {course.courseMoji})
-            </h3>
-          </div>
-          <div className="w-full md:w-1/3 flex justify-end mt-3 md:mt-0">
-            <select
-              id="course-stats-selector"
-              className="w-full md:w-fit bg-[#38280e] border border-gray-300 text-gray-900 text-sm
+            >
+              <h1 className="text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
+              <h3>
+                ({course.alias} {course.courseMoji})
+              </h3>
+            </div>
+            <div className="w-full md:w-1/3 flex justify-end mt-3 md:mt-0">
+              <select
+                id="course-stats-selector"
+                className="w-full md:w-fit bg-[#38280e] border border-gray-300 text-gray-900 text-sm
             rounded-lg
             focus:ring-blue-500 focus:border-blue-500 block p-2.5
             dark:bg-gray-700 dark:border-gray-600 dark:text-white
             dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              onChange={(e) => setSelectedStat(e.target.value as StatTypes)}
-            >
-              <option value="default">SELECT A STAT</option>
-              {s7Round[0] && (
-                <option value="S7_AVG">{`S7 - R${s7Round[0].round} AVG SCORE`}</option>
-              )}
-              {s7Round[0] && (
-                <option value="S7_TOP10">{`S7 - R${s7Round[0].round} TOP 10 AVG`}</option>
-              )}
-              {s7Round[0] && (
-                <option value="S7_BEST">{`S7 - R${s7Round[0].round} BEST SCORE`}</option>
-              )}
-              {s7Round[0] && (
-                <option value="S7_ACES">{`S7 - R${s7Round[0].round} # OF ACES`}</option>
-              )}
-              {/* <option value="AT_AVG">ALL TIME AVG</option>
+                onChange={(e) => setSelectedStat(e.target.value as StatTypes)}
+              >
+                <option value="default">SELECT A STAT</option>
+                {s7Round[0] && (
+                  <option value="S7_AVG">{`S7 - R${s7Round[0].round} AVG SCORE`}</option>
+                )}
+                {s7Round[0] && (
+                  <option value="S7_TOP10">{`S7 - R${s7Round[0].round} TOP 10 AVG`}</option>
+                )}
+                {s7Round[0] && (
+                  <option value="S7_BEST">{`S7 - R${s7Round[0].round} BEST SCORE`}</option>
+                )}
+                {s7Round[0] && (
+                  <option value="S7_ACES">{`S7 - R${s7Round[0].round} # OF ACES`}</option>
+                )}
+                {/* <option value="AT_AVG">ALL TIME AVG</option>
               <option value="AT_TOP10">ALL TIME TOP 10 AVG</option>
               <option value="AT_BEST">ALL TIME BEST SCORE</option>
               <option value="AT_ACES">ALL TIME # OF ACES</option> */}
-            </select>
+              </select>
+            </div>
           </div>
-        </div>
-        {/* ***** BOTTOM HALF OF SCORECARD - THE SCORES ***** */}
-        <div
-          className="w-full md:w-auto px-0 md:px-6 py-4 rounded-md
+          {/* ***** BOTTOM HALF OF SCORECARD - THE SCORES ***** */}
+          <div
+            className="w-full md:w-auto px-0 md:px-6 py-4 rounded-md
           mt-4
           bg-[#38280e] text-[#f8ff71]
           flex flex-col md:flex-row justify-center items-center"
-        >
-          <div className="w-3/4 md:w-auto flex flex-col md:flex-row justify-center items-center">
-            <div
-              className="w-full py-4 md:py-0
+          >
+            <div className="w-3/4 md:w-auto flex flex-col md:flex-row justify-center items-center">
+              <div
+                className="w-full py-4 md:py-0
               flex flex-row justify-between items-baseline
               md:flex-col md:justify-center md:items-end mr-0 md:mr-2"
-            >
-              <div className="text-base md:flex md:justify-center md:items-center h-auto md:h-4 md:py-4">
-                HOLE
-              </div>
-              <div className="text-sm mt-0 md:mt-1">PAR</div>
-              <div
-                className="text-base text-center w-min md:w-max h-auto md:h-10
+              >
+                <div className="text-base md:flex md:justify-center md:items-center h-auto md:h-4 md:py-4">
+                  HOLE
+                </div>
+                <div className="text-sm mt-0 md:mt-1">PAR</div>
+                <div
+                  className="text-base text-center w-min md:w-max h-auto md:h-10
                 mt-0 md:mt-1
                 md:flex md:items-center"
-              >
-                {statTitle[selectedStat]}
+                >
+                  {statTitle[selectedStat]}
+                </div>
               </div>
-            </div>
-            {course.parByHole.map((par, i) => (
-              <div
-                className="w-full px-1 font-scorenum
+              {course.parByHole.map((par, i) => (
+                <div
+                  className="w-full px-1 font-scorenum
                 flex flex-row justify-between items-center
                 md:flex-col md:justify-center
                 my-1 md:my-0"
-                key={`${course.alias}${i + 1}`}
-              >
-                <div
-                  className="w-4 h-4 p-4 my-1
+                  key={`${course.alias}${i + 1}`}
+                >
+                  <div
+                    className="w-4 h-4 p-4 my-1
                 flex flex-col justify-center items-center
                 border-2 border-[#f8ff71] rounded-[100%]
                 text-lg font-scorenum cursor-pointer"
-                  onClick={() => handleHoleHover(i + 1)}
-                >
-                  {i + 1}
-                </div>
-                <p className="text-sm md:ml-0 text-center">{par}</p>
-                <div
-                  className="w-12 h-12 bg-[#f8ff71]
+                    onClick={() => handleHoleHover(i + 1)}
+                  >
+                    {i + 1}
+                  </div>
+                  <p className="text-sm md:ml-0 text-center">{par}</p>
+                  <div
+                    className="w-12 h-12 bg-[#f8ff71]
                   flex justify-center items-center
                   rounded-md shadow-insetyellow"
-                >
-                  <p className="text-2xl font-bold text-[#38280e]">{getHoleStats()[i]}</p>
+                  >
+                    <p className="text-2xl font-bold text-[#38280e]">{getHoleStats()[i]}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          <div className="w-3/4 my-4 md:my-0 flex flex-row md:flex-col justify-between md:justify-center items-center">
-            <h4 className="text-base tracking-tight">PAR: {course.par}</h4>
-            <div
-              className="w-20 h-20 p-2 rounded-md ml-0 mt-0
+              ))}
+            </div>
+            <div className="w-3/4 my-4 md:my-0 flex flex-row md:flex-col justify-between md:justify-center items-center">
+              <h4 className="text-base tracking-tight">PAR: {course.par}</h4>
+              <div
+                className="w-20 h-20 p-2 rounded-md ml-0 mt-0
               md:mt-2 md:ml-2
               flex flex-col justify-between items-center
               bg-[#f8ff71] font-scorenum shadow-insetyellow"
-            >
-              <p className="text-xs text-[#38280e]">TOTAL</p>
-              <h2 className="text-5xl font-bold text-[#38280e]">{getTotalScoreStat()}</h2>
+              >
+                <p className="text-xs text-[#38280e]">TOTAL</p>
+                <h2 className="text-5xl font-bold text-[#38280e]">{getTotalScoreStat()}</h2>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

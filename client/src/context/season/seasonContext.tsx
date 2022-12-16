@@ -21,6 +21,7 @@ export const initialSeasonState: SeasonStateInterface = {
 interface SeasonContextInterface extends SeasonStateInterface {
   changeRoundDetailsMode: (newMode: RoundDetailsMode) => void
   toggleCourse: () => void
+  viewCourse: (course: 'easy' | 'hard') => void
   toggleScoreTracker: () => void
   viewScorecard: () => void
   toggleScorecardNine: () => void
@@ -31,6 +32,7 @@ const SeasonContext = createContext<SeasonContextInterface>({
   ...initialSeasonState,
   changeRoundDetailsMode: () => null,
   toggleCourse: () => null,
+  viewCourse: () => null,
   toggleScoreTracker: () => null,
   viewScorecard: () => null,
   toggleScorecardNine: () => null,
@@ -82,6 +84,7 @@ const SeasonContextProvider = ({ children }: Props) => {
         ...state,
         changeRoundDetailsMode,
         toggleCourse,
+        viewCourse,
         toggleScoreTracker,
         viewScorecard,
         toggleScorecardNine,

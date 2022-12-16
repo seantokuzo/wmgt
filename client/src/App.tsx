@@ -23,6 +23,12 @@ checkScores(11)
 // import { getComboList } from 'data/player-data/AllPlayersList'
 // getComboList()
 
+import { flagConverter, allPlayersList } from 'data/player-data/AllPlayersList'
+const notFound = allPlayersList.filter(
+  (player) => !flagConverter.some((p) => p.link === player.flag)
+)
+console.log('Flag Not Found: ', notFound)
+
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
 function App() {
@@ -33,6 +39,8 @@ function App() {
   // const bgColor = pathname === '/' ? 'bg-none' : darkMode ? 'bg-[#38280e]' : 'bg-white'
   const bgColor = darkMode ? 'bg-black' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'
+  // const bgColor = darkMode ? 'bg-[#1b1b1b]' : 'bg-white'
+  // const textColor = !darkMode ? 'text-[#1b1b1b]' : 'text-white'
 
   // TRACK WINDOW SIZE FOR SCORECARD COMPONENT BIG OR SMALL
   useEffect(() => {
@@ -49,7 +57,7 @@ function App() {
 
   return (
     <div
-      className={`w-full min-h-screen h-full font-reg
+      className={`w-full min-w-screen min-h-screen h-full font-reg
       ${bgColor}
       ${textColor}
       flex flex-col justify-start items-center`}

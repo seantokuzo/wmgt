@@ -515,7 +515,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 21,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 36,
         hardRoundTotal: 55,
         seasonPointsEarned: 8,
@@ -2133,7 +2133,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 3,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 33,
         hardRoundTotal: 48,
         seasonPointsEarned: 18,
@@ -4234,7 +4234,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 5,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 37,
         hardRoundTotal: 46,
         seasonPointsEarned: 15,
@@ -7838,7 +7838,7 @@ export const season7Data: RoundDataInterface[] = [
     scores: [
       {
         roundRank: 1,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 36,
         hardRoundTotal: 41,
         seasonPointsEarned: 25,
@@ -9709,7 +9709,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 3,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 35,
         hardRoundTotal: 42,
         seasonPointsEarned: 18,
@@ -11856,7 +11856,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 20,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 44,
         hardRoundTotal: 50,
         seasonPointsEarned: -35,
@@ -13175,7 +13175,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 3,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 35,
         hardRoundTotal: 43,
         seasonPointsEarned: 18,
@@ -15184,7 +15184,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 8,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 37,
         hardRoundTotal: 50,
         seasonPointsEarned: -41,
@@ -16664,7 +16664,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 4,
-        player: 'his.Dudeness',
+        player: 'his_Dudeness',
         easyRoundTotal: 40,
         hardRoundTotal: 42,
         seasonPointsEarned: 16,

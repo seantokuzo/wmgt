@@ -211,7 +211,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 1,
     rank: 21,
-    player: 'his.Dudeness',
+    player: 'his_Dudeness',
     easyScore: -18,
     hardScore: -12,
     totalScore: -30
@@ -841,7 +841,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 2,
     rank: 3,
-    player: 'his.Dudeness',
+    player: 'his_Dudeness',
     easyScore: -27,
     hardScore: -20,
     totalScore: -47
@@ -1660,7 +1660,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 3,
     rank: 5,
-    player: 'his.Dudeness',
+    player: 'his_Dudeness',
     easyScore: -17,
     hardScore: -18,
     totalScore: -35

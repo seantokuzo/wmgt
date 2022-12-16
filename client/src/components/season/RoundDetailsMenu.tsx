@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom'
 import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
+import { ScorecardUtil } from 'components/scorecard/scorecardUtils'
+import { nanoid } from 'nanoid'
 
 type Props = {
   round: { season: number; round: number }
@@ -17,7 +19,8 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
-  const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard } = useSeasonContext()
+  const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard, viewCourse } =
+    useSeasonContext()
 
   const courseAlias =
     showEasyCourse || roundDetailsMode === 'easy' ? easyCourse.alias : hardCourse.alias
@@ -66,7 +69,14 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 
   const courseLabelEl = (course: CourseInterface) => {
     return (
-      <div className="w-1/2 py-2 px-4 bg-[#f8ff71] rounded-b-md shadow-inyellfocus">
+      <div
+        className="w-1/2 py-2 px-4"
+        onClick={() => {
+          if (course.difficulty === 'Easy' && showEasyCourse) return
+          if (course.difficulty === 'Hard' && !showEasyCourse) return
+          return course.difficulty === 'Easy' ? viewCourse('easy') : viewCourse('hard')
+        }}
+      >
         <h3 className="text-base md:text-xl font-semibold">{course.course}</h3>
         <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3>
         <p className="text-sm md:text-base">
@@ -76,11 +86,43 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     )
   }
 
+  const podium = ScorecardUtil.getRoundPodium(round)
+  console.log(podium)
+
+  const podiumSectionEl = (
+    podiumFinishers: { player: string; flag: string }[],
+    medal: '🏆' | '🥈' | '🥉'
+  ) => {
+    if (podiumFinishers.length === 0) return <></>
+    const colorStyle =
+      medal === '🏆' ? 'bg-amber-400' : medal === '🥈' ? 'bg-slate-400' : 'bg-amber-700'
+
+    return (
+      <div
+        className={`w-full px-2
+        ${colorStyle}
+        flex flex-col justify-center items-center`}
+      >
+        {podiumFinishers.map((player) => (
+          <div
+            className="w-full mx-1 py-1
+            text-base sm:text-lg md:text-xl
+            flex justify-between items-center"
+            key={nanoid()}
+          >
+            <div className="w-min ml-1">{medal}</div>
+            <div className="w-full ml-4 text-left">{player.player}</div>
+            <div className="w-min ml-6">{player.flag}</div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
   return (
     <div
       className={`w-full max-w-4xl rounded-lg
       text-[#38280e]
-      ${!coursesWithImages.includes(courseAlias) && 'bg-[#f8ff71] shadow-insetyellow'}
       flex flex-col justify-center items-center text-center`}
     >
       <div
@@ -90,48 +132,54 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         {`SEASON ${round.season}`}
       </div>
       <div
-        className="w-full px-4
+        className="w-full py-4
         text-[#38280e] bg-[#f8ff71] shadow-inyellfocus
-        flex justify-evenly items-center"
+        flex flex-col justify-center items-center"
       >
-        {toggleRoundBtn(false)}
         <div
-          className="py-4 px-5 rounded-b-md mx-5
+          className="w-full px-4
+        text-[#38280e]
+        flex justify-evenly items-center"
+        >
+          {toggleRoundBtn(false)}
+          <div
+            className="py-4 px-5 rounded-b-md mx-5
             text-2xl sm:text-4xl md:text-5xl font-bold font-scorenum
             flex flex-col justify-center items-center"
-        >
-          <div>{`ROUND ${round.round}`}</div>
+          >
+            <div>{`ROUND ${round.round}`}</div>
+          </div>
+          {toggleRoundBtn(true)}
         </div>
-        {toggleRoundBtn(true)}
-      </div>
-      <div
-        className="w-full text-center
+        <div
+          className="w-full h-max text-center
         flex justify-evenly items-start"
-      >
-        {courseLabelEl(easyCourse)}
-        {courseLabelEl(hardCourse)}
+        >
+          {courseLabelEl(easyCourse)}
+          {courseLabelEl(hardCourse)}
+        </div>
       </div>
       <div
-        className="w-full pb-10
+        className="w-full min-h-[50vh]
         bg-no-repeat bg-center bg-cover
-        flex flex-col justify-center items-center"
+        flex flex-col justify-end items-center"
         style={{
           backgroundImage: `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
         }}
       >
-        <div className="py-40">
-          <h2>GOLD</h2>
-          <h2>SILVER</h2>
-          <h2>BRONZE</h2>
+        <div className="w-auto pt-40">
+          {podiumSectionEl(podium.gold, '🏆')}
+          {podiumSectionEl(podium.silver, '🥈')}
+          {podiumSectionEl(podium.bronze, '🥉')}
         </div>
-        <div
-          className="w-full md:w-3/4 max-w-xl px-1
-        flex flex-wrap justify-evenly items-center"
-        >
-          {(Object.keys(modes) as RoundDetailsMode[]).map((m) => (
-            <RoundDetailBtn key={`mode-btn-${m}`} btnText={modes[m]} btnMode={m} />
-          ))}
-        </div>
+      </div>
+      <div
+        className="w-full md:w-3/4 max-w-xl px-1 mt-6
+          flex flex-wrap justify-evenly items-center"
+      >
+        {(Object.keys(modes) as RoundDetailsMode[]).map((m) => (
+          <RoundDetailBtn key={`mode-btn-${m}`} btnText={modes[m]} btnMode={m} />
+        ))}
       </div>
     </div>
   )

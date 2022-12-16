@@ -3,6 +3,7 @@ import { PlayerRoundInterface } from 'data/round-data/roundTypes'
 import { scoreDecoration } from './scorecardUtils'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
+import { holeSlotSizes } from './CourseScorecard'
 
 type Props = {
   playerRound: PlayerRoundInterface
@@ -34,13 +35,17 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
 
   return (
     <div
-      className="w-full max-w-6xl min-h-10 my-1 text-xxs
+      className="w-full max-w-6xl min-h-10 my-1 px-0 sm:px-2 md:px-0
       flex justify-between items-center"
       onClick={() => windowSize.width <= 768 && toggleScorecardNine()}
     >
       {/* ****** THE PLAYER NAME ****** */}
       <div
-        className="w-[25%] md:text-xs lg:text-base max-w-1/10 pr-2
+        className="w-[25%] max-w-1/10 pr-2
+        text-xxxs tracking-tighter
+        sm:text-xxs sm:tracking-tight
+        md:text-xs md:tracking-normal
+        lg:text-base 
         overflow-hidden
         flex justify-end"
       >
@@ -50,19 +55,19 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
       <div className="w-full flex justify-between items-center px-0 sm:px-2">
         {mapThisScore.map((score, i) => (
           <div
-            className={`w-5 md:w-7 lg:w-9
+            className={`${holeSlotSizes}
             flex flex-col justify-center items-center`}
             title={`${otherScoreMap[i]}`}
             key={nanoid()}
           >
             <div className="">
               <div
-                className={`w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8
+                className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
               ${scoreDecoration(whichHoleScores[i], true, darkMode)}
               flex flex-col justify-center items-center`}
               >
                 <div
-                  className={`w-3 h-3 md:w-5 md:h-5 lg:w-6 lg:h-6
+                  className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6
                 ${scoreDecoration(whichHoleScores[i], false, darkMode)}
                 ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
                 flex flex-col justify-center items-center`}
@@ -76,7 +81,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
       </div>
       {/* ****** COURSE TOTAL ****** */}
       <div
-        className="w-14 md:w-20
+        className="w-12 md:w-20
         flex justify-center items-center"
       >
         <div
@@ -90,7 +95,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
         </div>
       </div>
       {/* ****** ROUND TOTAL ****** */}
-      <div className="w-14 md:w-20 flex justify-center text-center">
+      <div className="w-12 md:w-20 flex justify-center text-center">
         <div
           className={`p-1 md:p-2
           border-l-2 border-b-2 rounded-md
@@ -100,7 +105,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
         </div>
       </div>
       {/* ****** ROUND RANK ****** */}
-      <div className="w-14 md:w-20 flex justify-center text-center">
+      <div className="w-12 md:w-20 flex justify-center text-center">
         <div
           className={`w-3/4 p-1 border-l-2 border-b-2 rounded-md text-xxxs sm:text-xs
           ${
@@ -112,7 +117,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars }) => {
               ? 'bg-amber-700/[0.85] border-amber-800/[0.25]'
               : playerRound.roundRank <= 10
               ? 'border-red-400/[0.75]'
-              : ''
+              : 'shadow-insetbasic'
           }`}
         >
           {playerRound.roundRank}

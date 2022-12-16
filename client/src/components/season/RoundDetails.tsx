@@ -87,7 +87,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         {roundDetailsMode === 'coconuts' && <ComingSoon text="🥥 COMING SOON 🥥" />}
         {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
       </div>
-      {roundDetailsMode === 'full' && <ScorecardLegend />}
+      <ScorecardLegend />
     </div>
   )
 }

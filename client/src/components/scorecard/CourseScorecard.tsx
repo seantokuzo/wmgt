@@ -1,10 +1,7 @@
 import HoleImg from 'components/HoleImg'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
-import {
-  CourseInterface,
-  coursesWithImages
-} from 'data/course-data/wmgt-course-data'
+import { CourseInterface, coursesWithImages } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
 import { useState } from 'react'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
@@ -12,6 +9,8 @@ import ScorecardToggleBtn from './ScorecardToggleBtn'
 type Props = {
   course: CourseInterface
 }
+
+export const holeSlotSizes = 'w-5 sm:w-7 lg:w-9'
 
 const CourseScorecard: React.FC<Props> = ({ course }) => {
   const { windowSize } = useAppContext()
@@ -36,7 +35,10 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
 
   return (
     <div
-      className="w-full max-w-6xl flex flex-col justify-center items-center mt-5 text-xs relative"
+      className="w-full max-w-6xl mt-5
+      text-xs
+      flex flex-col justify-center items-center
+      relative"
     >
       {coursesWithImages.includes(course.alias) && hoveredHole !== '' && (
         <div className="absolute top-0 w-full sm:w-1/2 z-100">
@@ -88,19 +90,19 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
         )}
       </div>
       {/* ****** HOLES ROW ****** */}
-      <div className="w-full text-xs flex justify-between items-center py-2">
+      <div className="w-full text-xs flex justify-between items-center py-2 sm:px-2 md:px-0">
         <div className="w-[25%] pr-2 flex justify-end">HOLE</div>
         <div className="w-full flex justify-between items-center px-0 sm:px-2">
           {holesToMap.map((hole, i) => (
             <div
-              className={`w-5 md:w-7 lg:w-9
+              className={`${holeSlotSizes}
               flex justify-center items-center
               ${coursesWithImages.includes(course.alias) && 'cursor-pointer'}`}
               key={nanoid()}
               onClick={() => handleHoleHover(showFrontNine ? i + 1 : i + 10)}
             >
               <div
-                className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8
+                className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8
                 text-xxs sm:text-xs md:text-sm
                 border-[1px] rounded-[50%]
                 flex flex-col justify-center items-center text-center"
@@ -110,18 +112,21 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             </div>
           ))}
         </div>
-        <div title="Total" className="w-14 md:w-20 text-xxs text-center">
+        <div title="Total" className="w-12 md:w-20 text-xxs text-center">
           TTL
         </div>
-        <div className="w-14 md:w-20 text-xs text-center"></div>
-        <div className="w-14 md:w-20 text-xs text-center"></div>
+        <div className="w-12 md:w-20 text-xs text-center"></div>
+        <div className="w-12 md:w-20 text-xs text-center"></div>
       </div>
       {/* ****** PARS ROW ****** */}
-      <div className="w-full text-xs flex justify-between items-center">
+      <div className="w-full text-xs flex justify-between items-center px-0 sm:px-2 md:px-0">
         <div className="w-[25%] text-xs pr-2 flex justify-end">PAR</div>
         <div className="w-full flex justify-between items-center sm:px-2">
           {holesToMap.map((par) => (
-            <div className="w-[5%] flex flex-col justify-center items-center" key={nanoid()}>
+            <div
+              className={`${holeSlotSizes} flex flex-col justify-center items-center`}
+              key={nanoid()}
+            >
               <div
                 className="text-xs font-semibold
                 flex flex-col justify-center items-center"
@@ -131,13 +136,13 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             </div>
           ))}
         </div>
-        <div className="w-14 md:w-20 text-xxs sm:text-xs text-center">
+        <div className="w-12 md:w-20 text-xxs sm:text-xs text-center">
           {windowSize.width > 768 ? 'COURSE' : '⛳️'}
         </div>
-        <div className="w-14 md:w-20 text-xxs sm:text-xs text-center">
+        <div className="w-12 md:w-20 text-xxs sm:text-xs text-center">
           {windowSize.width > 768 ? 'TOTAL' : '∑'}
         </div>
-        <div className="w-14 md:w-20 text-xxs sm:text-xs text-center">
+        <div className="w-12 md:w-20 text-xxs sm:text-xs text-center">
           {windowSize.width > 768 ? 'RANK' : '🏁'}
         </div>
       </div>
