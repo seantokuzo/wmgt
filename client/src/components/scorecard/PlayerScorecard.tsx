@@ -35,10 +35,12 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
   const whichHoleScores = windowSize.width > 768 ? holeScores : holeScoresNine
 
   if (aces) {
-    if (showEasyCourse) {
-      if (!playerRound.easyScorecard.some((s) => s === 1)) return <></>
+    if (windowSize.width < 768) {
+      if (showEasyCourse) {
+        if (!playerRound.easyScorecard.some((s) => s === 1)) return <></>
+      }
+      if (!playerRound.hardScorecard.some((s) => s === 1)) return <></>
     }
-    if (!playerRound.hardScorecard.some((s) => s === 1)) return <></>
   }
 
   return (

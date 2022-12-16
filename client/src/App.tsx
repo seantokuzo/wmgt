@@ -14,6 +14,9 @@ import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 import { season6Data } from 'data/round-data/s6-round-data'
 
+// import { DataGod } from 'data/dataGod'
+// console.log(DataGod.getRoundNumAcesScorecards({ season: 7, round: 1 }))
+
 // import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // import { convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // import { checkScores } from './data/in_progress/s6r12_raw-data'
