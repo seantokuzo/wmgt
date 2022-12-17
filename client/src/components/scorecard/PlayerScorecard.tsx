@@ -34,12 +34,18 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
   const mapThisScore = windowSize.width > 768 ? scoreToMapFull : scoreToMapNine
   const whichHoleScores = windowSize.width > 768 ? holeScores : holeScoresNine
 
+  // if (aces) {
+  //   if (windowSize.width < 768) {
+  //     if (showEasyCourse) {
+  //       if (!playerRound.easyScorecard.some((s) => s === 1)) return <></>
+  //     }
+  //     if (!playerRound.hardScorecard.some((s) => s === 1)) return <></>
+  //   }
+  // }
+
   if (aces) {
     if (windowSize.width < 768) {
-      if (showEasyCourse) {
-        if (!playerRound.easyScorecard.some((s) => s === 1)) return <></>
-      }
-      if (!playerRound.hardScorecard.some((s) => s === 1)) return <></>
+      if (!scorecard.some((s) => s === 1)) return <></>
     }
   }
 

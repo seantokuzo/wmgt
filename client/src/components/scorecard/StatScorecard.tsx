@@ -61,10 +61,10 @@ const StatScorecard: React.FC<Props> = ({ label, data }) => {
               key={nanoid()}
             >
               <div
-                className={`w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8
+                className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
                 bg-red-400 shadow-insetred
                 border-[1px] rounded-md border-red-400
-                text-xxxs sm:text-sm
+                text-xxs sm:text-sm
                 flex flex-col justify-center items-center z-10`}
               >
                 {holeStat}
