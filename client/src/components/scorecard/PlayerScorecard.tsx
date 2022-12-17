@@ -97,7 +97,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
         flex justify-center items-center"
       >
         <div
-          className={`p-1 md:p-2
+          className={`w-4/5 p-1 md:p-2
           border-l-2 border-b-2 rounded-md
           text-xxxs sm:text-xs
           flex justify-center items-center
@@ -109,7 +109,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
       {/* ****** ROUND TOTAL ****** */}
       <div className="w-12 sm:w-14 md:w-18 lg:w-20 flex justify-center text-center">
         <div
-          className={`w-3/4 p-1 md:p-2
+          className={`w-4/5 p-1 md:p-2
           border-l-2 border-b-2 rounded-md
           ${roundDetailsMode === 'aces' && 'border-red-400'}
           text-xxxs sm:text-xs`}
@@ -120,7 +120,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
       {/* ****** ROUND RANK ****** */}
       <div className="w-12 sm:w-14 md:w-18 lg:w-20 flex justify-center text-center">
         <div
-          className={`w-3/4 p-1 md:p-2
+          className={`w-4/5 p-1 md:p-2
           text-xxxs sm:text-xs
           border-l-2 border-b-2 rounded-md
           ${

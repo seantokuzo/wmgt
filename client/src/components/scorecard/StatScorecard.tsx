@@ -22,7 +22,7 @@ const StatScorecard: React.FC<Props> = ({ label, data }) => {
         flex justify-center items-center"
       >
         <div
-          className={`w-full mx-2 p-1 md:p-2
+          className={`w-4/5 py-1 px-2 md:p-2
           ${text && 'border-l-2 border-b-2 rounded-md border-red-400'}
           text-xxxs sm:text-xs text-red-400 font-bold
           flex justify-center items-center
@@ -44,12 +44,12 @@ const StatScorecard: React.FC<Props> = ({ label, data }) => {
       {/* ****** THE PLAYER NAME ****** */}
       <div className="w-full text-xs flex justify-between items-center py-2 sm:px-2 md:px-0">
         <div
-          className="w-[25%] max-w-1/10 pr-2
+          className="w-[25%] pr-2
           flex justify-end
           text-xxxs tracking-tighter
           sm:text-xxs sm:tracking-tight
           md:text-xs md:tracking-normal
-          lg:text-base text-red-400"
+          lg:text-base text-red-400 text-right"
         >
           {label}
         </div>
@@ -61,17 +61,13 @@ const StatScorecard: React.FC<Props> = ({ label, data }) => {
               key={nanoid()}
             >
               <div
-                className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-                  border-[1px] rounded-md border-red-400 shadow-insetred bg-red-400
-                  flex flex-col justify-center items-center z-10`}
+                className={`w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8
+                bg-red-400 shadow-insetred
+                border-[1px] rounded-md border-red-400
+                text-xxxs sm:text-sm
+                flex flex-col justify-center items-center z-10`}
               >
-                <div
-                  className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6
-                  text-xxxs sm:text-sm
-                  flex flex-col justify-center items-center z-10`}
-                >
-                  {holeStat}
-                </div>
+                {holeStat}
               </div>
             </div>
           ))}

@@ -90,7 +90,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         <>
           <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
           <StatScorecard
-            label="Aces Per Hole"
+            label="# Aces"
             data={
               showEasyCourse
                 ? DataGod.getRoundNumAcesScorecards({ season: round.season, round: round.round })
