@@ -36,7 +36,11 @@ module.exports = {
         },
         cardflip: {
           '0%': { transform: 'rotateY(180deg)' },
-          '100%': { transform: 'rotate(0deg)' }
+          '100%': { transform: 'rotateY(0deg)' }
+        },
+        flip: {
+          '0%': { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(360deg)' }
         },
         fadein: {
           '0%': { opacity: '0' },
@@ -50,6 +54,7 @@ module.exports = {
       animation: {
         loadspin: 'spin 3s linear infinite',
         revspin: 'revspin 3s linear infinite',
+        flip: 'flip 4000ms linear infinite',
         cardflip: 'cardflip 500ms ease-in-out forwards',
         fadein: 'fadein 1000ms ease-out forwards',
         growfade: 'growfade 750ms ease-out forwards'

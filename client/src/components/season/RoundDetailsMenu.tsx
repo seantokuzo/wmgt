@@ -102,14 +102,20 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         ${colorStyle}
         flex flex-col justify-center items-center`}
       >
-        {podiumFinishers.map((player) => (
+        {podiumFinishers.map((player, i) => (
           <div
             className="w-full mx-1 py-1
             text-base sm:text-lg md:text-xl
             flex justify-between items-center"
             key={nanoid()}
           >
-            <div className="w-min ml-1">{medal}</div>
+            <div
+              // ${medal === '🏆' && 'animate-flip'}
+              className="w-min ml-1 animate-flip"
+              style={{ animationDelay: i * 500 + 'ms' }}
+            >
+              {medal}
+            </div>
             <div className="w-full ml-4 text-left">{player.player}</div>
             <div className="w-min ml-6">{player.flag}</div>
           </div>

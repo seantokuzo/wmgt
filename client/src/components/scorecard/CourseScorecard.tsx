@@ -57,7 +57,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             flex justify-evenly"
           >
             <HoleStat
-              label="# Aces"
+              label="Total Aces"
               stat={CourseStats.getNumberOfAces(+pathname[9], course.alias)[selectedHole - 1]}
             />
             <HoleStat
