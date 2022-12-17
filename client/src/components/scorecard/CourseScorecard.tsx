@@ -42,10 +42,10 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
       className="w-full max-w-6xl mt-5
       text-xs
       flex flex-col justify-center items-center
-      relative"
+      relative z-[500]"
     >
       {selectedHole !== '' && (
-        <div className="absolute top-0 w-full sm:w-1/2 z-100">
+        <div className="absolute top-0 w-full sm:w-1/2">
           <HoleImg
             course={course}
             hole={selectedHole}

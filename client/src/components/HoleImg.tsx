@@ -16,7 +16,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
   return (
     <div
       className="w-full max-w-2xl min-w-[300px]
-          z-100 transition-all font-scorenum
+          z-500 transition-all font-scorenum
           flex flex-col justify-center items-center animate-fadein"
     >
       <div
