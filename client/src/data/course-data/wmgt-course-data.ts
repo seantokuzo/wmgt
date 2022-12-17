@@ -325,4 +325,15 @@ export const courseFullImgLink =
 
 export type Hole = '' | number
 
-export const coursesWithImages = ['TTE', 'CBE', 'SSE', 'AME', 'OGE', 'TSE', 'BBE', 'QVE', 'LBH']
+export const coursesWithImages = [
+  'TTE',
+  'CBE',
+  'SSE',
+  'AME',
+  'OGE',
+  'TSE',
+  'BBE',
+  'QVE',
+  'SWE',
+  'LBH'
+]

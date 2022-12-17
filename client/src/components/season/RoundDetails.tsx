@@ -6,7 +6,6 @@ import { RoundDataInterface } from '../../data/round-data/roundTypes'
 import Scorecard from 'components/scorecard/Scorecard'
 import ScorecardLegend from 'components/scorecard/ScorecardLegend'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
 import CourseScorecard from 'components/scorecard/CourseScorecard'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import { nanoid } from 'nanoid'
@@ -28,18 +27,10 @@ export const modes = {
 }
 
 const RoundDetails: React.FC<Props> = ({ round }) => {
-  // const { windowSize } = useAppContext()
-  const { showEasyCourse, roundDetailsMode, changeRoundDetailsMode, viewFrontNine } =
-    useSeasonContext()
+  const { showEasyCourse, roundDetailsMode } = useSeasonContext()
 
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
-
-  useEffect(() => {
-    changeRoundDetailsMode('full')
-    viewFrontNine()
-    // eslint-disable-next-line
-  }, [])
 
   return (
     <div
@@ -93,9 +84,9 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
             label="# Aces"
             data={
               showEasyCourse
-                ? DataGod.getRoundNumAcesScorecards({ season: round.season, round: round.round })
+                ? DataGod.getRoundAcesPerHole({ season: round.season, round: round.round })
                     .easyCourseNumAces
-                : DataGod.getRoundNumAcesScorecards({ season: round.season, round: round.round })
+                : DataGod.getRoundAcesPerHole({ season: round.season, round: round.round })
                     .hardCourseNumAces
             }
           />
@@ -110,7 +101,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
               <PlayerScorecard
                 playerRound={playerRound}
                 coursePars={hardCourse.parByHole}
-                aces={true}
+                acesData={DataGod.getRoundAcesPerHole({ season: round.season, round: round.round })}
                 key={nanoid()}
               />
             ))}

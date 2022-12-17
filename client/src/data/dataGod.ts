@@ -1,3 +1,4 @@
+import { RoundDetailsMode } from 'context/season/seasonContext'
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
 import { PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
 import { season6Data } from './round-data/s6-round-data'
@@ -72,7 +73,7 @@ export abstract class DataGod {
   }
 
   // ACES * ACES * ACES * ACES * ACES * ACES * ACES * ACES * ACES * ACES
-  static getRoundNumAcesScorecards(round: RoundIdentifier): {
+  static getRoundAcesPerHole(round: RoundIdentifier): {
     easyCourseNumAces: number[]
     hardCourseNumAces: number[]
   } {
@@ -122,5 +123,36 @@ export abstract class DataGod {
     const averageScores = this.getAvgsFromScorecards(allScores)
 
     return averageScores
+  }
+
+  static getPlayerScorecard(
+    type: 'map' | 'hover' | 'decoration',
+    scorecard: number[],
+    coursePars: number[],
+    playerRound: PlayerRoundInterface,
+    roundDetailsMode: RoundDetailsMode,
+    windowWidth: number,
+    showEasyCourse: boolean,
+    showScoreTracker: boolean,
+    showFrontNine: boolean
+  ): number[] {
+    const holeScores = scorecard.map((score, i) => score - coursePars[i])
+    const startingCount =
+      showEasyCourse || roundDetailsMode === 'hard' ? 0 : playerRound.easyRoundScore
+    const scoreTracker = holeScores.map((score, i) => {
+      return holeScores.slice(0, i + 1).reduce((sum, curr) => sum + curr, startingCount)
+    })
+    if (type === 'map') {
+      const scoreToMapFull = showScoreTracker ? scoreTracker : scorecard
+      const scoreToMapNine = showFrontNine ? scoreToMapFull.slice(0, 9) : scoreToMapFull.slice(9)
+      return windowWidth > 768 ? scoreToMapFull : scoreToMapNine
+    }
+    if (type === 'hover') {
+      const otherScoreFull = !showScoreTracker ? scoreTracker : scorecard
+      const otherScoreNine = showFrontNine ? otherScoreFull.slice(0, 9) : otherScoreFull.slice(9)
+      return windowWidth > 768 ? otherScoreFull : otherScoreNine
+    }
+    const holeScoresNine = showFrontNine ? holeScores.slice(0, 9) : holeScores.slice(9)
+    return windowWidth > 768 ? holeScores : holeScoresNine
   }
 }

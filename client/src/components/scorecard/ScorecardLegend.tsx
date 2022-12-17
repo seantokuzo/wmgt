@@ -1,12 +1,43 @@
 import { useAppContext } from 'context/appContext'
+import { useSeasonContext } from 'context/season/seasonContext'
 import { scoreDecoration } from './scorecardUtils'
 
 const ScorecardLegend = () => {
   const { darkMode } = useAppContext()
+  const { roundDetailsMode } = useSeasonContext()
+
+  if (roundDetailsMode === 'aces') {
+    return (
+      <div
+        className="w-1/2 md:w-[80%]
+      flex flex-wrap justify-evenly items center text-xxxs sm:text-xs md:text-sm uppercase"
+      >
+        <div className="flex flex-col justify-center items-center m-1 min-w-min">
+          <div className="mb-1">ONLY ACE ON HOLE</div>
+          <div
+            className={`w-3 md:w-6 h-3 md:h-6 bg-red-600 rounded-full
+          flex flex-col justify-center items-center`}
+          >
+            🌵
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center m-1 min-w-min">
+          <div className="mb-1">ONE OF TWO ACES ON HOLE</div>
+          <div
+            className={`w-3 md:w-6 h-3 md:h-6 bg-red-600 rounded-full
+          flex flex-col justify-center items-center`}
+          >
+            🦆
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div
       className="w-1/2 md:w-[80%]
-          flex flex-wrap justify-between items center text-xxxs sm:text-xs ms:text-sm"
+      flex flex-wrap justify-between items center text-xxxs sm:text-xs md:text-sm"
     >
       <div className="flex flex-col justify-center items-center m-1 min-w-min">
         <div className="mb-1">HOLE-IN-ONE</div>

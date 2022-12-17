@@ -4,14 +4,15 @@ import { scoreDecoration } from './scorecardUtils'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
 import { holeSlotSizes } from './CourseScorecard'
+import { DataGod } from 'data/dataGod'
 
 type Props = {
   playerRound: PlayerRoundInterface
   coursePars: number[]
-  aces?: boolean
+  acesData?: { easyCourseNumAces: number[]; hardCourseNumAces: number[] }
 }
 
-const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => {
+const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData }) => {
   const { darkMode, windowSize } = useAppContext()
   const {
     roundDetailsMode,
@@ -23,33 +24,53 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
   } = useSeasonContext()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
   const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
-  const holeScores = scorecard.map((score, i) => score - coursePars[i])
-  const startingCount =
-    showEasyCourse || roundDetailsMode === 'hard' ? 0 : playerRound.easyRoundScore
-  const scoreTracker = holeScores.map((score, i) => {
-    return holeScores.slice(0, i + 1).reduce((sum, curr) => sum + curr, startingCount)
-  })
 
-  const scoreToMapFull = showScoreTracker ? scoreTracker : scorecard
-  const scoreToMapNine = showFrontNine ? scoreToMapFull.slice(0, 9) : scoreToMapFull.slice(9)
-  const otherScoreFull = !showScoreTracker ? scoreTracker : scorecard
-  const otherScoreNine = showFrontNine ? otherScoreFull.slice(0, 9) : otherScoreFull.slice(9)
-  const holeScoresNine = showFrontNine ? holeScores.slice(0, 9) : holeScores.slice(9)
+  const scoresToMap = DataGod.getPlayerScorecard(
+    'map',
+    scorecard,
+    coursePars,
+    playerRound,
+    roundDetailsMode,
+    windowSize.width,
+    showEasyCourse,
+    showScoreTracker,
+    showFrontNine
+  )
+  const scoresForHoverTitle = DataGod.getPlayerScorecard(
+    'hover',
+    scorecard,
+    coursePars,
+    playerRound,
+    roundDetailsMode,
+    windowSize.width,
+    showEasyCourse,
+    showScoreTracker,
+    showFrontNine
+  )
+  const scoresForDecoration = DataGod.getPlayerScorecard(
+    'decoration',
+    scorecard,
+    coursePars,
+    playerRound,
+    roundDetailsMode,
+    windowSize.width,
+    showEasyCourse,
+    showScoreTracker,
+    showFrontNine
+  )
 
-  const otherScoreMap = windowSize.width > 768 ? otherScoreFull : otherScoreNine
-  const mapThisScore = windowSize.width > 768 ? scoreToMapFull : scoreToMapNine
-  const whichHoleScores = windowSize.width > 768 ? holeScores : holeScoresNine
+  const scoreToDisplay = (score: number, index: number) => {
+    if (!acesData) return score
+    const acesPerHole = showEasyCourse ? acesData.easyCourseNumAces : acesData.hardCourseNumAces
+    if (score === 1) {
+      if (acesPerHole[index] === 1) return '🌵'
+      if (acesPerHole[index] === 2) return '🦆'
+      return score
+    }
+    return ''
+  }
 
-  // if (aces) {
-  //   if (windowSize.width < 768) {
-  //     if (showEasyCourse) {
-  //       if (!playerRound.easyScorecard.some((s) => s === 1)) return <></>
-  //     }
-  //     if (!playerRound.hardScorecard.some((s) => s === 1)) return <></>
-  //   }
-  // }
-
-  if (aces) {
+  if (acesData) {
     if (windowSize.width < 768) {
       if (!scorecard.some((s) => s === 1)) return <></>
     }
@@ -75,28 +96,41 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
       </div>
       {/* ****** ALL HOLE SCORES DIV ****** */}
       <div className="w-full flex justify-between items-center px-0 sm:px-2">
-        {mapThisScore.map((score, i) => (
+        {scoresToMap.map((score, i) => (
           <div
             className={`${holeSlotSizes}
             flex flex-col justify-center items-center`}
-            title={`${otherScoreMap[i]}`}
+            title={`${scoresForHoverTitle[i]}`}
             key={nanoid()}
           >
             <div className="">
               <div
                 className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-              ${!aces && scoreDecoration(whichHoleScores[i], true, darkMode)}
+              ${!acesData && scoreDecoration(scoresForDecoration[i], true, darkMode)}
+              ${
+                scoreToDisplay(score, i) === '🌵'
+                  ? 'bg-amber-300 shadow-insetgold rounded-full'
+                  : scoreToDisplay(score, i) === '🦆'
+                  ? 'bg-slate-400 shadow-insetsilver rounded-full'
+                  : ''
+              }
               flex flex-col justify-center items-center`}
               >
                 <div
                   className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6
-                ${!aces && scoreDecoration(whichHoleScores[i], false, darkMode)}
+                ${!acesData && scoreDecoration(scoresForDecoration[i], false, darkMode)}
                 ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
-                ${score === 1 && 'bg-red-600'}
-                ${aces && 'rounded-full'}
+                ${
+                  scoreToDisplay(score, i) === '🌵' || scoreToDisplay(score, i) === '🦆'
+                    ? ''
+                    : score === 1
+                    ? 'bg-red-600'
+                    : ''
+                }
+                ${acesData && 'rounded-full'}
                 flex flex-col justify-center items-center`}
                 >
-                  {aces && score === 1 ? score : aces ? '' : score}
+                  {scoreToDisplay(score, i)}
                 </div>
               </div>
             </div>
