@@ -47,9 +47,10 @@ const SeasonContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(seasonReducer, initialSeasonState)
 
   const changeRoundDetailsMode = (newMode: RoundDetailsMode) => {
-    dispatch({ type: SeasonActionType.CHANGE_ROUND_DETAILS_MODE, payload: { newMode } })
     newMode === 'easy' && viewCourse('easy')
     newMode === 'hard' && viewCourse('hard')
+    newMode === 'aces' && viewScorecard()
+    dispatch({ type: SeasonActionType.CHANGE_ROUND_DETAILS_MODE, payload: { newMode } })
   }
 
   const toggleCourse = () => {

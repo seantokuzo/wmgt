@@ -23,7 +23,11 @@ module.exports = {
         basic: '2px 2px 15px rgba(0, 0, 0, 0.75), 12px 12px 9px rgba(0, 0, 0, 0.5)',
         insetbasic: 'inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020',
         insetcondor: 'inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;',
-        insetred: 'inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;'
+        insetred: 'inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;',
+        insetlime: 'inset 6px 6px 6px #709f25, inset -6px -6px 6px #d6ff45;',
+        insetgold: 'inset 6px 6px 6px #ad8419, inset -6px -6px 6px #fffa2f;',
+        insetsilver: 'inset 6px 6px 6px #66707f, inset -6px -6px 6px #c2d6f1;',
+        insetbronze: 'inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;'
       },
       keyframes: {
         spin: {

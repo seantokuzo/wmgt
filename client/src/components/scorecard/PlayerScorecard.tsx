@@ -13,8 +13,14 @@ type Props = {
 
 const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => {
   const { darkMode, windowSize } = useAppContext()
-  const { roundDetailsMode, showEasyCourse, showScoreTracker, showFrontNine, toggleScorecardNine } =
-    useSeasonContext()
+  const {
+    roundDetailsMode,
+    showEasyCourse,
+    toggleCourse,
+    showScoreTracker,
+    showFrontNine,
+    toggleScorecardNine
+  } = useSeasonContext()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
   const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
   const holeScores = scorecard.map((score, i) => score - coursePars[i])
@@ -52,8 +58,8 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
   return (
     <div
       className="w-full max-w-6xl min-h-10 my-1 px-0 sm:px-2 md:px-0
-      flex justify-between items-center"
-      onClick={() => windowSize.width <= 768 && toggleScorecardNine()}
+      flex justify-between items-center cursor-pointer"
+      onClick={() => (windowSize.width <= 768 ? toggleScorecardNine() : toggleCourse())}
     >
       {/* ****** THE PLAYER NAME ****** */}
       <div
@@ -105,6 +111,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
         <div
           className={`w-4/5 p-1 md:p-2
           border-l-2 border-b-2 rounded-md
+          ${showEasyCourse ? 'border-orange-300' : 'border-indigo-700'}
           text-xxxs sm:text-xs
           flex justify-center items-center
           `}
@@ -117,7 +124,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
         <div
           className={`w-4/5 p-1 md:p-2
           border-l-2 border-b-2 rounded-md
-          ${roundDetailsMode === 'aces' && 'border-red-400'}
+          border-red-400
           text-xxxs sm:text-xs`}
         >
           {roundDetailsMode === 'aces' ? playerRound.numHoleInOne : playerRound.totalToPar}
@@ -128,17 +135,21 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, aces }) => 
         <div
           className={`w-4/5 p-1 md:p-2
           text-xxxs sm:text-xs
-          border-l-2 border-b-2 rounded-md
+          rounded-md
           ${
             playerRound.roundRank === 1
-              ? 'bg-amber-400/[0.85] border-amber-500/[0.25]'
+              ? 'bg-amber-400 shadow-insetgold font-bold text-black'
               : playerRound.roundRank === 2
-              ? 'bg-slate-400/[0.85] border-slate-500/[0.25]'
+              ? 'bg-slate-400 shadow-insetsilver font-bold text-black'
               : playerRound.roundRank === 3
-              ? 'bg-amber-700/[0.85] border-amber-800/[0.25]'
+              ? 'bg-amber-700 shadow-insetbronze font-bold text-black'
               : playerRound.roundRank <= 10
-              ? 'border-red-400/[0.75]'
-              : 'shadow-insetbasic'
+              ? 'bg-lime-400 shadow-insetlime font-bold text-black'
+              : playerRound.roundRank <= 20
+              ? 'border-l-2 border-b-2 border-emerald-400'
+              : playerRound.roundRank <= 30
+              ? 'border-l-2 border-b-2 border-violet-400'
+              : 'border-l-2 border-b-2'
           }`}
         >
           {playerRound.roundRank}
