@@ -1,10 +1,6 @@
 import RoundDetailBtn from './RoundDetailBtn'
 import { modes } from './RoundDetails'
-import {
-  courseFullImgLink,
-  CourseInterface,
-  coursesWithImages
-} from '../../data/course-data/wmgt-course-data'
+import { courseFullImgLink, CourseInterface } from '../../data/course-data/wmgt-course-data'
 import { Link } from 'react-router-dom'
 import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 import { season6Data } from 'data/round-data/s6-round-data'
@@ -29,7 +25,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     const seasonData = round.season === 6 ? season6Data : season7Data
     if (nextNotPrev) {
       const isThereNext = seasonData.some((r) => r.round === round.round + 1)
-      if (!isThereNext) return <div className="w-20 h-20"></div>
+      if (!isThereNext) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
       return (
         <Link to={`/season/s${round.season}r${round.round + 1}`}>
           <div
@@ -50,11 +46,11 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     }
 
     const isTherePrev = seasonData.some((r) => r.round === round.round - 1)
-    if (!isTherePrev) return <div className="w-20 h-20"></div>
+    if (!isTherePrev) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
     return (
       <Link to={`/season/s${round.season}r${round.round - 1}`}>
         <div
-          className="w-12 h-12 md:w-20 md:h-20
+          className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
           text-sm md:text-xl bg-[#f8ff71]
           flex flex-col justify-center items-center
           font-bold shadow-inyellfocus rounded-full"
@@ -148,7 +144,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         >
           {toggleRoundBtn(false)}
           <div
-            className="py-4 px-5 rounded-b-md mx-5
+            className="w-1/2 py-4 px-5 rounded-b-md mx-5
             text-2xl sm:text-4xl md:text-5xl font-bold font-scorenum
             flex flex-col justify-center items-center"
           >
