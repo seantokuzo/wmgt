@@ -1,4 +1,9 @@
-import { courseHoleImgLink, CourseInterface } from 'data/course-data/wmgt-course-data'
+import {
+  courseFullImgLink,
+  courseHoleImgLink,
+  CourseInterface,
+  coursesWithImages
+} from 'data/course-data/wmgt-course-data'
 
 type Props = {
   course: CourseInterface
@@ -65,12 +70,27 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
         </div>
         <img
           className="w-full border-2 border-[#f8ff71] rounded-md shadow-basic"
-          src={courseHoleImgLink
-            .replaceAll('<COURSE>', course.alias)
-            .replace('<HOLE>', hole.toString())}
+          src={
+            coursesWithImages.includes(course.alias)
+              ? courseHoleImgLink
+                  .replaceAll('<COURSE>', course.alias)
+                  .replace('<HOLE>', hole.toString())
+              : courseFullImgLink.replaceAll('<COURSE>', course.alias)
+          }
           alt={`${course.course} ${course.difficulty} Hole ${hole}`}
           onClick={exit}
         />
+        {!coursesWithImages.includes(course.alias) && (
+          <div
+            className="h-full text-base font-semibold
+            absolute top-1/2 left-1/2
+            translate-x-[-50%] translate-y-[-50%]
+            flex flex-col justify-evenly items-center"
+          >
+            <div>HOLE PHOTO COMING SOON</div>
+            <div className="mt-10">OR WHENEVER I GET TO IT</div>
+          </div>
+        )}
       </div>
     </div>
   )

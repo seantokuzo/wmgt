@@ -1,33 +1,53 @@
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
+import { PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
 
-type RoundIdentifier =
-  | {
-      season: 6
-      round: 4 | 12
-    }
-  | {
-      season: 7
-      round: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
-    }
+type RoundIdentifier = {
+  season: number
+  round: number
+}
 
 export abstract class DataGod {
-  static getSeasonData(season: 7 | 6) {
+  // PRIVATE UTIL METHODS * PRIVATE UTIL METHODS * PRIVATE UTIL METHODS
+  private static getSeasonData(season: number) {
     switch (season) {
       case 7:
         return season7Data
       case 6:
         return season6Data
       default:
-        return 'No data for that season'
+        return season7Data
     }
+  }
+
+  private static getRound(data: RoundDataInterface[], course: CourseAlias) {
+    return data.filter((round) => round.easyCourse === course || round.hardCourse === course)[0]
+  }
+
+  private static easyOrHardScorecard(score: PlayerRoundInterface, course: CourseAlias) {
+    return course[2] === 'E' ? score.easyScorecard : score.hardScorecard
+  }
+
+  private static getAvgsFromScorecards(scorecardArray: number[][]) {
+    return new Array(18).fill('').map((_slot, i) => {
+      return (
+        Math.round(
+          (10 *
+            scorecardArray.reduce((sum, scorecard) => {
+              return scorecard[i] + sum
+            }, 0)) /
+            scorecardArray.length
+        ) / 10
+      )
+    })
   }
 
   static getCoursePars(course: CourseAlias) {
     return courseData.filter((c) => c.alias === course)[0].parByHole
   }
 
+  // COCONUTS * COCONUTS * COCONUTS * COCONUTS * COCONUTS * COCONUTS * COCONUTS
   static getCoconutRounds(round: RoundIdentifier) {
     const seasonData = this.getSeasonData(round.season)
     if (typeof seasonData === 'string') return 'No data for that season'
@@ -51,14 +71,12 @@ export abstract class DataGod {
     }
   }
 
-  static getRoundNumAcesScorecards(round: RoundIdentifier):
-    | {
-        easyCourseNumAces: number[]
-        hardCourseNumAces: number[]
-      }
-    | 'No data for that season' {
+  // ACES * ACES * ACES * ACES * ACES * ACES * ACES * ACES * ACES * ACES
+  static getRoundNumAcesScorecards(round: RoundIdentifier): {
+    easyCourseNumAces: number[]
+    hardCourseNumAces: number[]
+  } {
     const seasonData = this.getSeasonData(round.season)
-    if (typeof seasonData === 'string') return 'No data for that season'
     const roundData = seasonData.filter((r) => r.round === round.round)[0]
     const easyScores = roundData.scores.map((s) => s.easyScorecard)
     const hardScores = roundData.scores.map((s) => s.hardScorecard)
@@ -76,5 +94,33 @@ export abstract class DataGod {
     })
 
     return { easyCourseNumAces, hardCourseNumAces }
+  }
+
+  // TOP 10 * TOP 10 * TOP 10 * TOP 10 * TOP 10 * TOP 10 * TOP 10
+  static getTopTenScores(round: RoundDataInterface, course: CourseAlias) {
+    return round.scores
+      .filter((score) => score.roundRank <= 10)
+      .map((score) => this.easyOrHardScorecard(score, course))
+  }
+
+  static getRoundTopTenAvg(season: number, course: CourseAlias): number[] {
+    const round = this.getRound(this.getSeasonData(season), course)
+    const topTenScores = this.getTopTenScores(round, course)
+
+    return this.getAvgsFromScorecards(topTenScores)
+  }
+
+  // FULL FIELD AVERAGES * FULL FIELD AVERAGES * FULL FIELD AVERAGES
+  private static getAllScoresForRound(data: RoundDataInterface[], course: CourseAlias) {
+    const round = this.getRound(data, course)
+
+    return round.scores.map((score) => this.easyOrHardScorecard(score, course))
+  }
+
+  static getRoundHoleAverages(season: number, course: CourseAlias): number[] {
+    const allScores = this.getAllScoresForRound(this.getSeasonData(season), course)
+    const averageScores = this.getAvgsFromScorecards(allScores)
+
+    return averageScores
   }
 }

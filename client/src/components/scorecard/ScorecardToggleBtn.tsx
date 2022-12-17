@@ -11,7 +11,7 @@ const ScorecardToggleBtn: React.FC<Props> = ({ show, toggle, text1, text2 }) => 
   const selectedClasses = 'bg-[#f8ff71] text-[#38280e] shadow-inyellfocus'
 
   return (
-    <button className="w-full flex justify-center items-center py-2 my-2" onClick={toggle}>
+    <button className="w-full max-w-lg flex justify-center items-center py-2 my-2" onClick={toggle}>
       <span
         className={`w-1/3 py-2 px-3 rounded-l-md
         text-sm md:text-base

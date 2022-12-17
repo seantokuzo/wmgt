@@ -11,6 +11,8 @@ import CourseScorecard from 'components/scorecard/CourseScorecard'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import { nanoid } from 'nanoid'
 import { ScorecardUtil } from 'components/scorecard/scorecardUtils'
+import StatScorecard from 'components/scorecard/StatScorecard'
+import { DataGod } from 'data/dataGod'
 
 type Props = {
   round: RoundDataInterface
@@ -84,26 +86,37 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           ))}
         </>
       )}
+      {roundDetailsMode === 'aces' && (
+        <>
+          <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
+          <StatScorecard
+            label="Aces Per Hole"
+            data={
+              showEasyCourse
+                ? DataGod.getRoundNumAcesScorecards({ season: round.season, round: round.round })
+                    .easyCourseNumAces
+                : DataGod.getRoundNumAcesScorecards({ season: round.season, round: round.round })
+                    .hardCourseNumAces
+            }
+          />
+          {round.scores
+            .filter((score) => {
+              return (
+                score.easyScorecard.some((s) => s === 1) || score.hardScorecard.some((s) => s === 1)
+              )
+            })
+            .sort((a, b) => b.numHoleInOne - a.numHoleInOne)
+            .map((playerRound) => (
+              <PlayerScorecard
+                playerRound={playerRound}
+                coursePars={hardCourse.parByHole}
+                aces={true}
+                key={nanoid()}
+              />
+            ))}
+        </>
+      )}
       <div className="mt-8">
-        {roundDetailsMode === 'aces' && (
-          <>
-            <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
-            {round.scores
-              .filter((score) => {
-                return showEasyCourse
-                  ? score.easyScorecard.some((s) => s === 1)
-                  : score.hardScorecard.some((s) => s === 1)
-              })
-              .map((playerRound) => (
-                <PlayerScorecard
-                  playerRound={playerRound}
-                  coursePars={hardCourse.parByHole}
-                  aces={true}
-                  key={nanoid()}
-                />
-              ))}
-          </>
-        )}
         {roundDetailsMode === 'coconuts' && <ComingSoon text="🥥 COMING SOON 🥥" />}
         {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
       </div>
