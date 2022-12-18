@@ -63,10 +63,21 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     if (!acesData) return score
     const acesPerHole = showEasyCourse ? acesData.easyCourseNumAces : acesData.hardCourseNumAces
     if (score === 1) {
+      if (windowSize.width < 768) {
+        if (showFrontNine) {
+          if (acesPerHole.slice(0, 9)[index] === 1) return '🌵'
+          if (acesPerHole.slice(0, 9)[index] === 2) return '🦆'
+          return score
+        }
+        if (acesPerHole.slice(9)[index] === 1) return '🌵'
+        if (acesPerHole.slice(9)[index] === 2) return '🦆'
+        return score
+      }
       if (acesPerHole[index] === 1) return '🌵'
       if (acesPerHole[index] === 2) return '🦆'
       return score
     }
+
     return ''
   }
 
