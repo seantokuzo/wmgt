@@ -88,8 +88,8 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
 
   return (
     <div
-      className="w-full max-w-6xl min-h-10 my-1 px-0 sm:px-2 md:px-0
-      flex justify-between items-center cursor-pointer"
+      className={`w-full max-w-6xl min-h-10 my-1 px-0 sm:px-2 md:px-0
+      flex justify-between items-center ${roundDetailsMode !== 'easy' && roundDetailsMode !== 'hard' && 'cursor-pointer'}`}
       onClick={() => {
         if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
         windowSize.width <= 768 ? toggleScorecardNine() : toggleCourse()
