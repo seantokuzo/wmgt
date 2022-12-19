@@ -162,7 +162,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       </div>
       <div
         className="w-full min-h-[50vh]
-        bg-no-repeat bg-center bg-cover
+        bg-no-repeat bg-center bg-cover rounded-b-md
         flex flex-col justify-end items-center"
         style={{
           backgroundImage: `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
