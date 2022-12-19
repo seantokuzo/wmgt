@@ -335,5 +335,7 @@ export const coursesWithImages = [
   'BBE',
   'QVE',
   'SWE',
-  'LBH'
+  'LBE',
+  'LBH',
+  'GBE'
 ]

@@ -3,11 +3,7 @@ import HoleImg from 'components/HoleImg'
 import HoleStat from 'components/HoleStat'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
-import {
-  courseFullImgLink,
-  CourseInterface,
-  coursesWithImages
-} from 'data/course-data/wmgt-course-data'
+import { CourseInterface } from 'data/course-data/wmgt-course-data'
 import { DataGod } from 'data/dataGod'
 import { nanoid } from 'nanoid'
 import { useState } from 'react'
@@ -37,6 +33,9 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
   const nineSlice = showFrontNine ? course.parByHole.slice(0, 9) : course.parByHole.slice(9)
   const holesToMap = windowSize.width > 768 ? course.parByHole : nineSlice
 
+  const rawSeasonRound = pathname.split('/season/')[1].slice(1).split('r')
+  const currentRound = { season: +rawSeasonRound[0], round: +rawSeasonRound[1] }
+
   return (
     <div
       className="w-full max-w-6xl mt-5
@@ -58,15 +57,24 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
           >
             <HoleStat
               label="Total Aces"
-              stat={CourseStats.getNumberOfAces(+pathname[9], course.alias)[selectedHole - 1]}
+              // stat={CourseStats.getNumberOfAces(+pathname[9], course.alias)[selectedHole - 1]}
+              stat={
+                showEasyCourse
+                  ? DataGod.getRoundAcesPerHole(currentRound).easyCourseNumAces[selectedHole - 1]
+                  : DataGod.getRoundAcesPerHole(currentRound).hardCourseNumAces[selectedHole - 1]
+              }
             />
             <HoleStat
               label="TOP 10 AVG"
-              stat={DataGod.getRoundTopTenAvg(+pathname[9], course.alias)[selectedHole - 1]}
+              stat={
+                DataGod.getRoundHoleTopTenAvg(currentRound.season, course.alias)[selectedHole - 1]
+              }
             />
             <HoleStat
               label="AVG SCORE"
-              stat={DataGod.getRoundHoleAverages(+pathname[9], course.alias)[selectedHole - 1]}
+              stat={
+                DataGod.getRoundHoleAverage(currentRound.season, course.alias)[selectedHole - 1]
+              }
             />
           </div>
         </div>

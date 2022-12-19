@@ -8,10 +8,9 @@ import ScorecardLegend from 'components/scorecard/ScorecardLegend'
 import { Link } from 'react-router-dom'
 import CourseScorecard from 'components/scorecard/CourseScorecard'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
-import { nanoid } from 'nanoid'
-import { ScorecardUtil } from 'components/scorecard/scorecardUtils'
 import StatScorecard from 'components/scorecard/StatScorecard'
 import { DataGod } from 'data/dataGod'
+import { nanoid } from 'nanoid'
 
 type Props = {
   round: RoundDataInterface
@@ -56,7 +55,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       {roundDetailsMode === 'easy' && (
         <>
           <CourseScorecard course={easyCourse} />
-          {ScorecardUtil.getCourseLeaderboard([...round.scores], 'easy').map((playerRound) => (
+          {DataGod.getCourseLeaderboard([...round.scores], 'easy').map((playerRound) => (
             <PlayerScorecard
               playerRound={playerRound}
               coursePars={easyCourse.parByHole}
@@ -68,7 +67,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       {roundDetailsMode === 'hard' && (
         <>
           <CourseScorecard course={hardCourse} />
-          {ScorecardUtil.getCourseLeaderboard([...round.scores], 'hard').map((playerRound) => (
+          {DataGod.getCourseLeaderboard([...round.scores], 'hard').map((playerRound) => (
             <PlayerScorecard
               playerRound={playerRound}
               coursePars={hardCourse.parByHole}
@@ -84,10 +83,14 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
             label="# Aces"
             data={
               showEasyCourse
-                ? DataGod.getRoundAcesPerHole({ season: round.season, round: round.round })
-                    .easyCourseNumAces
-                : DataGod.getRoundAcesPerHole({ season: round.season, round: round.round })
-                    .hardCourseNumAces
+                ? DataGod.getRoundAcesPerHole({
+                    season: round.season,
+                    round: round.round
+                  }).easyCourseNumAces
+                : DataGod.getRoundAcesPerHole({
+                    season: round.season,
+                    round: round.round
+                  }).hardCourseNumAces
             }
           />
           {round.scores
@@ -101,7 +104,10 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
               <PlayerScorecard
                 playerRound={playerRound}
                 coursePars={hardCourse.parByHole}
-                acesData={DataGod.getRoundAcesPerHole({ season: round.season, round: round.round })}
+                acesData={DataGod.getRoundAcesPerHole({
+                  season: round.season,
+                  round: round.round
+                })}
                 key={nanoid()}
               />
             ))}

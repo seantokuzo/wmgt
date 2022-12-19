@@ -58,7 +58,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
       case 'S7_AVG':
         return CourseStats.getCourseAveragesPerRound(7, course.alias)
       case 'S7_TOP10':
-        return CourseStats.getRoundTopTenAvg(7, course.alias)
+        return CourseStats.getRoundHoleTopTenAvg(7, course.alias)
       case 'S7_BEST':
         return CourseStats.getBestRound(7, course.alias)
       case 'S7_ACES':

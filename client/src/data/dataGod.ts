@@ -1,5 +1,6 @@
 import { RoundDetailsMode } from 'context/season/seasonContext'
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
+import { allPlayersList, flagConverter, PlayerInterface } from './player-data/AllPlayersList'
 import { PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
@@ -11,6 +12,12 @@ type RoundIdentifier = {
 
 export abstract class DataGod {
   // PRIVATE UTIL METHODS * PRIVATE UTIL METHODS * PRIVATE UTIL METHODS
+  private static getPlayerFlag(link: string) {
+    return flagConverter.filter((f) => f.link === link).length > 0
+      ? flagConverter.filter((f) => f.link === link)[0].flag
+      : ''
+  }
+
   private static getSeasonData(season: number) {
     switch (season) {
       case 7:
@@ -22,8 +29,21 @@ export abstract class DataGod {
     }
   }
 
-  private static getRound(data: RoundDataInterface[], course: CourseAlias) {
-    return data.filter((round) => round.easyCourse === course || round.hardCourse === course)[0]
+  private static getRoundFromCourse(seasonData: RoundDataInterface[], course: CourseAlias) {
+    return seasonData.filter(
+      (round) => round.easyCourse === course || round.hardCourse === course
+    )[0]
+  }
+
+  private static getRoundFromSeason(round: { season: number; round: number }) {
+    if (round.season === 6) {
+      return season6Data.filter((r) => r.round === round.round)[0]
+    }
+    return season7Data.filter((r) => r.round === round.round)[0]
+  }
+
+  private static getRoundFromRoundNum(seasonData: RoundDataInterface[], round: number) {
+    return seasonData.filter((r) => r.round === round)[0]
   }
 
   private static easyOrHardScorecard(score: PlayerRoundInterface, course: CourseAlias) {
@@ -104,8 +124,8 @@ export abstract class DataGod {
       .map((score) => this.easyOrHardScorecard(score, course))
   }
 
-  static getRoundTopTenAvg(season: number, course: CourseAlias): number[] {
-    const round = this.getRound(this.getSeasonData(season), course)
+  static getRoundHoleTopTenAvg(season: number, course: CourseAlias): number[] {
+    const round = this.getRoundFromCourse(this.getSeasonData(season), course)
     const topTenScores = this.getTopTenScores(round, course)
 
     return this.getAvgsFromScorecards(topTenScores)
@@ -113,12 +133,12 @@ export abstract class DataGod {
 
   // FULL FIELD AVERAGES * FULL FIELD AVERAGES * FULL FIELD AVERAGES
   private static getAllScoresForRound(data: RoundDataInterface[], course: CourseAlias) {
-    const round = this.getRound(data, course)
+    const round = this.getRoundFromCourse(data, course)
 
     return round.scores.map((score) => this.easyOrHardScorecard(score, course))
   }
 
-  static getRoundHoleAverages(season: number, course: CourseAlias): number[] {
+  static getRoundHoleAverage(season: number, course: CourseAlias): number[] {
     const allScores = this.getAllScoresForRound(this.getSeasonData(season), course)
     const averageScores = this.getAvgsFromScorecards(allScores)
 
@@ -155,4 +175,64 @@ export abstract class DataGod {
     const holeScoresNine = showFrontNine ? holeScores.slice(0, 9) : holeScores.slice(9)
     return windowWidth > 768 ? holeScores : holeScoresNine
   }
+
+  static getLowestRoundHoleScores(season: number, roundNum: number) {
+    const seasonData = this.getSeasonData(season)
+    const round = this.getRoundFromRoundNum(seasonData, roundNum)
+    const lowestEasyHoleScores = new Array(18).fill('').map((_slot, i) => {
+      const holeScores: number[] = round.scores.map((score) => score.easyScorecard[i])
+      return Math.min(...holeScores)
+    })
+    // const easyHoleLowScoreCount =
+    const lowestHardHoleScores = new Array(18).fill('').map((_slot, i) => {
+      const holeScores: number[] = round.scores.map((score) => score.hardScorecard[i])
+      return Math.min(...holeScores)
+    })
+    // const hardHoleLowScoreCount
+    return { lowestEasyHoleScores, lowestHardHoleScores }
+  }
+
+  static getCourseLeaderboard(scores: PlayerRoundInterface[], course: 'easy' | 'hard') {
+    if (course === 'easy') return scores.sort((a, b) => a.easyRoundScore - b.easyRoundScore)
+    return scores.sort((a, b) => a.hardRoundScore - b.hardRoundScore)
+  }
+
+  static getRoundPodium(round: { season: number; round: number }): {
+    gold: PlayerInterface[]
+    silver: PlayerInterface[]
+    bronze: PlayerInterface[]
+  } {
+    const roundObject = this.getRoundFromSeason(round)
+
+    const goldMembers = roundObject.scores.filter((score) => score.roundRank === 1)
+    const silverMembers = roundObject.scores.filter((score) => score.roundRank === 2)
+    const bronzeMembers = roundObject.scores.filter((score) => score.roundRank === 3)
+    const getFinishers = (members: [] | PlayerRoundInterface[]) => {
+      return members.length === 0
+        ? []
+        : members
+            .map((s) => allPlayersList.filter((p) => p.player === s.player)[0])
+            .map((player) => {
+              return {
+                player: player.player,
+                flag: this.getPlayerFlag(player.flag)
+              }
+            })
+    }
+    const gold = getFinishers(goldMembers)
+    const silver = getFinishers(silverMembers)
+    const bronze = getFinishers(bronzeMembers)
+
+    return { gold, silver, bronze }
+  }
+
+  // static convertPlayerRoundsToAcesOnly(round: RoundDataInterface) {
+  //   return round.scores.map((score) => {
+  //     return {
+  //       ...score,
+  //       easyScorecard: score.easyScorecard.map((s) => (s === 1 ? s : '')),
+  //       hardScorecard: score.easyScorecard.map((s) => (s === 1 ? s : ''))
+  //     }
+  //   })
+  // }
 }

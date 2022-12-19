@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
-import { ScorecardUtil } from 'components/scorecard/scorecardUtils'
 import { nanoid } from 'nanoid'
+import { DataGod } from 'data/dataGod'
 
 type Props = {
   round: { season: number; round: number }
@@ -82,7 +82,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     )
   }
 
-  const podium = ScorecardUtil.getRoundPodium(round)
+  const podium = DataGod.getRoundPodium(round)
 
   const podiumSectionEl = (
     podiumFinishers: { player: string; flag: string }[],

@@ -22,12 +22,12 @@ export default abstract class CourseStats {
     })
   }
 
-  private static getRound(data: RoundDataInterface[], course: CourseAlias) {
+  private static getRoundFromCourse(data: RoundDataInterface[], course: CourseAlias) {
     return data.filter((round) => round.easyCourse === course || round.hardCourse === course)[0]
   }
 
   private static getAllScoresForRound(data: RoundDataInterface[], course: CourseAlias) {
-    const round = this.getRound(data, course)
+    const round = this.getRoundFromCourse(data, course)
 
     return round.scores.map((score) => this.easyOrHardScorecard(score, course))
   }
@@ -55,16 +55,16 @@ export default abstract class CourseStats {
       .map((score) => this.easyOrHardScorecard(score, course))
   }
 
-  private static getRoundTopTenAvgHelper(data: RoundDataInterface[], course: CourseAlias) {
-    const round = this.getRound(data, course)
+  private static getRoundHoleTopTenAvgHelper(data: RoundDataInterface[], course: CourseAlias) {
+    const round = this.getRoundFromCourse(data, course)
     const topTenScores = this.getTopTenScores(round, course)
 
     return this.getAvgsFromScorecards(topTenScores)
   }
 
-  static getRoundTopTenAvg(season: number, course: CourseAlias): number[] {
+  static getRoundHoleTopTenAvg(season: number, course: CourseAlias): number[] {
     if (season === 7) {
-      return this.getRoundTopTenAvgHelper(season7Data, course)
+      return this.getRoundHoleTopTenAvgHelper(season7Data, course)
     }
     return new Array(18).fill('')
   }
@@ -80,7 +80,7 @@ export default abstract class CourseStats {
   // RETURNS THE SCORE OF THE TOP ROUND
   static getLowestScore(season: number, course: CourseAlias): number | '' {
     if (season === 7) {
-      const round = this.getRound(season7Data, course)
+      const round = this.getRoundFromCourse(season7Data, course)
       return this.findLowestScore(round, course)
     }
 
@@ -106,7 +106,7 @@ export default abstract class CourseStats {
   }
 
   private static getBestRoundHelper(data: RoundDataInterface[], course: CourseAlias) {
-    const round = this.getRound(data, course)
+    const round = this.getRoundFromCourse(data, course)
     const bestScores = this.getBestScores(round, course)
 
     return this.getAvgsFromScorecards(bestScores)

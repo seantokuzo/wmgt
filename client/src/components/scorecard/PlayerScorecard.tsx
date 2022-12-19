@@ -77,7 +77,6 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
       if (acesPerHole[index] === 2) return '🦆'
       return score
     }
-
     return ''
   }
 
@@ -95,7 +94,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     >
       {/* ****** THE PLAYER NAME ****** */}
       <div
-        className="w-[25%] max-w-1/10 pr-2
+        className="w-[25%] pr-2
         text-xxxs tracking-tighter
         sm:text-xxs sm:tracking-tight
         md:text-xs md:tracking-normal

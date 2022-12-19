@@ -1,14 +1,11 @@
-import { season6Data } from 'data/round-data/s6-round-data'
-import { season7Data } from 'data/round-data/s7-round-data'
-
-import { allPlayersList, flagConverter, PlayerInterface } from 'data/player-data/AllPlayersList'
-import { PlayerRoundInterface, RoundDataInterface } from 'data/round-data/roundTypes'
-import { courseData } from 'data/course-data/wmgt-course-data'
-
 export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean) => {
   if (score === 0) return ''
   const decorations = 'border-[1px]'
-  if (score <= -4) {
+  if (score <= -5) {
+    if (outer) return decorations + ' border-blue-400 bg-blue-400 rounded-full'
+    return decorations + ' border-blue-700 bg-blue-700 rounded-full'
+  }
+  if (score === -4) {
     return decorations + ' border-blue-400 bg-blue-400 rounded-full'
   }
   if (score === -3) {
@@ -36,64 +33,5 @@ export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean
   if (score >= 4) {
     if (!outer) return darkMode ? 'text-black' : 'text-white'
     return decorations + 'border-lime-700 bg-lime-700'
-  }
-}
-
-export abstract class ScorecardUtil {
-  private static getPlayerFlag(link: string) {
-    return flagConverter.filter((f) => f.link === link).length > 0
-      ? flagConverter.filter((f) => f.link === link)[0].flag
-      : ''
-  }
-
-  private static getRound(round: { season: number; round: number }) {
-    if (round.season === 6) {
-      return season6Data.filter((r) => r.round === round.round)[0]
-    }
-    return season7Data.filter((r) => r.round === round.round)[0]
-  }
-
-  static getCourseLeaderboard(scores: PlayerRoundInterface[], course: 'easy' | 'hard') {
-    if (course === 'easy') return scores.sort((a, b) => a.easyRoundScore - b.easyRoundScore)
-    return scores.sort((a, b) => a.hardRoundScore - b.hardRoundScore)
-  }
-
-  static getRoundPodium(round: { season: number; round: number }): {
-    gold: PlayerInterface[]
-    silver: PlayerInterface[]
-    bronze: PlayerInterface[]
-  } {
-    const roundObject = this.getRound(round)
-
-    const goldMembers = roundObject.scores.filter((score) => score.roundRank === 1)
-    const silverMembers = roundObject.scores.filter((score) => score.roundRank === 2)
-    const bronzeMembers = roundObject.scores.filter((score) => score.roundRank === 3)
-    const getFinishers = (members: [] | PlayerRoundInterface[]) => {
-      return members.length === 0
-        ? []
-        : members
-            .map((s) => allPlayersList.filter((p) => p.player === s.player)[0])
-            .map((player) => {
-              return {
-                player: player.player,
-                flag: this.getPlayerFlag(player.flag)
-              }
-            })
-    }
-    const gold = getFinishers(goldMembers)
-    const silver = getFinishers(silverMembers)
-    const bronze = getFinishers(bronzeMembers)
-
-    return { gold, silver, bronze }
-  }
-
-  static convertPlayerRoundsToAcesOnly(round: RoundDataInterface) {
-    return round.scores.map((score) => {
-      return {
-        ...score,
-        easyScorecard: score.easyScorecard.map((s) => (s === 1 ? s : '')),
-        hardScorecard: score.easyScorecard.map((s) => (s === 1 ? s : ''))
-      }
-    })
   }
 }
