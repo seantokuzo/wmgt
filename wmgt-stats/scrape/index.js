@@ -8,7 +8,8 @@ const s7sheetIdsByRound = {
   R7: '1379586954R3',
   R8: '749121011',
   R9: '1407622001',
-  R10: '1728697580'
+  R10: '1728697580',
+  R11: '137577855'
 }
 
 // const sheetIdsArray = Object.values(s7sheetIdsByRound)
@@ -80,4 +81,5 @@ const stripPlayerRounds = (sheetId, firstRow, collection = []) => {
 // console.log(stripPlayerRounds('1379586954', 3))
 // console.log(stripPlayerRounds('749121011', 3))
 // console.log(stripPlayerRounds('1407622001', 3))
-console.log(stripPlayerRounds('1728697580', 3))
+// console.log(stripPlayerRounds('1728697580', 3))
+console.log(stripPlayerRounds('137577855', 3))
