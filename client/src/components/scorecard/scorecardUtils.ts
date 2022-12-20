@@ -3,10 +3,10 @@ export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean
   const decorations = 'border-[1px]'
   if (score <= -5) {
     if (outer) return decorations + ' border-blue-400 bg-blue-400 rounded-full'
-    return decorations + ' border-blue-700 bg-blue-700 rounded-full'
+    return decorations + ' border-blue-700 bg-blue-700 rounded-full text-white'
   }
   if (score === -4) {
-    return decorations + ' border-blue-400 bg-blue-400 rounded-full'
+    return decorations + ' border-blue-400 bg-blue-400 rounded-full text-white'
   }
   if (score === -3) {
     if (outer) return decorations + ' border-red-400 bg-red-400 rounded-[50%]'
@@ -31,7 +31,7 @@ export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean
     return decorations + ` border-lime-700 ${darkMode ? 'bg-black' : 'bg-white'}`
   }
   if (score >= 4) {
-    if (!outer) return darkMode ? 'text-black' : 'text-white'
+    if (!outer) return 'text-white'
     return decorations + 'border-lime-700 bg-lime-700'
   }
 }
