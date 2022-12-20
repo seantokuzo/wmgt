@@ -82,7 +82,8 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
         />
         {!coursesWithImages.includes(course.alias) && (
           <div
-            className="h-full text-base font-semibold
+            className="h-full
+            text-base font-semibold text-center
             absolute top-1/2 left-1/2
             translate-x-[-50%] translate-y-[-50%]
             flex flex-col justify-evenly items-center"

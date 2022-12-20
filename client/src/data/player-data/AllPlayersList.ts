@@ -1,6 +1,8 @@
 import { season6PlayerList } from './season6FinalPlayerList'
 import { season7PlayerList } from './season7PlayerList'
 
+const nonCharacterRegex = /[^a-zA-Z0-9]/g
+
 export const getComboList = () => {
   // console.log(season6PlayerList.length)
   // console.log(season7PlayerList.length)
@@ -41,12 +43,6 @@ export const getComboList = () => {
   console.log('Renamed Players: ', renamedPlayers)
   console.log('Combo List: ', comboList)
 }
-
-const nonCharacterRegex = /[^a-zA-Z0-9]/g
-const dude1 = 'his.Dudeness'
-const dude2 = 'his_dudeness'
-console.log(dude1.replaceAll(nonCharacterRegex, '').toLowerCase())
-console.log(dude2.replaceAll(nonCharacterRegex, '').toLowerCase())
 
 export interface PlayerInterface {
   player: string
