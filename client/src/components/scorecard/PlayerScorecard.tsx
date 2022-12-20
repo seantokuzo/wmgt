@@ -139,7 +139,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
                 ${
                   scoreToDisplay(score, i) === '🌵' || scoreToDisplay(score, i) === '🦆'
                     ? ''
-                    : score === 1
+                    : scorecard[i] === 1
                     ? 'bg-red-600'
                     : ''
                 }
