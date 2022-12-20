@@ -71,7 +71,6 @@ export abstract class DataGod {
   // COCONUTS * COCONUTS * COCONUTS * COCONUTS * COCONUTS * COCONUTS * COCONUTS
   static getCoconutRounds(round: RoundIdentifier) {
     const seasonData = this.getSeasonData(round.season)
-    if (typeof seasonData === 'string') return 'No data for that season'
     const roundData = seasonData.filter((r) => r.round === round.round)[0]
     const coconutScores = roundData.scores.filter((score) => {
       return (

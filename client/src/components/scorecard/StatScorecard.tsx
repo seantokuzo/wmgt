@@ -2,6 +2,7 @@ import { useAppContext } from 'context/appContext'
 import { SeasonContextProvider, useSeasonContext } from 'context/season/seasonContext'
 import { nanoid } from 'nanoid'
 import { holeSlotSizes } from './CourseScorecard'
+import { holeNameParColWidth } from './PlayerScorecard'
 
 type Props = {
   label: string
@@ -44,12 +45,11 @@ const StatScorecard: React.FC<Props> = ({ label, data }) => {
       {/* ****** THE PLAYER NAME ****** */}
       <div className="w-full text-xs flex justify-between items-center py-2 sm:px-2 md:px-0">
         <div
-          className="w-[25%] pr-2
-          flex justify-end
+          className={`${holeNameParColWidth}
           text-xxxs tracking-tighter
           sm:text-xxs sm:tracking-tight
           md:text-xs md:tracking-normal
-          lg:text-base text-red-400 text-right"
+          lg:text-base text-red-400 text-right`}
         >
           {label}
         </div>

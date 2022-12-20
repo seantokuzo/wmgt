@@ -112,12 +112,23 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
         className={`flex flex-col justify-center items-center my-4 ${
           (roundDetailsMode === 'full' || roundDetailsMode === 'aces') && 'cursor-pointer'
         }`}
-        onClick={() =>
-          (roundDetailsMode === 'full' || roundDetailsMode === 'aces') && toggleCourse()
-        }
+        onClick={() => roundDetailsMode !== 'easy' && roundDetailsMode !== 'hard' && toggleCourse()}
       >
         <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
-        <p className="text-sm lg:text-base">{`(${course.alias})`}</p>
+        <p className="text-sm lg:text-base">{'(' + course.alias + ')'}</p>
+        <p className="text-sm lg:text-base text-red-400 mt-1">
+          {roundDetailsMode === 'full'
+            ? 'Full Results'
+            : roundDetailsMode === 'easy'
+            ? 'Easy Course'
+            : roundDetailsMode === 'hard'
+            ? 'Hard Course'
+            : roundDetailsMode === 'aces'
+            ? '🌵 Aces 🦆'
+            : roundDetailsMode === 'coconuts'
+            ? '🥥 Coconuts 🥥'
+            : '🏇 Race to the Finish 🏇'}
+        </p>
         <p className="mt-1">Click a hole to see details</p>
       </div>
       {/* ****** HOLES ROW ****** */}

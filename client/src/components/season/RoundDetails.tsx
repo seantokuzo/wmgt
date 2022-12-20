@@ -113,8 +113,21 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
             ))}
         </>
       )}
+      {roundDetailsMode === 'coconuts' && (
+        <>
+          <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
+          {DataGod.getCoconutRounds({ season: round.season, round: round.round }).scores.map(
+            (playerRound) => (
+              <PlayerScorecard
+                playerRound={playerRound}
+                coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
+                key={nanoid()}
+              />
+            )
+          )}
+        </>
+      )}
       <div className="mt-8">
-        {roundDetailsMode === 'coconuts' && <ComingSoon text="🥥 COMING SOON 🥥" />}
         {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
       </div>
       <ScorecardLegend />
