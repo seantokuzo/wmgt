@@ -47,6 +47,8 @@ const SeasonContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(seasonReducer, initialSeasonState)
 
   const changeRoundDetailsMode = (newMode: RoundDetailsMode) => {
+    viewFrontNine()
+    newMode === 'full' && viewCourse('easy')
     newMode === 'easy' && viewCourse('easy')
     newMode === 'hard' && viewCourse('hard')
     newMode === 'aces' && viewScorecard()
@@ -54,10 +56,12 @@ const SeasonContextProvider = ({ children }: Props) => {
   }
 
   const toggleCourse = () => {
+    viewFrontNine()
     dispatch({ type: SeasonActionType.TOGGLE_COURSE })
   }
 
   const viewCourse = (course: 'easy' | 'hard') => {
+    viewFrontNine()
     dispatch({ type: SeasonActionType.VIEW_COURSE, payload: { showEasy: course === 'easy' } })
   }
 
@@ -66,6 +70,7 @@ const SeasonContextProvider = ({ children }: Props) => {
   }
 
   const viewScorecard = () => {
+    viewFrontNine()
     dispatch({ type: SeasonActionType.VIEW_SCORECARD })
   }
 

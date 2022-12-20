@@ -66,7 +66,14 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   const courseLabelEl = (course: CourseInterface) => {
     return (
       <div
-        className="w-1/2 py-2 px-4"
+        className={`w-1/2 py-2 px-4
+        ${
+          showEasyCourse && course.difficulty === 'Hard'
+            ? 'cursor-pointer hover:scale-105'
+            : !showEasyCourse && course.difficulty === 'Easy'
+            ? 'cursor-pointer hover:scale-105'
+            : ''
+        }`}
         onClick={() => {
           if (course.difficulty === 'Easy' && showEasyCourse) return
           if (course.difficulty === 'Hard' && !showEasyCourse) return
