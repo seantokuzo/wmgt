@@ -1,4 +1,3 @@
-import CourseStats from 'components/course/courseStats'
 import HoleImg from 'components/HoleImg'
 import HoleStat from 'components/HoleStat'
 import { useAppContext } from 'context/appContext'
@@ -8,6 +7,7 @@ import { DataGod } from 'data/dataGod'
 import { nanoid } from 'nanoid'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { holeNameParColWidth } from './PlayerScorecard'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
 
 type Props = {
@@ -122,7 +122,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
       </div>
       {/* ****** HOLES ROW ****** */}
       <div className="w-full text-xs flex justify-between items-center py-2 sm:px-2 md:px-0">
-        <div className="w-[25%] pr-2 flex justify-end">HOLE</div>
+        <div className={`${holeNameParColWidth}`}>HOLE</div>
         <div className="w-full flex justify-between items-center px-0 sm:px-2">
           {holesToMap.map((hole, i) => (
             <div
@@ -151,7 +151,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
       </div>
       {/* ****** PARS ROW ****** */}
       <div className="w-full text-xs flex justify-between items-center px-0 sm:px-2 md:px-0">
-        <div className="w-[25%] text-xs pr-2 flex justify-end">PAR</div>
+        <div className={`${holeNameParColWidth} text-xs`}>PAR</div>
         <div className="w-full flex justify-between items-center sm:px-2">
           {holesToMap.map((par) => (
             <div

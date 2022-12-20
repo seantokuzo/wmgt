@@ -12,6 +12,8 @@ type Props = {
   acesData?: { easyCourseNumAces: number[]; hardCourseNumAces: number[] }
 }
 
+export const holeNameParColWidth = 'w-[25%] sm:w-[25%] md:w-[25%] lg:w-[24%] pr-2 flex justify-end'
+
 const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData }) => {
   const { darkMode, windowSize } = useAppContext()
   const {
@@ -100,13 +102,12 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     >
       {/* ****** THE PLAYER NAME ****** */}
       <div
-        className="w-[25%] pr-2
+        className={`${holeNameParColWidth}
         text-xxxs tracking-tighter
         sm:text-xxs sm:tracking-tight
         md:text-xs md:tracking-normal
         lg:text-base 
-        overflow-hidden
-        flex justify-end"
+        overflow-hidden`}
       >
         {playerRound.player}
       </div>

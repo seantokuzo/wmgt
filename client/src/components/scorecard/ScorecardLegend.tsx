@@ -61,14 +61,14 @@ const ScorecardLegend = () => {
         <div className="flex flex-col justify-center items-center m-1 min-w-min mx-3 md:mx-4 lg:mx-5">
           <div className="mb-1">{'-5 OR LESS'}</div>
           <div
-            className={`w-5 md:w-8 h-5 md:h-8 ${scoreDecoration(-4, true, darkMode)}
+            className={`w-5 md:w-8 h-5 md:h-8 ${scoreDecoration(-5, true, darkMode)}
           flex flex-col justify-center items-center`}
           >
             <div
-              className={`w-4 md:w-6 h-4 md:h-6 ${scoreDecoration(-4, false, darkMode)}
+              className={`w-4 md:w-6 h-4 md:h-6 ${scoreDecoration(-5, false, darkMode)}
             flex flex-col justify-center items-center`}
             >
-              😱
+              -5
             </div>
           </div>
         </div>
