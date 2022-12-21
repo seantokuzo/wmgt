@@ -88,12 +88,22 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     }
   }
 
+  const acePhrases = [
+    'Nice',
+    'Wow look at you',
+    "Ain't no thang",
+    'There it is',
+    'Sweeeet',
+    'Holy guacamole',
+    'But how?',
+    'Holy 💩!'
+  ]
+
   return (
     <div
       className={`w-full max-w-6xl min-h-10 my-1 px-0 sm:px-2 md:px-0
-      flex justify-between items-center ${
-        roundDetailsMode !== 'easy' && roundDetailsMode !== 'hard' && 'cursor-pointer'
-      }`}
+      flex justify-between items-center
+      ${roundDetailsMode !== 'aces' && 'cursor-pointer'}`}
       onClick={() => {
         windowSize.width <= 768 || roundDetailsMode === 'easy' || roundDetailsMode === 'hard'
           ? toggleScorecardNine()
@@ -117,7 +127,13 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
           <div
             className={`${holeSlotSizes}
             flex flex-col justify-center items-center`}
-            title={`${scoresForHoverTitle[i]}`}
+            title={`${
+              roundDetailsMode !== 'aces'
+                ? scoresForHoverTitle[i]
+                : scoreToDisplay(score, i) === '🌵' || scoreToDisplay(score, i) === '🦆'
+                ? acePhrases[Math.floor(Math.random() * acePhrases.length)]
+                : ''
+            }`}
             key={nanoid()}
           >
             <div className="">
@@ -126,28 +142,28 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
               ${!acesData && scoreDecoration(scoresForDecoration[i], true, darkMode)}
               ${
                 scoreToDisplay(score, i) === '🌵'
-                  ? 'bg-amber-300 shadow-insetgold rounded-full'
+                  ? 'bg-amber-300 shadow-insetgold rounded-full cursor-pointer'
                   : scoreToDisplay(score, i) === '🦆'
-                  ? 'bg-slate-400 shadow-insetsilver rounded-full'
+                  ? 'bg-slate-400 shadow-insetsilver rounded-full cursor-pointer'
                   : ''
               }
               flex flex-col justify-center items-center`}
               >
                 <div
                   className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6
-                ${!acesData && scoreDecoration(scoresForDecoration[i], false, darkMode)}
-                ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
-                ${
-                  scoreToDisplay(score, i) === '🌵' || scoreToDisplay(score, i) === '🦆'
-                    ? ''
-                    : !showScoreTracker && score === 1
-                    ? 'bg-red-600 text-white'
-                    : showScoreTracker && scoresForHoverTitle[i] === 1
-                    ? 'bg-red-600 text-white'
-                    : ''
-                }
-                ${acesData && 'rounded-full'}
-                flex flex-col justify-center items-center`}
+                  ${!acesData && scoreDecoration(scoresForDecoration[i], false, darkMode)}
+                  ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
+                  ${
+                    scoreToDisplay(score, i) === '🌵' || scoreToDisplay(score, i) === '🦆'
+                      ? ''
+                      : !showScoreTracker && score === 1
+                      ? 'bg-red-600 text-white'
+                      : showScoreTracker && scoresForHoverTitle[i] === 1
+                      ? 'bg-red-600 text-white'
+                      : ''
+                  }
+                  ${acesData && 'rounded-full'}
+                  flex flex-col justify-center items-center`}
                 >
                   {scoreToDisplay(score, i)}
                 </div>
