@@ -8,6 +8,9 @@
 // checkScores(11)
 // convertRawRoundData()
 
+// import { season6RawData } from './data/in_progress/s6r12_raw-data'
+// console.log(season6RawData.filter((r) => r.round === 11)[0].scores.length)
+
 // import { getComboList } from 'data/player-data/AllPlayersList'
 // getComboList()
 
