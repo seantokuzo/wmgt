@@ -10,7 +10,7 @@ const CoursesMenu: React.FC = () => {
 
   const coursesEl = (
     <>
-      {courseData.map((course, i) => (
+      {courseData.map((course) => (
         <Link
           to={`/course/${course.alias.toLowerCase()}`}
           className={`w-2/5 max-w-xs min-h-[7rem]
@@ -33,8 +33,10 @@ const CoursesMenu: React.FC = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center px-5">
       <h1 className="text-2xl font-scorenum font-bold text-[#f8ff71] mt-4">Courses:</h1>
-      <h1 className="text-xl text-red-500 my-2">(UNDER CONSTRUCTION)</h1>
-      <div className="w-full max-w-lg flex flex-wrap justify-center items-center">{coursesEl}</div>
+      <h1 className="text-xl text-red-500 my-6">(UNDER CONSTRUCTION)</h1>
+      <div className="w-full max-w-lg flex flex-wrap justify-center items-center mb-16">
+        {coursesEl}
+      </div>
     </div>
   )
 }

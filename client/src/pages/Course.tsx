@@ -14,10 +14,13 @@ const Course: React.FC = () => {
       : ''
   console.log(bgImg)
 
+  const bgHeight = pathname !== '/course' && 'h-auto md:h-[100vh]'
+
   return (
     <div
-      className="w-full bg-no-repeat bg-cover bg-center h-auto md:h-[90vh]
-      flex flex-col justify-center items-center"
+      className={`w-full bg-no-repeat bg-cover bg-center
+      flex flex-col justify-center items-center
+      ${bgHeight}`}
       style={{
         backgroundImage: bgImg
       }}
