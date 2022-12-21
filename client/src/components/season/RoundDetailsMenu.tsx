@@ -23,40 +23,43 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 
   const toggleRoundBtn = (nextNotPrev: boolean) => {
     const seasonData = round.season === 6 ? season6Data : season7Data
+    const roundIndex = seasonData.findIndex((r) => r.round === round.round)
     if (nextNotPrev) {
-      const isThereNext = seasonData.some((r) => r.round === round.round + 1)
-      if (!isThereNext) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
+      const nextRound = seasonData[roundIndex + 1]
+      if (!nextRound) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
       return (
-        <Link to={`/season/s${round.season}r${round.round + 1}`}>
+        <Link to={`/season/s${round.season}r${nextRound.round}`}>
           <div
             className="w-12 h-12 md:w-20 md:h-20
             text-sm md:text-xl bg-[#f8ff71]
             flex flex-col justify-center items-center
-            font-bold shadow-inyellfocus rounded-full"
+            font-bold shadow-inyellfocus rounded-full
+            hover:scale-110"
             onClick={() => {
               viewScorecard()
               viewFrontNine()
             }}
           >
-            {`R${round.round + 1}`}
+            {`R${nextRound.round}`}
             <i className="fa-solid fa-arrow-right"></i>
           </div>
         </Link>
       )
     }
 
-    const isTherePrev = seasonData.some((r) => r.round === round.round - 1)
-    if (!isTherePrev) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
+    const prevRound = seasonData[roundIndex - 1]
+    if (!prevRound) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
     return (
-      <Link to={`/season/s${round.season}r${round.round - 1}`}>
+      <Link to={`/season/s${round.season}r${prevRound.round}`}>
         <div
           className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
           text-sm md:text-xl bg-[#f8ff71]
           flex flex-col justify-center items-center
-          font-bold shadow-inyellfocus rounded-full"
+          font-bold shadow-inyellfocus rounded-full
+          hover:scale-110"
           onClick={viewFrontNine}
         >
-          {`R${round.round - 1}`}
+          {`R${prevRound.round}`}
           <i className="fa-solid fa-arrow-left"></i>
         </div>
       </Link>
