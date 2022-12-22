@@ -325,21 +325,35 @@ export const courseFullImgLink =
 
 export type Hole = '' | number
 
-export const coursesWithImages = [
+export const coursesWithImages: CourseAlias[] = [
   'TTE',
+  'TTH',
   'CBE',
+  // 'CBH',
   'SSE',
+  // 'SSH',
   'AME',
+  // 'AMH',
   'OGE',
+  // 'OGH',
   'TSE',
+  // 'TSH',
   'BBE',
+  // 'BBH',
   'QVE',
+  // 'QVH',
   'SWE',
+  // 'SWH',
   'LBE',
   'LBH',
   'MYE',
+  // 'MYH',
   'GBE',
+  // 'GBH',
   'SLE',
+  // 'SLH',
   'EDE',
+  // 'EDH',
   '20E'
+  // '20H'
 ]
