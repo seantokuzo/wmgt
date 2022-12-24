@@ -20,8 +20,8 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           flex flex-col justify-center items-center animate-fadein"
     >
       <div
-        className="bg-[#f8ff71] text-[#38280e] shadow-insetyellow
-            border-x-2 border-t-2 border-[#f8ff71] rounded-t-md
+        className="bg-wmgYellow text-wmgBrown shadow-insetyellow
+            border-x-2 border-t-2 border-wmgYellow rounded-t-md
             pt-2 text-center
             flex flex-col justify-center items-center"
       >
@@ -30,13 +30,13 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           className="text-3xl font-semibold
               w-12 h-12 p-4 mt-1 mb-2
               flex justify-center items-center
-              border-4 border-[#38280e] rounded-full"
+              border-4 border-wmgBrown rounded-full"
         >
           {hole}
         </div>
         <div
           className="w-full text-2xl font-semibold py-1 px-2
-          bg-[#38280e] text-[#f8ff71] shadow-insetbrown
+          bg-wmgBrown text-wmgYellow shadow-insetbrown
           flex justify-between items-center"
         >
           <i
@@ -60,8 +60,8 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
         <div
           className="absolute top-2 left-2
           w-10 h-10 p-5 text-2xl
-          border-2 border-[#38280e] text-[#f8ff71]
-          bg-[#38280e] shadow-insetbrown
+          border-2 border-wmgBrown text-wmgYellow
+          bg-wmgBrown shadow-insetbrown
           rounded-full
           flex justify-center items-center"
           onClick={exit}
@@ -69,7 +69,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           <i className="fa-solid fa-xmark"></i>
         </div>
         <img
-          className="w-full border-2 border-[#f8ff71] rounded-md shadow-basic"
+          className="w-full border-2 border-wmgYellow rounded-md shadow-basic"
           src={
             coursesWithImages.includes(course.alias)
               ? courseHoleImgLink

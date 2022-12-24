@@ -22,7 +22,7 @@ function App() {
   const { darkMode, changeWindowSize } = useAppContext()
 
   // BG COLOR IF USING BACKGROUND VIDEO
-  // const bgColor = pathname === '/' ? 'bg-none' : darkMode ? 'bg-[#38280e]' : 'bg-white'
+  // const bgColor = pathname === '/' ? 'bg-none' : darkMode ? 'bg-wmgBrown' : 'bg-white'
   const bgColor = darkMode ? 'bg-black' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'
   // const bgColor = darkMode ? 'bg-[#1b1b1b]' : 'bg-white'

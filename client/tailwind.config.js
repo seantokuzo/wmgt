@@ -15,7 +15,7 @@ module.exports = {
         xxs: '0.6rem'
       },
       colors: {
-        brown: '#38280e',
+        wmgBrown: '#38280e',
         wmgYellow: '#f8ff71'
       },
       boxShadow: {

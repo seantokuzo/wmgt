@@ -16,7 +16,7 @@ const Header: React.FC = () => {
       </div>
       <h1
         className={`${
-          !darkMode ? 'text-[#38280e]' : 'text-[#f8f771]'
+          !darkMode ? 'text-wmgBrown' : 'text-[#f8f771]'
         } font-orb text-2xl font-semibold`}
       >
         WMGT STATS

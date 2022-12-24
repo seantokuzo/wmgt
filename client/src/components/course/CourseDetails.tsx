@@ -130,8 +130,8 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
       {(!coursesWithImages.includes(course.alias) || selectedHole === '') && (
         <div
           className={`relative w-full px-7 md:p-5 py-6 flex
-      flex-col justify-center items-center bg-[#f8ff71]
-      text-[#38280e] ${selectedHole !== '' && 'opacity-0'}`}
+      flex-col justify-center items-center bg-wmgYellow
+      text-wmgBrown ${selectedHole !== '' && 'opacity-0'}`}
         >
           {/* ***** TOP OF SCORECARD DIV ***** */}
           <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
@@ -141,7 +141,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 className="w-10 h-10 p-2 text-xl
               flex justify-center items-center
               hover:shadow-lg hover:scale-105
-              border-2 border-[#38280e] rounded-[100%]"
+              border-2 border-wmgBrown rounded-[100%]"
               >
                 <i className="fa-solid fa-arrow-left"></i>
               </Link>
@@ -158,7 +158,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
             <div className="w-full md:w-1/3 flex justify-end mt-3 md:mt-0">
               <select
                 id="course-stats-selector"
-                className="w-full md:w-fit bg-[#38280e] border border-gray-300 text-gray-900 text-sm
+                className="w-full md:w-fit bg-wmgBrown border border-gray-300 text-gray-900 text-sm
             rounded-lg
             focus:ring-blue-500 focus:border-blue-500 block p-2.5
             dark:bg-gray-700 dark:border-gray-600 dark:text-white
@@ -189,7 +189,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
           <div
             className="w-full md:w-auto px-0 md:px-6 py-4 rounded-md
           mt-4
-          bg-[#38280e] text-[#f8ff71]
+          bg-wmgBrown text-wmgYellow
           flex flex-col md:flex-row justify-center items-center"
           >
             <div className="w-3/4 md:w-auto flex flex-col md:flex-row justify-center items-center">
@@ -221,7 +221,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                   <div
                     className="w-4 h-4 p-4 my-1
                 flex flex-col justify-center items-center
-                border-2 border-[#f8ff71] rounded-[100%]
+                border-2 border-wmgYellow rounded-[100%]
                 text-lg font-scorenum cursor-pointer"
                     onClick={() => handleHoleHover(i + 1)}
                   >
@@ -229,11 +229,11 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                   </div>
                   <p className="text-sm md:ml-0 text-center">{par}</p>
                   <div
-                    className="w-12 h-12 bg-[#f8ff71]
+                    className="w-12 h-12 bg-wmgYellow
                   flex justify-center items-center
                   rounded-md shadow-insetyellow"
                   >
-                    <p className="text-2xl font-bold text-[#38280e]">{getHoleStats()[i]}</p>
+                    <p className="text-2xl font-bold text-wmgBrown">{getHoleStats()[i]}</p>
                   </div>
                 </div>
               ))}
@@ -244,10 +244,10 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 className="w-20 h-20 p-2 rounded-md ml-0 mt-0
               md:mt-2 md:ml-2
               flex flex-col justify-between items-center
-              bg-[#f8ff71] font-scorenum shadow-insetyellow"
+              bg-wmgYellow font-scorenum shadow-insetyellow"
               >
-                <p className="text-xs text-[#38280e]">TOTAL</p>
-                <h2 className="text-5xl font-bold text-[#38280e]">{getTotalScoreStat()}</h2>
+                <p className="text-xs text-wmgBrown">TOTAL</p>
+                <h2 className="text-5xl font-bold text-wmgBrown">{getTotalScoreStat()}</h2>
               </div>
             </div>
           </div>

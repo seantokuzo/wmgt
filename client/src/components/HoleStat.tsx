@@ -9,7 +9,7 @@ const HoleStat: React.FC<Props> = ({ label, stat }) => {
       className="px-4 py-2 rounded-b-md shadow-insetyellow
               text-base md:text-xl
               font-semibold uppercase text-center
-              bg-[#f8ff71]
+              bg-wmgYellow
               flex flex-col justify-center items-center"
     >
       <div className="flex flex-col justify-center items-center uppercase">
@@ -23,7 +23,7 @@ const HoleStat: React.FC<Props> = ({ label, stat }) => {
       <div
         className="w-10 h-10 p-2
         text-sm md:text-base
-        bg-[#38280e] text-[#f8ff71]
+        bg-wmgBrown text-wmgYellow
         rounded-full
         flex justify-center items-center"
       >

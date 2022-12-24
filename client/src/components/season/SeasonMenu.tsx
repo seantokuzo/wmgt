@@ -19,7 +19,7 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
   return (
     <div
       className="w-full max-w-xl rounded-lg px-2 py-4 my-4
-      bg-[#38280e] text-[#f8ff71] shadow-insetbrown
+      bg-wmgBrown text-wmgYellow shadow-insetbrown
       flex flex-wrap justify-center items-center font-scorenum"
     >
       <h2 className="text-3xl font-semibold my-3">{`SEASON ${seasonData[0].season}`}</h2>
@@ -31,7 +31,7 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
           <Link
             to={`/season/s${round.season}r${round.round}`}
             className="m-2 px-6 py-2 rounded-xl font-bold
-            bg-[#f8ff71] text-[#38280e] shadow-inyellopp
+            bg-wmgYellow text-wmgBrown shadow-inyellopp
             hover:scale-105 hover:shadow-insetyellow"
             key={`${round.easyCourse}-${i}`}
           >

@@ -10,12 +10,12 @@ const PageLink: React.FC<{ path: PagePath }> = ({ path }) => {
     if (path !== '/') return ''
     if (pathname === path) {
       return darkMode
-        ? 'bg-[#f8ff71] text-[#38280e] shadow-inyellfocus'
-        : 'bg-[38280e] text-[#f8ff71] shadow-insetbrown'
+        ? 'bg-wmgYellow text-wmgBrown shadow-inyellfocus'
+        : 'bg-[38280e] text-wmgYellow shadow-insetbrown'
     }
     return darkMode
-      ? 'bg-none shadow-none text-[#f8ff71] border-[#f8ff71] border-2'
-      : 'bg-none shadow-insetbasic text-[#38280e] border-[#38280e] border-2'
+      ? 'bg-none shadow-none text-wmgYellow border-wmgYellow border-2'
+      : 'bg-none shadow-insetbasic text-wmgBrown border-wmgBrown border-2'
   }
 
   return (
@@ -25,7 +25,7 @@ const PageLink: React.FC<{ path: PagePath }> = ({ path }) => {
         text-base md:text-lg font-semibold
         flex justify-center items-center
         ${homeBtnSelected(path)}
-        ${path !== '/' && 'w-1/2 my-2 px-4 py-1.5 bg-[#f8ff71] shadow-inyellfocus text-[#38280e]'}
+        ${path !== '/' && 'w-1/2 my-2 px-4 py-1.5 bg-wmgYellow shadow-inyellfocus text-wmgBrown'}
         ${path === '/' && 'w-fit rounded-[100%] p-2'}`}
     >
       {path !== '/' && path.toUpperCase()}

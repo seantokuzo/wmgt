@@ -31,7 +31,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         <Link to={`/season/s${round.season}r${nextRound.round}`}>
           <div
             className="w-12 h-12 md:w-20 md:h-20
-            text-sm md:text-xl bg-[#f8ff71]
+            text-sm md:text-xl bg-wmgYellow
             flex flex-col justify-center items-center
             font-bold shadow-inyellfocus rounded-full
             hover:scale-110"
@@ -53,7 +53,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       <Link to={`/season/s${round.season}r${prevRound.round}`}>
         <div
           className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
-          text-sm md:text-xl bg-[#f8ff71]
+          text-sm md:text-xl bg-wmgYellow
           flex flex-col justify-center items-center
           font-bold shadow-inyellfocus rounded-full
           hover:scale-110"
@@ -133,23 +133,23 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   return (
     <div
       className={`w-full max-w-4xl rounded-lg
-      text-[#38280e]
+      text-wmgBrown
       flex flex-col justify-center items-center text-center`}
     >
       <div
-        className="w-full bg-[#38280e] text-2xl py-3 shadow-insetbrown
-        font-orb font-bold rounded-t-md text-[#f8ff71] tracking-wider"
+        className="w-full bg-wmgBrown text-2xl py-3 shadow-insetbrown
+        font-orb font-bold rounded-t-md text-wmgYellow tracking-wider"
       >
         {`SEASON ${round.season}`}
       </div>
       <div
         className="w-full py-4
-        text-[#38280e] bg-[#f8ff71] shadow-inyellfocus
+        text-wmgBrown bg-wmgYellow shadow-inyellfocus
         flex flex-col justify-center items-center"
       >
         <div
           className="w-full px-4
-        text-[#38280e]
+        text-wmgBrown
         flex justify-evenly items-center"
         >
           {toggleRoundBtn(false)}

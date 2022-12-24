@@ -8,7 +8,7 @@ type Props = {
 
 const ScorecardToggleBtn: React.FC<Props> = ({ show, toggle, text1, text2 }) => {
   const deselectedClasses = 'bg-[#f8ff7140] shadow-insetbasic'
-  const selectedClasses = 'bg-[#f8ff71] text-[#38280e] shadow-inyellfocus'
+  const selectedClasses = 'bg-wmgYellow text-wmgBrown shadow-inyellfocus'
 
   return (
     <button className="w-full max-w-lg flex justify-center items-center py-2 my-2" onClick={toggle}>

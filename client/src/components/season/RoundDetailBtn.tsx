@@ -16,8 +16,8 @@ const RoundDetailBtn: React.FC<Props> = ({ btnText, btnMode }) => {
       rounded-xl
       ${
         roundDetailsMode === btnMode
-          ? 'bg-[#38280e] shadow-insetbrown text-[#f8ff71]'
-          : 'bg-[#f8ff71] border-2 border-[#f8ff71] shadow-inyellopp'
+          ? 'bg-wmgBrown shadow-insetbrown text-wmgYellow'
+          : 'bg-wmgYellow border-2 border-wmgYellow shadow-inyellopp'
       }`}
       onClick={() => changeRoundDetailsMode(btnMode)}
     >

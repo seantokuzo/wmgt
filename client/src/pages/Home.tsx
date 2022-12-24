@@ -12,7 +12,7 @@ const Home: React.FC = () => {
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       ></iframe> */}
-      <img className="w-full max-w-4xl" src="/img/wmg_logo.png" alt="Walkabout Mini Golf Logo" />
+      <img className="w-full max-w-2xl" src="/img/wmg_logo.png" alt="Walkabout Mini Golf Logo" />
       {/* <div
         className='w-[100px] h-[100px] bg-red-400 relative
         before:content-[""] before:absolute before:top-0 before:left-0 before:border-b-red-400
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         after:content-[""] after:absolute after:bottom-0 after:left-0 after:border-b-red-400
         after:border-t-[29px] after:border-x-[29px] after:border-x-[#eee] after:w-[100px] after:h-0'
       ></div> */}
-      <h2 className={`${!darkMode ? 'text-[#38280e]' : 'text-[#f8f771]'}`}>Stats By:</h2>
+      <h2 className={`${!darkMode ? 'text-wmgBrown' : 'text-[#f8f771]'}`}>Stats By:</h2>
       <nav className="w-full max-w-xl py-2 flex flex-col justify-center items-center">
         <PageLink path="player" />
         <PageLink path="season" />

@@ -40,7 +40,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         to="/season"
         className="px-4 py-2 text-2xl md:text-3xl font-semibold
           flex justify-center items-center hover:shadow-lg hover:scale-105
-          bg-[#38280e] shadow-insetbrown text-[#f8ff71] rounded-t-md"
+          bg-wmgBrown shadow-insetbrown text-wmgYellow rounded-t-md"
       >
         SEASON MENU
       </Link>
