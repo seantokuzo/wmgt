@@ -14,6 +14,10 @@ module.exports = {
         xxxs: '0.45rem',
         xxs: '0.6rem'
       },
+      colors: {
+        brown: '#38280e',
+        wmgYellow: '#f8ff71'
+      },
       boxShadow: {
         inyellfocus: 'inset 11px 11px 9px #c1c758, inset -11px -11px 9px #ffff8a80',
         inyellopp: 'inset -5px -5px 9px #c1c758, inset 11px 11px 9px #ffff8a80',
