@@ -14,6 +14,7 @@ import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 import { season6Data } from 'data/round-data/s6-round-data'
 import DataTester from 'DataTester'
+import SeasonSummary from 'components/season/SeasonSummary'
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
@@ -59,14 +60,16 @@ function App() {
             </SeasonContextProvider>
           }
         >
-          {season7Data.map((round) => (
+          <Route path="s6-summary" element={<SeasonSummary season={6} />} />
+          {season6Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
               element={<RoundDetails round={round} />}
               key={nanoid()}
             />
           ))}
-          {season6Data.map((round) => (
+          <Route path="s7-summary" element={<SeasonSummary season={7} />} />
+          {season7Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
               element={<RoundDetails round={round} />}
