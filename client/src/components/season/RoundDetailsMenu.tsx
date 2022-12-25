@@ -7,6 +7,7 @@ import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { nanoid } from 'nanoid'
 import { DataGod } from 'data/dataGod'
+import { useAppContext } from 'context/appContext'
 
 type Props = {
   round: { season: number; round: number }
@@ -15,52 +16,44 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
+  const { darkMode } = useAppContext()
   const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard, viewCourse } =
     useSeasonContext()
 
   const courseAlias =
     showEasyCourse || roundDetailsMode === 'easy' ? easyCourse.alias : hardCourse.alias
 
+  const bgColor =
+    round.season === 6 ? 'bg-emerald-600 shadow-insetemerald' : 'bg-indigo-600 shadow-insetindigo'
+  const borderColor = round.season === 6 ? 'border-emerald-600' : 'border-indigo-600'
+  const textColor = round.season === 6 ? 'text-emerald-600' : 'text-indigo-600'
+  // const bgPassThru = darkMode ? 'bg-black' : 'bg-white'
+  // const bgPassThruText = darkMode ? 'text-black' : 'text-white'
+
   const toggleRoundBtn = (nextNotPrev: boolean) => {
     const seasonData = round.season === 6 ? season6Data : season7Data
     const roundIndex = seasonData.findIndex((r) => r.round === round.round)
-    if (nextNotPrev) {
-      const nextRound = seasonData[roundIndex + 1]
-      if (!nextRound) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
-      return (
-        <Link to={`/season/s${round.season}r${nextRound.round}`}>
-          <div
-            className="w-12 h-12 md:w-20 md:h-20
-            text-sm md:text-xl bg-wmgYellow
-            flex flex-col justify-center items-center
-            font-bold shadow-inyellfocus rounded-full
-            hover:scale-110"
-            onClick={() => {
-              viewScorecard()
-              viewFrontNine()
-            }}
-          >
-            {`R${nextRound.round}`}
-            <i className="fa-solid fa-arrow-right"></i>
-          </div>
-        </Link>
-      )
-    }
-
+    const nextRound = seasonData[roundIndex + 1]
     const prevRound = seasonData[roundIndex - 1]
-    if (!prevRound) return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
+    if ((nextNotPrev && !nextRound) || (!nextNotPrev && !prevRound))
+      return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
     return (
-      <Link to={`/season/s${round.season}r${prevRound.round}`}>
+      <Link to={`/season/s${round.season}r${nextNotPrev ? nextRound.round : prevRound.round}`}>
         <div
-          className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
-          text-sm md:text-xl bg-wmgYellow
-          flex flex-col justify-center items-center
-          font-bold shadow-inyellfocus rounded-full
-          hover:scale-110"
-          onClick={viewFrontNine}
+          className={`w-12 h-12 md:w-20 md:h-20
+            text-sm md:text-xl font-bold text-black
+            border-2 ${borderColor}
+            ${bgColor}
+            rounded-full
+            flex flex-col justify-center items-center
+            hover:scale-110`}
+          onClick={() => {
+            viewScorecard()
+            viewFrontNine()
+          }}
         >
-          {`R${prevRound.round}`}
-          <i className="fa-solid fa-arrow-left"></i>
+          {`R${nextNotPrev ? nextRound.round : prevRound.round}`}
+          <i className={`fa-solid ${nextNotPrev ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>
         </div>
       </Link>
     )
@@ -70,6 +63,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     return (
       <div
         className={`w-1/2 py-2 px-4
+        ${course.difficulty === 'Easy' ? 'text-orange-300' : 'text-indigo-700'}
         ${
           showEasyCourse && course.difficulty === 'Hard'
             ? 'cursor-pointer hover:scale-105'
@@ -132,25 +126,27 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 
   return (
     <div
-      className={`w-full max-w-4xl rounded-lg
-      text-wmgBrown
+      className={`w-full max-w-2xl rounded-lg
       flex flex-col justify-center items-center text-center`}
     >
       <div
-        className="w-full bg-wmgBrown text-2xl py-3 shadow-insetbrown
-        font-orb font-bold rounded-t-md text-wmgYellow tracking-wider"
+        className={`w-full py-3        
+        font-orb text-2xl font-bold tracking-wider
+        rounded-t-md
+        text-black
+        ${bgColor}`}
       >
-        {`SEASON ${round.season}`}
+        <Link to="/season">{`SEASON ${round.season}`}</Link>
       </div>
       <div
-        className="w-full py-4
-        text-wmgBrown bg-wmgYellow shadow-inyellfocus
-        flex flex-col justify-center items-center"
+        className={`w-full py-4
+        ${textColor}
+        bg-black
+        flex flex-col justify-center items-center`}
       >
         <div
-          className="w-full px-4
-        text-wmgBrown
-        flex justify-evenly items-center"
+          className={`w-full px-4
+          flex justify-evenly items-center`}
         >
           {toggleRoundBtn(false)}
           <div
@@ -162,34 +158,39 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           </div>
           {toggleRoundBtn(true)}
         </div>
-        <div
-          className="w-full h-max text-center
-        flex justify-evenly items-start"
-        >
-          {courseLabelEl(easyCourse)}
-          {courseLabelEl(hardCourse)}
-        </div>
       </div>
       <div
-        className="w-full min-h-[50vh]
+        className="w-full
         bg-no-repeat bg-center bg-cover rounded-b-md
         flex flex-col justify-end items-center"
         style={{
           backgroundImage: `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
         }}
       >
-        <div className="w-auto pt-40">
+        <div className="w-auto mt-40">
           {podiumSectionEl(podium.gold, '🏆')}
           {podiumSectionEl(podium.silver, '🥈')}
           {podiumSectionEl(podium.bronze, '🥉')}
         </div>
       </div>
       <div
+        className="w-full mt-6 text-center
+        flex justify-evenly items-start"
+      >
+        {courseLabelEl(easyCourse)}
+        {courseLabelEl(hardCourse)}
+      </div>
+      <div
         className="w-full md:w-3/4 max-w-xl px-1 mt-6
           flex flex-wrap justify-evenly items-center"
       >
         {(Object.keys(modes) as RoundDetailsMode[]).map((m) => (
-          <RoundDetailBtn key={`mode-btn-${m}`} btnText={modes[m]} btnMode={m} />
+          <RoundDetailBtn
+            key={`mode-btn-${m}`}
+            season={round.season}
+            btnText={modes[m]}
+            btnMode={m}
+          />
         ))}
       </div>
     </div>

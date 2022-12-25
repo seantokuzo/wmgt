@@ -20,8 +20,8 @@ const Season: React.FC = () => {
     <div className="w-full flex flex-col justify-center items-center">
       {pathname === '/season' && (
         <>
-          <SeasonMenu seasonData={season6Data} />
           <SeasonMenu seasonData={season7Data} />
+          <SeasonMenu seasonData={season6Data} />
         </>
       )}
       <Outlet />

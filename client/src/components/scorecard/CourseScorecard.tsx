@@ -89,6 +89,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             toggle={toggleCourse}
             text1="EASY"
             text2="HARD"
+            season={+rawSeasonRound[0]}
           />
         )}
         {windowSize.width < 768 && (
@@ -97,6 +98,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             toggle={toggleScorecardNine}
             text1="FRONT 9"
             text2="BACK 9"
+            season={+rawSeasonRound[0]}
           />
         )}
         {roundDetailsMode !== 'aces' && (
@@ -105,6 +107,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             toggle={toggleScoreTracker}
             text1="TRACKER"
             text2="SCORECARD"
+            season={+rawSeasonRound[0]}
           />
         )}
       </div>

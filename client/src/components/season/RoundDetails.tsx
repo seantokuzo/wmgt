@@ -41,14 +41,21 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       className="w-full py-6 relative
       flex flex-col justify-center items-center"
     >
-      <Link
+      {/* <Link
         to="/season"
-        className="px-4 py-2 text-2xl md:text-3xl font-semibold
-          flex justify-center items-center hover:shadow-lg hover:scale-105
-          bg-wmgBrown shadow-insetbrown text-wmgYellow rounded-t-md"
+        className={`px-4 py-2 mb-4
+        text-2xl md:text-3xl font-semibold text-black
+        ${
+          round.season === 6
+            ? 'bg-emerald-500 shadow-insetemerald'
+            : 'bg-indigo-500 shadow-insetindigo'
+        }
+        rounded-md
+        flex justify-center items-center
+        hover:shadow-lg hover:scale-105`}
       >
         SEASON MENU
-      </Link>
+      </Link> */}
       <RoundDetailsMenu
         round={{ season: round.season, round: round.round }}
         easyCourse={easyCourse}
@@ -133,7 +140,12 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         </>
       )}
       <div className="mt-8">
-        {roundDetailsMode === 'race' && <ComingSoon text="🏇 COMING SOON 🏇" />}
+        {roundDetailsMode === 'race' && (
+          <ComingSoon
+            text="🏇 COMING SOON 🏇"
+            color={round.season === 7 ? 'indigo' : round.season === 6 ? 'emerald' : undefined}
+          />
+        )}
       </div>
       <ScorecardLegend />
     </div>

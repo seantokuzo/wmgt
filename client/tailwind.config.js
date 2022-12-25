@@ -24,7 +24,7 @@ module.exports = {
         insetyellow: 'inset 12px 12px 24px #b8bd54, inset -12px -12px 24px #ffff8e80',
         yellow: '12px 12px 24px #b8bd54, -12px -12px 24px #ffff8e80',
         insetbrown: 'inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212',
-        basic: '2px 2px 15px rgba(0, 0, 0, 0.75), 12px 12px 9px rgba(0, 0, 0, 0.5)',
+        basic: '2px 2px 6px rgba(0, 0, 0, 0.35), 3px 3px 6px rgba(0, 0, 0, 0.25)',
         insetbasic: 'inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020',
         insetcondor: 'inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;',
         insetred: 'inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;',

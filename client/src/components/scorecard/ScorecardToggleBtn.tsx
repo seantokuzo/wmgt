@@ -1,4 +1,5 @@
 type Props = {
+  season: number
   show: boolean
   toggle: () => void
   // toggle: React.Dispatch<React.SetStateAction<boolean>>
@@ -6,9 +7,13 @@ type Props = {
   text2: string
 }
 
-const ScorecardToggleBtn: React.FC<Props> = ({ show, toggle, text1, text2 }) => {
-  const deselectedClasses = 'bg-[#f8ff7140] shadow-insetbasic'
-  const selectedClasses = 'bg-wmgYellow text-wmgBrown shadow-inyellfocus'
+const ScorecardToggleBtn: React.FC<Props> = ({ season, show, toggle, text1, text2 }) => {
+  const deselectedClasses =
+    season === 7
+      ? 'bg-indigo-500/[0.25] shadow-insetbasic'
+      : 'bg-emerald-500/[0.25] shadow-insetbasic'
+  const selectedClasses =
+    season === 7 ? 'bg-indigo-500 shadow-insetindigo' : 'bg-emerald-500 shadow-insetemerald'
 
   return (
     <button className="w-full max-w-lg flex justify-center items-center py-2 my-2" onClick={toggle}>
