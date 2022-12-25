@@ -1,3 +1,4 @@
+import ComingSoon from 'components/ComingSoon'
 import { Link } from 'react-router-dom'
 
 type Props = {
@@ -14,13 +15,16 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
     >
       <Link
         to="/season"
-        className="px-4 py-2 text-2xl md:text-3xl font-semibold
+        className={`px-4 py-2 text-2xl md:text-3xl font-semibold
           flex justify-center items-center hover:shadow-lg hover:scale-105
-          bg-wmgBrown shadow-insetbrown text-wmgYellow rounded-t-md"
+          text-white rounded-t-md
+          ${
+            season === 6 ? 'bg-emerald-500 shadow-insetemerald' : 'bg-indigo-500 shadow-insetindigo'
+          }`}
       >
-        SEASON MENU
+        <i className="fa-solid fa-arrow-left"></i>
       </Link>
-      SeasonSummary
+      <ComingSoon text="Where the F is my summary" color={season === 6 ? 'emerald' : 'indigo'} />
     </div>
   )
 }

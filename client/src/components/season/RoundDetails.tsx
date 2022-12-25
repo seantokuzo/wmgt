@@ -11,6 +11,7 @@ import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import StatScorecard from 'components/scorecard/StatScorecard'
 import { DataGod } from 'data/dataGod'
 import { nanoid } from 'nanoid'
+import { useEffect } from 'react'
 
 type Props = {
   round: RoundDataInterface
@@ -30,6 +31,10 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
 
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div

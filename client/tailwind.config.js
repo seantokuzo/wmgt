@@ -30,6 +30,7 @@ module.exports = {
         insetred: 'inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;',
         insetlime: 'inset 6px 6px 6px #709f25, inset -6px -6px 6px #d6ff45;',
         insetemerald: 'inset 6px 6px 6px #036848, inset -6px -6px 6px #07c58a;',
+        insetindigo: 'inset 6px 6px 6px #37309e, inset -6px -6px 6px #675cff;',
         insetgold: 'inset 6px 6px 6px #ad8419, inset -6px -6px 6px #fffa2f;',
         insetsilver: 'inset 6px 6px 6px #66707f, inset -6px -6px 6px #c2d6f1;',
         insetbronze: 'inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;'
