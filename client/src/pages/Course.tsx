@@ -12,7 +12,6 @@ const Course: React.FC = () => {
           pathname.split('/course/')[1].toUpperCase()
         )})`
       : ''
-  console.log(bgImg)
 
   const bgHeight = pathname !== '/course' && 'h-auto md:h-[100vh]'
 
