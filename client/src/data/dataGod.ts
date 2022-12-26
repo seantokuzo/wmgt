@@ -123,6 +123,10 @@ export abstract class DataGod {
       .map((score) => this.easyOrHardScorecard(score, course))
   }
 
+  static getPodiumScores(round: RoundDataInterface) {
+    return round.scores.filter((score) => score.roundRank <= 3)
+  }
+
   static getRoundHoleTopTenAvg(season: number, course: CourseAlias): number[] {
     const round = this.getRoundFromCourse(this.getSeasonData(season), course)
     const topTenScores = this.getTopTenScores(round, course)
@@ -142,6 +146,80 @@ export abstract class DataGod {
     const averageScores = this.getAvgsFromScorecards(allScores)
 
     return averageScores
+  }
+
+  static getRaceToFinishData(round: RoundDataInterface) {
+    const allPars = [
+      ...this.getCoursePars(round.easyCourse),
+      ...this.getCoursePars(round.hardCourse)
+    ]
+
+    const podiumScores = this.getPodiumScores(round).map((score) => {
+      const holeScores = [...score.easyScorecard, ...score.hardScorecard].map(
+        (score, i) => score - allPars[i]
+      )
+      const scoreTracker = holeScores.map((score, i) => {
+        return holeScores.slice(0, i + 1).reduce((sum, curr) => sum + curr, 0)
+      })
+      return {
+        player: score.player,
+        scoreTracker: scoreTracker,
+        roundRank: score.roundRank,
+        medal: score.roundRank === 1 ? '🏆' : score.roundRank === 2 ? '🥈' : '🥉',
+        coconut: score.coconut
+      }
+    })
+
+    console.log(podiumScores)
+
+    const starterObject = {
+      hole: 0,
+      ...podiumScores.reduce((acc, score) => {
+        return {
+          ...acc,
+          [score.medal + score.player]: 0
+        }
+      }, {})
+    }
+    console.log(starterObject)
+
+    const raceToFinishData = [
+      starterObject,
+      ...allPars.map((par, i) => {
+        const playersObj = podiumScores.reduce((acc, player) => {
+          return {
+            ...acc,
+            [player.medal + player.player]: player.scoreTracker[i]
+          }
+        }, {})
+        return {
+          hole: i + 1,
+          ...playersObj
+        }
+      })
+    ]
+    return raceToFinishData
+
+    // return [
+    //   {
+    //     hole: 1,
+    //     INDY: -2,
+    //     ElJorge: -4,
+    //     Zanetti: -4
+    //   },
+    //   {
+    //     hole: 2,
+    //     INDY: -3,
+    //     ElJorge: -5,
+    //     Zanetti: -7
+    //   },
+    //   {
+    //     hole: 3,
+    //     INDY: -6,
+    //     ElJorge: -4,
+    //     Zanetti: 1
+    //   }
+    // ]
   }
 
   static getPlayerScorecard(

@@ -12,6 +12,7 @@ import StatScorecard from 'components/scorecard/StatScorecard'
 import { DataGod } from 'data/dataGod'
 import { nanoid } from 'nanoid'
 import { useEffect } from 'react'
+import RaceToTheFinish from './RaceToTheFinish'
 
 type Props = {
   round: RoundDataInterface
@@ -141,9 +142,15 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       )}
       <div className="mt-8">
         {roundDetailsMode === 'race' && (
-          <ComingSoon
-            text="🏇 COMING SOON 🏇"
-            color={round.season === 7 ? 'indigo' : round.season === 6 ? 'emerald' : undefined}
+          // <ComingSoon
+          //   text="🏇 COMING SOON 🏇"
+          //   color={round.season === 7 ? 'indigo' : round.season === 6 ? 'emerald' : undefined}
+          // />
+          <RaceToTheFinish
+            round={{
+              ...round,
+              scores: DataGod.getPodiumScores(round)
+            }}
           />
         )}
       </div>
