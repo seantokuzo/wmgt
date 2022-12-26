@@ -170,18 +170,15 @@ export abstract class DataGod {
       }
     })
 
-    console.log(podiumScores)
-
     const starterObject = {
-      hole: 0,
+      hole: 'Start',
       ...podiumScores.reduce((acc, score) => {
         return {
           ...acc,
-          [score.medal + score.player]: 0
+          [score.medal + ' ' + score.player]: 0
         }
       }, {})
     }
-    console.log(starterObject)
 
     const raceToFinishData = [
       starterObject,
@@ -189,37 +186,16 @@ export abstract class DataGod {
         const playersObj = podiumScores.reduce((acc, player) => {
           return {
             ...acc,
-            [player.medal + player.player]: player.scoreTracker[i]
+            [player.medal + ' ' + player.player]: player.scoreTracker[i]
           }
         }, {})
         return {
-          hole: i + 1,
+          hole: `${i + 1}`,
           ...playersObj
         }
       })
     ]
     return raceToFinishData
-
-    // return [
-    //   {
-    //     hole: 1,
-    //     INDY: -2,
-    //     ElJorge: -4,
-    //     Zanetti: -4
-    //   },
-    //   {
-    //     hole: 2,
-    //     INDY: -3,
-    //     ElJorge: -5,
-    //     Zanetti: -7
-    //   },
-    //   {
-    //     hole: 3,
-    //     INDY: -6,
-    //     ElJorge: -4,
-    //     Zanetti: 1
-    //   }
-    // ]
   }
 
   static getPlayerScorecard(

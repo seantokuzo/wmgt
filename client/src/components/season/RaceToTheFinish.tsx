@@ -1,3 +1,4 @@
+import { useAppContext } from 'context/appContext'
 import { DataGod } from 'data/dataGod'
 import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
@@ -11,62 +12,88 @@ export const lineColors = {
   one: '#10b981',
   two: '#6366f1',
   three: '#fb923c',
-  four: '#fef08a',
-  five: '#ef4444',
-  six: '#65a30d',
-  seven: '#0ea5e9',
+  four: '#ef4444',
+  five: '#65a30d',
+  six: '#1e40af',
+  seven: '#a1a1aa',
   eight: '#99f6e4',
-  nine: '#a1a1aa',
-  ten: '#1e40af'
+  nine: '#0ea5e9',
+  ten: '#fef08a'
 }
 
 const RaceToTheFinish: React.FC<Props> = ({ round }) => {
+  const { windowSize } = useAppContext()
   const convertedRound = DataGod.getRaceToFinishData(round)
-
-  console.log(convertedRound)
-  const lowScore = Math.min(...Object.values(convertedRound[convertedRound.length - 1]))
+  const lowScore = Math.min(
+    ...Object.values(convertedRound[convertedRound.length - 1]).map((v) =>
+      typeof v === 'number' ? v : 99
+    )
+  )
   const checkFive = (num: number): number => (num % 5 !== 0 ? checkFive(num - 1) : num)
   const closestFive = checkFive(lowScore)
-  const ticksArray = new Array(Math.abs(closestFive / 5)).fill('').map((_slot, i) => {
+  const yAxisTicks = new Array(Math.abs(closestFive / 5)).fill('').map((_slot, i) => {
     return closestFive + 5 * i
   })
-  console.log(ticksArray)
 
-  const xAxisTicks: number[] = new Array(19)
+  const xAxisTicks: string[] = new Array(19)
     .fill('')
     .map((_slot, i) => {
-      return i * 2
+      return `${i * 2}`
     })
     .reverse()
+
   console.log(xAxisTicks)
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col justify-center items-center">
       <LineChart
-        width={1000}
-        height={500}
+        width={
+          windowSize.height > windowSize.width
+            ? Math.floor(windowSize.width * 0.95)
+            : Math.floor(windowSize.width * 0.75) <= 1200
+            ? Math.floor(windowSize.width * 0.75)
+            : 1200
+        }
+        height={
+          windowSize.height <= 550
+            ? Math.floor(windowSize.height * 0.95)
+            : windowSize.width > windowSize.height
+            ? Math.floor(windowSize.height * 0.67)
+            : Math.floor(windowSize.height * 0.5)
+        }
         data={convertedRound}
-        // margin={{
-        //   top: 5,
-        //   right: 30,
-        //   left: 20,
-        //   bottom: 5
-        // }}
+        margin={{
+          top: 20,
+          right: 0,
+          left: 0,
+          bottom: 30
+        }}
       >
         <CartesianGrid strokeDasharray="1 1" />
         <XAxis
-          label={{ value: 'Hole', position: 'bottom' }}
+          label={{ value: 'Hole', position: 'top' }}
           dataKey="hole"
           name="Hole"
           ticks={xAxisTicks}
         />
         <YAxis
-          label={{ value: 'Score', angle: -90, position: 'left' }}
+          label={{ value: 'Score', angle: -90, position: 'right' }}
           reversed={true}
           domain={['dataMin', 'dataMax']}
-          ticks={ticksArray}
+          ticks={yAxisTicks}
         />
-        <Tooltip />
+        <Tooltip
+          contentStyle={{ backgroundColor: 'black', fontFamily: 'Montserrat' }}
+          labelStyle={{
+            color: '#a1a1aa',
+            textAlign: 'center',
+            // textDecoration: 'underline',
+            fontWeight: 'bold',
+            borderBottom: '1px #a1a1aa solid',
+            paddingBottom: '2px',
+            marginBottom: '0.5rem'
+          }}
+        />
         <Legend margin={{ top: 0, left: 0, bottom: 36, right: 0 }} verticalAlign="top" />
         {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
         {Object.keys(convertedRound[0])

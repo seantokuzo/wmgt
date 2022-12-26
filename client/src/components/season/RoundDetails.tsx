@@ -33,9 +33,9 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  // useEffect(() => {
+  //   window.scrollTo(0, 0)
+  // }, [])
 
   return (
     <div
@@ -140,20 +140,18 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           )}
         </>
       )}
-      <div className="mt-8">
-        {roundDetailsMode === 'race' && (
-          // <ComingSoon
-          //   text="🏇 COMING SOON 🏇"
-          //   color={round.season === 7 ? 'indigo' : round.season === 6 ? 'emerald' : undefined}
-          // />
-          <RaceToTheFinish
-            round={{
-              ...round,
-              scores: DataGod.getPodiumScores(round)
-            }}
-          />
-        )}
-      </div>
+      {roundDetailsMode === 'race' && (
+        // <ComingSoon
+        //   text="🏇 COMING SOON 🏇"
+        //   color={round.season === 7 ? 'indigo' : round.season === 6 ? 'emerald' : undefined}
+        // />
+        <RaceToTheFinish
+          round={{
+            ...round,
+            scores: DataGod.getPodiumScores(round)
+          }}
+        />
+      )}
       <ScorecardLegend />
     </div>
   )
