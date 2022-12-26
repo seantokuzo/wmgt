@@ -42,8 +42,6 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
     })
     .reverse()
 
-  console.log(xAxisTicks)
-
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <LineChart
