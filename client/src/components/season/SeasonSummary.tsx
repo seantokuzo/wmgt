@@ -6,8 +6,6 @@ type Props = {
 }
 
 const SeasonSummary: React.FC<Props> = ({ season }) => {
-  console.log(season)
-
   return (
     <div
       className="w-full

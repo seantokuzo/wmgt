@@ -279,13 +279,45 @@ export abstract class DataGod {
     return { gold, silver, bronze }
   }
 
-  // static convertPlayerRoundsToAcesOnly(round: RoundDataInterface) {
-  //   return round.scores.map((score) => {
-  //     return {
-  //       ...score,
-  //       easyScorecard: score.easyScorecard.map((s) => (s === 1 ? s : '')),
-  //       hardScorecard: score.easyScorecard.map((s) => (s === 1 ? s : ''))
-  //     }
-  //   })
-  // }
+  static convertPlayerFlag(player: PlayerInterface) {
+    return {
+      player: player.player,
+      flag: flagConverter.filter((f) => f.link === player.flag)[0].flag
+    }
+  }
+
+  static getSeasonSummaryPlayerPoints(season: number) {
+    const seasonData = this.getSeasonData(season)
+    const seasonPlayers = allPlayersList.filter((player) => {
+      return seasonData.some((round) => {
+        return round.scores.some((score) => {
+          return score.player === player.player
+        })
+      })
+    })
+    // const excludedPlayers = allPlayersList
+    //   .filter((player) => {
+    //     return !seasonData.some((round) => {
+    //       return round.scores.some((s) => {
+    //         return s.player === player.player
+    //       })
+    //     })
+    //   })
+    //   .sort((a, b) => a.player.localeCompare(b.player))
+    // console.log('Season Players: ', seasonPlayers)
+    // console.log('Excluded Players: ', excludedPlayers)
+
+    const playerSeasonSummaries = seasonPlayers.map((player) => {
+      const playerObj = this.convertPlayerFlag(player)
+
+      const playerRoundPoints = seasonData.map((round) => {
+        if (!round.scores.some((s) => s.player === player.player)) return 0
+        return round.scores.filter((s) => s.player === player.player)[0].seasonPointsEarned
+      })
+
+      return {...playerObj, roundPoints: playerRoundPoints}
+    })
+
+    return playerSeasonSummaries
+  }
 }

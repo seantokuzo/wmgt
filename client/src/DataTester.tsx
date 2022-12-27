@@ -1,6 +1,7 @@
-// import { DataGod } from 'data/dataGod'
+import { DataGod } from 'data/dataGod'
 // console.log(DataGod.getLowestRoundHoleScores(7, 1))
 // console.log(DataGod.getRoundAcesPerHole({ season: 7, round: 1 }))
+console.log(DataGod.getSeasonSummaryPlayerPoints(7))
 
 // import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // import { convertRawRoundData } from './data/in_progress/s6r12_raw-data'

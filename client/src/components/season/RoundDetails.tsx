@@ -1,17 +1,14 @@
 import { useSeasonContext } from 'context/season/seasonContext'
 import RoundDetailsMenu from './RoundDetailsMenu'
-import ComingSoon from 'components/ComingSoon'
 import { courseData } from '../../data/course-data/wmgt-course-data'
 import { RoundDataInterface } from '../../data/round-data/roundTypes'
 import Scorecard from 'components/scorecard/Scorecard'
 import ScorecardLegend from 'components/scorecard/ScorecardLegend'
-import { Link } from 'react-router-dom'
 import CourseScorecard from 'components/scorecard/CourseScorecard'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import StatScorecard from 'components/scorecard/StatScorecard'
 import { DataGod } from 'data/dataGod'
 import { nanoid } from 'nanoid'
-import { useEffect } from 'react'
 import RaceToTheFinish from './RaceToTheFinish'
 
 type Props = {
