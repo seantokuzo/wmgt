@@ -1,6 +1,6 @@
 import { RoundDetailsMode } from 'context/season/seasonContext'
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
-import { allPlayersList, flagConverter, PlayerInterface } from './player-data/AllPlayersList'
+import { allPlayersList, PlayerInterface } from './player-data/AllPlayersList'
 import { PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
@@ -12,12 +12,6 @@ type RoundIdentifier = {
 
 export abstract class DataGod {
   // PRIVATE UTIL METHODS * PRIVATE UTIL METHODS * PRIVATE UTIL METHODS
-  private static getPlayerFlag(link: string) {
-    return flagConverter.filter((f) => f.link === link).length > 0
-      ? flagConverter.filter((f) => f.link === link)[0].flag
-      : ''
-  }
-
   private static getSeasonData(season: number) {
     switch (season) {
       case 7:
@@ -268,7 +262,7 @@ export abstract class DataGod {
             .map((player) => {
               return {
                 player: player.player,
-                flag: this.getPlayerFlag(player.flag)
+                flag: player.flag
               }
             })
     }
@@ -277,13 +271,6 @@ export abstract class DataGod {
     const bronze = getFinishers(bronzeMembers)
 
     return { gold, silver, bronze }
-  }
-
-  static convertPlayerFlag(player: PlayerInterface) {
-    return {
-      player: player.player,
-      flag: flagConverter.filter((f) => f.link === player.flag)[0].flag
-    }
   }
 
   static getSeasonSummaryPlayerPoints(season: number) {
@@ -308,14 +295,12 @@ export abstract class DataGod {
     // console.log('Excluded Players: ', excludedPlayers)
 
     const playerSeasonSummaries = seasonPlayers.map((player) => {
-      const playerObj = this.convertPlayerFlag(player)
-
       const playerRoundPoints = seasonData.map((round) => {
         if (!round.scores.some((s) => s.player === player.player)) return 0
         return round.scores.filter((s) => s.player === player.player)[0].seasonPointsEarned
       })
 
-      return {...playerObj, roundPoints: playerRoundPoints}
+      return { ...player, roundPoints: playerRoundPoints }
     })
 
     return playerSeasonSummaries
