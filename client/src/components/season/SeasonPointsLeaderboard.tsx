@@ -48,8 +48,8 @@ const SeasonPointsLeaderboard: React.FC<Props> = ({ season }) => {
   const flex = 'flex justify-center items-center'
   const rankColSize = 'w-20'
   const flagColSize = 'w-12'
-  const playerColSize = 'w-1/4'
-  const totalColSizes = 'w-14 h-14'
+  const playerColSize = 'w-1/5'
+  const totalColSizes = 'w-14 h-14 mr-2'
   const pointColSize = 'w-16 h-16 p-2 m-1 text-center'
 
   return (
@@ -82,14 +82,20 @@ const SeasonPointsLeaderboard: React.FC<Props> = ({ season }) => {
           <div className={`${totalColSizes} ${flex}`}>{player.totalPoints}</div>
           {player.roundPoints.map((point, i) => (
             <div
-              className={`${pointColSize} ${roundPointColor(point)} ${flex}
+              className={`${pointColSize} ${roundPointColor(point)} ${flex} relative
               ${
                 DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
-                'text-red-400'
+                'opacity-25'
               }`}
               key={nanoid()}
             >
               {point}
+              {/* {DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) && (
+                <i
+                  className="fa-solid fa-ban text-4xl text-red-400/[0.25]
+                  absolute"
+                ></i>
+              )} */}
               {/* {point ? point : ''} */}
             </div>
           ))}

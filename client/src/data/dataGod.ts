@@ -317,10 +317,10 @@ export abstract class DataGod {
     }
 
     // if (whichLowest === 4) {}
-    console.log('Find 4th Lowest Score')
+    // console.log('Find 4th Lowest Score')
     const allSame = sortedPoints[0] === sortedPoints[3]
     if (allSame) {
-      console.log('All 4 Lowest Scores the Same')
+      // console.log('All 4 Lowest Scores the Same')
       const plucked = this.pluckNumber(points, points.indexOf(sortedPoints[0]))
       const doublePlucked = this.pluckNumber(plucked, plucked.indexOf(sortedPoints[1]))
       const triplePlucked = this.pluckNumber(doublePlucked, doublePlucked.indexOf(sortedPoints[2]))
@@ -328,14 +328,14 @@ export abstract class DataGod {
     }
     const threeLowestSame = sortedPoints[1] === sortedPoints[3]
     if (threeLowestSame) {
-      console.log('Last 3 Lowest Scores the Same')
+      // console.log('Last 3 Lowest Scores the Same')
       const plucked = this.pluckNumber(points, points.indexOf(sortedPoints[1]))
       const doublePlucked = this.pluckNumber(plucked, plucked.indexOf(sortedPoints[2]))
       return doublePlucked.indexOf(sortedPoints[3]) + 2
     }
     const lastTwoLowestSame = sortedPoints[2] === sortedPoints[3]
     if (lastTwoLowestSame) {
-      console.log('Last 2 Lowest Scores the Same')
+      // console.log('Last 2 Lowest Scores the Same')
       const plucked = this.pluckNumber(points, points.indexOf(sortedPoints[2]))
       return plucked.indexOf(sortedPoints[3]) + 1
     }
@@ -343,7 +343,7 @@ export abstract class DataGod {
   }
 
   static getIndexesOfUnusedSeasonPoints(points: number[]) {
-    console.log(points.length)
+    // console.log(points.length)
     if (points.length <= 8) {
       return []
     }

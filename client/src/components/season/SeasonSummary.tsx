@@ -4,13 +4,16 @@ import { DataGod } from 'data/dataGod'
 import { nanoid } from 'nanoid'
 import SeasonPointsLeaderboard from './SeasonPointsLeaderboard'
 import SeasonSummaryMenu from './SeasonSummaryMenu'
+import { useState } from 'react'
 
 type Props = {
   season: number
 }
 
+export type SummaryMode = 'leaderboard' | 'stat-leaders'
+
 const SeasonSummary: React.FC<Props> = ({ season }) => {
-  // console.log(DataGod.getSeasonSummaryPlayerPoints(7))
+  const [summaryMode, setSummaryMode] = useState<SummaryMode>('leaderboard')
 
   if (season === 6) {
     return (
@@ -49,8 +52,18 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
         {/* <i className="fa-solid fa-arrow-left"></i> */}
         <p>SEASON MENU</p>
       </Link>
-      <SeasonSummaryMenu />
-      <SeasonPointsLeaderboard season={season} />
+      <SeasonSummaryMenu
+        season={season}
+        summaryMode={summaryMode}
+        setSummaryMode={setSummaryMode}
+      />
+      {summaryMode === 'leaderboard' && <SeasonPointsLeaderboard season={season} />}
+      {summaryMode === 'stat-leaders' && (
+        <ComingSoon
+          text="🔨 Not so Fast 🪚"
+          color={season === 7 ? 'indigo' : season === 6 ? 'emerald' : undefined}
+        />
+      )}
       {/* {DataGod.getSeasonSummaryPlayerPoints(season).map((player) => (
         <div className="flex justify-center items center" key={nanoid()}>
           <div>{player.flag}</div>
