@@ -273,6 +273,119 @@ export abstract class DataGod {
     return { gold, silver, bronze }
   }
 
+  static pluckNumber(numberArray: number[], index: number) {
+    return [...numberArray.slice(0, index), ...numberArray.slice(index + 1)]
+  }
+
+  static seekAndReturnLowest(points: number[], whichLowest: number): number {
+    const sortedPoints = [...points].sort((a, b) => a - b)
+    if (whichLowest === 1) {
+      return points.indexOf(Math.min(...points))
+    }
+    if (whichLowest === 2) {
+      const sameAsLowest = sortedPoints[0] === sortedPoints[1]
+      if (sameAsLowest) {
+        // console.log('Same')
+        const firstLowestIndex = points.indexOf(sortedPoints[0])
+        const plucked = this.pluckNumber(points, firstLowestIndex)
+        const secondLowestIndex = plucked.indexOf(Math.min(...plucked)) + 1
+        return secondLowestIndex
+      }
+      return points.indexOf(sortedPoints[1])
+    }
+    if (whichLowest === 3) {
+      const sameSame = sortedPoints[2] === sortedPoints[0] && sortedPoints[2] === sortedPoints[1]
+      if (sameSame) {
+        // console.log('3rd Lowest Same Same 1st & 2nd')
+        const firstLowestIndex = points.indexOf(sortedPoints[0])
+        const plucked = this.pluckNumber(points, firstLowestIndex)
+        const nextLowestIndex = plucked.indexOf(sortedPoints[1])
+        const doublePlucked = this.pluckNumber(plucked, nextLowestIndex)
+        const thirdLowestIndex = doublePlucked.indexOf(Math.min(...plucked)) + 2
+        return thirdLowestIndex
+      }
+      const sameAsSecondLowest = sortedPoints[2] === sortedPoints[1]
+      if (sameAsSecondLowest) {
+        // console.log('3rd Lowest Same as Second Lowest')
+        const secondLowestIndex = points.indexOf(sortedPoints[1])
+        const plucked = this.pluckNumber(points, secondLowestIndex)
+        const thirdLowestIndex = plucked.indexOf(sortedPoints[2]) + 1
+        return thirdLowestIndex
+      }
+      // console.log('Third Lowest Not the Same')
+      return points.indexOf(sortedPoints[2])
+    }
+
+    // if (whichLowest === 4) {}
+    console.log('Find 4th Lowest Score')
+    const allSame = sortedPoints[0] === sortedPoints[3]
+    if (allSame) {
+      console.log('All 4 Lowest Scores the Same')
+      const plucked = this.pluckNumber(points, points.indexOf(sortedPoints[0]))
+      const doublePlucked = this.pluckNumber(plucked, plucked.indexOf(sortedPoints[1]))
+      const triplePlucked = this.pluckNumber(doublePlucked, doublePlucked.indexOf(sortedPoints[2]))
+      return triplePlucked.indexOf(sortedPoints[3]) + 3
+    }
+    const threeLowestSame = sortedPoints[1] === sortedPoints[3]
+    if (threeLowestSame) {
+      console.log('Last 3 Lowest Scores the Same')
+      const plucked = this.pluckNumber(points, points.indexOf(sortedPoints[1]))
+      const doublePlucked = this.pluckNumber(plucked, plucked.indexOf(sortedPoints[2]))
+      return doublePlucked.indexOf(sortedPoints[3]) + 2
+    }
+    const lastTwoLowestSame = sortedPoints[2] === sortedPoints[3]
+    if (lastTwoLowestSame) {
+      console.log('Last 2 Lowest Scores the Same')
+      const plucked = this.pluckNumber(points, points.indexOf(sortedPoints[2]))
+      return plucked.indexOf(sortedPoints[3]) + 1
+    }
+    return points.indexOf(sortedPoints[3])
+  }
+
+  static getIndexesOfUnusedSeasonPoints(points: number[]) {
+    console.log(points.length)
+    if (points.length <= 8) {
+      return []
+    }
+    if (points.length === 9) {
+      return [this.seekAndReturnLowest([...points], 1)]
+    }
+    if (points.length === 10) {
+      return [this.seekAndReturnLowest([...points], 1), this.seekAndReturnLowest([...points], 2)]
+    }
+    if (points.length === 11) {
+      return [
+        this.seekAndReturnLowest([...points], 1),
+        this.seekAndReturnLowest([...points], 2),
+        this.seekAndReturnLowest([...points], 3)
+      ]
+    }
+    // if (points.length === 12) {}
+    return [
+      this.seekAndReturnLowest(points, 1),
+      this.seekAndReturnLowest(points, 2),
+      this.seekAndReturnLowest(points, 3),
+      this.seekAndReturnLowest(points, 4)
+    ]
+  }
+
+  static getTotalSeasonPoints(points: number[]) {
+    if (points.length <= 8) {
+      return points.reduce((a, b) => a + b, 0)
+    }
+    if (points.length === 9) {
+      return points.slice(1).reduce((a, b) => a + b, 0)
+    }
+    if (points.length === 10) {
+      return points.slice(2).reduce((a, b) => a + b, 0)
+    }
+    if (points.length === 11) {
+      return points.slice(3).reduce((a, b) => a + b, 0)
+    }
+    // if (points.length >= 8) {}
+    return points.slice(4).reduce((a, b) => a + b, 0)
+  }
+
   static getSeasonSummaryPlayerPoints(season: number) {
     const seasonData = this.getSeasonData(season)
     const seasonPlayers = allPlayersList.filter((player) => {
@@ -282,6 +395,8 @@ export abstract class DataGod {
         })
       })
     })
+
+    // LOG PLAYERS WHO HAVE NO DATA THIS SEASON
     // const excludedPlayers = allPlayersList
     //   .filter((player) => {
     //     return !seasonData.some((round) => {
@@ -299,10 +414,14 @@ export abstract class DataGod {
         if (!round.scores.some((s) => s.player === player.player)) return 0
         return round.scores.filter((s) => s.player === player.player)[0].seasonPointsEarned
       })
-
-      return { ...player, roundPoints: playerRoundPoints }
+      return {
+        ...player,
+        roundPoints: playerRoundPoints,
+        totalPoints: this.getTotalSeasonPoints([...playerRoundPoints].sort((a, b) => a - b))
+      }
     })
 
-    return playerSeasonSummaries
+    // return playerSeasonSummaries
+    return playerSeasonSummaries.sort((a, b) => b.totalPoints - a.totalPoints)
   }
 }

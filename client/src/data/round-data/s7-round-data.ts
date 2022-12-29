@@ -9629,6 +9629,29 @@ export const season7Data: RoundDataInterface[] = [
         numDoubleBogey: 0,
         numTripleBogey: 0,
         numStrokeOut: 1
+      },
+      {
+        roundRank: 67,
+        player: 'Beldemar',
+        easyRoundTotal: 79,
+        hardRoundTotal: 79,
+        seasonPointsEarned: 1,
+        easyRoundScore: 18,
+        hardRoundScore: 18,
+        totalToPar: 36,
+        coconut: false,
+        easyScorecard: [3, 4, 4, 5, 4, 6, 3, 4, 7, 4, 5, 5, 4, 5, 4, 4, 4, 4],
+        hardScorecard: [3, 4, 4, 4, 4, 5, 4, 4, 5, 4, 4, 4, 5, 5, 5, 4, 4, 7],
+        numPar: 0,
+        numBirdie: 0,
+        numEagle: 0,
+        numAlbatross: 0,
+        numCondor: 0,
+        numHoleInOne: 0,
+        numBogey: 36,
+        numDoubleBogey: 0,
+        numTripleBogey: 0,
+        numStrokeOut: 0
       }
     ]
   },
