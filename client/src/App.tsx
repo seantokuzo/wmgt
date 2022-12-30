@@ -20,7 +20,7 @@ export type PagePath = '/' | 'season' | 'course' | 'player'
 
 function App() {
   // const { pathname } = useLocation()
-  const { darkMode, changeWindowSize } = useAppContext()
+  const { darkMode, windowSize, changeWindowSize } = useAppContext()
 
   // BG COLOR IF USING BACKGROUND VIDEO
   // const bgColor = pathname === '/' ? 'bg-none' : darkMode ? 'bg-wmgBrown' : 'bg-white'
@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div
-      className={`w-full min-w-screen min-h-screen h-full font-reg
+      className={`w-full min-w-[100vw] min-h-screen h-full font-reg
       ${bgColor}
       ${textColor}
       flex flex-col justify-start items-center`}

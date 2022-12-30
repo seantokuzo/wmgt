@@ -39,3 +39,10 @@ export interface RoundDataInterface {
   hardCourse: CourseAlias
   scores: PlayerRoundInterface[] | []
 }
+
+export interface SeasonPointsData {
+  roundPoints: number[]
+  totalPoints: number
+  player: string
+  flag: string
+}

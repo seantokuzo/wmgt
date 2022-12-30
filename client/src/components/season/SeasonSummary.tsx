@@ -1,10 +1,10 @@
 import ComingSoon from 'components/ComingSoon'
 import { Link } from 'react-router-dom'
-import { DataGod } from 'data/dataGod'
-import { nanoid } from 'nanoid'
-import SeasonPointsLeaderboard from './SeasonPointsLeaderboard'
+import SeasonLeaderboardFull from './SeasonLeaderboardFull'
 import SeasonSummaryMenu from './SeasonSummaryMenu'
 import { useState } from 'react'
+import { useAppContext } from 'context/appContext'
+import SeasonLeaderboardSmall from './SeasonLeaderboardSmall'
 
 type Props = {
   season: number
@@ -14,6 +14,7 @@ export type SummaryMode = 'leaderboard' | 'stat-leaders'
 
 const SeasonSummary: React.FC<Props> = ({ season }) => {
   const [summaryMode, setSummaryMode] = useState<SummaryMode>('leaderboard')
+  const { windowSize } = useAppContext()
 
   if (season === 6) {
     return (
@@ -57,7 +58,12 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
         summaryMode={summaryMode}
         setSummaryMode={setSummaryMode}
       />
-      {summaryMode === 'leaderboard' && <SeasonPointsLeaderboard season={season} />}
+      {summaryMode === 'leaderboard' && windowSize.width >= 768 && (
+        <SeasonLeaderboardFull season={season} />
+      )}
+      {summaryMode === 'leaderboard' && windowSize.width < 768 && (
+        <SeasonLeaderboardSmall season={season} />
+      )}
       {summaryMode === 'stat-leaders' && (
         <ComingSoon
           text="🔨 Not so Fast 🪚"
