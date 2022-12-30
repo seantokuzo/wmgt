@@ -23,6 +23,10 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
     setSelectedPlayers((prevPlayers) => [...prevPlayers, player])
   }
 
+  const collapseExpandAll = (type: 'collapse' | 'expand') => {
+    console.log(type)
+  }
+
   console.log(selectedPlayers)
 
   const seasonColor = season === 6 ? 'emerald-500' : season === 7 ? 'indigo-500' : 'orange-500'
@@ -37,7 +41,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
       {/* ****** TABLE LABELS - COLUMN TITLES ****** */}
-      <div className='text-xs my-2'>(Click a player for points by round)</div>
+      <div className="text-xs my-2">(Click a player for points by round)</div>
       <div
         className={`w-5/6 px-6 py-1
         bg-${seasonColor} shadow-inset${seasonColor.split('-')[0]}
@@ -55,12 +59,16 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
       </div>
       {/* ****** PLAYER SEASON POINTS DATA ****** */}
       {seasonPointsData.map((player) => (
-        <div className="w-full flex flex-col justify-center items-center" key={nanoid()}>
+        <div
+          className={`w-5/6
+          border-b-2 border-l-2 rounded-bl-md
+          ${'border-' + seasonColor}
+          flex flex-col justify-center items-center`}
+          key={nanoid()}
+        >
           <div
-            className={`w-5/6 px-6 mt-1 py-1
-          border-b-2 border-l-2
-          border-${seasonColor}/[0.5]
-          flex justify-between items-center`}
+            className={`w-full px-6 mt-1 py-1
+            flex justify-between items-center`}
             onClick={() => handlePlayerClick(player.player)}
           >
             <div
@@ -76,7 +84,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
 
           {selectedPlayers.includes(player.player) && (
             <div
-              className="w-5/6 mt-2 mb-4
+              className="w-full mt-2 mb-4 px-2
               flex flex-col justify-center items-center"
             >
               <div className="w-full flex justify-between items-center">
