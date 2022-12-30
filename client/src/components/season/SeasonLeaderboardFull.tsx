@@ -11,22 +11,25 @@ export const rankStyle = (rank: number) => {
     ? 'bg-amber-700 shadow-insetbronze font-bold text-black'
     : rank <= 10
     ? 'bg-lime-400 shadow-insetlime font-bold text-black'
-    : rank <= 20
-    ? 'border-l-2 border-b-2 border-emerald-400'
-    : rank <= 30
-    ? 'border-l-2 border-b-2 border-violet-400'
-    : 'border-l-2 border-b-2'
+    : ''
+  // : rank <= 20
+  // ? 'bg-blue-400 shadow-insetcondor font-bold text-black'
+  // : rank <= 30
+  // ? 'bg-[#f8ff71] shadow-insetyellfocus font-bold text-black'
+  // : rank <= 30
+  // ? 'border-l-2 border-b-2 border-violet-400'
+  // : 'border-l-2 border-b-2'
 }
 
 export const roundPointColor = (points: number) => {
   return points === 25
-    ? 'bg-amber-400 border-amber-400 shadow-insetgold font-bold text-black'
+    ? 'bg-amber-400 border-[1px] border-amber-400 shadow-insetgold font-bold text-black'
     : points === 21
-    ? 'bg-slate-400 border-slate-400 shadow-insetsilver font-bold text-black'
+    ? 'bg-slate-400 border-[1px] border-slate-400 shadow-insetsilver font-bold text-black'
     : points === 18
-    ? 'bg-amber-700 border-amber-700 shadow-insetbronze font-bold text-black'
+    ? 'bg-amber-700 border-[1px] border-amber-700 shadow-insetbronze font-bold text-black'
     : points < 18 && points >= 10
-    ? 'bg-lime-400 border-lime-400 shadow-insetlime font-bold text-black'
+    ? 'bg-lime-400 border-[1px] border-lime-400 shadow-insetlime font-bold text-black'
     : points < 10
     ? 'border-l-2 border-b-2'
     : 'border-l-2 border-b-2'
@@ -45,11 +48,11 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
   const seasonPointsData = DataGod.getSeasonSummaryPlayerPoints(season)
 
   const flex = 'flex justify-center items-center'
-  const rankColClasses = 'w-6 text-xs text-center'
-  const flagColClasses = 'w-4 text-xs text-center'
-  const playerColClasses = 'w-1/5 text-xs overflow-hidden'
-  const totalColClasses = 'w-6 mr-1 text-xs text-center'
-  const pointColClasses = 'w-4 h-4 text-xs text-center'
+  const rankColClasses = 'w-8 h-8 text-lg text-center rounded-sm'
+  const flagColClasses = 'w-4 text-lg text-center'
+  const playerColClasses = 'w-1/3 text-lg overflow-hidden'
+  const totalColClasses = 'w-6 mr-1 text-lg text-center'
+  const pointColClasses = 'w-8 h-8 text-lg text-center rounded-md'
 
   return (
     <div className="w-fit">
@@ -62,7 +65,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
           className={`${totalColClasses}
           ${flex}`}
         >
-          TOTAL
+          POINTS
         </div>
 
         {/* eslint-disable-next-line */}

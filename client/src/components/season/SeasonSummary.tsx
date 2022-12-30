@@ -1,10 +1,10 @@
-import ComingSoon from 'components/ComingSoon'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import SeasonLeaderboardFull from './SeasonLeaderboardFull'
-import SeasonSummaryMenu from './SeasonSummaryMenu'
-import { useState } from 'react'
 import { useAppContext } from 'context/appContext'
+import SeasonSummaryMenu from './SeasonSummaryMenu'
+import SeasonLeaderboardFull from './SeasonLeaderboardFull'
 import SeasonLeaderboardSmall from './SeasonLeaderboardSmall'
+import ComingSoon from 'components/ComingSoon'
 
 type Props = {
   season: number
@@ -15,6 +15,10 @@ export type SummaryMode = 'leaderboard' | 'stat-leaders'
 const SeasonSummary: React.FC<Props> = ({ season }) => {
   const [summaryMode, setSummaryMode] = useState<SummaryMode>('leaderboard')
   const { windowSize } = useAppContext()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if (season === 6) {
     return (
@@ -38,14 +42,14 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
 
   return (
     <div
-      className="w-full
+      className="w-full font-scorenum
       flex flex-col justify-center items-center"
     >
       <Link
         to="/season"
         className={`px-4 py-2 text-2xl md:text-3xl font-semibold
           flex justify-center items-center hover:shadow-lg hover:scale-105
-          text-white rounded-t-md
+          text-white rounded-md
           ${
             season === 6 ? 'bg-emerald-500 shadow-insetemerald' : 'bg-indigo-500 shadow-insetindigo'
           }`}

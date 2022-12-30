@@ -1,15 +1,16 @@
+import { useEffect } from 'react'
 import { useSeasonContext } from 'context/season/seasonContext'
 import RoundDetailsMenu from './RoundDetailsMenu'
-import { courseData } from '../../data/course-data/wmgt-course-data'
-import { RoundDataInterface } from '../../data/round-data/roundTypes'
 import Scorecard from 'components/scorecard/Scorecard'
 import ScorecardLegend from 'components/scorecard/ScorecardLegend'
 import CourseScorecard from 'components/scorecard/CourseScorecard'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import StatScorecard from 'components/scorecard/StatScorecard'
-import { DataGod } from 'data/dataGod'
-import { nanoid } from 'nanoid'
 import RaceToTheFinish from './RaceToTheFinish'
+import { courseData } from '../../data/course-data/wmgt-course-data'
+import { DataGod } from 'data/dataGod'
+import { RoundDataInterface } from '../../data/round-data/roundTypes'
+import { nanoid } from 'nanoid'
 
 type Props = {
   round: RoundDataInterface
@@ -30,9 +31,9 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div
