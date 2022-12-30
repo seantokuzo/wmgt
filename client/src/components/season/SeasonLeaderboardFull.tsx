@@ -47,25 +47,31 @@ type Props = {
 const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
   const seasonPointsData = DataGod.getSeasonSummaryPlayerPoints(season)
 
+  const seasonColor = season === 6 ? 'emerald-500' : season === 7 ? 'indigo-500' : 'orange-500'
+
   const flex = 'flex justify-center items-center'
-  const rankColClasses = 'w-8 h-8 text-lg text-center rounded-sm'
-  const flagColClasses = 'w-4 text-lg text-center'
-  const playerColClasses = 'w-1/3 text-lg overflow-hidden'
-  const totalColClasses = 'w-6 mr-1 text-lg text-center'
-  const pointColClasses = 'w-8 h-8 text-lg text-center rounded-md'
+  const rankColClasses = 'w-8 h-8 text-base text-center rounded-sm'
+  const flagColClasses = 'w-8 ml-4 text-base text-center'
+  const playerColClasses = 'w-1/3 ml-4 text-base overflow-hidden'
+  const totalColClasses = 'w-8 mr-2 text-base text-center'
+  const pointColClasses = 'w-8 h-8 ml-1 text-base text-center rounded-md'
 
   return (
-    <div className="w-fit">
+    <div className="w-[90%] max-w-2xl">
       {/* ****** TABLE LABELS - COLUMN TITLES ****** */}
-      <div className="w-full flex justify-evenly items-center">
-        <div className={`${rankColClasses} ${flex}`}>RANK</div>
+      <div
+        className={`w-full flex justify-evenly items-center bg-${seasonColor} shadow-inset${
+          seasonColor.split('-')[0]
+        }`}
+      >
+        <div className={`${rankColClasses} ${flex}`}>🏁</div>
         <div className={`${flagColClasses} ${flex}`}>🌎</div>
         <div className={`${playerColClasses}`}>PLAYER</div>
         <div
           className={`${totalColClasses}
           ${flex}`}
         >
-          POINTS
+          ∑
         </div>
 
         {/* eslint-disable-next-line */}
