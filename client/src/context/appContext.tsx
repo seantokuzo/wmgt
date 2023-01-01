@@ -7,6 +7,7 @@ export type WindowSize = { width: number; height: number }
 export type AlertType = 'danger' | 'success' | ''
 
 export interface StateInterface {
+  userPlayer: string
   windowSize: WindowSize
   darkMode: boolean
   courseData: CourseInterface[]
@@ -16,7 +17,10 @@ export interface StateInterface {
   alertText: string
 }
 
+const localUser = localStorage.getItem('userPlayer')
+
 export const initialState: StateInterface = {
+  userPlayer: localUser ? JSON.parse(localUser) : '',
   windowSize: { width: window.innerWidth, height: window.innerHeight },
   darkMode: true,
   courseData: courseData,
@@ -27,6 +31,7 @@ export const initialState: StateInterface = {
 }
 
 interface AppContextInterface extends StateInterface {
+  chooseUserPlayer: (userPlayer: string) => void
   changeWindowSize: (newSize: WindowSize) => void
   displayAlert: (alertType: AlertType, msg: string) => void
   clearAlert: () => void
@@ -35,6 +40,7 @@ interface AppContextInterface extends StateInterface {
 
 const AppContext = createContext<AppContextInterface>({
   ...initialState,
+  chooseUserPlayer: () => null,
   changeWindowSize: () => null,
   displayAlert: () => null,
   clearAlert: () => null,
@@ -47,6 +53,11 @@ type Props = {
 
 const AppContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const chooseUserPlayer = (userPlayer: string) => {
+    dispatch({ type: ActionType.CHOOSE_USER_PLAYER, payload: { userPlayer } })
+    localStorage.setItem('userPlayer', JSON.stringify(userPlayer))
+  }
 
   const changeWindowSize = (newSize: WindowSize) => {
     dispatch({ type: ActionType.UPDATE_WINDOW_SIZE, payload: { newSize } })
@@ -71,6 +82,7 @@ const AppContextProvider = ({ children }: Props) => {
     <AppContext.Provider
       value={{
         ...state,
+        chooseUserPlayer,
         changeWindowSize,
         displayAlert,
         clearAlert,

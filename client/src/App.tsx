@@ -9,25 +9,21 @@ import { useAppContext } from 'context/appContext'
 import { courseData } from 'data/course-data/wmgt-course-data'
 import { nanoid } from 'nanoid'
 import { season7Data } from 'data/round-data/s7-round-data'
-import RoundDetails from 'components/season/RoundDetails'
+import RoundDetails from 'components/season/round-details/RoundDetails'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 import { season6Data } from 'data/round-data/s6-round-data'
 import DataTester from 'DataTester'
-import SeasonSummary from 'components/season/SeasonSummary'
+import SeasonSummary from 'components/season/summary/SeasonSummary'
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
 function App() {
-  // const { pathname } = useLocation()
-  const { darkMode, windowSize, changeWindowSize } = useAppContext()
+  const { darkMode, changeWindowSize } = useAppContext()
 
   // BG COLOR IF USING BACKGROUND VIDEO
-  // const bgColor = pathname === '/' ? 'bg-none' : darkMode ? 'bg-wmgBrown' : 'bg-white'
   const bgColor = darkMode ? 'bg-black' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'
-  // const bgColor = darkMode ? 'bg-[#1b1b1b]' : 'bg-white'
-  // const textColor = !darkMode ? 'text-[#1b1b1b]' : 'text-white'
 
   // TRACK WINDOW SIZE FOR SCORECARD COMPONENT BIG OR SMALL
   useEffect(() => {

@@ -16,7 +16,11 @@ module.exports = {
       },
       colors: {
         wmgBrown: '#38280e',
-        wmgYellow: '#f8ff71'
+        wmgYellow: '#f8ff71',
+        gold: '#fbbf24',
+        silver: '#94a3b8',
+        bronze: '#b45309',
+        topTenGreen: '#a3e635'
       },
       boxShadow: {
         inyellfocus: 'inset 11px 11px 9px #c1c758, inset -11px -11px 9px #ffff8a80',

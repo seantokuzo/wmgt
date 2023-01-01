@@ -1,6 +1,6 @@
 import RoundDetailBtn from './RoundDetailBtn'
 import { modes } from './RoundDetails'
-import { courseFullImgLink, CourseInterface } from '../../data/course-data/wmgt-course-data'
+import { courseFullImgLink, CourseInterface } from 'data/course-data/wmgt-course-data'
 import { Link } from 'react-router-dom'
 import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 import { season6Data } from 'data/round-data/s6-round-data'

@@ -1,8 +1,8 @@
-import { useSeasonContext } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { useAppContext } from 'context/appContext'
+import { useSeasonContext } from 'context/season/seasonContext'
+import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { courseData } from 'data/course-data/wmgt-course-data'
 
 type Props = {

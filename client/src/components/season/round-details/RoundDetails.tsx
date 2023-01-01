@@ -7,9 +7,9 @@ import CourseScorecard from 'components/scorecard/CourseScorecard'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import StatScorecard from 'components/scorecard/StatScorecard'
 import RaceToTheFinish from './RaceToTheFinish'
-import { courseData } from '../../data/course-data/wmgt-course-data'
+import { courseData } from 'data/course-data/wmgt-course-data'
 import { DataGod } from 'data/dataGod'
-import { RoundDataInterface } from '../../data/round-data/roundTypes'
+import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 
 type Props = {

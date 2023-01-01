@@ -2,6 +2,10 @@ import { ActionType } from './actions'
 import { StateInterface, AlertType, WindowSize } from './appContext'
 
 type Action =
+  | {
+      type: ActionType.CHOOSE_USER_PLAYER
+      payload: { userPlayer: string }
+    }
   | { type: ActionType.TOGGLE_DARK_MODE }
   | {
       type: ActionType.SHOW_ALERT
@@ -15,6 +19,11 @@ type Action =
 
 const reducer = (state: StateInterface, action: Action): StateInterface => {
   switch (action.type) {
+    case ActionType.CHOOSE_USER_PLAYER:
+      return {
+        ...state,
+        userPlayer: action.payload.userPlayer
+      }
     case ActionType.UPDATE_WINDOW_SIZE:
       return {
         ...state,

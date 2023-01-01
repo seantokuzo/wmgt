@@ -15,7 +15,7 @@ export const rankStyle = (rank: number) => {
   // : rank <= 20
   // ? 'bg-blue-400 shadow-insetcondor font-bold text-black'
   // : rank <= 30
-  // ? 'bg-[#f8ff71] shadow-insetyellfocus font-bold text-black'
+  // ? 'bg-[#f8ff71] shadow-insetyellow font-bold text-black'
   // : rank <= 30
   // ? 'border-l-2 border-b-2 border-violet-400'
   // : 'border-l-2 border-b-2'
