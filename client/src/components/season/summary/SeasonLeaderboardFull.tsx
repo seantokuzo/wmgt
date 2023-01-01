@@ -1,3 +1,4 @@
+import { useAppContext } from 'context/appContext'
 import { DataGod } from 'data/dataGod'
 import { SeasonPointsData } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
@@ -40,29 +41,76 @@ export const getRank = (player: string, seasonData: SeasonPointsData[]): number 
   return seasonData.filter((p) => p.totalPoints > playerPoints).length + 1
 }
 
+export type PlayerBasicSeasonInfo = {
+  roundPoints: number[]
+  totalPoints: number
+  player: string
+  flag: string
+}
+
 type Props = {
   season: number
 }
 
 const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
+  const { userPlayer } = useAppContext()
   const seasonPointsData = DataGod.getSeasonSummaryPlayerPoints(season)
 
   const seasonColor = season === 6 ? 'emerald-500' : season === 7 ? 'indigo-500' : 'orange-500'
 
   const flex = 'flex justify-center items-center'
-  const rankColClasses = 'w-8 h-8 text-base text-center rounded-sm'
+  const rankColClasses = 'w-8 h-8 text-base text-center rounded-md'
   const flagColClasses = 'w-8 ml-4 text-base text-center'
   const playerColClasses = 'w-1/3 ml-4 text-base overflow-hidden'
   const totalColClasses = 'w-8 mr-2 text-base text-center'
-  const pointColClasses = 'w-8 h-8 ml-1 text-base text-center rounded-md'
+  const pointColClasses = 'w-10 h-10 ml-2 text-base text-center rounded-md'
+
+  const playerRowEl = (player: PlayerBasicSeasonInfo, isUser = false) => {
+    return (
+      <div
+        className={`w-full my-2 px-2
+        ${
+          isUser &&
+          `border-l-2 border-b-2 border-${seasonColor}
+        bg-${seasonColor}/[0.25] py-2 rounded-md`
+        }
+        flex justify-evenly items-center`}
+        key={nanoid()}
+      >
+        <div
+          className={`${rankColClasses} ${flex} ${rankStyle(
+            getRank(player.player, seasonPointsData)
+          )}`}
+        >
+          {getRank(player.player, seasonPointsData)}
+        </div>
+        <div className={`${flagColClasses} ${flex}`}>{player.flag}</div>
+        <div className={`${playerColClasses}`}>{player.player}</div>
+        <div className={`${totalColClasses} ${flex}`}>{player.totalPoints}</div>
+        {player.roundPoints.map((point, i) => (
+          <div
+            className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
+              ${
+                DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
+                'opacity-25'
+              }`}
+            key={nanoid()}
+          >
+            {point}
+          </div>
+        ))}
+      </div>
+    )
+  }
 
   return (
-    <div className="w-[90%] max-w-2xl">
+    <div className="w-[90%] max-w-4xl mt-4">
+      {userPlayer && playerRowEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)}
       {/* ****** TABLE LABELS - COLUMN TITLES ****** */}
       <div
-        className={`w-full flex justify-evenly items-center bg-${seasonColor} shadow-inset${
-          seasonColor.split('-')[0]
-        }`}
+        className={`w-full px-2
+        bg-${seasonColor} shadow-inset${seasonColor.split('-')[0]}
+        flex justify-evenly items-center`}
       >
         <div className={`${rankColClasses} ${flex}`}>🏁</div>
         <div className={`${flagColClasses} ${flex}`}>🌎</div>
@@ -80,32 +128,33 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         ))}
       </div>
       {/* ****** PLAYER SEASON POINTS DATA ****** */}
-      {seasonPointsData.map((player) => (
-        <div className="w-full my-1 flex justify-evenly items-center" key={nanoid()}>
-          <div
-            className={`${rankColClasses} ${flex} ${rankStyle(
-              getRank(player.player, seasonPointsData)
-            )}`}
-          >
-            {getRank(player.player, seasonPointsData)}
-          </div>
-          <div className={`${flagColClasses} ${flex}`}>{player.flag}</div>
-          <div className={`${playerColClasses}`}>{player.player}</div>
-          <div className={`${totalColClasses} ${flex}`}>{player.totalPoints}</div>
-          {player.roundPoints.map((point, i) => (
-            <div
-              className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
-              ${
-                DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
-                'opacity-25'
-              }`}
-              key={nanoid()}
-            >
-              {point}
-            </div>
-          ))}
-        </div>
-      ))}
+      {seasonPointsData.map(
+        (player) => playerRowEl(player)
+        // <div className="w-full my-2 flex justify-evenly items-center" key={nanoid()}>
+        //   <div
+        //     className={`${rankColClasses} ${flex} ${rankStyle(
+        //       getRank(player.player, seasonPointsData)
+        //     )}`}
+        //   >
+        //     {getRank(player.player, seasonPointsData)}
+        //   </div>
+        //   <div className={`${flagColClasses} ${flex}`}>{player.flag}</div>
+        //   <div className={`${playerColClasses}`}>{player.player}</div>
+        //   <div className={`${totalColClasses} ${flex}`}>{player.totalPoints}</div>
+        //   {player.roundPoints.map((point, i) => (
+        //     <div
+        //       className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
+        //       ${
+        //         DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
+        //         'opacity-25'
+        //       }`}
+        //       key={nanoid()}
+        //     >
+        //       {point}
+        //     </div>
+        //   ))}
+        // </div>
+      )}
     </div>
   )
 }

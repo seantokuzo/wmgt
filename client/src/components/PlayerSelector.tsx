@@ -9,8 +9,7 @@ const PlayerSelector = () => {
 
   const handleInput = (target: HTMLInputElement | { value: '' }) => {
     setInputValue(target.value)
-    if (!target.value) return chooseUserPlayer('')
-    if (allPlayersList.findIndex((p) => p.player === target.value) < 0) return
+    if (allPlayersList.findIndex((p) => p.player === target.value) < 0) return chooseUserPlayer('')
     chooseUserPlayer(target.value)
   }
 
@@ -18,13 +17,41 @@ const PlayerSelector = () => {
     ? 'bg-black border-white text-white'
     : 'bg-white border-black text-black'
 
+  if (userPlayer)
+    return (
+      <div className="w-full flex justify-center items-baseline">
+        <i className="fa-solid fa-delete-left opacity-0"></i>
+        <div
+          className="mt-2 mx-4 py-1 px-2 rounded-md
+        border-2 border-gold bg-gold shadow-insetgold
+        text-black font-bold"
+        >
+          <div className="mx-2">{userPlayer}</div>
+        </div>
+        <i
+          className={`fa-solid fa-delete-left ${darkMode ? 'text-white' : 'text-black'}`}
+          title="Clear Search"
+          onClick={() => handleInput({ value: '' })}
+        ></i>
+      </div>
+    )
+
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="">Who art thou?</div>
-      <div className="mt-2 flex justify-center items-center">
-        <div className="w-8 h-8 opacity-0"></div>
+    <div className="w-full flex flex-col justify-center items-center">
+      <div className="flex justify-center items-center">
+        <div
+          className={`w-6 h-6 p-2 text-sm
+          rounded-full
+          flex justify-center items-center
+          ${darkMode ? 'text-black bg-white' : ''}`}
+        >
+          <i className="fa-solid fa-user"></i>
+        </div>
         <input
-          className={`border-2 rounded-md px-2 py-1 mx-3 ${inputStyle} text-center`}
+          className={`w-full px-2 py-1 mx-3
+          text-xs text-center
+          border-2 rounded-md
+          ${inputStyle}`}
           type="text"
           list="playa-playa"
           autoComplete="off"
@@ -32,7 +59,8 @@ const PlayerSelector = () => {
           onChange={(e) => handleInput(e.target as HTMLInputElement)}
         />
         <div
-          className={`w-8 h-8 rounded-full text-xl
+          className={`w-6 h-6 p-2 text-sm
+          rounded-full
           flex justify-center items-center
           ${darkMode ? 'text-black bg-white' : ''}`}
           title={inputValue.length > 0 ? 'Clear Search' : undefined}
@@ -45,9 +73,11 @@ const PlayerSelector = () => {
           ></i>
         </div>
         <datalist id="playa-playa">
-          {allPlayersList.map((player) => (
-            <option value={player.player} key={nanoid()} />
-          ))}
+          {[...allPlayersList]
+            .sort((a, b) => a.player.localeCompare(b.player))
+            .map((player) => (
+              <option value={player.player} key={nanoid()} />
+            ))}
         </datalist>
       </div>
     </div>

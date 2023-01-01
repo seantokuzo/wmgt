@@ -1,5 +1,6 @@
 import { useAppContext } from 'context/appContext'
 import PageLink from './PageLink'
+import PlayerSelector from './PlayerSelector'
 import ThemeToggler from './ThemeToggler'
 
 const Header: React.FC = () => {
@@ -7,14 +8,14 @@ const Header: React.FC = () => {
 
   return (
     <div
-      className={`w-full px-4 py-5 flex justify-between items-center ${
+      className={`w-full px-4 pt-2 pb-5 md:pt-5 flex justify-between items-center ${
         !darkMode ? 'text-black' : 'text-white'
       }`}
     >
-      <div className="w-1/4">
+      <div className="w-1/7">
         <PageLink path="/" />
       </div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="w-1/2 flex flex-col justify-center items-center">
         <h1
           className={`${
             !darkMode ? 'text-wmgBrown' : 'text-[#f8f771]'
@@ -22,20 +23,9 @@ const Header: React.FC = () => {
         >
           WMGT STATS
         </h1>
-        {userPlayer && (
-          <div
-            className="mt-2 py-1 px-2 rounded-md
-            border-2 border-gold bg-gold shadow-insetgold
-            text-black font-bold
-            flex justify-center items-center"
-          >
-            <i className="fa-solid fa-crown"></i>
-            <div className="mx-2">{userPlayer}</div>
-            <i className="fa-solid fa-crown"></i>
-          </div>
-        )}
+        <PlayerSelector />
       </div>
-      <div className="w-1/4 h-full flex flex-col justify-start items-start">
+      <div className="w-1/7 h-full flex flex-col justify-start items-start">
         <ThemeToggler />
       </div>
     </div>
