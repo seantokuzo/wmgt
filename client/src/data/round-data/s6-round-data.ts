@@ -124,7 +124,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 6,
-        player: 'Rolyt',
+        player: 'rolyt',
         easyRoundTotal: 37,
         hardRoundTotal: 42,
         seasonPointsEarned: 1,
@@ -308,7 +308,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 12,
-        player: 'SqueezyJibbz',
+        player: 'Squeezy_JibbZ',
         easyRoundTotal: 40,
         hardRoundTotal: 43,
         seasonPointsEarned: 1,
@@ -400,7 +400,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 16,
-        player: 'his_Dudeness',
+        player: 'his.Dudeness',
         easyRoundTotal: 37,
         hardRoundTotal: 47,
         seasonPointsEarned: 1,
@@ -1205,7 +1205,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 53,
-        player: 'Tmoes',
+        player: 'tmoes',
         easyRoundTotal: 41,
         hardRoundTotal: 51,
         seasonPointsEarned: 1,
@@ -1228,7 +1228,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 53,
-        player: 'BANKERPOPS',
+        player: 'Bankerpops',
         easyRoundTotal: 42,
         hardRoundTotal: 50,
         seasonPointsEarned: 1,
@@ -1251,7 +1251,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 53,
-        player: 'Rainedrop184',
+        player: 'rainedrop184',
         easyRoundTotal: 44,
         hardRoundTotal: 48,
         seasonPointsEarned: 1,
@@ -1343,7 +1343,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 59,
-        player: 'Skorpzz',
+        player: 'skorpzz',
         easyRoundTotal: 43,
         hardRoundTotal: 51,
         seasonPointsEarned: 1,
@@ -1458,7 +1458,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 64,
-        player: 'RICH8523',
+        player: 'Rich8523',
         easyRoundTotal: 46,
         hardRoundTotal: 49,
         seasonPointsEarned: 1,
@@ -1504,7 +1504,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 65,
-        player: 'Brit_The_Elder',
+        player: 'Brit The Elder',
         easyRoundTotal: 44,
         hardRoundTotal: 52,
         seasonPointsEarned: 1,
@@ -1527,7 +1527,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 65,
-        player: 'Grezza',
+        player: 'GREZZA',
         easyRoundTotal: 41,
         hardRoundTotal: 55,
         seasonPointsEarned: 1,
@@ -2156,7 +2156,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 2,
-        player: 'his_Dudeness',
+        player: 'his.Dudeness',
         easyRoundTotal: 35,
         hardRoundTotal: 43,
         seasonPointsEarned: 1,
@@ -2294,7 +2294,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 8,
-        player: '4whlr',
+        player: '4Whlr',
         easyRoundTotal: 37,
         hardRoundTotal: 48,
         seasonPointsEarned: 1,
@@ -2662,7 +2662,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 21,
-        player: 'Rolyt',
+        player: 'rolyt',
         easyRoundTotal: 40,
         hardRoundTotal: 49,
         seasonPointsEarned: 1,
@@ -3076,7 +3076,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 42,
-        player: 'Brit_The_Elder',
+        player: 'Brit The Elder',
         easyRoundTotal: 42,
         hardRoundTotal: 57,
         seasonPointsEarned: 1,
@@ -3260,7 +3260,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 49,
-        player: 'Grezza',
+        player: 'GREZZA',
         easyRoundTotal: 48,
         hardRoundTotal: 53,
         seasonPointsEarned: 1,
@@ -3889,7 +3889,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 7,
-        player: 'his_Dudeness',
+        player: 'his.Dudeness',
         easyRoundTotal: 36,
         hardRoundTotal: 50,
         seasonPointsEarned: 1,
@@ -4142,7 +4142,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 17,
-        player: 'Rolyt',
+        player: 'rolyt',
         easyRoundTotal: 37,
         hardRoundTotal: 55,
         seasonPointsEarned: 1,
@@ -4303,7 +4303,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 23,
-        player: 'SqueezyJibbz',
+        player: 'Squeezy_JibbZ',
         easyRoundTotal: 39,
         hardRoundTotal: 56,
         seasonPointsEarned: 1,
@@ -4349,7 +4349,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 23,
-        player: 'Rainedrop184',
+        player: 'rainedrop184',
         easyRoundTotal: 40,
         hardRoundTotal: 55,
         seasonPointsEarned: 1,
@@ -4579,7 +4579,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 37,
-        player: 'Brit_The_Elder',
+        player: 'Brit The Elder',
         easyRoundTotal: 44,
         hardRoundTotal: 54,
         seasonPointsEarned: 1,
@@ -5016,7 +5016,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 54,
-        player: 'RICH8523',
+        player: 'Rich8523',
         easyRoundTotal: 48,
         hardRoundTotal: 57,
         seasonPointsEarned: 1,
@@ -5108,7 +5108,7 @@ export const season6Data: RoundDataInterface[] = [
       },
       {
         roundRank: 60,
-        player: 'Grezza',
+        player: 'GREZZA',
         easyRoundTotal: 43,
         hardRoundTotal: 66,
         seasonPointsEarned: 1,

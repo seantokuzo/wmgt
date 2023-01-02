@@ -11,6 +11,7 @@ import { courseData } from 'data/course-data/wmgt-course-data'
 import { DataGod } from 'data/dataGod'
 import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
+import { useAppContext } from 'context/appContext'
 
 type Props = {
   round: RoundDataInterface
@@ -26,6 +27,7 @@ export const modes = {
 }
 
 const RoundDetails: React.FC<Props> = ({ round }) => {
+  const { userPlayer } = useAppContext()
   const { showEasyCourse, roundDetailsMode } = useSeasonContext()
 
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
@@ -143,14 +145,9 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         //   text="🏇 COMING SOON 🏇"
         //   color={round.season === 7 ? 'indigo' : round.season === 6 ? 'emerald' : undefined}
         // />
-        <RaceToTheFinish
-          round={{
-            ...round,
-            scores: DataGod.getPodiumScores(round)
-          }}
-        />
+        <RaceToTheFinish round={round} />
       )}
-      <ScorecardLegend />
+      {roundDetailsMode !== 'race' && roundDetailsMode !== 'aces' && <ScorecardLegend />}
     </div>
   )
 }

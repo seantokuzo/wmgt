@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
 import { holeSlotSizes } from './CourseScorecard'
 import { DataGod } from 'data/dataGod'
+import { useLocation } from 'react-router-dom'
 
 type Props = {
   playerRound: PlayerRoundInterface
@@ -15,7 +16,7 @@ type Props = {
 export const holeNameParColWidth = 'w-[25%] sm:w-[25%] md:w-[25%] lg:w-[24%] pr-2 flex justify-end'
 
 const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData }) => {
-  const { darkMode, windowSize } = useAppContext()
+  const { userPlayer, darkMode, windowSize } = useAppContext()
   const {
     roundDetailsMode,
     showEasyCourse,
@@ -24,6 +25,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     showFrontNine,
     toggleScorecardNine
   } = useSeasonContext()
+  const { pathname } = useLocation()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
   const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
 
@@ -99,6 +101,10 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     'Holy 💩!'
   ]
 
+  const season = +pathname.split('/season/')[1].split('r')[0].split('s')[1]
+  
+  const seasonColor = season === 7 ? 'indigo-500' : season === 6 ? 'emerald-500' : 'emerald-500'
+
   return (
     <div
       className={`w-full max-w-6xl min-h-10 my-1 px-0 sm:px-2 md:px-0
@@ -116,7 +122,12 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         text-xxxs tracking-tighter
         sm:text-xxs sm:tracking-tight
         md:text-xs md:tracking-normal
-        lg:text-base 
+        lg:text-base
+        ${
+          userPlayer &&
+          userPlayer === playerRound.player &&
+          `bg-gradient-to-l from-${seasonColor} to-transparent border-b-2 border-${seasonColor} rounded-sm py-1`
+        }
         overflow-hidden`}
       >
         {playerRound.player}

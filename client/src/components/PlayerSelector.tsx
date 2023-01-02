@@ -22,11 +22,11 @@ const PlayerSelector = () => {
       <div className="w-full flex justify-center items-baseline">
         <i className="fa-solid fa-delete-left opacity-0"></i>
         <div
-          className="mt-2 mx-4 py-1 px-2 rounded-md
+          className="mx-3 py-1 px-4 rounded-md
         border-2 border-gold bg-gold shadow-insetgold
         text-black font-bold"
         >
-          <div className="mx-2">{userPlayer}</div>
+          {userPlayer}
         </div>
         <i
           className={`fa-solid fa-delete-left ${darkMode ? 'text-white' : 'text-black'}`}

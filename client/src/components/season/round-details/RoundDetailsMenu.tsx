@@ -7,7 +7,6 @@ import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { nanoid } from 'nanoid'
 import { DataGod } from 'data/dataGod'
-import { useAppContext } from 'context/appContext'
 
 type Props = {
   round: { season: number; round: number }
@@ -16,7 +15,6 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
-  const { darkMode } = useAppContext()
   const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard, viewCourse } =
     useSeasonContext()
 

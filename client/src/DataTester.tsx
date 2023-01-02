@@ -23,8 +23,11 @@
 // ****************************
 // GET PLAYER LIST
 // ****************************
-// import { getComboList } from 'data/player-data/AllPlayersList'
+// import { getComboList } from 'data/player-data/AllPlayersListRawFlag'
 // getComboList()
+// import { allPlayersList } from 'data/player-data/AllPlayersList'
+// console.log(allPlayersList.length)
+
 // *******************************************************************
 
 // ****************************

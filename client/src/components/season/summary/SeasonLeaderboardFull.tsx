@@ -59,11 +59,11 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
   const seasonColor = season === 6 ? 'emerald-500' : season === 7 ? 'indigo-500' : 'orange-500'
 
   const flex = 'flex justify-center items-center'
-  const rankColClasses = 'w-8 h-8 text-base text-center rounded-md'
-  const flagColClasses = 'w-8 ml-4 text-base text-center'
-  const playerColClasses = 'w-1/3 ml-4 text-base overflow-hidden'
-  const totalColClasses = 'w-8 mr-2 text-base text-center'
-  const pointColClasses = 'w-10 h-10 ml-2 text-base text-center rounded-md'
+  const rankColClasses = 'w-8 h-8 text-sm lg:text-base text-center rounded-md'
+  const flagColClasses = 'w-6 lg:w-8 ml-4 text-sm lg:text-base text-center'
+  const playerColClasses = 'w-1/3 ml-4 text-sm lg:text-base overflow-hidden'
+  const totalColClasses = 'w-6 lg:w-8 mr-2 text-sm lg:text-base text-center'
+  const pointColClasses = 'w-8 lg:w-10 h-8 lg:h-10 ml-2 text-sm lg:text-base text-center rounded-md'
 
   const playerRowEl = (player: PlayerBasicSeasonInfo, isUser = false) => {
     return (
@@ -105,7 +105,6 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
 
   return (
     <div className="w-[90%] max-w-4xl mt-4">
-      {userPlayer && playerRowEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)}
       {/* ****** TABLE LABELS - COLUMN TITLES ****** */}
       <div
         className={`w-full px-2
@@ -128,6 +127,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         ))}
       </div>
       {/* ****** PLAYER SEASON POINTS DATA ****** */}
+      {userPlayer && playerRowEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)}
       {seasonPointsData.map(
         (player) => playerRowEl(player)
         // <div className="w-full my-2 flex justify-evenly items-center" key={nanoid()}>

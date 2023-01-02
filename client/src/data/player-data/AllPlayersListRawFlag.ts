@@ -46,8 +46,15 @@ export const getComboList = () => {
       return ''
     }
   })
+
+  const comboListFlags = comboList.map((player) => {
+    return {
+      player: player.player,
+      flag: flagConverter.filter((f) => f.link === player.flag)[0].flag
+    }
+  })
   console.log('Renamed Players: ', renamedPlayers)
-  console.log('Combo List: ', comboList)
+  console.log('Combo List: ', comboListFlags)
 }
 
 interface PlayerInterface {

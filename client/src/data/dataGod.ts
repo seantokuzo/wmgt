@@ -142,13 +142,18 @@ export abstract class DataGod {
     return averageScores
   }
 
-  static getRaceToFinishData(round: RoundDataInterface) {
+  static getRaceToFinishData(round: RoundDataInterface, addedPlayer?: string) {
     const allPars = [
       ...this.getCoursePars(round.easyCourse),
       ...this.getCoursePars(round.hardCourse)
     ]
 
-    const podiumScores = this.getPodiumScores(round).map((score) => {
+    const podiumScoresRaw = this.getPodiumScores(round)
+    if (podiumScoresRaw.findIndex((p) => p.player === addedPlayer) < 0) {
+      podiumScoresRaw.push(...round.scores.filter((p) => p.player === addedPlayer))
+    }
+
+    const podiumScores = podiumScoresRaw.map((score) => {
       const holeScores = [...score.easyScorecard, ...score.hardScorecard].map(
         (score, i) => score - allPars[i]
       )
@@ -159,7 +164,14 @@ export abstract class DataGod {
         player: score.player,
         scoreTracker: scoreTracker,
         roundRank: score.roundRank,
-        medal: score.roundRank === 1 ? '🏆' : score.roundRank === 2 ? '🥈' : '🥉',
+        medal:
+          score.roundRank === 1
+            ? '🏆'
+            : score.roundRank === 2
+            ? '🥈'
+            : score.roundRank === 3
+            ? '🥉'
+            : '',
         coconut: score.coconut
       }
     })
@@ -250,7 +262,6 @@ export abstract class DataGod {
     bronze: PlayerInterface[]
   } {
     const roundObject = this.getRoundFromSeason(round)
-
     const goldMembers = roundObject.scores.filter((score) => score.roundRank === 1)
     const silverMembers = roundObject.scores.filter((score) => score.roundRank === 2)
     const bronzeMembers = roundObject.scores.filter((score) => score.roundRank === 3)
