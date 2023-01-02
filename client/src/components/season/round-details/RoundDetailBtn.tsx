@@ -12,8 +12,8 @@ const RoundDetailBtn: React.FC<Props> = ({ season, btnText, btnMode }) => {
   const { roundDetailsMode, changeRoundDetailsMode } = useSeasonContext()
   const colors = () => {
     if (roundDetailsMode === btnMode) {
-      if (season === 6) return 'bg-emerald-500 shadow-insetemerald'
-      if (season === 7) return 'bg-indigo-500 shadow-insetindigo'
+      if (season === 6) return 'bg-emerald-500 shadow-seasonSix'
+      if (season === 7) return 'bg-indigo-500 shadow-seasonSeven'
     }
 
     const bg = darkMode ? 'bg-black' : 'bg-white'

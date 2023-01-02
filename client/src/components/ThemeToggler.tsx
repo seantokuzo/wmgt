@@ -18,12 +18,15 @@ const ThemeToggler: React.FC = () => {
       />
       <div
         className="w-11 h-6 rounded-full
-          peer-checked:after:bg-black peer-checked:after:border-black
-          after:bg-wmgYellow after:border-wmgYellow
-          bg-black peer-checked:bg-wmgYellow
-          peer-checked:border-wmgYellow
-          after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:rounded-full after:h-5 after:w-5 after:transition-all
-          peer-checked:border-2 peer-focus:outline-none peer peer-checked:after:translate-x-full"
+        bg-black border-black border-2 after:bg-white
+        peer-checked:after:bg-black peer-checked:after:border-black
+        after:bg-wmgYellow after:brdr-wmgYellow
+        after:content-[''] after:absolute after:top-[2px] after:left-[2px]
+        after:rounded-full after:h-5 after:w-5 after:transition-all
+        peer-checked:border-2 peer-checked:border-[#f8ff71]
+        peer-checked:bg-[#f8ff71]
+        peer-checked:after:translate-x-full
+        peer-focus:outline-none peer"
       ></div>
     </label>
   )

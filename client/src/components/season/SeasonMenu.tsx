@@ -4,6 +4,7 @@ import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { courseData } from 'data/course-data/wmgt-course-data'
+import { seasonToColor } from 'utils/seasonToColor'
 
 type Props = {
   seasonData: RoundDataInterface[]
@@ -19,33 +20,21 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
     // eslint-disable-next-line
   }, [])
 
+  const seasonNum = seasonData[0].season
+  const seasonColor = seasonToColor(seasonData[0].season)
+
   const menuColors = (menuPart: 'outer' | 'bg-shadow' | 'round' | 'top-course') => {
-    if (seasonData[0].season === 6) {
-      if (menuPart === 'outer') {
-        return 'border-emerald-600 bg-emerald-600/[0.2]'
-      }
-      if (menuPart === 'bg-shadow') {
-        return 'bg-emerald-600 shadow-insetemerald'
-      }
-      if (menuPart === 'round') {
-        return 'bg-emerald-600 shadow-insetemerald'
-      }
-      if (menuPart === 'top-course') {
-        return 'border-emerald-600'
-      }
-    }
-    // if (seasonData[0].season === 7)
     if (menuPart === 'outer') {
-      return 'border-indigo-600 bg-indigo-600/[0.2]'
+      return `brdr-s${seasonNum} bg-${seasonColor}/[0.25]`
     }
     if (menuPart === 'bg-shadow') {
-      return 'bg-indigo-600 shadow-insetindigo'
+      return `bg-sh-s${seasonNum}`
     }
     if (menuPart === 'round') {
-      return 'bg-indigo-600 shadow-insetindigo'
+      return `bg-sh-s${seasonNum}`
     }
     if (menuPart === 'top-course') {
-      return 'border-indigo-600'
+      return `brdr-s${seasonNum}`
     }
   }
 
@@ -62,7 +51,7 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
         text-3xl font-semibold
         rounded-md border-2
         shadow-basic
-        ${seasonData[0].season === 6 ? 'border-emerald-500' : 'border-indigo-500'}
+        border-${seasonColor}
         ${darkMode ? 'bg-black' : 'bg-white'}`}
       >
         {`SEASON ${seasonData[0].season}`}

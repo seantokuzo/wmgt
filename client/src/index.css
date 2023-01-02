@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: theme('colors.amber.400');
+  --silver: theme('colors.slate.400');
+  --bronze: theme('colors.amber.700');
+  --topTenGreen: theme('colors.lime.400');
+  --season7: theme('colors.indigo.500');
+  --season6: theme('colors.emerald.500');
+  --season5: theme('colors.orange.400');
+  --season4: theme('colors.red.400');
+  --season3: theme('colors.sky.500');
+  --season2: theme('colors.purple.400');
+  --season1: theme('colors.stone.500');
+  --easyCourse: theme('colors.orange.300');
+  --hardCourse: theme('colors.cyan.600');
+  --wmgYellow: #f8ff71;
+  --wmgBrown: #38280e;
+  --sh-basic: 2px 2px 6px rgba(0, 0, 0, 0.35), 3px 3px 6px rgba(0, 0, 0, 0.25);
+  --sh-insetbasic: inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020;
+  --sh-wmgYellowSm: inset 11px 11px 9px #c1c758, inset -11px -11px 9px #ffff8a80;
+  --sh-wmgYellowLg: inset 12px 12px 24px #b8bd54, inset -12px -12px 24px #ffff8e80;
+  --sh-wmgBrown: inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212;
+  --sh-condor: inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;
+  --sh-redLight: inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;
+  --sh-gold: inset 6px 6px 6px #ad8419, inset -6px -6px 6px #fffa2f;
+  --sh-silver: inset 6px 6px 6px #66707f, inset -6px -6px 6px #c2d6f1;
+  --sh-bronze: inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;
+  --sh-topTenGreen: inset 6px 6px 6px #709f25, inset -6px -6px 6px #d6ff45;
+  --sh-season7: inset 6px 6px 6px #37309e, inset -6px -6px 6px #675cff;
+  --sh-season6:inset 6px 6px 6px #036848, inset -6px -6px 6px #07c58a;
+  --sh-season5: inset 6px 6px 12px #ad6529, inset -6px -6px 12px #ffbf4f;
+  --sh-season4: inset 6px 6px 12px #ab4e4e, inset -6px -6px 12px #ff9494;
+  --sh-season3: inset 6px 6px 12px #0a72a1, inset -6px -6px 12px #12d8ff;
+  --sh-season2: inset 6px 6px 12px #845bae, inset -6px -6px 12px #fcadff;
+  --sh-season1: inset 6px 6px 12px #534e4b, inset -6px -6px 12px #9d948d;
+  --sh-easyCourse: inset 6px 6px 12px #af8050, inset -6px -6px 12px #fff498;
+  --sh-hardCourse: inset 6px 6px 12px #06647b, inset -6px -6px 12px #0abee9;
+  --ace: theme('colors.red.600');
+  --condor: theme('colors.blue.400');
+  --brdr-condor: theme('colors.blue.700');
+  --underPar: theme('colors.red.400');
+  --overPar: theme('colors.lime.700');
+}
+
+/* ***** WMG YELLOWS ***** */
+.bg-wmgYellow {
+  background-color: var(--wmgYellow);
+}
+.brdr-wmgYellow {
+  border-color: var(--wmgYellow);
+}
+.sh-wmgYellowSm {
+  box-shadow: var(--sh-wmgYellowSm);
+}
+.sh-wmgYellowLg {
+  box-shadow: var(--sh-wmgYellowLg);
+}
+.cl-wmgYellow {
+  color: var(--wmgYellow);
+}
+/* ***** WMG BROWN ***** */
+.bg-wmgBrown {
+  background-color: var(--wmgBrown);
+}
+.brdr-wmgBrown {
+  border-color: var(--wmgBrown);
+}
+.sh-wmgBrown {
+  box-shadow: var(--sh-wmgBrown);
+}
+.cl-wmgBrown {
+  color: var(--wmgBrown);
+}
+
+/* ******************************** */
+/* ******** PODIUM CLASSES ******** */
+/* ******************************** */
+
+/* ***** GOLD ***** */
+.bg-gold {
+  background-color: var(--gold);
+}
+.bg-sh-gold {
+  background-color: var(--gold);
+  box-shadow: var(--sh-gold);
+}
+.brdr-gold {
+  border-color: var(--gold);
+}
+/* ***** SILVER ***** */
+.bg-silver {
+  background-color: var(--silver);
+}
+.bg-sh-silver {
+  background-color: var(--silver);
+  box-shadow: var(--sh-silver);
+}
+.brdr-silver {
+  border-color: var(--silver);
+}
+/* ***** BRONZE ***** */
+.bg-bronze {
+  background-color: var(--bronze);
+}
+.bg-sh-bronze {
+  background-color: var(--bronze);
+  box-shadow: var(--sh-bronze);
+}
+.brdr-bronze {
+  border-color: var(--bronze);
+}
+/* ***** TOP TEN ***** */
+.bg-topTenGreen {
+  background-color: var(--topTenGreen);
+}
+.bg-sh-topTenGreen {
+  background-color: var(--topTenGreen);
+  box-shadow: var(--sh-topTenGreen);
+}
+.brdr-topTenGreen {
+  border-color: var(--topTenGreen);
+}
+
+/* ******************************** */
+/* ***** SEASON COLOR CLASSES ***** */
+/* ******************************** */
+
+/* ***** SEASON 7 COLORS ***** */
+.bg-sh-s7 {
+  background-color: var(--season7);
+  box-shadow: var(--sh-season7);
+}
+.bg-s7 {
+  background-color: var(--season7);
+}
+.brdr-s7 {
+  border-color: var(--season7);
+}
+.cl-s7 {
+  color: var(--season7);
+}
+.bgfade-s7 {
+  background: linear-gradient(to left, var(--season7), rgba(0, 0, 0, 0));
+}
+
+/* ***** SEASON 6 COLORS ***** */
+.bg-sh-s6 {
+  background-color: var(--season6);
+  box-shadow: var(--sh-season6);
+}
+.bg-s6 {
+  background-color: var(--season6);
+}
+.brdr-s6 {
+  border-color: var(--season6);
+}
+.cl-s6 {
+  color: var(--season6);
+}
+.bgfade-s6 {
+  background: linear-gradient(to left, var(--season6), rgba(0, 0, 0, 0));
+}
+
+/* ***** SEASON 5 COLORS ***** */
+.bg-sh-s5 {
+  background-color: var(--season5);
+  box-shadow: var(--sh-season5);
+}
+.bg-s5 {
+  background-color: var(--season5);
+}
+.brdr-s5 {
+  border-color: var(--season5);
+}
+.cl-s5 {
+  color: var(--season5);
+}
+.bgfade-s5 {
+  background: linear-gradient(to left, var(--season5), rgba(0, 0, 0, 0));
+}
+
+/* ***** SEASON 4 COLORS ***** */
+.bg-sh-s4 {
+  background-color: var(--season4);
+  box-shadow: var(--sh-season4);
+}
+.bg-s4 {
+  background-color: var(--season4);
+}
+.brdr-s4 {
+  border-color: var(--season4);
+}
+.cl-s4 {
+  color: var(--season4);
+}
+.bgfade-s4 {
+  background: linear-gradient(to left, var(--season4), rgba(0, 0, 0, 0));
+}
+
+/* ***** SEASON 3 COLORS ***** */
+.bg-sh-s3 {
+  background-color: var(--season3);
+  box-shadow: var(--sh-season3);
+}
+.bg-s3 {
+  background-color: var(--season3);
+}
+.brdr-s3 {
+  border-color: var(--season3);
+}
+.cl-s3 {
+  color: var(--season3);
+}
+.bgfade-s3 {
+  background: linear-gradient(to left, var(--season3), rgba(0, 0, 0, 0));
+}
+
+/* ***** SEASON 2 COLORS ***** */
+.bg-sh-s2 {
+  background-color: var(--season2);
+  box-shadow: var(--sh-season2);
+}
+.bg-s2 {
+  background-color: var(--season2);
+}
+.brdr-s2 {
+  border-color: var(--season2);
+}
+.cl-s2 {
+  color: var(--season2);
+}
+.bgfade-s2 {
+  background: linear-gradient(to left, var(--season2), rgba(0, 0, 0, 0));
+}
+
+/* ***** SEASON 1 COLORS ***** */
+.bg-sh-s1 {
+  background-color: var(--season1);
+  box-shadow: var(--sh-season1);
+}
+.bg-s1 {
+  background-color: var(--season1);
+}
+.brdr-s1 {
+  border-color: var(--season1);
+}
+.cl-s1 {
+  color: var(--season1);
+}
+.bgfade-s1 {
+  background: linear-gradient(to left, var(--season1), rgba(0, 0, 0, 0));
+}
+
+
+/* ******************************** */
+/* ******* SCORECARD COLORS ******* */
+/* ******************************** */
+.condor {
+  background-color: var(--condor);
+  box-shadow: var(--sh-condor);
+  border-color: var(--brdr-condor);
+}
+.ace {
+  background-color: var(--ace);
+}
+.underPar {
+  border-color: var(--underPar);
+}
+.overPar {
+  border-color: var(--overPar);
+}
+.strokeOut {
+  background-color: var(--overPar);
+}
+.sh-redLight {
+  box-shadow: var(--sh-redLight);
+}
+
+/* ******************************** */
+/* *** EASY / HARD COURSE COLOR *** */
+/* ******************************** */
+.cl-easyCourse {
+  color: var(--easyCourse);
+}
+.brdr-easyCourse {
+  border-color: var(--easyCourse);
+}
+.bg-easyCourse {
+  background-color: var(--easyCourse);
+}
+.sh-easyCourse {
+  box-shadow: var(--sh-easyCourse);
+}
+.cl-hardCourse {
+  color: var(--hardCourse);
+}
+.brdr-hardCourse {
+  border-color: var(--hardCourse);
+}
+.bg-hardCourse {
+  background-color: var(--hardCourse);
+}
+.sh-hardCourse {
+  box-shadow: var(--sh-hardCourse);
+}
+
+/* ******************************** */
+/* ************ BASICS ************ */
+/* ******************************** */
+.sh-basic {
+  box-shadow: var(--sh-basic);
+}
+.sh-insetbasic {
+  box-shadow: var(--sh-insetbasic);
+}

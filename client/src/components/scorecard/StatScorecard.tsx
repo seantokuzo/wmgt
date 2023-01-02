@@ -62,7 +62,7 @@ const StatScorecard: React.FC<Props> = ({ label, data }) => {
             >
               <div
                 className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-                bg-red-400 shadow-insetred
+                bg-red-400 shadow-redLight
                 border-[1px] rounded-md border-red-400
                 text-xxs sm:text-sm
                 flex flex-col justify-center items-center z-10`}

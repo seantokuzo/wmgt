@@ -13,7 +13,7 @@ const Home: React.FC = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       ></iframe> */}
       <img className="w-full max-w-2xl" src="/img/wmg_logo.png" alt="Walkabout Mini Golf Logo" />
-      <h2 className={`${!darkMode ? 'text-wmgBrown' : 'text-[#f8f771]'}`}>Stats By:</h2>
+      <h2 className={`${!darkMode ? 'cl-wmgBrown' : 'text-[#f8f771]'}`}>Stats By:</h2>
       <nav className="w-full max-w-xl py-2 flex flex-col justify-center items-center">
         <PageLink path="player" />
         <PageLink path="season" />

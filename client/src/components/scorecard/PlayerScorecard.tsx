@@ -102,7 +102,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
   ]
 
   const season = +pathname.split('/season/')[1].split('r')[0].split('s')[1]
-  
+
   const seasonColor = season === 7 ? 'indigo-500' : season === 6 ? 'emerald-500' : 'emerald-500'
 
   return (
@@ -126,7 +126,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         ${
           userPlayer &&
           userPlayer === playerRound.player &&
-          `bg-gradient-to-l from-${seasonColor} to-transparent border-b-2 border-${seasonColor} rounded-sm py-1`
+          `bgfade-s${season} border-b-2 border-${seasonColor} rounded-sm py-1`
         }
         overflow-hidden`}
       >
@@ -191,7 +191,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         <div
           className={`w-4/5 p-1 md:p-2
           border-l-2 border-b-2 rounded-md
-          ${showEasyCourse ? 'border-orange-300' : 'border-indigo-700'}
+          ${showEasyCourse ? 'border-orange-300' : 'border-cyan-600'}
           text-xxxs sm:text-xs
           flex justify-center items-center
           `}
@@ -215,21 +215,19 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         <div
           className={`w-4/5 p-1 md:p-2
           text-xxxs sm:text-xs
-          rounded-md
+          rounded-md font-bold
           ${
             playerRound.roundRank === 1
-              ? 'bg-amber-400 shadow-insetgold font-bold text-black'
+              ? 'bg-sh-gold font-bold text-black'
               : playerRound.roundRank === 2
-              ? 'bg-slate-400 shadow-insetsilver font-bold text-black'
+              ? 'bg-sh-silver font-bold text-black'
               : playerRound.roundRank === 3
-              ? 'bg-amber-700 shadow-insetbronze font-bold text-black'
+              ? 'bg-sh-bronze font-bold text-black'
               : playerRound.roundRank <= 10
-              ? 'bg-lime-400 shadow-insetlime font-bold text-black'
-              : playerRound.roundRank <= 20
-              ? 'border-l-2 border-b-2 border-emerald-400'
-              : playerRound.roundRank <= 30
-              ? 'border-l-2 border-b-2 border-violet-400'
-              : 'border-l-2 border-b-2'
+              ? 'bg-sh-topTenGreen text-black'
+              : darkMode
+              ? 'border-l-2 border-b-2 border-white'
+              : 'border-l-2 border-b-2 border-black'
           }`}
         >
           {playerRound.roundRank}

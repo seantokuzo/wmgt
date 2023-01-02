@@ -52,7 +52,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             setHole={setSelectedHole}
           />
           <div
-            className="w-full text-wmgBrown
+            className="w-full cl-wmgBrown
             flex justify-evenly"
           >
             <HoleStat

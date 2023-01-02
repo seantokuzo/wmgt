@@ -48,8 +48,8 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         text-2xl md:text-3xl font-semibold text-black
         ${
           round.season === 6
-            ? 'bg-emerald-500 shadow-insetemerald'
-            : 'bg-indigo-500 shadow-insetindigo'
+            ? 'bg-emerald-500 shadow-seasonSix'
+            : 'bg-indigo-500 shadow-seasonSeven'
         }
         rounded-md
         flex justify-center items-center
@@ -140,13 +140,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           )}
         </>
       )}
-      {roundDetailsMode === 'race' && (
-        // <ComingSoon
-        //   text="🏇 COMING SOON 🏇"
-        //   color={round.season === 7 ? 'indigo' : round.season === 6 ? 'emerald' : undefined}
-        // />
-        <RaceToTheFinish round={round} />
-      )}
+      {roundDetailsMode === 'race' && <RaceToTheFinish round={round} />}
       {roundDetailsMode !== 'race' && roundDetailsMode !== 'aces' && <ScorecardLegend />}
     </div>
   )

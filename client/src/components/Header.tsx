@@ -7,19 +7,13 @@ const Header: React.FC = () => {
   const { darkMode, userPlayer } = useAppContext()
 
   return (
-    <div
-      className={`w-full px-4 pt-2 pb-5 md:pt-5 flex justify-between items-center ${
-        !darkMode ? 'text-black' : 'text-white'
-      }`}
-    >
+    <div className="w-full px-4 md:px-6 lg:px-8 pt-2 pb-5 md:pt-5 flex justify-between items-center">
       <div className="w-1/7">
         <PageLink path="/" />
       </div>
       <div className="w-1/2 flex flex-col justify-center items-center">
         <h1
-          className={`${
-            !darkMode ? 'text-wmgBrown' : 'text-[#f8f771]'
-          } font-orb text-2xl font-semibold`}
+          className={`${!darkMode ? 'text-black' : 'cl-wmgYellow'} font-orb text-2xl font-semibold`}
         >
           WMGT STATS
         </h1>

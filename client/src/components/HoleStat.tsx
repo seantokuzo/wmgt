@@ -6,7 +6,7 @@ type Props = {
 const HoleStat: React.FC<Props> = ({ label, stat }) => {
   return (
     <div
-      className="px-4 py-2 rounded-b-md shadow-insetyellow
+      className="px-4 py-2 rounded-b-md sh-wmgYellowLg
               text-base md:text-xl
               font-semibold uppercase text-center
               bg-wmgYellow

@@ -13,7 +13,7 @@ const ScorecardToggleBtn: React.FC<Props> = ({ season, show, toggle, text1, text
       ? 'bg-indigo-500/[0.25] shadow-insetbasic'
       : 'bg-emerald-500/[0.25] shadow-insetbasic'
   const selectedClasses =
-    season === 7 ? 'bg-indigo-500 shadow-insetindigo' : 'bg-emerald-500 shadow-insetemerald'
+    season === 7 ? 'bg-indigo-500 shadow-seasonSeven' : 'bg-emerald-500 shadow-seasonSix'
 
   return (
     <button className="w-full max-w-lg flex justify-center items-center py-2 my-2" onClick={toggle}>

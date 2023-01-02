@@ -131,7 +131,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
         <div
           className={`relative w-full px-7 md:p-5 py-6 flex
       flex-col justify-center items-center bg-wmgYellow
-      text-wmgBrown ${selectedHole !== '' && 'opacity-0'}`}
+      cl-wmgBrown ${selectedHole !== '' && 'opacity-0'}`}
         >
           {/* ***** TOP OF SCORECARD DIV ***** */}
           <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
@@ -141,7 +141,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 className="w-10 h-10 p-2 text-xl
               flex justify-center items-center
               hover:shadow-lg hover:scale-105
-              border-2 border-wmgBrown rounded-[100%]"
+              border-2 brdr-wmgBrown rounded-[100%]"
               >
                 <i className="fa-solid fa-arrow-left"></i>
               </Link>
@@ -158,11 +158,12 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
             <div className="w-full md:w-1/3 flex justify-end mt-3 md:mt-0">
               <select
                 id="course-stats-selector"
-                className="w-full md:w-fit bg-wmgBrown border border-gray-300 text-gray-900 text-sm
-            rounded-lg
-            focus:ring-blue-500 focus:border-blue-500 block p-2.5
-            dark:bg-gray-700 dark:border-gray-600 dark:text-white
-            dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="w-full md:w-fit border text-sm rounded-lg
+                bg-wmgBrown
+                border-gray-300 text-gray-900
+                focus:ring-blue-500 focus:border-blue-500 block p-2.5
+                dark:bg-gray-700 dark:border-gray-600 dark:text-white
+                dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 onChange={(e) => setSelectedStat(e.target.value as StatTypes)}
               >
                 <option value="default">SELECT A STAT</option>
@@ -221,7 +222,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                   <div
                     className="w-4 h-4 p-4 my-1
                 flex flex-col justify-center items-center
-                border-2 border-wmgYellow rounded-[100%]
+                border-2 brdr-wmgYellow rounded-[100%]
                 text-lg font-scorenum cursor-pointer"
                     onClick={() => handleHoleHover(i + 1)}
                   >
@@ -231,9 +232,9 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                   <div
                     className="w-12 h-12 bg-wmgYellow
                   flex justify-center items-center
-                  rounded-md shadow-insetyellow"
+                  rounded-md sh-wmgYellowLg"
                   >
-                    <p className="text-2xl font-bold text-wmgBrown">{getHoleStats()[i]}</p>
+                    <p className="text-2xl font-bold cl-wmgBrown">{getHoleStats()[i]}</p>
                   </div>
                 </div>
               ))}
@@ -244,10 +245,10 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 className="w-20 h-20 p-2 rounded-md ml-0 mt-0
               md:mt-2 md:ml-2
               flex flex-col justify-between items-center
-              bg-wmgYellow font-scorenum shadow-insetyellow"
+              bg-wmgYellow font-scorenum sh-wmgYellowLg"
               >
-                <p className="text-xs text-wmgBrown">TOTAL</p>
-                <h2 className="text-5xl font-bold text-wmgBrown">{getTotalScoreStat()}</h2>
+                <p className="text-xs cl-wmgBrown">TOTAL</p>
+                <h2 className="text-5xl font-bold cl-wmgBrown">{getTotalScoreStat()}</h2>
               </div>
             </div>
           </div>

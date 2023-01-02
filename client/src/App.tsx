@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div
-      className={`w-full min-w-[100vw] min-h-screen h-full font-reg
+      className={`w-full min-w-[100vw] min-h-screen h-full font-reg m-0
       ${bgColor}
       ${textColor}
       flex flex-col justify-start items-center`}

@@ -5,8 +5,8 @@ const CoursesMenu: React.FC = () => {
   const { darkMode, courseData } = useAppContext()
 
   const colors = darkMode
-    ? 'bg-wmgBrown text-wmgYellow shadow-insetbrown'
-    : 'bg-wmgYellow text-wmgBrown shadow-insetyellow'
+    ? 'bg-wmgBrown cl-wmgYellow sh-wmgBrown'
+    : 'bg-wmgYellow cl-wmgBrown sh-wmgYellowLg'
 
   const coursesEl = (
     <>

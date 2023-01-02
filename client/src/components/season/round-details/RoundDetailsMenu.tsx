@@ -21,13 +21,6 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   const courseAlias =
     showEasyCourse || roundDetailsMode === 'easy' ? easyCourse.alias : hardCourse.alias
 
-  const bgColor =
-    round.season === 6 ? 'bg-emerald-600 shadow-insetemerald' : 'bg-indigo-600 shadow-insetindigo'
-  const borderColor = round.season === 6 ? 'border-emerald-600' : 'border-indigo-600'
-  const textColor = round.season === 6 ? 'text-emerald-600' : 'text-indigo-600'
-  // const bgPassThru = darkMode ? 'bg-black' : 'bg-white'
-  // const bgPassThruText = darkMode ? 'text-black' : 'text-white'
-
   const toggleRoundBtn = (nextNotPrev: boolean) => {
     const seasonData = round.season === 6 ? season6Data : season7Data
     const roundIndex = seasonData.findIndex((r) => r.round === round.round)
@@ -40,8 +33,8 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         <div
           className={`w-12 h-12 md:w-20 md:h-20
             text-sm md:text-xl font-bold text-black
-            border-2 ${borderColor}
-            ${bgColor}
+            border-2 brdr-s${round.season}
+            bg-sh-s${round.season}
             rounded-full
             flex flex-col justify-center items-center
             hover:scale-110`}
@@ -60,8 +53,16 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   const courseLabelEl = (course: CourseInterface) => {
     return (
       <div
-        className={`w-1/2 py-2 px-4
-        ${course.difficulty === 'Easy' ? 'text-orange-300' : 'text-indigo-700'}
+        className={`w-1/3 py-2 px-4 border-2 rounded-md
+        ${
+          course.difficulty === 'Easy' && showEasyCourse
+            ? 'bg-easyCourse sh-easyCourse brdr-easyCourse text-black'
+            : course.difficulty === 'Easy' && !showEasyCourse
+            ? 'bg-easyCourse brdr-easyCourse text-black'
+            : course.difficulty === 'Hard' && showEasyCourse
+            ? 'bg-hardCourse brdr-hardCourse text-black'
+            : 'bg-hardCourse sh-hardCourse brdr-hardCourse text-black'
+        }
         ${
           showEasyCourse && course.difficulty === 'Hard'
             ? 'cursor-pointer hover:scale-105'
@@ -91,8 +92,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     medal: '🏆' | '🥈' | '🥉'
   ) => {
     if (podiumFinishers.length === 0) return <></>
-    const colorStyle =
-      medal === '🏆' ? 'bg-amber-400' : medal === '🥈' ? 'bg-slate-400' : 'bg-amber-700'
+    const colorStyle = medal === '🏆' ? 'bg-gold' : medal === '🥈' ? 'bg-silver' : 'bg-bronze'
 
     return (
       <div
@@ -132,13 +132,13 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         font-orb text-2xl font-bold tracking-wider
         rounded-t-md
         text-black
-        ${bgColor}`}
+        bg-sh-s${round.season}`}
       >
         <Link to="/season">{`SEASON ${round.season}`}</Link>
       </div>
       <div
         className={`w-full py-4
-        ${textColor}
+        cl-s${round.season}
         bg-black
         flex flex-col justify-center items-center`}
       >

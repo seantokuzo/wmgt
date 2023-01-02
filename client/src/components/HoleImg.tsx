@@ -20,8 +20,8 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           flex flex-col justify-center items-center animate-fadein"
     >
       <div
-        className="bg-wmgYellow text-wmgBrown shadow-insetyellow
-            border-x-2 border-t-2 border-wmgYellow rounded-t-md
+        className="bg-wmgYellow cl-wmgBrown sh-wmgYellowLg
+            border-x-2 border-t-2 brdr-wmgYellow rounded-t-md
             pt-2 text-center
             flex flex-col justify-center items-center"
       >
@@ -30,13 +30,13 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           className="text-3xl font-semibold
               w-12 h-12 p-4 mt-1 mb-2
               flex justify-center items-center
-              border-4 border-wmgBrown rounded-full"
+              border-4 brdr-wmgBrown rounded-full"
         >
           {hole}
         </div>
         <div
           className="w-full text-2xl font-semibold py-1 px-2
-          bg-wmgBrown text-wmgYellow shadow-insetbrown
+          bg-wmgBrown text-wmgYellow sh-wmgBrown
           flex justify-between items-center"
         >
           <i
@@ -60,8 +60,8 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
         <div
           className="absolute top-2 left-2
           w-10 h-10 p-5 text-2xl
-          border-2 border-wmgBrown text-wmgYellow
-          bg-wmgBrown shadow-insetbrown
+          border-2 brdr-wmgBrown text-wmgYellow
+          bg-wmgBrown sh-wmgBrown
           rounded-full
           flex justify-center items-center"
           onClick={exit}
@@ -69,7 +69,7 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           <i className="fa-solid fa-xmark"></i>
         </div>
         <img
-          className="w-full border-2 border-wmgYellow rounded-md shadow-basic"
+          className="w-full border-2 brdr-wmgYellow rounded-md shadow-basic"
           src={
             coursesWithImages.includes(course.alias)
               ? courseHoleImgLink

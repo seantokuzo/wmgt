@@ -1,16 +1,25 @@
 import { useAppContext } from 'context/appContext'
 import { allPlayersList } from 'data/player-data/AllPlayersList'
 import { nanoid } from 'nanoid'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const PlayerSelector = () => {
   const { darkMode, chooseUserPlayer, userPlayer } = useAppContext()
   const [inputValue, setInputValue] = useState(userPlayer)
+  const [zoomOut, setZoomOut] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.body.style.webkitTransform = 'scale(1)'
+      document.body.style.transform = 'scale(1)'
+    }, 500)
+  }, [zoomOut])
 
   const handleInput = (target: HTMLInputElement | { value: '' }) => {
     setInputValue(target.value)
     if (allPlayersList.findIndex((p) => p.player === target.value) < 0) return chooseUserPlayer('')
     chooseUserPlayer(target.value)
+    setZoomOut(!zoomOut)
   }
 
   const inputStyle = darkMode
@@ -23,7 +32,7 @@ const PlayerSelector = () => {
         <i className="fa-solid fa-delete-left opacity-0"></i>
         <div
           className="mx-3 py-1 px-4 rounded-md
-        border-2 border-gold bg-gold shadow-insetgold
+        border-2 brdr-gold bg-sh-gold
         text-black font-bold"
         >
           {userPlayer}

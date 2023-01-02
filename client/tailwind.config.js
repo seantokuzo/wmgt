@@ -14,31 +14,29 @@ module.exports = {
         xxxs: '0.45rem',
         xxs: '0.6rem'
       },
-      colors: {
-        wmgBrown: '#38280e',
-        wmgYellow: '#f8ff71',
-        gold: '#fbbf24',
-        silver: '#94a3b8',
-        bronze: '#b45309',
-        topTenGreen: '#a3e635'
-      },
-      boxShadow: {
-        inyellfocus: 'inset 11px 11px 9px #c1c758, inset -11px -11px 9px #ffff8a80',
-        inyellopp: 'inset -5px -5px 9px #c1c758, inset 11px 11px 9px #ffff8a80',
-        insetyellow: 'inset 12px 12px 24px #b8bd54, inset -12px -12px 24px #ffff8e80',
-        yellow: '12px 12px 24px #b8bd54, -12px -12px 24px #ffff8e80',
-        insetbrown: 'inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212',
-        basic: '2px 2px 6px rgba(0, 0, 0, 0.35), 3px 3px 6px rgba(0, 0, 0, 0.25)',
-        insetbasic: 'inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020',
-        insetcondor: 'inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;',
-        insetred: 'inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;',
-        insetlime: 'inset 6px 6px 6px #709f25, inset -6px -6px 6px #d6ff45;',
-        insetemerald: 'inset 6px 6px 6px #036848, inset -6px -6px 6px #07c58a;',
-        insetindigo: 'inset 6px 6px 6px #37309e, inset -6px -6px 6px #675cff;',
-        insetgold: 'inset 6px 6px 6px #ad8419, inset -6px -6px 6px #fffa2f;',
-        insetsilver: 'inset 6px 6px 6px #66707f, inset -6px -6px 6px #c2d6f1;',
-        insetbronze: 'inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;'
-      },
+      // colors: {
+      //   wmgBrown: '#38280e',
+      //   wmgYellow: '#f8ff71',
+      //   gold: '#fbbf24',
+      //   silver: '#94a3b8',
+      //   bronze: '#b45309',
+      //   topTenGreen: '#a3e635'
+      // },
+      // boxShadow: {
+      //   basic: '2px 2px 6px rgba(0, 0, 0, 0.35), 3px 3px 6px rgba(0, 0, 0, 0.25)',
+      //   insetbasic: 'inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020',
+      //   wmgYellowSm: 'inset 11px 11px 9px #c1c758, inset -11px -11px 9px #ffff8a80',
+      //   wmgYellowLg: 'inset 12px 12px 24px #b8bd54, inset -12px -12px 24px #ffff8e80',
+      //   wmgBrown: 'inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212',
+      //   condor: 'inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;',
+      //   redLight: 'inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;',
+      //   insetgold: 'inset 6px 6px 6px #ad8419, inset -6px -6px 6px #fffa2f;',
+      //   insetsilver: 'inset 6px 6px 6px #66707f, inset -6px -6px 6px #c2d6f1;',
+      //   insetbronze: 'inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;',
+      //   insetlime: 'inset 6px 6px 6px #709f25, inset -6px -6px 6px #d6ff45;',
+      //   seasonSix: 'inset 6px 6px 6px #036848, inset -6px -6px 6px #07c58a;',
+      //   seasonSeven: 'inset 6px 6px 6px #37309e, inset -6px -6px 6px #675cff;'
+      // },
       keyframes: {
         spin: {
           '0%': { transform: 'rotate(0deg)' },

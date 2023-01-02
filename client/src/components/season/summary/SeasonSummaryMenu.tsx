@@ -8,16 +8,14 @@ type Props = {
 }
 
 const SeasonSummaryMenu: React.FC<Props> = ({ season, summaryMode, setSummaryMode }) => {
-  const seasonToColor = season === 6 ? 'emerald-500' : 'indigo-500'
-
   const modeChangeBtn = (mode: SummaryMode, btnText: string) => {
     return (
       <button
         className={`w-1/2 min-w-fit my-2 py-4 px-8
         text-base font-bold
-        border-2 border-${seasonToColor} rounded-lg
+        border-2 brdr-s${season} rounded-lg
         ${summaryMode !== mode && `bg-none`}
-        ${summaryMode === mode && `bg-${seasonToColor} shadow-inset${seasonToColor.split('-')[0]}`}
+        ${summaryMode === mode && `bg-s${season}`}
         flex justify-center items-center
         `}
         onClick={() => setSummaryMode(mode)}

@@ -28,14 +28,12 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
           className={`px-4 py-2 text-2xl md:text-3xl font-semibold
           flex justify-center items-center hover:shadow-lg hover:scale-105
           text-white rounded-t-md
-          ${
-            season === 6 ? 'bg-emerald-500 shadow-insetemerald' : 'bg-indigo-500 shadow-insetindigo'
-          }`}
+          bg-sh-s${season}`}
         >
           {/* <i className="fa-solid fa-arrow-left"></i> */}
           <p>SEASON MENU</p>
         </Link>
-        <ComingSoon text="Insufficient Data" color="emerald" />
+        <ComingSoon text="Insufficient Data" />
       </div>
     )
   }
@@ -50,11 +48,8 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
         className={`px-4 py-2 text-2xl md:text-3xl font-semibold
           flex justify-center items-center hover:shadow-lg hover:scale-105
           text-white rounded-md
-          ${
-            season === 6 ? 'bg-emerald-500 shadow-insetemerald' : 'bg-indigo-500 shadow-insetindigo'
-          }`}
+          bg-sh-s${season}`}
       >
-        {/* <i className="fa-solid fa-arrow-left"></i> */}
         <p>SEASON MENU</p>
       </Link>
       <SeasonSummaryMenu
@@ -68,24 +63,7 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
       {summaryMode === 'leaderboard' && windowSize.width < 768 && (
         <SeasonLeaderboardSmall season={season} />
       )}
-      {summaryMode === 'stat-leaders' && (
-        <ComingSoon
-          text="🔨 Not so Fast 🪚"
-          color={season === 7 ? 'indigo' : season === 6 ? 'emerald' : undefined}
-        />
-      )}
-      {/* {DataGod.getSeasonSummaryPlayerPoints(season).map((player) => (
-        <div className="flex justify-center items center" key={nanoid()}>
-          <div>{player.flag}</div>
-          <div>{player.player}</div>
-          <div>{player.totalPoints}</div>
-          {player.roundPoints.map((point) => (
-            <div className="border-2 p-2" key={nanoid()}>
-              {point}
-            </div>
-          ))}
-        </div>
-      ))} */}
+      {summaryMode === 'stat-leaders' && <ComingSoon text="🔨 Not so Fast 🪚" />}
     </div>
   )
 }
