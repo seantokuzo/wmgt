@@ -126,7 +126,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         ${
           userPlayer &&
           userPlayer === playerRound.player &&
-          `bgfade-s${season} border-b-2 border-${seasonColor} rounded-sm py-1`
+          `bgfade-s${season} border-b-2 brdr-s${season} rounded-sm py-1`
         }
         overflow-hidden`}
       >

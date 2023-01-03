@@ -4,9 +4,13 @@ import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseInterface } from 'data/course-data/wmgt-course-data'
 import { DataGod } from 'data/dataGod'
+import { season6Data } from 'data/round-data/s6-round-data'
+import { season7Data } from 'data/round-data/s7-round-data'
 import { nanoid } from 'nanoid'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { seasonToColor } from 'utils/seasonToColor'
 import { holeNameParColWidth } from './PlayerScorecard'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
 
@@ -26,7 +30,10 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
     showScoreTracker,
     toggleScoreTracker,
     showFrontNine,
-    toggleScorecardNine
+    toggleScorecardNine,
+    viewScorecard,
+    viewFrontNine,
+    changeRoundDetailsMode
   } = useSeasonContext()
   const [selectedHole, setSelectedHole] = useState<'' | number>('')
 
@@ -35,6 +42,38 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
 
   const rawSeasonRound = pathname.split('/season/')[1].slice(1).split('r')
   const currentRound = { season: +rawSeasonRound[0], round: +rawSeasonRound[1] }
+
+  const toggleRoundBtn = (nextNotPrev: boolean) => {
+    const seasonData = currentRound.season === 6 ? season6Data : season7Data
+    const roundIndex = seasonData.findIndex((r) => r.round === currentRound.round)
+    const nextRound = seasonData[roundIndex + 1]
+    const prevRound = seasonData[roundIndex - 1]
+    if ((nextNotPrev && !nextRound) || (!nextNotPrev && !prevRound))
+      return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
+    return (
+      <Link
+        to={`/season/s${currentRound.season}r${nextNotPrev ? nextRound.round : prevRound.round}`}
+        onClick={() => {
+          viewScorecard()
+          viewFrontNine()
+          changeRoundDetailsMode('full')
+        }}
+      >
+        <div
+          className={`w-12 h-12 md:w-20 md:h-20
+            text-sm md:text-xl font-bold text-white
+            border-2 brdr-s${currentRound.season}
+            bg-sh-s${currentRound.season}
+            rounded-full
+            flex flex-col justify-center items-center
+            hover:scale-110`}
+        >
+          {`R${nextNotPrev ? nextRound.round : prevRound.round}`}
+          <i className={`fa-solid ${nextNotPrev ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>
+        </div>
+      </Link>
+    )
+  }
 
   return (
     <div
@@ -115,28 +154,55 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
           />
         )}
       </div>
+      {windowSize.width < 768 && (
+        <div className="w-full max-w-4xl py-4 flex justify-evenly items-center">
+          {toggleRoundBtn(false)}
+          {toggleRoundBtn(true)}
+        </div>
+      )}
       <div
-        className={`flex flex-col justify-center items-center my-4 ${
-          (roundDetailsMode === 'full' || roundDetailsMode === 'aces') && 'cursor-pointer'
-        }`}
-        onClick={() => roundDetailsMode !== 'easy' && roundDetailsMode !== 'hard' && toggleCourse()}
+        className={`w-auto px-8 py-1 my-3
+        bgfade-s${currentRound.season}
+        border-b-2 border-l-2 brdr-s${currentRound.season} rounded-md
+        text-base font-bold uppercase font-orb
+        flex justify-center items-center`}
       >
-        <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
-        <p className="text-sm lg:text-base">{'(' + course.alias + ')'}</p>
-        <p className="text-sm lg:text-base text-red-400 mt-1">
-          {roundDetailsMode === 'full'
-            ? 'Full Results'
-            : roundDetailsMode === 'easy'
-            ? 'Easy Course'
-            : roundDetailsMode === 'hard'
-            ? 'Hard Course'
-            : roundDetailsMode === 'aces'
-            ? '🌵 Aces 🦆'
-            : roundDetailsMode === 'coconuts'
-            ? '🥥 Coconuts 🥥'
-            : '🏇 Race to the Finish 🏇'}
-        </p>
-        <p className="mt-1">Click a hole to see details</p>
+        <div className={`pr-4 my-1 border-r-[1px] brdr-s${currentRound.season}`}>
+          {'Season ' + currentRound.season}
+        </div>
+        <div className={`pl-4 my-1 border-l-[1px] brdr-s${currentRound.season}`}>
+          {'Round ' + currentRound.round}
+        </div>
+      </div>
+      <div className="w-full max-w-4xl flex justify-evenly items-center">
+        {windowSize.width >= 768 && toggleRoundBtn(false)}
+        <div
+          className={`flex flex-col justify-center items-center my-4 ${
+            (roundDetailsMode === 'full' || roundDetailsMode === 'aces') && 'cursor-pointer'
+          }`}
+          onClick={() => {
+            if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
+            toggleCourse()
+          }}
+        >
+          <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
+          <p className="text-sm lg:text-base">{'(' + course.alias + ')'}</p>
+          <p className="text-sm lg:text-base text-red-400 mt-1">
+            {roundDetailsMode === 'full'
+              ? 'Full Results'
+              : roundDetailsMode === 'easy'
+              ? 'Easy Course'
+              : roundDetailsMode === 'hard'
+              ? 'Hard Course'
+              : roundDetailsMode === 'aces'
+              ? '🌵 Aces 🦆'
+              : roundDetailsMode === 'coconuts'
+              ? '🥥 Coconuts 🥥'
+              : '🏇 Race to the Finish 🏇'}
+          </p>
+          <p className="mt-1">Click a hole to see details</p>
+        </div>
+        {windowSize.width >= 768 && toggleRoundBtn(true)}
       </div>
       {/* ****** HOLES ROW ****** */}
       <div className="w-full text-xs flex justify-between items-center py-2 sm:px-2 md:px-0">

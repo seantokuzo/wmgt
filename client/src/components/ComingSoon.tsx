@@ -1,6 +1,5 @@
 type Props = {
   text: string
-  color?: 'indigo' | 'emerald'
 }
 
 const ComingSoon: React.FC<Props> = ({ text }) => {

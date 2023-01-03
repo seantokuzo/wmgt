@@ -15,8 +15,14 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
-  const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard, viewCourse } =
-    useSeasonContext()
+  const {
+    roundDetailsMode,
+    changeRoundDetailsMode,
+    showEasyCourse,
+    viewFrontNine,
+    viewScorecard,
+    viewCourse
+  } = useSeasonContext()
 
   const courseAlias =
     showEasyCourse || roundDetailsMode === 'easy' ? easyCourse.alias : hardCourse.alias
@@ -29,7 +35,14 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     if ((nextNotPrev && !nextRound) || (!nextNotPrev && !prevRound))
       return <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"></div>
     return (
-      <Link to={`/season/s${round.season}r${nextNotPrev ? nextRound.round : prevRound.round}`}>
+      <Link
+        to={`/season/s${round.season}r${nextNotPrev ? nextRound.round : prevRound.round}`}
+        onClick={() => {
+          viewScorecard()
+          viewFrontNine()
+          changeRoundDetailsMode('full')
+        }}
+      >
         <div
           className={`w-12 h-12 md:w-20 md:h-20
             text-sm md:text-xl font-bold text-black
@@ -38,10 +51,6 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
             rounded-full
             flex flex-col justify-center items-center
             hover:scale-110`}
-          onClick={() => {
-            viewScorecard()
-            viewFrontNine()
-          }}
         >
           {`R${nextNotPrev ? nextRound.round : prevRound.round}`}
           <i className={`fa-solid ${nextNotPrev ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>
@@ -64,13 +73,20 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
             : 'bg-hardCourse sh-hardCourse brdr-hardCourse text-black'
         }
         ${
-          showEasyCourse && course.difficulty === 'Hard'
+          showEasyCourse &&
+          course.difficulty === 'Hard' &&
+          roundDetailsMode !== 'easy' &&
+          roundDetailsMode !== 'hard'
             ? 'cursor-pointer hover:scale-105'
-            : !showEasyCourse && course.difficulty === 'Easy'
+            : !showEasyCourse &&
+              course.difficulty === 'Easy' &&
+              roundDetailsMode !== 'easy' &&
+              roundDetailsMode !== 'hard'
             ? 'cursor-pointer hover:scale-105'
             : ''
         }`}
         onClick={() => {
+          if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
           if (course.difficulty === 'Easy' && showEasyCourse) return
           if (course.difficulty === 'Hard' && !showEasyCourse) return
           return course.difficulty === 'Easy' ? viewCourse('easy') : viewCourse('hard')
