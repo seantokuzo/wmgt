@@ -5,7 +5,7 @@ import PageLink from '../components/PageLink'
 const Home: React.FC = () => {
   const { darkMode } = useAppContext()
   return (
-    <div className="w-full max-w-4xl px-4 flex flex-col justify-center items-center">
+    <div className="w-full max-w-4xl h-full max-h-full px-4 flex flex-col justify-center items-center">
       {/* WMGT OVERVIEW VIDEO LOL */}
       {/* <iframe
         className="fixed w-screen min-h-screen h-screen z-[-1] m-0 p-0"

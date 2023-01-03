@@ -16,7 +16,7 @@ const FooterCredits = () => {
   }
 
   return (
-    <div className="w-full absolute bottom-0 flex justify-center items-center">
+    <footer className="w-full absolute bottom-0 flex justify-center items-center">
       <div
         className="w-4/5 max-w-md py-2
         text-xxs
@@ -40,7 +40,7 @@ const FooterCredits = () => {
         </div>
         {statGOAT('steven_T')}
       </div>
-    </div>
+    </footer>
   )
 }
 
