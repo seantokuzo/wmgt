@@ -127,7 +127,11 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
                   ? lineColors.nine
                   : i === 9
                   ? lineColors.ten
-                  : lineColors.one
+                  : i % 2 === 0
+                  ? lineColors.one
+                  : i % 3 === 0
+                  ? lineColors.three
+                  : lineColors.two
               }
               activeDot={{ r: 8 }}
             />

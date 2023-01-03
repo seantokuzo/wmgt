@@ -1,18 +1,23 @@
+import { useAppContext } from 'context/appContext'
 import {
   courseFullImgLink,
   courseHoleImgLink,
   CourseInterface,
-  coursesWithImages
+  coursesWithImages,
+  Hole
 } from 'data/course-data/wmgt-course-data'
+import { SetStateAction } from 'react'
 
 type Props = {
   course: CourseInterface
   hole: number
   exit: () => void
-  setHole: (hole: number) => void
+  setHole: React.Dispatch<SetStateAction<Hole>>
+  round?: boolean
 }
 
-const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
+const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole, round }) => {
+  const { darkMode } = useAppContext()
   return (
     <div
       className="w-full max-w-2xl min-w-[300px]
@@ -20,24 +25,40 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
           flex flex-col justify-center items-center animate-fadein"
     >
       <div
-        className="bg-wmgYellow cl-wmgBrown sh-wmgYellowLg
-            border-x-2 border-t-2 brdr-wmgYellow rounded-t-md
-            pt-2 text-center
-            flex flex-col justify-center items-center"
+        className={`pt-2 text-center
+        border-x-2 border-t-2 rounded-t-md
+        ${
+          !round
+            ? 'bg-wmgYellow cl-wmgBrown sh-wmgYellowLg brdr-wmgYellow'
+            : course.difficulty === 'Easy'
+            ? 'bg-easyCourse sh-easyCourse brdr-easyCourse text-black'
+            : 'bg-hardCourse sh-hardCourse brdr-hardCourse text-black'
+        }
+        flex flex-col justify-center items-center`}
       >
         <h1 className="text-3xl font-bold px-4">{course.course + ' ' + course.difficulty}</h1>
         <div
-          className="text-3xl font-semibold
-              w-12 h-12 p-4 mt-1 mb-2
-              flex justify-center items-center
-              border-4 brdr-wmgBrown rounded-full"
+          className={`w-14 h-14 mt-1 mb-2
+          text-3xl font-semibold
+          border-4 rounded-full
+          ${!round ? 'brdr-wmgBrown' : 'border-black'}
+          flex justify-center items-center`}
         >
           {hole}
         </div>
         <div
-          className="w-full text-2xl font-semibold py-1 px-2
-          bg-wmgBrown text-wmgYellow sh-wmgBrown
-          flex justify-between items-center"
+          className={`w-full py-1 px-2
+          ${
+            !round
+              ? 'bg-wmgBrown sh-wmgBrown cl-wmgYellow'
+              : !darkMode
+              ? 'text-black bg-white'
+              : course.difficulty === 'Easy'
+              ? 'cl-easyCourse bg-black'
+              : 'cl-hardCourse bg-black'
+          }
+          text-2xl font-semibold
+          flex justify-between items-center`}
         >
           <i
             className="fa-solid fa-arrow-left cursor-pointer"
@@ -58,18 +79,32 @@ const HoleImg: React.FC<Props> = ({ course, hole, exit, setHole }) => {
       </div>
       <div className="relative">
         <div
-          className="absolute top-2 left-2
+          className={`absolute top-2 left-2
           w-10 h-10 p-5 text-2xl
-          border-2 brdr-wmgBrown text-wmgYellow
-          bg-wmgBrown sh-wmgBrown
+          border-2
+          ${
+            !round
+              ? 'brdr-wmgBrown cl-wmgYellow bg-wmgBrown sh-wmgBrown'
+              : course.difficulty === 'Easy'
+              ? 'brdr-easyCourse bg-easyCourse sh-easyCourse text-black'
+              : 'brdr-hardCourse bg-hardCourse sh-hardCourse text-black'
+          }
           rounded-full
-          flex justify-center items-center"
+          flex justify-center items-center`}
           onClick={exit}
         >
           <i className="fa-solid fa-xmark"></i>
         </div>
         <img
-          className="w-full border-2 brdr-wmgYellow rounded-md shadow-basic"
+          className={`w-full border-2 rounded-md
+          ${
+            !round
+              ? 'brdr-wmgYellow'
+              : course.difficulty === 'Easy'
+              ? 'brdr-easyCourse'
+              : 'brdr-hardCourse'
+          }
+          sh-basic`}
           src={
             coursesWithImages.includes(course.alias)
               ? courseHoleImgLink

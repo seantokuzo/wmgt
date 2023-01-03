@@ -759,6 +759,14 @@ export const flagConverter = [
     flag: '🇺🇸'
   },
   {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPSR0Q_risXKPxZWNNgNNno2YfHplJQCVcyj2FShjv9WcMjNgRbHzSwWXLoiStOkL4hSVJLF0Jua6QtFlyc1cLPuw=s26-w26-h20',
+    flag: '🇺🇸'
+  },
+  {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20',
+    flag: '🇺🇸'
+  },
+  {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPxxQp9yZr11alfwlhWSv-oB2DRIhCsMYb4dCTldoPrBA181oyCXM6FN6ns2ejItOKX4mJx0-TfZASnazvtyRXvOkE=s26-w26-h20',
     flag: '🇸🇪'
   },
@@ -768,6 +776,10 @@ export const flagConverter = [
   },
   {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBNdNT0DdHmaY1TP14-eD4ESBDVjV7DHHjY-tKFEGX1luLFVZoYaAwTLs4T5Gkg3nMq_mQMRyKWKJdPk3x3rfFenvo8=s26-w26-h20',
+    flag: '🇸🇪'
+  },
+  {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOhCXDSwa3j7K51OYth-G9mar5YC-QTrR_oqjq7w1Ne-gDpzflD8eiTd258w_obJqvivbLyyyDT5GPKGWah6RVDlQA=s26-w26-h20',
     flag: '🇸🇪'
   },
   {
@@ -887,6 +899,14 @@ export const flagConverter = [
     flag: '🇨🇦'
   },
   {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBO1NKmV-4ZdULGZUT5-YGP13AhnFEXSgGshU8JqMVDOY3elkscBC1m7hwIHK9_d42tFoR8-bMk0hWEDK5vbj8XPxQY=s26-w26-h20',
+    flag: '🇨🇦'
+  },
+  {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOAGH2dyW80dDvnPLP72oaWT1CkoKI4yU-MlYiHNqv4vIi2YX8oCGjgjykCp3fIBei0M9Ftpc73Sikm1A4oIeG7U0I=s26-w26-h20',
+    flag: '🇨🇦'
+  },
+  {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPwiJu8vHRZLB9vOM_zKnwHkCYH-JuOmNA5_HPMVA9Ixmd6RzJQ3wtSDGaEpq3K0Bit9JemviznxDFc7_smgEK6wEA=s26-w26-h20',
     flag: '🇻🇪'
   },
@@ -935,6 +955,10 @@ export const flagConverter = [
     flag: '🇩🇪'
   },
   {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBNFk3l9dJVshBioH16g-WOGFLw_D8w44uPGiVcrjDkztWRL7zMnpwjZMkGnBu_1mM8T49gjH2REqGKUJ1fVUiruUw=s26-w26-h20',
+    flag: '🇩🇪'
+  },
+  {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPKWF4MeMCZOBrPkO05pWeBIGGYzlaB-To0TWqWw9wsY1O9y7BGmFw_BBU-8eG7X9VmLvUVYOltCNaMsmZTzwsxvi8=s26-w26-h20',
     flag: '🇩🇰'
   },
@@ -956,6 +980,10 @@ export const flagConverter = [
   },
   {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBNTCGnazMxhHnC4JdUGt441s0phCE_SNzfdkcvbOiIxiMdAdcGVAapnqwQqcdG4sFyNU1sTbJ030ufBH52npCdhy4Q=s26-w26-h20',
+    flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿'
+  },
+  {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMfwI0X19QiySOTeAtCS2AuizwpHfLS9Ru-v2jlcrTzfwmJhRtIBR-GlJhV4O-Fj_9m6urzoeeRUXsiR7WIddQYYdo=s26-w26-h20',
     flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿'
   },
   {
@@ -995,11 +1023,23 @@ export const flagConverter = [
     flag: '🇮🇪'
   },
   {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBO4A-Lijecok3hzlNEhS8oOVaAZ9b53SbyrusWNXXZqe-2rOotelZgtSohZ39Twmxc0VS0ZsyjZ3oZ4j8XODcWnPlk=s26-w26-h20',
+    flag: '🇮🇪'
+  },
+  {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBNOhjYbL7BcdyvIb-JkbPPoVKAg-Eoslfy9tV6-_BTBRCwQZc3joe-G_1k_EZ8pQuLxe3_8SEusVtqRP8VuHlPgDCQ=s26-w26-h20',
     flag: '🇮🇲'
+  },
+  {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPeldCqZCGm_bunAvrE3_RKnQQYLIGCObUhK_GBM7u9LmJnb8y11-f-vCyBDNqTPhdRJ_xoD4wMBzCxrljwLNb9Tso=s26-w26-h20',
+    flag: '🇿🇦'
+  },
+  {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOZx8pgs5b5cwGxcRtJZT-RDONGy9IHGiH5sLNT4-TkjN-7mpB2EtLM8B6inYQD_pczvl6UUuhkzjh5bz50ReXv3g=s26-w26-h20',
+    flag: '🇳🇴'
   }
   // {
   //   link: '',
   //   flag: ''
-  // },
+  // }
 ]

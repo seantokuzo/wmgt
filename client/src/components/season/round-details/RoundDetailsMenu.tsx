@@ -58,9 +58,9 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           course.difficulty === 'Easy' && showEasyCourse
             ? 'bg-easyCourse sh-easyCourse brdr-easyCourse text-black'
             : course.difficulty === 'Easy' && !showEasyCourse
-            ? 'bg-easyCourse brdr-easyCourse text-black'
+            ? 'brdr-easyCourse cl-easyCourse'
             : course.difficulty === 'Hard' && showEasyCourse
-            ? 'bg-hardCourse brdr-hardCourse text-black'
+            ? 'brdr-hardCourse cl-hardCourse'
             : 'bg-hardCourse sh-hardCourse brdr-hardCourse text-black'
         }
         ${
@@ -78,8 +78,8 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       >
         <h3 className="text-base md:text-xl font-semibold">{course.course}</h3>
         <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3>
-        <p className="text-sm md:text-base">
-          ({course.alias} {course.courseMoji})
+        <p className="text-sm md:text-base my-1">
+          {course.courseMoji} {course.alias} {course.courseMoji}
         </p>
       </div>
     )

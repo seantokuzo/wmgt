@@ -15,14 +15,16 @@
   --season2: theme('colors.purple.400');
   --season1: theme('colors.stone.500');
   --easyCourse: theme('colors.orange.300');
-  --hardCourse: theme('colors.cyan.600');
+  --hardCourse: theme('colors.blue.700');
   --wmgYellow: #f8ff71;
   --wmgBrown: #38280e;
   --sh-basic: 2px 2px 6px rgba(0, 0, 0, 0.35), 3px 3px 6px rgba(0, 0, 0, 0.25);
   --sh-insetbasic: inset 2px 2px 5px #00000075, inset -2px -2px 5px #00000020;
-  --sh-wmgYellowSm: inset 11px 11px 9px #c1c758, inset -11px -11px 9px #ffff8a80;
+  /* --sh-wmgYellowSm: inset 11px 11px 9px #c1c758, inset -11px -11px 9px #ffff8a80; */
+  --sh-wmgYellowSm: inset 6px 6px 12px #abb04e, inset -6px -6px 12px #ffff94;
   --sh-wmgYellowLg: inset 12px 12px 24px #b8bd54, inset -12px -12px 24px #ffff8e80;
   --sh-wmgBrown: inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212;
+  /* --sh-wmgBrown: inset 6px 6px 12px #271c0a, inset -6px -6px 12px #493412; */
   --sh-condor: inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;
   --sh-redLight: inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;
   --sh-gold: inset 6px 6px 6px #ad8419, inset -6px -6px 6px #fffa2f;
@@ -37,10 +39,10 @@
   --sh-season2: inset 6px 6px 12px #845bae, inset -6px -6px 12px #fcadff;
   --sh-season1: inset 6px 6px 12px #534e4b, inset -6px -6px 12px #9d948d;
   --sh-easyCourse: inset 6px 6px 12px #af8050, inset -6px -6px 12px #fff498;
-  --sh-hardCourse: inset 6px 6px 12px #06647b, inset -6px -6px 12px #0abee9;
+  --sh-hardCourse: inset 6px 6px 12px #143695, inset -6px -6px 12px #2666ff;
   --ace: theme('colors.red.600');
   --condor: theme('colors.blue.400');
-  --brdr-condor: theme('colors.blue.700');
+  --fiveUnder: theme('colors.blue.700');
   --underPar: theme('colors.red.400');
   --overPar: theme('colors.lime.700');
 }
@@ -90,6 +92,9 @@
 .brdr-gold {
   border-color: var(--gold);
 }
+.bgfade-gold {
+  background: linear-gradient(to left, var(--gold), rgba(0, 0, 0, 0));
+}
 /* ***** SILVER ***** */
 .bg-silver {
   background-color: var(--silver);
@@ -100,6 +105,9 @@
 }
 .brdr-silver {
   border-color: var(--silver);
+}
+.bgfade-silver {
+  background: linear-gradient(to left, var(--silver), rgba(0, 0, 0, 0));
 }
 /* ***** BRONZE ***** */
 .bg-bronze {
@@ -112,6 +120,9 @@
 .brdr-bronze {
   border-color: var(--bronze);
 }
+.bgfade-bronze {
+  background: linear-gradient(to left, var(--bronze), rgba(0, 0, 0, 0));
+}
 /* ***** TOP TEN ***** */
 .bg-topTenGreen {
   background-color: var(--topTenGreen);
@@ -122,6 +133,9 @@
 }
 .brdr-topTenGreen {
   border-color: var(--topTenGreen);
+}
+.bgfade-topTenGreen {
+  background: linear-gradient(to left, var(--topTenGreen), rgba(0, 0, 0, 0));
 }
 
 /* ******************************** */
@@ -258,21 +272,32 @@
 /* ******************************** */
 /* ******* SCORECARD COLORS ******* */
 /* ******************************** */
-.condor {
-  background-color: var(--condor);
-  box-shadow: var(--sh-condor);
-  border-color: var(--brdr-condor);
-}
 .ace {
   background-color: var(--ace);
+  border-color: var(--ace);
 }
-.underPar {
+.fiveUnder {
+  background-color: var(--fiveUnder);
+  border-color: var(--fiveUnder);
+}
+.bg-condor {
+  background-color: var(--condor);
+  box-shadow: var(--sh-condor);
+}
+.brdr-condor {
+  border-color: var(--condor);
+}
+.bg-underPar {
+  background-color: var(--underPar);
+  box-shadow: var(--sh-redLight);
+}
+.brdr-underPar {
   border-color: var(--underPar);
 }
-.overPar {
+.brdr-overPar {
   border-color: var(--overPar);
 }
-.strokeOut {
+.bg-overPar {
   background-color: var(--overPar);
 }
 .sh-redLight {

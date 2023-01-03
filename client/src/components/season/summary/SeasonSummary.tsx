@@ -20,24 +20,6 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
     window.scrollTo(0, 0)
   }, [])
 
-  if (season === 6) {
-    return (
-      <div className="w-full flex flex-col justify-center items-center">
-        <Link
-          to="/season"
-          className={`px-4 py-2 text-2xl md:text-3xl font-semibold
-          flex justify-center items-center hover:shadow-lg hover:scale-105
-          text-white rounded-t-md
-          bg-sh-s${season}`}
-        >
-          {/* <i className="fa-solid fa-arrow-left"></i> */}
-          <p>SEASON MENU</p>
-        </Link>
-        <ComingSoon text="Insufficient Data" />
-      </div>
-    )
-  }
-
   return (
     <div
       className="w-full font-scorenum

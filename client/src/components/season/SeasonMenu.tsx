@@ -2,15 +2,18 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
-import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { courseData } from 'data/course-data/wmgt-course-data'
 import { seasonToColor } from 'utils/seasonToColor'
+import { season7Data } from 'data/round-data/s7-round-data'
+import { season6Data } from 'data/round-data/s6-round-data'
 
 type Props = {
-  seasonData: RoundDataInterface[]
+  season: number
 }
 
-const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
+const SeasonMenu: React.FC<Props> = ({ season }) => {
+  const seasonData = season === 7 ? season7Data : season === 6 ? season6Data : undefined
+
   const { darkMode } = useAppContext()
   const { changeRoundDetailsMode, viewFrontNine, viewScorecard } = useSeasonContext()
   useEffect(() => {
@@ -20,21 +23,20 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
     // eslint-disable-next-line
   }, [])
 
-  const seasonNum = seasonData[0].season
-  const seasonColor = seasonToColor(seasonData[0].season)
+  const seasonColor = seasonToColor(season)
 
   const menuColors = (menuPart: 'outer' | 'bg-shadow' | 'round' | 'top-course') => {
     if (menuPart === 'outer') {
-      return `brdr-s${seasonNum} bg-${seasonColor}/[0.25]`
+      return `brdr-s${season} bg-${seasonColor}/[0.25]`
     }
     if (menuPart === 'bg-shadow') {
-      return `bg-sh-s${seasonNum}`
+      return `bg-sh-s${season}`
     }
     if (menuPart === 'round') {
-      return `bg-sh-s${seasonNum}`
+      return `bg-sh-s${season}`
     }
     if (menuPart === 'top-course') {
-      return `brdr-s${seasonNum}`
+      return `brdr-s${season}`
     }
   }
 
@@ -51,13 +53,13 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
         text-3xl font-semibold
         rounded-md border-2
         shadow-basic
-        border-${seasonColor}
+        brdr-s${season}
         ${darkMode ? 'bg-black' : 'bg-white'}`}
       >
-        {`SEASON ${seasonData[0].season}`}
+        {`SEASON ${season}`}
       </div>
       <Link
-        to={`/season/s${seasonData[0].season}-summary`}
+        to={`/season/s${season}-summary`}
         className={`w-max my-8 py-2 px-6
         text-lg font-semibold
         rounded-md
@@ -66,47 +68,51 @@ const SeasonMenu: React.FC<Props> = ({ seasonData }) => {
       >
         Season Summary
       </Link>
-      <div className={`w-3/4 my-2 ${menuColors('outer')} border-2`}></div>
-      <h2 className="text-2xl font-semibold my-3">ROUND RESULTS</h2>
-      <div
-        className="w-full
+      {seasonData && (
+        <>
+          <div className={`w-3/4 my-2 ${menuColors('outer')} border-2`}></div>
+          <h2 className="text-2xl font-semibold my-3">ROUND RESULTS</h2>
+          <div
+            className="w-full
         flex flex-wrap justify-evenly items-center"
-      >
-        {seasonData.map((round, i) => {
-          const easyMoji = courseData.filter((c) => c.alias === round.easyCourse)[0].courseMoji
-          const hardMoji = courseData.filter((c) => c.alias === round.hardCourse)[0].courseMoji
-          return (
-            <Link
-              to={`/season/s${round.season}r${round.round}`}
-              className={`mx-2 my-3 px-4 py-2 rounded-lg
+          >
+            {seasonData.map((round, i) => {
+              const easyMoji = courseData.filter((c) => c.alias === round.easyCourse)[0].courseMoji
+              const hardMoji = courseData.filter((c) => c.alias === round.hardCourse)[0].courseMoji
+              return (
+                <Link
+                  to={`/season/s${round.season}r${round.round}`}
+                  className={`mx-2 my-3 px-4 py-2 rounded-lg
               font-bold
               flex flex-col justify-center items-center
               ${menuColors('round')}
               hover:scale-105`}
-              key={`${round.easyCourse}-${i}`}
-            >
-              <div
-                className={`w-full text-2xl rounded-lg py-2
+                  key={`${round.easyCourse}-${i}`}
+                >
+                  <div
+                    className={`w-full text-2xl rounded-lg py-2
               ${darkMode ? 'bg-black' : 'bg-white'}`}
-              >
-                {round.round}
-              </div>
-              <div
-                className={`w-full mt-2
+                  >
+                    {round.round}
+                  </div>
+                  <div
+                    className={`w-full mt-2
               rounded-sm
               ${darkMode ? 'bg-black' : 'bg-white'}`}
-              >
-                <div className={`text-md px-2 border-b-2 ${menuColors('top-course')}`}>
-                  {easyMoji + ' ' + round.easyCourse + ' ' + easyMoji}
-                </div>
-                <div className="text-md px-2">
-                  {hardMoji + ' ' + round.hardCourse + ' ' + hardMoji}
-                </div>
-              </div>
-            </Link>
-          )
-        })}
-      </div>
+                  >
+                    <div className={`text-md px-2 border-b-2 ${menuColors('top-course')}`}>
+                      {easyMoji + ' ' + round.easyCourse + ' ' + easyMoji}
+                    </div>
+                    <div className="text-md px-2">
+                      {hardMoji + ' ' + round.hardCourse + ' ' + hardMoji}
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </>
+      )}
     </div>
   )
 }

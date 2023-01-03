@@ -56,14 +56,7 @@ function App() {
             </SeasonContextProvider>
           }
         >
-          <Route path="s6-summary" element={<SeasonSummary season={6} />} />
-          {season6Data.map((round) => (
-            <Route
-              path={`s${round.season}r${round.round}`}
-              element={<RoundDetails round={round} />}
-              key={nanoid()}
-            />
-          ))}
+          {/* SEASON 7 ROUTES */}
           <Route path="s7-summary" element={<SeasonSummary season={7} />} />
           {season7Data.map((round) => (
             <Route
@@ -72,6 +65,25 @@ function App() {
               key={nanoid()}
             />
           ))}
+          {/* SEASON 6 ROUTES */}
+          <Route path="s6-summary" element={<SeasonSummary season={6} />} />
+          {season6Data.map((round) => (
+            <Route
+              path={`s${round.season}r${round.round}`}
+              element={<RoundDetails round={round} />}
+              key={nanoid()}
+            />
+          ))}
+          {/* SEASON 5 ROUTES */}
+          <Route path="s5-summary" element={<SeasonSummary season={5} />} />
+          {/* SEASON 4 ROUTES */}
+          <Route path="s4-summary" element={<SeasonSummary season={4} />} />
+          {/* SEASON 3 ROUTES */}
+          <Route path="s3-summary" element={<SeasonSummary season={3} />} />
+          {/* SEASON 2 ROUTES */}
+          <Route path="s2-summary" element={<SeasonSummary season={2} />} />
+          {/* SEASON 1 ROUTES */}
+          <Route path="s1-summary" element={<SeasonSummary season={1} />} />
           {/* WHEN ADDING SEASON DATA MAP ROUTES HERE */}
           {/* SAME MAPPING AS season7Data ABOVE */}
         </Route>

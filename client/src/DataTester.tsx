@@ -1,12 +1,14 @@
 // ****************************
 // DATA GOD CHECKER
 // ****************************
-// import { DataGod } from 'data/dataGod'
+import { DataGod } from 'data/dataGod'
 // console.log(DataGod.getIndexesOfUnusedSeasonPoints([1, 99, 3, 99, 99, 99, 99, 99, 3, 99, 99, 2]))
 
 // console.log(DataGod.getLowestRoundHoleScores(7, 1))
 // console.log(DataGod.getRoundAcesPerHole({ season: 7, round: 1 }))
-// console.log(DataGod.getSeasonSummaryPlayerPoints(7))
+// console.log(DataGod.getSeasonSummaryPlayerPoints(7)[0])
+// console.log(DataGod.getSeasonSummaryFromOfficialResults(6))
+// console.log(DataGod.getSeasonSummaryFromOfficialResults(5))
 // console.log(DataGod.getSeasonSummaryPlayerPoints(7).map((p) => p.totalPoints))
 // *******************************************************************
 

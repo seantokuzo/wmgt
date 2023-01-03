@@ -50,6 +50,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             hole={selectedHole}
             exit={() => setSelectedHole('')}
             setHole={setSelectedHole}
+            round={true}
           />
           <div
             className="w-full cl-wmgBrown
@@ -63,18 +64,21 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
                   ? DataGod.getRoundAcesPerHole(currentRound).easyCourseNumAces[selectedHole - 1]
                   : DataGod.getRoundAcesPerHole(currentRound).hardCourseNumAces[selectedHole - 1]
               }
+              difficulty={course.difficulty}
             />
             <HoleStat
               label="TOP 10 AVG"
               stat={
                 DataGod.getRoundHoleTopTenAvg(currentRound.season, course.alias)[selectedHole - 1]
               }
+              difficulty={course.difficulty}
             />
             <HoleStat
               label="AVG SCORE"
               stat={
                 DataGod.getRoundHoleAverage(currentRound.season, course.alias)[selectedHole - 1]
               }
+              difficulty={course.difficulty}
             />
           </div>
         </div>

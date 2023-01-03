@@ -153,9 +153,9 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
               ${!acesData && scoreDecoration(scoresForDecoration[i], true, darkMode)}
               ${
                 scoreToDisplay(score, i) === '🌵'
-                  ? 'bg-amber-300 shadow-insetgold rounded-full cursor-pointer'
+                  ? 'bg-sh-gold rounded-full cursor-pointer'
                   : scoreToDisplay(score, i) === '🦆'
-                  ? 'bg-slate-400 shadow-insetsilver rounded-full cursor-pointer'
+                  ? 'bg-sh-silver shadow-insetsilver rounded-full cursor-pointer'
                   : ''
               }
               flex flex-col justify-center items-center`}
@@ -191,7 +191,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         <div
           className={`w-4/5 p-1 md:p-2
           border-l-2 border-b-2 rounded-md
-          ${showEasyCourse ? 'border-orange-300' : 'border-cyan-600'}
+          ${showEasyCourse ? 'brdr-easyCourse' : 'brdr-hardCourse'}
           text-xxxs sm:text-xs
           flex justify-center items-center
           `}

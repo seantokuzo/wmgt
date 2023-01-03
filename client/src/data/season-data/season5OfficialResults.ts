@@ -176,7 +176,7 @@ export const season5OfficialResults: SeasonResultsOfficial = {
       seasonRank: 24,
       seasonPoints: 75,
       pointsByRound: [7, 13, 8, 8, 0, 9, 10, 9, 0, 8, 9, 9],
-      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOWHOwWQmd5gIFa9wlP6baOYIJ5XUnLXV_QPfrtirOme41bOBDzd7ItNp1oWFGdBmSCJ7GpWzvNZW2MDTKvry__B8Q=s26-w26-h20'
+      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20'
     },
     {
       player: '4WHLR',
@@ -218,7 +218,7 @@ export const season5OfficialResults: SeasonResultsOfficial = {
       seasonRank: 31,
       seasonPoints: 67,
       pointsByRound: [9, 5, 0, 8, 8, 0, 9, 6, 6, 9, 9, 9],
-      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOWHOwWQmd5gIFa9wlP6baOYIJ5XUnLXV_QPfrtirOme41bOBDzd7ItNp1oWFGdBmSCJ7GpWzvNZW2MDTKvry__B8Q=s26-w26-h20'
+      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20'
     },
     {
       player: 'Toaster',
@@ -414,7 +414,7 @@ export const season5OfficialResults: SeasonResultsOfficial = {
       seasonRank: 57,
       seasonPoints: 48,
       pointsByRound: [4, 8, 6, 8, 5, 7, 0, 3, 4, 0, 6, 1],
-      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOWHOwWQmd5gIFa9wlP6baOYIJ5XUnLXV_QPfrtirOme41bOBDzd7ItNp1oWFGdBmSCJ7GpWzvNZW2MDTKvry__B8Q=s26-w26-h20'
+      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20'
     },
     {
       player: 'TARKUS2030',
@@ -505,7 +505,7 @@ export const season5OfficialResults: SeasonResultsOfficial = {
       seasonRank: 70,
       seasonPoints: 39,
       pointsByRound: [4, 2, 3, 4, 5, 4, 3, 4, 6, 4, 2, 8],
-      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOWHOwWQmd5gIFa9wlP6baOYIJ5XUnLXV_QPfrtirOme41bOBDzd7ItNp1oWFGdBmSCJ7GpWzvNZW2MDTKvry__B8Q=s26-w26-h20'
+      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20'
     },
     {
       player: 'Plucky',
@@ -666,7 +666,7 @@ export const season5OfficialResults: SeasonResultsOfficial = {
       seasonRank: 95,
       seasonPoints: 25,
       pointsByRound: [3, 2, 4, 2, 2, 2, 3, 3, 5, 1, 3, 1],
-      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOWHOwWQmd5gIFa9wlP6baOYIJ5XUnLXV_QPfrtirOme41bOBDzd7ItNp1oWFGdBmSCJ7GpWzvNZW2MDTKvry__B8Q=s26-w26-h20'
+      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20'
     },
     {
       player: 'zenta',
@@ -1177,7 +1177,7 @@ export const season5OfficialResults: SeasonResultsOfficial = {
       seasonRank: 163,
       seasonPoints: 1,
       pointsByRound: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOWHOwWQmd5gIFa9wlP6baOYIJ5XUnLXV_QPfrtirOme41bOBDzd7ItNp1oWFGdBmSCJ7GpWzvNZW2MDTKvry__B8Q=s26-w26-h20'
+      flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20'
     },
     {
       player: 'Sloth',

@@ -1,14 +1,24 @@
 import { RoundDetailsMode } from 'context/season/seasonContext'
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
 import { allPlayersList, PlayerInterface } from './player-data/AllPlayersList'
+import { flagConverter } from './player-data/AllPlayersListRawFlag'
 import { PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
+import { season1OfficialResults } from './season-data/season1OfficialResults'
+import { season2OfficialResults } from './season-data/season2OfficialResults'
+import { season3OfficialResults } from './season-data/season3OfficialResults'
+import { season4OfficialResults } from './season-data/season4OfficialResults'
+import { season5OfficialResults } from './season-data/season5OfficialResults'
+import { season6OfficialResults } from './season-data/season6OfficialResults'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
+import { SeasonResultsOfficial } from './season-data/seasonResultsTypes'
 
 type RoundIdentifier = {
   season: number
   round: number
 }
+
+const nonCharacterRegex = /[^a-zA-Z0-9]/g
 
 export abstract class DataGod {
   // PRIVATE UTIL METHODS * PRIVATE UTIL METHODS * PRIVATE UTIL METHODS
@@ -397,6 +407,62 @@ export abstract class DataGod {
     return points.slice(4).reduce((a, b) => a + b, 0)
   }
 
+  static getSeasonOfficialResultsData(season: number): SeasonResultsOfficial {
+    switch (season) {
+      case 1:
+        return season1OfficialResults
+      case 2:
+        return season2OfficialResults
+      case 3:
+        return season3OfficialResults
+      case 4:
+        return season4OfficialResults
+      case 5:
+        return season5OfficialResults
+      case 6:
+        return season6OfficialResults
+      default:
+        return season6OfficialResults
+    }
+  }
+
+  static getSeasonSummaryFromOfficialResults(season: number) {
+    const seasonResults = this.getSeasonOfficialResultsData(season)
+    return seasonResults.results.map((player) => {
+      const knownPlayer = allPlayersList.filter(
+        (p) =>
+          p.player.replaceAll(nonCharacterRegex, '').toLowerCase() ===
+          player.player.replaceAll(nonCharacterRegex, '').toLowerCase()
+      )[0]
+      if (knownPlayer) {
+        return {
+          player: player.player,
+          totalPoints: player.seasonPoints,
+          roundPoints: player.pointsByRound,
+          flag: knownPlayer.flag
+        }
+      }
+      const flag = flagConverter.filter((f) => f.link === player.flagLink)[0]
+      if (flag) {
+        return {
+          player: player.player,
+          totalPoints: player.seasonPoints,
+          roundPoints: player.pointsByRound,
+          flag: flag.flag
+        }
+      }
+      // if (!flag) {
+      // console.log('No Flag', player)
+      return {
+        player: player.player,
+        totalPoints: player.seasonPoints,
+        roundPoints: player.pointsByRound,
+        flag: ''
+      }
+      // }
+    })
+  }
+
   static getSeasonSummaryPlayerPoints(season: number) {
     const seasonData = this.getSeasonData(season)
     const seasonPlayers = allPlayersList.filter((player) => {
@@ -432,7 +498,6 @@ export abstract class DataGod {
       }
     })
 
-    // return playerSeasonSummaries
     return playerSeasonSummaries.sort((a, b) => b.totalPoints - a.totalPoints)
   }
 }
