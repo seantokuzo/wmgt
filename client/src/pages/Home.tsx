@@ -1,3 +1,4 @@
+import FooterCredits from 'components/FooterCredits'
 import { useAppContext } from 'context/appContext'
 import PageLink from '../components/PageLink'
 
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
         <PageLink path="season" />
         <PageLink path="course" />
       </nav>
+      <FooterCredits />
     </div>
   )
 }
