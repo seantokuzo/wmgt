@@ -1,7 +1,7 @@
 // ****************************
 // DATA GOD CHECKER
 // ****************************
-import { DataGod } from 'data/dataGod'
+// import { DataGod } from 'data/dataGod'
 // console.log(DataGod.getIndexesOfUnusedSeasonPoints([1, 99, 3, 99, 99, 99, 99, 99, 3, 99, 99, 2]))
 
 // console.log(DataGod.getLowestRoundHoleScores(7, 1))
