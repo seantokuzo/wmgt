@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Course from 'pages/Course'
 import CourseDetails from 'components/course/CourseDetails'
 import Header from 'components/Header'
-import MainMenu from 'pages/Home'
+import Home from 'pages/Home'
 import Player from 'pages/Player'
 import Season from 'pages/Season'
 import { useAppContext } from 'context/appContext'
@@ -47,7 +47,7 @@ function App() {
     >
       <Header />
       <Routes>
-        <Route path="/" element={<MainMenu />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="season"
           element={
