@@ -187,6 +187,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
       </div>
       {/* ****** PLAYER SEASON POINTS DATA ****** */}
       {userPlayer &&
+        seasonPointsData.findIndex((p) => p.player === userPlayer) >= 0 &&
         playerSeasonSummaryEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)}
       {seasonPointsData.map((player) => playerSeasonSummaryEl(player))}
     </div>
