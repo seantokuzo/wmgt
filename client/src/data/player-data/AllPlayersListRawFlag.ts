@@ -763,10 +763,6 @@ export const flagConverter = [
     flag: '🇺🇸'
   },
   {
-    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20',
-    flag: '🇺🇸'
-  },
-  {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPxxQp9yZr11alfwlhWSv-oB2DRIhCsMYb4dCTldoPrBA181oyCXM6FN6ns2ejItOKX4mJx0-TfZASnazvtyRXvOkE=s26-w26-h20',
     flag: '🇸🇪'
   },
@@ -792,6 +788,10 @@ export const flagConverter = [
   },
   {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBM0pWKL-O5NWeJr2HbEofbzFnFV2yI4g4jojAuNt-bx6-jQSzDWPsCgeWbQM8ysBaGG-2IMlJaZwVfyNkWiStSMB0I=s26-w26-h20',
+    flag: '🇬🇧'
+  },
+  {
+    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPMVTRcE50Le_cE4DxUQK6mErskNXbWWdKoqiAdmSC_3zChkfXNEnfZcCwsSsslLxGiP9W2UD-uVFIJZN3jsJ-HxpI=s26-w26-h20',
     flag: '🇬🇧'
   },
   {
@@ -896,10 +896,6 @@ export const flagConverter = [
   },
   {
     link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPcONDBF10QQcliup2XZnW3tuDfE30qills8OdhvG_SJDhD_UpSiWHrnGNqqlIf40hJpcwunGXMwVlG-Wi-2sj49h8=s26-w26-h20',
-    flag: '🇨🇦'
-  },
-  {
-    link: 'https://lh3.googleusercontent.com/docsubipk/ADszHBO1NKmV-4ZdULGZUT5-YGP13AhnFEXSgGshU8JqMVDOY3elkscBC1m7hwIHK9_d42tFoR8-bMk0hWEDK5vbj8XPxQY=s26-w26-h20',
     flag: '🇨🇦'
   },
   {

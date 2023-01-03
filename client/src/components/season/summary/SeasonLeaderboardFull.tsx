@@ -1,7 +1,6 @@
 import { useAppContext } from 'context/appContext'
 import { DataGod } from 'data/dataGod'
 import { SeasonPointsData } from 'data/round-data/roundTypes'
-import { seasonToColor } from 'utils/seasonToColor'
 import { nanoid } from 'nanoid'
 
 export const rankStyle = (rank: number) => {
@@ -14,13 +13,6 @@ export const rankStyle = (rank: number) => {
     : rank <= 10
     ? 'bg-sh-topTenGreen font-bold text-black'
     : ''
-  // : rank <= 20
-  // ? 'bg-blue-400 shadow-condor font-bold text-black'
-  // : rank <= 30
-  // ? 'bg-[#f8ff71] sh-wmgYellowLg font-bold text-black'
-  // : rank <= 30
-  // ? 'border-l-2 border-b-2 border-violet-400'
-  // : 'border-l-2 border-b-2'
 }
 
 export const roundPointColor = (points: number) => {
@@ -64,9 +56,9 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
   const flex = 'flex justify-center items-center'
   const rankColClasses = 'w-8 h-8 text-sm lg:text-base text-center rounded-md'
   const flagColClasses = 'w-6 lg:w-8 ml-4 text-sm lg:text-base text-center'
-  const playerColClasses = 'w-1/3 ml-4 text-sm lg:text-base overflow-hidden'
-  const totalColClasses = 'w-6 lg:w-8 mx-4 text-base lg:text-base text-center font-bold'
-  const pointColClasses = 'w-8 lg:w-10 h-8 lg:h-10 ml-2 text-sm lg:text-base text-center rounded-md'
+  const playerColClasses = 'w-56 lg:w-1/3 ml-4 text-sm lg:text-base'
+  const totalColClasses = `w-8 h-8 lg:w-10 lg:h-10 p-2 ml-4 mr-2 text-base lg:text-base text-center font-bold`
+  const pointColClasses = 'w-7 h-7 lg:w-10 lg:h-10 ml-2 text-sm lg:text-base text-center rounded-md'
 
   const playerRowEl = (player: PlayerBasicSeasonInfo, isUser = false) => {
     const seasonRank = getRank(player.player, seasonPointsData)
@@ -77,7 +69,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         ${
           isUser &&
           `border-l-2 border-b-2 brdr-s${season}
-          bg-${seasonToColor(season)}/[0.25] py-2 rounded-md`
+          bg-trans-s${season} py-2 rounded-md`
         }
         flex justify-evenly items-center`}
         key={nanoid()}
@@ -105,7 +97,14 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         >
           {player.player}
         </div>
-        <div className={`${totalColClasses} ${flex}`}>{player.totalPoints}</div>
+        <div
+          className={`${totalColClasses}
+          bgfade-s${season} brdr-s${season}
+          rounded-full border-l-2 border-t-[1px]
+          ${flex}`}
+        >
+          {player.totalPoints}
+        </div>
         {player.roundPoints.map((point, i) => (
           <div
             className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
@@ -127,7 +126,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
       {/* ****** TABLE LABELS - COLUMN TITLES ****** */}
       <div
         className={`w-full px-2
-        bg-sh-s${season}
+        bg-s${season}
         flex justify-evenly items-center`}
       >
         <div className={`${rankColClasses} ${flex}`}>🏁</div>

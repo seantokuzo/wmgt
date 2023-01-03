@@ -1,4 +1,3 @@
-import { seasonToColor } from 'utils/seasonToColor'
 type Props = {
   season: number
   show: boolean
@@ -9,7 +8,7 @@ type Props = {
 }
 
 const ScorecardToggleBtn: React.FC<Props> = ({ season, show, toggle, text1, text2 }) => {
-  const deselectedClasses = `bg-${seasonToColor(season)}/[0.25] sh-insetbasic`
+  const deselectedClasses = `bg-trans-s${season} sh-insetbasic`
   const selectedClasses = `bg-sh-s${season}`
 
   return (

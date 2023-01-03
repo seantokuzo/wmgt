@@ -4,7 +4,6 @@ import { DataGod } from 'data/dataGod'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
-import { seasonToColor } from 'utils/seasonToColor'
 
 type Props = {
   season: number
@@ -43,7 +42,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
   const rankColClasses = 'w-8 h-8 text-sm text-center'
   const flagColClasses = 'w-6 text-base text-center'
   const playerColClasses = 'w-1/2 text-sm overflow-hidden'
-  const totalColClasses = 'w-6 mx-1 text-sm text-center'
+  const totalColClasses = `w-8 h-8 mx-1 text-center`
   const pointColClasses = 'w-6 h-6 sm:w-7 sm:h-7 text-sm text-center rounded-md'
 
   const expandCollapseBtn = (type: 'collapse' | 'expand') => {
@@ -64,7 +63,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
         className={`w-5/6 mt-1 pb-1
           border-b-2 border-l-2 rounded-bl-md
           brdr-s${season}
-          ${isUser && `bg-${seasonToColor(season)}/[0.25]`}
+          ${isUser && `bg-trans-s${season}`}
           cursor-pointer
           flex flex-col justify-center items-center`}
         key={nanoid()}
@@ -96,7 +95,15 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
           >
             {player.player}
           </div>
-          <div className={`${totalColClasses} ${flex}`}>{player.totalPoints}</div>
+          <div
+            className={`${totalColClasses}
+          bgfade-s${season} brdr-s${season}
+          rounded-full border-l-2 border-t-[1px]
+          text-xs font-semibold
+          ${flex}`}
+          >
+            {player.totalPoints}
+          </div>
         </div>
         {selectedPlayers.includes(player.player) && (
           <div
@@ -172,14 +179,14 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
       </div>
       <div
         className={`w-5/6 px-6 py-1
-        bg-sh-s${season}
+        bg-s${season}
         flex justify-between items-center`}
       >
         <div className={`${rankColClasses} ${flex}`}>RANK</div>
         <div className={`${flagColClasses} ${flex}`}>🌎</div>
         <div className={`${playerColClasses}`}>PLAYER</div>
         <div
-          className={`${totalColClasses}
+          className={`${totalColClasses} text-sm
           ${flex}`}
         >
           POINTS

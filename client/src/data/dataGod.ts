@@ -442,15 +442,16 @@ export abstract class DataGod {
           flag: knownPlayer.flag
         }
       }
-      const flag = flagConverter.filter((f) => f.link === player.flagLink)[0]
-      if (flag) {
-        return {
-          player: player.player,
-          totalPoints: player.seasonPoints,
-          roundPoints: player.pointsByRound,
-          flag: flag.flag
-        }
-      }
+      // CONVERTING FLAGS NOT WORKING - REFINE ALL PLAYERS LIST INSTEAD
+      // const flag = flagConverter.filter((f) => f.link === player.flagLink)[0]
+      // if (flag) {
+      //   return {
+      //     player: player.player,
+      //     totalPoints: player.seasonPoints,
+      //     roundPoints: player.pointsByRound,
+      //     flag: flag.flag
+      //   }
+      // }
       // if (!flag) {
       // console.log('No Flag', player)
       return {

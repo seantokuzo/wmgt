@@ -8,24 +8,29 @@ const seasonColors = {
   s1: 'stone-500'
 }
 
-export const seasonToColor = (season: number) => {
+export const seasonToColor = (
+  season: number,
+  type: 'bg' | 'border' | 'text',
+  transparency: string
+) => {
+  if (type === 'bg') {
     switch (season) {
       case 7:
-        return seasonColors.s7
+        return `${type}-${seasonColors.s7}/[${transparency}]`
       case 6:
-        return seasonColors.s6
+        return `${type}-${seasonColors.s6}/[${transparency}]`
       case 5:
-        return seasonColors.s5
+        return `${type}-${seasonColors.s5}/[${transparency}]`
       case 4:
-        return seasonColors.s4
+        return `${type}-${seasonColors.s4}/[${transparency}]`
       case 3:
-        return seasonColors.s3
+        return `${type}-${seasonColors.s3}/[${transparency}]`
       case 2:
-        return seasonColors.s2
+        return `${type}-${seasonColors.s2}/[${transparency}]`
       case 1:
-        return seasonColors.s1
+        return `${type}-${seasonColors.s1}/[${transparency}]`
       default:
-        return seasonColors.s7
+        return `${type}-${seasonColors.s7}/[${transparency}]`
     }
-
+  }
 }

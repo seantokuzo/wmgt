@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { courseData } from 'data/course-data/wmgt-course-data'
-import { seasonToColor } from 'utils/seasonToColor'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { season6Data } from 'data/round-data/s6-round-data'
 
@@ -23,11 +22,9 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
     // eslint-disable-next-line
   }, [])
 
-  const seasonColor = seasonToColor(season)
-
   const menuColors = (menuPart: 'outer' | 'bg-shadow' | 'round' | 'top-course') => {
     if (menuPart === 'outer') {
-      return `brdr-s${season} bg-${seasonColor}/[0.25]`
+      return `brdr-s${season} bg-trans-s${season}`
     }
     if (menuPart === 'bg-shadow') {
       return `bg-sh-s${season}`
@@ -118,4 +115,3 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
 }
 
 export default SeasonMenu
-// w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20

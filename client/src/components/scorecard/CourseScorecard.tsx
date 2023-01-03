@@ -10,7 +10,6 @@ import { nanoid } from 'nanoid'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-import { seasonToColor } from 'utils/seasonToColor'
 import { holeNameParColWidth } from './PlayerScorecard'
 import ScorecardToggleBtn from './ScorecardToggleBtn'
 

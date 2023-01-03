@@ -14,6 +14,13 @@
   --season3: theme('colors.sky.500');
   --season2: theme('colors.purple.400');
   --season1: theme('colors.stone.500');
+  --season7trans: rgba(99, 102, 241, 0.2);
+  --season6trans: rgba(16, 185, 129, 0.2);
+  --season5trans: rgb(251, 146, 60, 0.2);
+  --season4trans: rgb(248, 113, 113, 0.2);
+  --season3trans: rgb(14, 165, 233, 0.2);
+  --season2trans: rgb(192, 132, 252, 0.2);
+  --season1trans: rgb(120, 113, 108, 0.2);
   --easyCourse: theme('colors.orange.300');
   --hardCourse: theme('colors.blue.700');
   --wmgYellow: #f8ff71;
@@ -159,6 +166,9 @@
 .bgfade-s7 {
   background: linear-gradient(to left, var(--season7), rgba(0, 0, 0, 0));
 }
+.bg-trans-s7 {
+  background-color: var(--season7trans);
+}
 
 /* ***** SEASON 6 COLORS ***** */
 .bg-sh-s6 {
@@ -176,6 +186,9 @@
 }
 .bgfade-s6 {
   background: linear-gradient(to left, var(--season6), rgba(0, 0, 0, 0));
+}
+.bg-trans-s6 {
+  background-color: var(--season6trans);
 }
 
 /* ***** SEASON 5 COLORS ***** */
@@ -195,6 +208,9 @@
 .bgfade-s5 {
   background: linear-gradient(to left, var(--season5), rgba(0, 0, 0, 0));
 }
+.bg-trans-s5 {
+  background-color: var(--season5trans);
+}
 
 /* ***** SEASON 4 COLORS ***** */
 .bg-sh-s4 {
@@ -212,6 +228,9 @@
 }
 .bgfade-s4 {
   background: linear-gradient(to left, var(--season4), rgba(0, 0, 0, 0));
+}
+.bg-trans-s4 {
+  background-color: var(--season4trans);
 }
 
 /* ***** SEASON 3 COLORS ***** */
@@ -231,6 +250,9 @@
 .bgfade-s3 {
   background: linear-gradient(to left, var(--season3), rgba(0, 0, 0, 0));
 }
+.bg-trans-s3 {
+  background-color: var(--season3trans);
+}
 
 /* ***** SEASON 2 COLORS ***** */
 .bg-sh-s2 {
@@ -249,6 +271,9 @@
 .bgfade-s2 {
   background: linear-gradient(to left, var(--season2), rgba(0, 0, 0, 0));
 }
+.bg-trans-s2 {
+  background-color: var(--season2trans);
+}
 
 /* ***** SEASON 1 COLORS ***** */
 .bg-sh-s1 {
@@ -266,6 +291,9 @@
 }
 .bgfade-s1 {
   background: linear-gradient(to left, var(--season1), rgba(0, 0, 0, 0));
+}
+.bg-trans-s1 {
+  background-color: var(--season1trans);
 }
 
 
