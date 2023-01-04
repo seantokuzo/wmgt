@@ -44,7 +44,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         }}
       >
         <div
-          className={`w-12 h-12 md:w-20 md:h-20
+          className={`w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
             text-sm md:text-xl font-bold text-black
             border-2 brdr-s${round.season}
             bg-sh-s${round.season}
@@ -65,12 +65,12 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         className={`w-1/3 py-2 px-4 border-2 rounded-md
         ${
           course.difficulty === 'Easy' && showEasyCourse
-            ? 'bg-easyCourse sh-easyCourse brdr-easyCourse text-black'
+            ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'
             : course.difficulty === 'Easy' && !showEasyCourse
             ? 'brdr-easyCourse cl-easyCourse'
             : course.difficulty === 'Hard' && showEasyCourse
             ? 'brdr-hardCourse cl-hardCourse'
-            : 'bg-hardCourse sh-hardCourse brdr-hardCourse text-black'
+            : 'bg-hardCourse sh-hardCourse brdr-hardCourse'
         }
         ${
           showEasyCourse &&
@@ -152,6 +152,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       >
         <Link to="/season">{`SEASON ${round.season}`}</Link>
       </div>
+      {/* ********** ROUND TOGGLE BUTTONS ********** */}
       <div
         className={`w-full py-4
         cl-s${round.season}
@@ -163,16 +164,18 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           flex justify-evenly items-center`}
         >
           {toggleRoundBtn(false)}
+          {/* ***** PROBLEM DIV - py-4 CAUSES FLICKERING OVER ROUND CONTROLS ***** */}
           <div
-            className="w-1/2 py-4 px-5 rounded-b-md mx-5
+            className="w-1/2 px-5 mx-5
             text-2xl sm:text-4xl md:text-5xl font-bold font-scorenum
             flex flex-col justify-center items-center"
           >
-            <div>{`ROUND ${round.round}`}</div>
+            {`ROUND ${round.round}`}
           </div>
           {toggleRoundBtn(true)}
         </div>
       </div>
+      {/* ********** COURSE IMAGE AND PODIUM ********** */}
       <div
         className="w-full
         bg-no-repeat bg-center bg-cover rounded-b-md
@@ -187,6 +190,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           {podiumSectionEl(podium.bronze, '🥉')}
         </div>
       </div>
+      {/* ********** EASY / HARD COURSE LABELS ********** */}
       <div
         className="w-full mt-6 text-center
         flex justify-evenly items-start"
@@ -194,6 +198,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         {courseLabelEl(easyCourse)}
         {courseLabelEl(hardCourse)}
       </div>
+      {/* ********** ROUND DETAIL MODE BUTTONS ********** */}
       <div
         className="w-full md:w-3/4 max-w-xl px-1 mt-6
           flex flex-wrap justify-evenly items-center"
