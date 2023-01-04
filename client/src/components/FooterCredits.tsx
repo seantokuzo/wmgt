@@ -16,27 +16,21 @@ const FooterCredits = () => {
   }
 
   return (
-    <footer className="w-full absolute bottom-0 flex justify-center items-center">
+    <footer className="w-full absolute bottom-3 flex justify-center items-center">
       <div
-        className="w-4/5 max-w-md py-2
-        text-xxs
+        className="text-xxs md:text-xs
         flex justify-between items-center"
       >
         {statGOAT('Crudzilla')}
-        <div className="flex justify-center items-center mx-2">
-          <i className="fa-solid fa-arrow-left"></i>
-          <div className="w-max mx-3 text-center">
-            {windowSize.width < 768 ? (
-              <>
-                {' '}
-                <div className="">Powered with</div>
-                <div className="">stats by</div>
-              </>
-            ) : (
-              <div className="">Powered with stats by</div>
-            )}
-          </div>
-          <i className="fa-solid fa-arrow-right"></i>
+        <div className="w-max flex justify-center items-center mx-6 md:mx-10 lg:mx-12 text-center">
+          {windowSize.width < 768 ? (
+            <div className="flex flex-col">
+              <div className="">Powered with</div>
+              <div className="">stats by</div>
+            </div>
+          ) : (
+            <div className="">Powered with stats by</div>
+          )}
         </div>
         {statGOAT('steven_T')}
       </div>

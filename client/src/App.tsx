@@ -13,8 +13,8 @@ import RoundDetails from 'components/season/round-details/RoundDetails'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 import { season6Data } from 'data/round-data/s6-round-data'
-// import DataTester from 'DataTester'
 import SeasonSummary from 'components/season/summary/SeasonSummary'
+// import DataTester from 'DataTester'
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
@@ -25,22 +25,30 @@ function App() {
   const bgColor = darkMode ? 'bg-black' : 'bg-white'
   const textColor = !darkMode ? 'text-black' : 'text-white'
 
-  // TRACK WINDOW SIZE FOR SCORECARD COMPONENT BIG OR SMALL
+  // TRACK WINDOW SIZE AND FIX SHITTY MOBILE VIEWPORT HEIGHT
   useEffect(() => {
+    // SET vh CSS variable
+    const vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+    // DEFINE LISTENER
     const resizeListener = () => {
       changeWindowSize({
         width: window.innerWidth,
         height: window.innerHeight
       })
+      const vhNew = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vhNew}px`)
     }
+    // ADD LISTENER
     window.addEventListener('resize', resizeListener)
+    // CLEANUP LISTENER
     return () => window.removeEventListener('resize', resizeListener)
     // eslint-disable-next-line
   }, [])
 
   return (
     <div
-      className={`w-full min-w-[100vw] min-h-screen h-full font-reg m-0
+      className={`app-container w-full min-w-screen h-full font-reg m-0
       ${bgColor}
       ${textColor}
       flex flex-col justify-start items-center`}
