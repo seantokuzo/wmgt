@@ -7,6 +7,7 @@ import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { nanoid } from 'nanoid'
 import { DataGod } from 'data/dataGod'
+import { useAppContext } from 'context/appContext'
 
 type Props = {
   round: { season: number; round: number }
@@ -15,6 +16,7 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
+  const { windowSize } = useAppContext()
   const {
     roundDetailsMode,
     changeRoundDetailsMode,
@@ -62,7 +64,11 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   const courseLabelEl = (course: CourseInterface) => {
     return (
       <div
-        className={`w-1/3 py-2 px-4 border-2 rounded-md
+        className={`w-2/3 py-2 px-4 my-2
+        sm:w-2/5 sm:mx-4 sm:my-0
+        md:w-1/2
+        border-2 rounded-md
+        cursor-pointer
         ${
           course.difficulty === 'Easy' && showEasyCourse
             ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'
@@ -71,19 +77,6 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
             : course.difficulty === 'Hard' && showEasyCourse
             ? 'brdr-hardCourse cl-hardCourse'
             : 'bg-hardCourse sh-hardCourse brdr-hardCourse'
-        }
-        ${
-          showEasyCourse &&
-          course.difficulty === 'Hard' &&
-          roundDetailsMode !== 'easy' &&
-          roundDetailsMode !== 'hard'
-            ? 'cursor-pointer hover:scale-105'
-            : !showEasyCourse &&
-              course.difficulty === 'Easy' &&
-              roundDetailsMode !== 'easy' &&
-              roundDetailsMode !== 'hard'
-            ? 'cursor-pointer hover:scale-105'
-            : ''
         }`}
         onClick={() => {
           if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
@@ -124,9 +117,8 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
             key={nanoid()}
           >
             <div
-              // ${medal === '🏆' && 'animate-flip'}
-              className="w-min ml-1 animate-flip"
-              style={{ animationDelay: i * 500 + 'ms' }}
+              className={`w-min ml-1 ${windowSize.width >= 768 && 'flip'}`}
+              style={windowSize.width >= 768 ? { animationDelay: i * 500 + 'ms' } : {}}
             >
               {medal}
             </div>
@@ -190,10 +182,12 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           {podiumSectionEl(podium.bronze, '🥉')}
         </div>
       </div>
+      {/* ***** PROBLEM DIV - TAILWIND IS STUUUPID ***** */}
       {/* ********** EASY / HARD COURSE LABELS ********** */}
       <div
         className="w-full mt-6 text-center
-        flex justify-evenly items-start"
+        flex flex-col justify-center items-center
+        sm:flex-row sm:justify-evenly"
       >
         {courseLabelEl(easyCourse)}
         {courseLabelEl(hardCourse)}

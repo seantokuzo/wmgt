@@ -12,7 +12,7 @@ const ScorecardToggleBtn: React.FC<Props> = ({ season, show, toggle, text1, text
   const selectedClasses = `bg-sh-s${season}`
 
   return (
-    <button className="w-full max-w-lg flex justify-center items-center py-2 my-2" onClick={toggle}>
+    <button className="w-full max-w-lg flex justify-center items-center my-4" onClick={toggle}>
       <span
         className={`w-1/3 py-2 px-3 rounded-l-md
         text-sm md:text-base

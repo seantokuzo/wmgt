@@ -74,12 +74,14 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
     )
   }
 
+  console.log(selectedHole)
+
   return (
     <div
       className="w-full max-w-6xl mt-5
       text-xs
       flex flex-col justify-center items-center
-      relative z-[500]"
+      relative"
     >
       {selectedHole !== '' && (
         <div className="absolute top-0 w-full sm:w-1/2">

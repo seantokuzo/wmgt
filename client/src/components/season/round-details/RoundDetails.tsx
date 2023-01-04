@@ -39,24 +39,9 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
 
   return (
     <div
-      className="w-full py-6 relative
+      className="w-full my-4 relative
       flex flex-col justify-center items-center"
     >
-      {/* <Link
-        to="/season"
-        className={`px-4 py-2 mb-4
-        text-2xl md:text-3xl font-semibold text-black
-        ${
-          round.season === 6
-            ? 'bg-emerald-500 shadow-seasonSix'
-            : 'bg-indigo-500 shadow-seasonSeven'
-        }
-        rounded-md
-        flex justify-center items-center
-        hover:shadow-lg hover:scale-105`}
-      >
-        SEASON MENU
-      </Link> */}
       <RoundDetailsMenu
         round={{ season: round.season, round: round.round }}
         easyCourse={easyCourse}
@@ -141,7 +126,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         </>
       )}
       {roundDetailsMode === 'race' && <RaceToTheFinish round={round} />}
-      {roundDetailsMode !== 'race' && roundDetailsMode !== 'aces' && <ScorecardLegend />}
+      {roundDetailsMode !== 'race' && <ScorecardLegend />}
     </div>
   )
 }

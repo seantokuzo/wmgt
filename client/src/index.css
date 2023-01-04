@@ -374,3 +374,19 @@
 .sh-insetbasic {
   box-shadow: var(--sh-insetbasic);
 }
+
+/* ******************************** */
+/* ********** ANIMATIONS ********** */
+/* ******************************** */
+.flip {
+  animation: flip 4000ms linear infinite;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0turn);
+  }
+  100% {
+    transform: rotateY(1turn);
+  }
+}
