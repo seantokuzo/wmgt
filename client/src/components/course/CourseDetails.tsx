@@ -10,6 +10,7 @@ import { RoundDataInterface } from 'data/round-data/roundTypes'
 import CourseStats from './courseStats'
 import { Link } from 'react-router-dom'
 import HoleImg from 'components/HoleImg'
+import { useAppContext } from 'context/appContext'
 
 type Props = {
   course: CourseInterface
@@ -39,6 +40,7 @@ type StatTypes =
   | 'S7_ACES'
 
 const CourseDetails: React.FC<Props> = ({ course }) => {
+  const { windowSize } = useAppContext()
   const [selectedStat, setSelectedStat] = useState<StatTypes>('default')
   const [selectedHole, setSelectedHole] = useState<Hole>('')
 
@@ -96,22 +98,33 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
     statTitle.S7_ACES = `S7:R${s7Round[0].round} # OF ACES`
   }
 
+  const holeElSpacing = 'my-1 sm:my-0 mr-0 sm:mr-1 lg:mr-2'
+  // LABELS ON LEFT
+  const labelPosition = 'sm:w-auto flex justify-center sm:justify-end items-center leading-tight'
+  const holeLabelSize =
+    'px-4 sm:px-0 py-4 sm:py-0 mt-0 md:mt-2 lg:mt-2.5 xl:mt-1 text-base sm:text-xxs lg:text-sm xl:text-base'
+  const parLabelSize =
+    'pl-4 py-4 sm:px-0 my-1 sm:mt-2 sm:mb-3 md:my-3.5 lg:mt-3 lg:mb-2.5 xl:mt-2 xl:mb-3 sm:py-0 text-base sm:text-xxs lg:text-sm xl:text-base'
+  const scoreLabelSize =
+    'px-5 sm:px-0 sm:mb-1 md:mb-0 text-base sm:text-xxs lg:text-base xl:text-lg'
+  // MAPPED SCORECARD ITEMS
+  const holeNumberSize =
+    'w-4 h-4 sm:w-3 sm:h-3 md:w-3 md:h-3 lg:w-4 lg:h-4 xl:w-4 xl:h-4 p-4 sm:p-2 md:p-3 lg:p-4 text-lg sm:text-xxs md:text-xs lg:text-base xl:text-lg'
+  const holeParSize = 'sm:py-1 text-sm sm:text-xs lg:text-sm'
+  const holeScoreSlotSize =
+    'w-12 h-12 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-9 lg:h-9 xl:w-12 xl:h-12 text-lg sm:text-sm md:text-base lg:text-xl xl:text-2xl'
+  // TOTAL SIZE ON RIGHT
+  const totalScoreSize =
+    'w-20 h-20 sm:w-10 sm:h-10 md:w-14 md:h-14 md:mt-2 lg:w-20 lg:h-20 lg:mt-0 xl:mt-2 p-2 sm:pb-0 sm:mt-2'
+  const totalStatSize = 'text-5xl sm:text-xl md:text-3xl lg:text-5xl'
+
   return (
     <div
-      className="w-4/5 md:w-auto
-        md:absolute md:top-1/2 md:left-1/2
-        md:translate-x-[-50%] md:translate-y-[-50%]
-        mb-4 md:mb-0 z-0
-        font-scoretext"
-      // style={{
-      //   backgroundImage:
-      //     selectedHole !== ''
-      //       ? `url(${courseHoleImgLink
-      //           .replace('<COURSE>', course.alias)
-      //           .replace('<COURSE>', course.alias)
-      //           .replace('<HOLE>', selectedHole.toString())})`
-      //       : 'none'
-      // }}
+      className="w-4/5 sm:w-auto
+      sm:absolute sm:top-1/2 sm:left-1/2
+      sm:translate-x-[-50%] sm:translate-y-[-50%]
+      mb-4 sm:mb-0 z-0
+      font-scoretext"
     >
       {/* ****** HOLE IMG ON HOVER ****** */}
       {coursesWithImages.includes(course.alias) && selectedHole !== '' && (
@@ -129,16 +142,16 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
       )}
       {(!coursesWithImages.includes(course.alias) || selectedHole === '') && (
         <div
-          className={`relative w-full px-7 md:p-5 py-6 flex
-          flex-col justify-center items-center bg-wmgYellow
+          className={`relative w-full px-7 sm:px-2 md:px-5 py-6 flex
+          flex-col justify-center items-center bg-wmgYellow rounded-sm
           cl-wmgBrown ${selectedHole !== '' && 'opacity-0'}`}
         >
           {/* ***** TOP OF SCORECARD DIV ***** */}
-          <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
-            <div className="w-full md:w-1/3">
+          <div className="w-full flex flex-col sm:flex-row md:justify-between items-center">
+            <div className="w-full sm:w-1/3">
               <Link
                 to="/course"
-                className="w-10 h-10 p-2 text-xl
+                className="w-10 h-10 sm:w-8 sm:h-8 p-2 sm:py-2 text-xl sm:text-base md:text-lg lg:text-xl
                 flex justify-center items-center
                 hover:shadow-lg hover:scale-105
                 border-2 brdr-wmgBrown rounded-[100%]"
@@ -150,16 +163,16 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
               className="w-full md:w-1/3 mt-3 md:mt-0
               flex flex-col justify-center items-center text-center"
             >
-              <h1 className="text-4xl md:text-lg lg:text-3xl xl:text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
-              <h3 className="text-base md:text-sm lg:text-lg xl:text-xl">
+              <h1 className="text-4xl sm:text-2xl md:text-lg lg:text-3xl xl:text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
+              <h3 className="text-base sm:text-sm lg:text-lg xl:text-xl">
                 ({course.alias} {course.courseMoji})
               </h3>
             </div>
-            <div className="w-full md:w-1/3 flex justify-end mt-3 md:mt-0">
+            <div className="w-full sm:w-1/3 flex justify-end mt-3 md:mt-0">
               <select
                 id="course-stats-selector"
-                className="w-full md:w-fit border text-sm rounded-lg
-                bg-wmgBrown
+                className="w-full md:w-fit border rounded-lg bg-wmgBrown
+                text-sm sm:text-xxs md:text-xs lg:text-sm
                 border-gray-300 text-gray-900
                 focus:ring-blue-500 focus:border-blue-500 block p-2.5
                 dark:bg-gray-700 dark:border-gray-600 dark:text-white
@@ -188,100 +201,70 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
           </div>
           {/* ***** BOTTOM HALF OF SCORECARD - THE SCORES ***** */}
           <div
-            className="w-full md:w-auto px-0 md:px-6 py-4 rounded-md
-          mt-4
-          bg-wmgBrown cl-wmgYellow
-          flex flex-col md:flex-row justify-center items-center"
+            className="w-full md:w-auto mt-4
+            px-0 py-4 sm:px-4 sm:py-1 md:p-6 lg:p-4
+            bg-wmgBrown cl-wmgYellow rounded-md
+            flex flex-col sm:flex-row justify-center items-center"
           >
-            <div className="w-3/4 md:w-auto flex flex-col md:flex-row justify-center items-center">
+            <div className="w-3/4 sm:w-auto flex flex-col sm:flex-row justify-center items-center">
               <div
-                className="w-full md:mb-2
+                className="w-full md:mb-2 sm:px-0
                 flex flex-row justify-between items-baseline
-                md:flex-col md:justify-evenly md:items-end mr-0 md:mr-2 lg:mr-4"
+                sm:flex-col sm:justify-evenly sm:items-end mr-0 sm:mr-2 lg:mr-4 uppercase"
               >
-                <div
-                  className="text-base md:text-xs xl:text-base
-                  py-4 md:py-1
-                  flex justify-end items-center"
-                >
-                  HOLE
-                </div>
-                <div
-                  className="
-                  py-4 my-1 md:my-0 md:py-1
-                  text-sm md:text-xs lg:text-sm
-                  flex flex-col justify-center items-center"
-                >
-                  PAR
-                </div>
-                <div
-                  className="w-min md:w-max
-                  md:mt-2
-                  text-lg md:text-sm lg:text-base xl:text-lg
-                  text-center 
-                  flex flex-col justify-center items-center"
-                >
-                  {statTitle[selectedStat]}
-                </div>
+                <div className={`${holeLabelSize} ${labelPosition}`}>HOLE</div>
+                <div className={`${parLabelSize} ${labelPosition}`}>PAR</div>
+                <div className={`${scoreLabelSize} ${labelPosition}`}>SCORE</div>
               </div>
               {course.parByHole.map((par, i) => (
                 <div
-                  className="w-full mr-2 md:mr-1 lg:mr-2 font-scorenum
-                flex flex-row justify-between items-center
-                md:flex-col md:justify-center
-                my-1 md:my-0"
+                  className={`w-full ${holeElSpacing}
+                  font-scorenum px-6 sm:px-0
+                  flex flex-row justify-between items-center
+                  sm:flex-col sm:justify-center`}
                   key={`${course.alias}${i + 1}`}
                 >
-                  <div
-                    className="w-4 h-4
-                    md:w-3 md:h-3
-                    lg:w-4 lg:h-4
-                    xl:w-4 xl:h-4
-                    p-4 md:p-3 lg:p-4
-                    text-lg md:text-sm lg:text-base xl:text-lg
-                    flex flex-col justify-center items-center
-                    border-2 brdr-wmgYellow rounded-[100%]
-                    font-scorenum cursor-pointer"
-                    onClick={() => handleHoleHover(i + 1)}
-                  >
-                    {i + 1}
+                  <div className="w-1/3 sm:w-auto flex justify-start items-center">
+                    <div
+                      className={`${holeNumberSize}
+                      flex flex-col justify-center items-center
+                      border-2 sm:border-[1px] md:border-2 brdr-wmgYellow rounded-[100%]
+                      font-scorenum cursor-pointer`}
+                      onClick={() => handleHoleHover(i + 1)}
+                    >
+                      {i + 1}
+                    </div>
                   </div>
-                  <p
-                    className="md:ml-0 text-center md:py-1
-                    text-sm md:text-xs lg:text-sm"
-                  >
-                    {par}
-                  </p>
-                  <div
-                    className="bg-wmgYellow sh-wmgYellowLg rounded-md
-                    w-12 h-12
-                    md:w-8 md:h-8
-                    lg:w-12 lg:h-12
-                    xl:w-12 xl:h-12
-                    text-xs
-                    flex justify-center items-center"
-                  >
-                    <p className="text-lg md:text-sm lg:text-base xl:text-lg font-bold cl-wmgBrown">
-                      {getHoleStats()[i]}
-                    </p>
+                  <div className="w-1/3 sm:w-auto flex justify-center items-center">
+                    <p className={`${holeParSize} text-center`}>{par}</p>
+                  </div>
+                  <div className="w-1/3 sm:w-auto flex justify-end items-center">
+                    <div
+                      className={`${holeScoreSlotSize}
+                    bg-wmgYellow sh-wmgYellowLg rounded-md
+                    flex justify-center items-center`}
+                    >
+                      <p className="font-bold cl-wmgBrown">{getHoleStats()[i]}</p>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="w-3/4 my-4 md:my-0 flex flex-row md:flex-col justify-between md:justify-center items-center">
-              <h4 className="text-sm md:text-sm lg:text-base tracking-tight">PAR: {course.par}</h4>
+            <div className="w-3/4 my-4 md:my-0 flex flex-row sm:flex-col justify-between md:justify-center items-center">
+              <h4 className="text-sm sm:text-xxxs lg:text-base tracking-tight">
+                PAR: {course.par}
+              </h4>
               <div
-                className="
-                w-20 h-20 md:w-14 md:h-14
-                lg:w-20 lg:h-20
-                p-2 ml-0 mt-0
-                md:mt-2 md:ml-2
-                rounded-md 
-                flex flex-col justify-between items-center
-                bg-wmgYellow font-scorenum sh-wmgYellowLg"
+                className={`${totalScoreSize}
+                bg-wmgYellow font-scorenum sh-wmgYellowLg rounded-md
+                flex flex-col justify-end items-center relative`}
               >
-                <p className="text-xs cl-wmgBrown">TOTAL</p>
-                <h2 className="text-5xl font-bold cl-wmgBrown">{getTotalScoreStat()}</h2>
+                <p className="text-xs sm:text-xxxs md:text-xxs lg:text-xs cl-wmgBrown absolute top-0">
+                  TOTAL
+                </p>
+                <div className={`${totalStatSize} font-bold cl-wmgBrown`}>
+                  {getTotalScoreStat()}
+                </div>
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ const Home: React.FC = () => {
     <div className="w-full max-w-4xl h-full px-4 flex flex-col justify-center items-center">
       {/* WMGT OVERVIEW VIDEO LOL */}
       {/* <iframe
-        className="fixed w-screen min-h-screen h-screen z-[-1] m-0 p-0"
+        className="w-full min-h-[30rem] max-w-2xl m-0 p-0"
         src="https://www.youtube.com/embed/Gt-oA6oQQhQ?autoplay=1&mute=1"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -40,7 +40,7 @@ const StatScorecard: React.FC<Props> = ({ label, data }) => {
       className="w-full max-w-6xl
       text-xs
       flex justify-center items-center
-      relative z-0"
+      relative z-[10]"
     >
       {/* ****** THE PLAYER NAME ****** */}
       <div className="w-full text-xs flex justify-between items-center py-2 sm:px-2 md:px-0">

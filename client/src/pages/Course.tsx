@@ -13,11 +13,11 @@ const Course: React.FC = () => {
         )})`
       : ''
 
-  const bgHeight = pathname !== '/course' && 'h-auto md:h-[100vh]'
+  const bgHeight = pathname !== '/course' && 'h-auto sm:min-h-[80vh]'
 
   return (
     <div
-      className={`w-full bg-no-repeat bg-cover bg-center
+      className={`w-full max-w-full bg-no-repeat bg-cover bg-center
       flex flex-col justify-center items-center
       ${bgHeight}`}
       style={{
