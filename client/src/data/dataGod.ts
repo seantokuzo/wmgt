@@ -11,7 +11,11 @@ import { season5OfficialResults } from './season-data/season5OfficialResults'
 import { season6OfficialResults } from './season-data/season6OfficialResults'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
-import { SeasonResultsOfficial } from './season-data/seasonResultsTypes'
+import {
+  PlayerSeasonResultsOfficial,
+  SeasonResultsOfficial
+} from './season-data/seasonResultsTypes'
+import { CURRENT_SEASON } from 'utils/constants'
 
 type RoundIdentifier = {
   season: number
@@ -426,41 +430,45 @@ export abstract class DataGod {
     }
   }
 
-  static getSeasonSummaryFromOfficialResults(season: number) {
-    const seasonResults = this.getSeasonOfficialResultsData(season)
-    return seasonResults.results.map((player) => {
-      const knownPlayer = allPlayersList.filter(
-        (p) =>
-          p.player.replaceAll(nonCharacterRegex, '').toLowerCase() ===
-          player.player.replaceAll(nonCharacterRegex, '').toLowerCase()
-      )[0]
-      if (knownPlayer) {
-        return {
-          player: player.player,
-          totalPoints: player.seasonPoints,
-          roundPoints: player.pointsByRound,
-          flag: knownPlayer.flag
-        }
-      }
-      // CONVERTING FLAGS NOT WORKING - REFINE ALL PLAYERS LIST INSTEAD
-      // const flag = flagConverter.filter((f) => f.link === player.flagLink)[0]
-      // if (flag) {
-      //   return {
-      //     player: player.player,
-      //     totalPoints: player.seasonPoints,
-      //     roundPoints: player.pointsByRound,
-      //     flag: flag.flag
-      //   }
-      // }
-      // if (!flag) {
-      // console.log('No Flag', player)
+  static tryToConvertPlayerFlag(player: PlayerSeasonResultsOfficial) {
+    const knownPlayer = allPlayersList.filter(
+      (p) =>
+        p.player.replaceAll(nonCharacterRegex, '').toLowerCase() ===
+        player.player.replaceAll(nonCharacterRegex, '').toLowerCase()
+    )[0]
+    if (knownPlayer) {
       return {
         player: player.player,
         totalPoints: player.seasonPoints,
         roundPoints: player.pointsByRound,
-        flag: ''
+        flag: knownPlayer.flag
       }
-      // }
+    }
+    // CONVERTING FLAGS NOT WORKING - REFINE ALL PLAYERS LIST INSTEAD
+    // const flag = flagConverter.filter((f) => f.link === player.flagLink)[0]
+    // if (flag) {
+    //   return {
+    //     player: player.player,
+    //     totalPoints: player.seasonPoints,
+    //     roundPoints: player.pointsByRound,
+    //     flag: flag.flag
+    //   }
+    // }
+    // if (!flag) {
+    // console.log('No Flag', player)
+    return {
+      player: player.player,
+      totalPoints: player.seasonPoints,
+      roundPoints: player.pointsByRound,
+      flag: ''
+    }
+    // }
+  }
+
+  static getSeasonSummaryFromOfficialResults(season: number) {
+    const seasonResults = this.getSeasonOfficialResultsData(season)
+    return seasonResults.results.map((player) => {
+      return this.tryToConvertPlayerFlag(player)
     })
   }
 
@@ -500,5 +508,26 @@ export abstract class DataGod {
     })
 
     return playerSeasonSummaries.sort((a, b) => b.totalPoints - a.totalPoints)
+  }
+
+  static getSeasonWinner(season: number) {
+    const seasonData = this.getSeasonOfficialResultsData(season)
+
+    if (season === CURRENT_SEASON) {
+      return [
+        {
+          player: 'In Progress',
+          totalPoints: 0,
+          roundPoints: [],
+          flag: 'derp'
+        }
+      ]
+    }
+
+    return seasonData.results
+      .filter((player) => player.seasonRank === 1)
+      .map((player) => {
+        return this.tryToConvertPlayerFlag(player)
+      })
   }
 }

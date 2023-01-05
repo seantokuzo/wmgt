@@ -5,6 +5,8 @@ import { useSeasonContext } from 'context/season/seasonContext'
 import { courseData } from 'data/course-data/wmgt-course-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { season6Data } from 'data/round-data/s6-round-data'
+import { DataGod } from 'data/dataGod'
+import { nanoid } from 'nanoid'
 
 type Props = {
   season: number
@@ -55,6 +57,14 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
       >
         {`SEASON ${season}`}
       </div>
+      {DataGod.getSeasonWinner(season).map((winner) => {
+        return (
+          <div className="flex" key={nanoid()}>
+            <div>{winner.flag}</div>
+            <div>{winner.player}</div>
+          </div>
+        )
+      })}
       <Link
         to={`/season/s${season}-summary`}
         className={`w-max my-8 py-2 px-6
@@ -80,22 +90,22 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
                 <Link
                   to={`/season/s${round.season}r${round.round}`}
                   className={`mx-2 my-3 px-4 py-2 rounded-lg
-              font-bold
-              flex flex-col justify-center items-center
-              ${menuColors('round')}
-              hover:scale-105`}
+                  font-bold
+                  flex flex-col justify-center items-center
+                  ${menuColors('round')}
+                  hover:scale-105`}
                   key={`${round.easyCourse}-${i}`}
                 >
                   <div
                     className={`w-full text-2xl rounded-lg py-2
-              ${darkMode ? 'bg-black' : 'bg-white'}`}
+                    ${darkMode ? 'bg-black' : 'bg-white'}`}
                   >
                     {round.round}
                   </div>
                   <div
                     className={`w-full mt-2
-              rounded-sm
-              ${darkMode ? 'bg-black' : 'bg-white'}`}
+                    rounded-sm
+                    ${darkMode ? 'bg-black' : 'bg-white'}`}
                   >
                     <div className={`text-md px-2 border-b-2 ${menuColors('top-course')}`}>
                       {easyMoji + ' ' + round.easyCourse + ' ' + easyMoji}

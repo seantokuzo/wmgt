@@ -19,11 +19,11 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   const { windowSize } = useAppContext()
   const {
     roundDetailsMode,
-    changeRoundDetailsMode,
     showEasyCourse,
     viewFrontNine,
     viewScorecard,
     viewCourse
+    // changeRoundDetailsMode,
   } = useSeasonContext()
 
   const courseAlias =
@@ -42,7 +42,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         onClick={() => {
           viewScorecard()
           viewFrontNine()
-          changeRoundDetailsMode('full')
+          // changeRoundDetailsMode('full')
         }}
       >
         <div
@@ -64,11 +64,9 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
   const courseLabelEl = (course: CourseInterface) => {
     return (
       <div
-        className={`w-2/3 py-2 px-4 my-2
-        sm:w-2/5 sm:mx-4 sm:my-0
-        md:w-1/2
-        border-2 rounded-md
-        cursor-pointer
+        className={`w-1/2 py-3
+        border-b-2
+        ${course.difficulty === 'Easy' ? 'rounded-bl-md border-l-2' : 'rounded-br-md border-r-2'}
         ${
           course.difficulty === 'Easy' && showEasyCourse
             ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'
@@ -77,7 +75,10 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
             : course.difficulty === 'Hard' && showEasyCourse
             ? 'brdr-hardCourse cl-hardCourse'
             : 'bg-hardCourse sh-hardCourse brdr-hardCourse'
-        }`}
+        }
+        flex justify-evenly items-center
+        text-xs sm:text-sm md:text-xl font-scorenum font-semibold
+        cursor-pointer`}
         onClick={() => {
           if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
           if (course.difficulty === 'Easy' && showEasyCourse) return
@@ -85,11 +86,13 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           return course.difficulty === 'Easy' ? viewCourse('easy') : viewCourse('hard')
         }}
       >
-        <h3 className="text-base md:text-xl font-semibold">{course.course}</h3>
-        <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3>
-        <p className="text-sm md:text-base my-1">
+        <h3>{course.courseMoji}</h3>
+        <h3>{course.course}</h3>
+        <h3>{course.courseMoji}</h3>
+        {/* <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3> */}
+        {/* <p className="text-sm md:text-base my-3">
           {course.courseMoji} {course.alias} {course.courseMoji}
-        </p>
+        </p> */}
       </div>
     )
   }
@@ -169,8 +172,8 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       </div>
       {/* ********** COURSE IMAGE AND PODIUM ********** */}
       <div
-        className="w-full
-        bg-no-repeat bg-center bg-cover rounded-b-md
+        className="w-full min-h-[20rem]
+        bg-no-repeat bg-center bg-cover
         flex flex-col justify-end items-center"
         style={{
           backgroundImage: `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
@@ -185,9 +188,16 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
       {/* ***** PROBLEM DIV - TAILWIND IS STUUUPID ***** */}
       {/* ********** EASY / HARD COURSE LABELS ********** */}
       <div
-        className="w-full mt-6 text-center
-        flex flex-col justify-center items-center
-        sm:flex-row sm:justify-evenly"
+        className={`w-full bg-s${round.season} sh-basic
+        text-xs md:text-sm font-bold font-scorenum
+        flex justify-center items-center`}
+      >
+        <div className="w-1/2 text-center">EASY</div>
+        <div className="w-1/2 text-center">HARD</div>
+      </div>
+      <div
+        className="w-full text-center font-scorenum
+        flex justify-evenly items-center"
       >
         {courseLabelEl(easyCourse)}
         {courseLabelEl(hardCourse)}
@@ -211,3 +221,37 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
 }
 
 export default RoundDetailsMenu
+
+// OLD COURSE LABEL ELEMENTS
+// const courseLabelEl = (course: CourseInterface) => {
+//   return (
+//     <div
+//       className={`w-2/3 py-2 px-4 my-2
+//       sm:w-2/5 sm:mx-4 sm:my-0
+//       md:w-1/2
+//       border-2 rounded-md
+//       cursor-pointer
+//       ${
+//         course.difficulty === 'Easy' && showEasyCourse
+//           ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'
+//           : course.difficulty === 'Easy' && !showEasyCourse
+//           ? 'brdr-easyCourse cl-easyCourse'
+//           : course.difficulty === 'Hard' && showEasyCourse
+//           ? 'brdr-hardCourse cl-hardCourse'
+//           : 'bg-hardCourse sh-hardCourse brdr-hardCourse'
+//       }`}
+//       onClick={() => {
+//         if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
+//         if (course.difficulty === 'Easy' && showEasyCourse) return
+//         if (course.difficulty === 'Hard' && !showEasyCourse) return
+//         return course.difficulty === 'Easy' ? viewCourse('easy') : viewCourse('hard')
+//       }}
+//     >
+//       <h3 className="text-base md:text-xl font-semibold">{course.course}</h3>
+//       <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3>
+//       <p className="text-sm md:text-base my-1">
+//         {course.courseMoji} {course.alias} {course.courseMoji}
+//       </p>
+//     </div>
+//   )
+// }

@@ -21,7 +21,7 @@
   --season3trans: rgb(14, 165, 233, 0.2);
   --season2trans: rgb(192, 132, 252, 0.2);
   --season1trans: rgb(120, 113, 108, 0.2);
-  --easyCourse: theme('colors.orange.300');
+  --easyCourse: theme('colors.orange.400');
   --hardCourse: theme('colors.blue.700');
   --wmgYellow: #f8ff71;
   --wmgBrown: #38280e;
@@ -45,7 +45,7 @@
   --sh-season3: inset 6px 6px 12px #0a72a1, inset -6px -6px 12px #12d8ff;
   --sh-season2: inset 6px 6px 12px #845bae, inset -6px -6px 12px #fcadff;
   --sh-season1: inset 6px 6px 12px #534e4b, inset -6px -6px 12px #9d948d;
-  --sh-easyCourse: inset 6px 6px 12px #af8050, inset -6px -6px 12px #fff498;
+  --sh-easyCourse: inset 6px 6px 12px #ad6529, inset -6px -6px 12px #ffbf4f;
   --sh-hardCourse: inset 6px 6px 12px #143695, inset -6px -6px 12px #2666ff;
   --ace: theme('colors.red.600');
   --condor: theme('colors.blue.400');

@@ -31,8 +31,8 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
     showFrontNine,
     toggleScorecardNine,
     viewScorecard,
-    viewFrontNine,
-    changeRoundDetailsMode
+    viewFrontNine
+    // changeRoundDetailsMode
   } = useSeasonContext()
   const [selectedHole, setSelectedHole] = useState<'' | number>('')
 
@@ -55,7 +55,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
         onClick={() => {
           viewScorecard()
           viewFrontNine()
-          changeRoundDetailsMode('full')
+          // changeRoundDetailsMode('full')
         }}
       >
         <div

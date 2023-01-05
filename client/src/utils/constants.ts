@@ -1,0 +1,3 @@
+const CURRENT_SEASON = 7
+
+export { CURRENT_SEASON }
