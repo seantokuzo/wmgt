@@ -3,11 +3,8 @@ import { modes } from './RoundDetails'
 import { courseFullImgLink, CourseInterface } from 'data/course-data/wmgt-course-data'
 import { Link } from 'react-router-dom'
 import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
-import { season6Data } from 'data/round-data/s6-round-data'
-import { season7Data } from 'data/round-data/s7-round-data'
 import { nanoid } from 'nanoid'
 import { DataGod } from 'data/dataGod'
-import { useAppContext } from 'context/appContext'
 import ComingSoon from 'components/ComingSoon'
 
 type Props = {
@@ -18,15 +15,8 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upcomingRound }) => {
-  const { windowSize } = useAppContext()
-  const {
-    roundDetailsMode,
-    showEasyCourse,
-    viewFrontNine,
-    viewScorecard,
-    viewCourse
-    // changeRoundDetailsMode,
-  } = useSeasonContext()
+  const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard, viewCourse } =
+    useSeasonContext()
 
   const courseAlias =
     showEasyCourse || roundDetailsMode === 'easy' ? easyCourse.alias : hardCourse.alias
@@ -44,7 +34,6 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
         onClick={() => {
           viewScorecard()
           viewFrontNine()
-          // changeRoundDetailsMode('full')
         }}
       >
         <div
@@ -91,10 +80,6 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
         <h3>{course.courseMoji}</h3>
         <h3>{course.course}</h3>
         <h3>{course.courseMoji}</h3>
-        {/* <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3> */}
-        {/* <p className="text-sm md:text-base my-3">
-          {course.courseMoji} {course.alias} {course.courseMoji}
-        </p> */}
       </div>
     )
   }
@@ -228,37 +213,3 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
 }
 
 export default RoundDetailsMenu
-
-// OLD COURSE LABEL ELEMENTS
-// const courseLabelEl = (course: CourseInterface) => {
-//   return (
-//     <div
-//       className={`w-2/3 py-2 px-4 my-2
-//       sm:w-2/5 sm:mx-4 sm:my-0
-//       md:w-1/2
-//       border-2 rounded-md
-//       cursor-pointer
-//       ${
-//         course.difficulty === 'Easy' && showEasyCourse
-//           ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'
-//           : course.difficulty === 'Easy' && !showEasyCourse
-//           ? 'brdr-easyCourse cl-easyCourse'
-//           : course.difficulty === 'Hard' && showEasyCourse
-//           ? 'brdr-hardCourse cl-hardCourse'
-//           : 'bg-hardCourse sh-hardCourse brdr-hardCourse'
-//       }`}
-//       onClick={() => {
-//         if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
-//         if (course.difficulty === 'Easy' && showEasyCourse) return
-//         if (course.difficulty === 'Hard' && !showEasyCourse) return
-//         return course.difficulty === 'Easy' ? viewCourse('easy') : viewCourse('hard')
-//       }}
-//     >
-//       <h3 className="text-base md:text-xl font-semibold">{course.course}</h3>
-//       <h3 className="text-base md:text-xl font-semibold">{course.difficulty}</h3>
-//       <p className="text-sm md:text-base my-1">
-//         {course.courseMoji} {course.alias} {course.courseMoji}
-//       </p>
-//     </div>
-//   )
-// }
