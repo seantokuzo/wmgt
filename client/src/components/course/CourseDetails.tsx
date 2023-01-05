@@ -130,8 +130,8 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
       {(!coursesWithImages.includes(course.alias) || selectedHole === '') && (
         <div
           className={`relative w-full px-7 md:p-5 py-6 flex
-      flex-col justify-center items-center bg-wmgYellow
-      cl-wmgBrown ${selectedHole !== '' && 'opacity-0'}`}
+          flex-col justify-center items-center bg-wmgYellow
+          cl-wmgBrown ${selectedHole !== '' && 'opacity-0'}`}
         >
           {/* ***** TOP OF SCORECARD DIV ***** */}
           <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
@@ -139,9 +139,9 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
               <Link
                 to="/course"
                 className="w-10 h-10 p-2 text-xl
-              flex justify-center items-center
-              hover:shadow-lg hover:scale-105
-              border-2 brdr-wmgBrown rounded-[100%]"
+                flex justify-center items-center
+                hover:shadow-lg hover:scale-105
+                border-2 brdr-wmgBrown rounded-[100%]"
               >
                 <i className="fa-solid fa-arrow-left"></i>
               </Link>
@@ -150,8 +150,8 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
               className="w-full md:w-1/3 mt-3 md:mt-0
               flex flex-col justify-center items-center text-center"
             >
-              <h1 className="text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
-              <h3>
+              <h1 className="text-4xl md:text-lg lg:text-3xl xl:text-4xl">{`${course.course.toUpperCase()} ${course.difficulty.toUpperCase()}`}</h1>
+              <h3 className="text-base md:text-sm lg:text-lg xl:text-xl">
                 ({course.alias} {course.courseMoji})
               </h3>
             </div>
@@ -190,62 +190,95 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
           <div
             className="w-full md:w-auto px-0 md:px-6 py-4 rounded-md
           mt-4
-          bg-wmgBrown text-wmgYellow
+          bg-wmgBrown cl-wmgYellow
           flex flex-col md:flex-row justify-center items-center"
           >
             <div className="w-3/4 md:w-auto flex flex-col md:flex-row justify-center items-center">
               <div
-                className="w-full py-4 md:py-0
-              flex flex-row justify-between items-baseline
-              md:flex-col md:justify-center md:items-end mr-0 md:mr-2"
+                className="w-full md:mb-2
+                flex flex-row justify-between items-baseline
+                md:flex-col md:justify-evenly md:items-end mr-0 md:mr-2 lg:mr-4"
               >
-                <div className="text-base md:flex md:justify-center md:items-center h-auto md:h-4 md:py-4">
+                <div
+                  className="text-base md:text-xs xl:text-base
+                  py-4 md:py-1
+                  flex justify-end items-center"
+                >
                   HOLE
                 </div>
-                <div className="text-sm mt-0 md:mt-1">PAR</div>
                 <div
-                  className="text-base text-center w-min md:w-max h-auto md:h-10
-                mt-0 md:mt-1
-                md:flex md:items-center"
+                  className="
+                  py-4 my-1 md:my-0 md:py-1
+                  text-sm md:text-xs lg:text-sm
+                  flex flex-col justify-center items-center"
+                >
+                  PAR
+                </div>
+                <div
+                  className="w-min md:w-max
+                  md:mt-2
+                  text-lg md:text-sm lg:text-base xl:text-lg
+                  text-center 
+                  flex flex-col justify-center items-center"
                 >
                   {statTitle[selectedStat]}
                 </div>
               </div>
               {course.parByHole.map((par, i) => (
                 <div
-                  className="w-full px-1 font-scorenum
+                  className="w-full mr-2 md:mr-1 lg:mr-2 font-scorenum
                 flex flex-row justify-between items-center
                 md:flex-col md:justify-center
                 my-1 md:my-0"
                   key={`${course.alias}${i + 1}`}
                 >
                   <div
-                    className="w-4 h-4 p-4 my-1
-                flex flex-col justify-center items-center
-                border-2 brdr-wmgYellow rounded-[100%]
-                text-lg font-scorenum cursor-pointer"
+                    className="w-4 h-4
+                    md:w-3 md:h-3
+                    lg:w-4 lg:h-4
+                    xl:w-4 xl:h-4
+                    p-4 md:p-3 lg:p-4
+                    text-lg md:text-sm lg:text-base xl:text-lg
+                    flex flex-col justify-center items-center
+                    border-2 brdr-wmgYellow rounded-[100%]
+                    font-scorenum cursor-pointer"
                     onClick={() => handleHoleHover(i + 1)}
                   >
                     {i + 1}
                   </div>
-                  <p className="text-sm md:ml-0 text-center">{par}</p>
-                  <div
-                    className="w-12 h-12 bg-wmgYellow
-                  flex justify-center items-center
-                  rounded-md sh-wmgYellowLg"
+                  <p
+                    className="md:ml-0 text-center md:py-1
+                    text-sm md:text-xs lg:text-sm"
                   >
-                    <p className="text-2xl font-bold cl-wmgBrown">{getHoleStats()[i]}</p>
+                    {par}
+                  </p>
+                  <div
+                    className="bg-wmgYellow sh-wmgYellowLg rounded-md
+                    w-12 h-12
+                    md:w-8 md:h-8
+                    lg:w-12 lg:h-12
+                    xl:w-12 xl:h-12
+                    text-xs
+                    flex justify-center items-center"
+                  >
+                    <p className="text-lg md:text-sm lg:text-base xl:text-lg font-bold cl-wmgBrown">
+                      {getHoleStats()[i]}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
             <div className="w-3/4 my-4 md:my-0 flex flex-row md:flex-col justify-between md:justify-center items-center">
-              <h4 className="text-base tracking-tight">PAR: {course.par}</h4>
+              <h4 className="text-sm md:text-sm lg:text-base tracking-tight">PAR: {course.par}</h4>
               <div
-                className="w-20 h-20 p-2 rounded-md ml-0 mt-0
-              md:mt-2 md:ml-2
-              flex flex-col justify-between items-center
-              bg-wmgYellow font-scorenum sh-wmgYellowLg"
+                className="
+                w-20 h-20 md:w-14 md:h-14
+                lg:w-20 lg:h-20
+                p-2 ml-0 mt-0
+                md:mt-2 md:ml-2
+                rounded-md 
+                flex flex-col justify-between items-center
+                bg-wmgYellow font-scorenum sh-wmgYellowLg"
               >
                 <p className="text-xs cl-wmgBrown">TOTAL</p>
                 <h2 className="text-5xl font-bold cl-wmgBrown">{getTotalScoreStat()}</h2>
