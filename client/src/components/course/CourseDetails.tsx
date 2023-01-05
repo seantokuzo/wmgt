@@ -259,7 +259,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 bg-wmgYellow font-scorenum sh-wmgYellowLg rounded-md
                 flex flex-col justify-end items-center relative`}
               >
-                <p className="text-xs sm:text-xxxs md:text-xxs lg:text-xs cl-wmgBrown absolute top-0">
+                <p className="text-xs sm:text-xxxs md:text-xxs lg:text-xs cl-wmgBrown absolute top-0 lg:top-1">
                   TOTAL
                 </p>
                 <div className={`${totalStatSize} font-bold cl-wmgBrown`}>
