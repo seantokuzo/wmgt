@@ -22,7 +22,7 @@ const RoundDetailBtn: React.FC<Props> = ({ season, btnText, btnMode }) => {
       className={`min-w-1/4 px-4 py-2 mx-[0.5rem] my-2
       text-sm sm:text-base md:text-lg lg:text-xl
       flex justify-center hover:scale-105
-      rounded-xl
+      rounded-xl sh-basic
       ${colors()}`}
       onClick={() => changeRoundDetailsMode(btnMode)}
     >

@@ -31,6 +31,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
     return (
       <Link
         to={`/season/s${round.season}r${nextNotPrev ? nextRound.round : prevRound.round}`}
+        className="rounded-full sh-basic"
         onClick={() => {
           viewScorecard()
           viewFrontNine()
@@ -123,7 +124,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
 
   return (
     <div
-      className={`w-full max-w-2xl rounded-lg
+      className={`w-full max-w-2xl rounded-lg sh-basic
       flex flex-col justify-center items-center text-center`}
     >
       <div
@@ -187,27 +188,11 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
       </div>
       <div
         className="w-full text-center font-scorenum
-        flex justify-evenly items-center sh-basic"
+        flex justify-evenly items-center"
       >
         {courseLabelEl(easyCourse)}
         {courseLabelEl(hardCourse)}
       </div>
-      {/* ********** ROUND DETAIL MODE BUTTONS ********** */}
-      {/* <div
-        className="w-full md:w-3/4 max-w-xl px-1 mt-6
-          flex flex-wrap justify-evenly items-center"
-      >
-        {!upcomingRound &&
-          (Object.keys(modes) as RoundDetailsMode[]).map((m) => (
-            <RoundDetailBtn
-              key={`mode-btn-${m}`}
-              season={round.season}
-              btnText={modes[m]}
-              btnMode={m}
-            />
-          ))}
-        {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />}
-      </div> */}
     </div>
   )
 }

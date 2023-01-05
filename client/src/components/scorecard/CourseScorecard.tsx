@@ -52,6 +52,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
     return (
       <Link
         to={`/season/s${currentRound.season}r${nextNotPrev ? nextRound.round : prevRound.round}`}
+        className="rounded-full sh-basic"
         onClick={() => {
           viewScorecard()
           viewFrontNine()
@@ -166,7 +167,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
         bgfade-s${currentRound.season}
         border-b-2 border-l-2 brdr-s${currentRound.season} rounded-md
         text-base font-bold uppercase font-orb
-        flex justify-center items-center`}
+        flex justify-center items-center sh-basic`}
       >
         <div className={`pr-4 my-1 border-r-[1px] brdr-s${currentRound.season}`}>
           {'Season ' + currentRound.season}
