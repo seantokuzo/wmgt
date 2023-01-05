@@ -1,11 +1,10 @@
-import RoundDetailBtn from './RoundDetailBtn'
-import { modes } from './RoundDetails'
 import { courseFullImgLink, CourseInterface } from 'data/course-data/wmgt-course-data'
 import { Link } from 'react-router-dom'
-import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
+import { useSeasonContext } from 'context/season/seasonContext'
 import { nanoid } from 'nanoid'
 import { DataGod } from 'data/dataGod'
-import ComingSoon from 'components/ComingSoon'
+
+import { useAppContext } from 'context/appContext'
 
 type Props = {
   round: { season: number; round: number }
@@ -15,6 +14,7 @@ type Props = {
 }
 
 const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upcomingRound }) => {
+  const { darkMode } = useAppContext()
   const { roundDetailsMode, showEasyCourse, viewFrontNine, viewScorecard, viewCourse } =
     useSeasonContext()
 
@@ -60,12 +60,12 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
         ${course.difficulty === 'Easy' ? 'rounded-bl-md border-l-2' : 'rounded-br-md border-r-2'}
         ${
           course.difficulty === 'Easy' && showEasyCourse
-            ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'
+            ? 'bg-easyCourse sh-easyCourse brdr-easyCourse text-white'
             : course.difficulty === 'Easy' && !showEasyCourse
             ? 'brdr-easyCourse cl-easyCourse'
             : course.difficulty === 'Hard' && showEasyCourse
             ? 'brdr-hardCourse cl-hardCourse'
-            : 'bg-hardCourse sh-hardCourse brdr-hardCourse'
+            : 'bg-hardCourse sh-hardCourse brdr-hardCourse text-white'
         }
         flex justify-evenly items-center
         text-xs sm:text-sm md:text-xl font-scorenum font-semibold
@@ -139,7 +139,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
       <div
         className={`w-full py-4
         cl-s${round.season}
-        bg-black
+        ${darkMode ? 'bg-black' : 'bg-white sh-insetbasic'}
         flex flex-col justify-center items-center`}
       >
         <div
@@ -187,13 +187,13 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
       </div>
       <div
         className="w-full text-center font-scorenum
-        flex justify-evenly items-center"
+        flex justify-evenly items-center sh-basic"
       >
         {courseLabelEl(easyCourse)}
         {courseLabelEl(hardCourse)}
       </div>
       {/* ********** ROUND DETAIL MODE BUTTONS ********** */}
-      <div
+      {/* <div
         className="w-full md:w-3/4 max-w-xl px-1 mt-6
           flex flex-wrap justify-evenly items-center"
       >
@@ -207,7 +207,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
             />
           ))}
         {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />}
-      </div>
+      </div> */}
     </div>
   )
 }

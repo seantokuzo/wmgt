@@ -21,7 +21,7 @@ export const holeSlotSizes = 'w-5 sm:w-7 lg:w-9'
 
 const CourseScorecard: React.FC<Props> = ({ course }) => {
   const { pathname } = useLocation()
-  const { windowSize } = useAppContext()
+  const { darkMode, windowSize } = useAppContext()
   const {
     roundDetailsMode,
     showEasyCourse,
@@ -218,10 +218,11 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
               onClick={() => setSelectedHole(showFrontNine ? i + 1 : i + 10)}
             >
               <div
-                className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8
+                className={`w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8
                 text-xxs sm:text-xs md:text-sm
                 border-[1px] rounded-[50%]
-                flex flex-col justify-center items-center text-center"
+                ${darkMode ? 'border-white' : 'border-black sh-basic'}
+                flex flex-col justify-center items-center text-center`}
               >
                 {windowSize.width > 768 || showFrontNine ? i + 1 : i + 10}
               </div>

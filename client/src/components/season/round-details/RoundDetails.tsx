@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSeasonContext } from 'context/season/seasonContext'
+import { RoundDetailsMode, useSeasonContext } from 'context/season/seasonContext'
 import RoundDetailsMenu from './RoundDetailsMenu'
 import Scorecard from 'components/scorecard/Scorecard'
 import ScorecardLegend from 'components/scorecard/ScorecardLegend'
@@ -13,6 +13,8 @@ import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
 import { CURRENT_SEASON } from 'utils/constants'
+import RoundDetailBtn from './RoundDetailBtn'
+import ComingSoon from 'components/ComingSoon'
 
 type Props = {
   round: RoundDataInterface
@@ -28,7 +30,6 @@ export const modes = {
 }
 
 const RoundDetails: React.FC<Props> = ({ round }) => {
-  const { userPlayer } = useAppContext()
   const { showEasyCourse, roundDetailsMode } = useSeasonContext()
 
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
@@ -51,6 +52,22 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         hardCourse={hardCourse}
         upcomingRound={upcomingRound}
       />
+      {/* ********** ROUND DETAIL MODE BUTTONS ********** */}
+      <div
+        className="w-full md:w-3/4 max-w-xl px-1 mt-6
+          flex flex-wrap justify-evenly items-center"
+      >
+        {!upcomingRound &&
+          (Object.keys(modes) as RoundDetailsMode[]).map((m) => (
+            <RoundDetailBtn
+              key={`mode-btn-${m}`}
+              season={round.season}
+              btnText={modes[m]}
+              btnMode={m}
+            />
+          ))}
+        {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />}
+      </div>
       {!upcomingRound && roundDetailsMode === 'full' && (
         <Scorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
       )}

@@ -2,8 +2,8 @@ export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean
   if (score === 0) return ''
   const border1px = 'border-[1px]'
   if (score <= -5) {
-    if (outer) return border1px + ' brdr-condor bg-condor rounded-full'
-    return border1px + ' fiveUnder rounded-full'
+    if (outer) return border1px + ' fiveUnder rounded-full'
+    return border1px + ' brdr-fiveUnder bg-condor rounded-full'
   }
   if (score === -4) {
     if (outer) return border1px + ' brdr-condor bg-condor rounded-full'

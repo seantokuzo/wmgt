@@ -168,9 +168,9 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
                     scoreToDisplay(score, i) === '🌵' || scoreToDisplay(score, i) === '🦆'
                       ? ''
                       : !showScoreTracker && score === 1
-                      ? 'bg-red-600 text-white'
+                      ? 'ace text-white'
                       : showScoreTracker && scoresForHoverTitle[i] === 1
-                      ? 'bg-red-600 text-white'
+                      ? 'ace text-white'
                       : ''
                   }
                   ${acesData && 'rounded-full'}
@@ -204,7 +204,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         <div
           className={`w-4/5 p-1 md:p-2
           border-l-2 border-b-2 rounded-md
-          border-red-400
+          brdr-underPar
           text-xxxs sm:text-xs`}
         >
           {roundDetailsMode === 'aces' ? playerRound.numHoleInOne : playerRound.totalToPar}

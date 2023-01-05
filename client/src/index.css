@@ -32,8 +32,11 @@
   --sh-wmgYellowLg: inset 12px 12px 24px #b8bd54, inset -12px -12px 24px #ffff8e80;
   --sh-wmgBrown: inset 12px 12px 14px #1e1608, inset -12px -12px 18px #473212;
   /* --sh-wmgBrown: inset 6px 6px 12px #271c0a, inset -6px -6px 12px #493412; */
+  --sh-fiveUnder: inset 6px 6px 12px #13338c, inset -6px -6px 12px #2769ff;
   --sh-condor: inset 7px 7px 14px #497dbe, inset -7px -7px 14px #77cdff;
+  --sh-ace: inset 6px 6px 12px #8f1919, inset -6px -6px 12px #ff3333;
   --sh-redLight: inset 9px 9px 8px #ba5555, inset -9px -9px 8px #ff8d8d;
+  --sh-overPar: inset 6px 6px 12px #32510a, inset -6px -6px 12px #68a714;
   --sh-gold: inset 6px 6px 6px #ad8419, inset -6px -6px 6px #fffa2f;
   --sh-silver: inset 6px 6px 6px #66707f, inset -6px -6px 6px #c2d6f1;
   --sh-bronze: inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;
@@ -307,10 +310,15 @@
 /* ******************************** */
 .ace {
   background-color: var(--ace);
+  box-shadow: var(--sh-ace);
   border-color: var(--ace);
 }
 .fiveUnder {
   background-color: var(--fiveUnder);
+  box-shadow: var(--sh-fiveUnder);
+  border-color: var(--fiveUnder);
+}
+.brdr-fiveUnder {
   border-color: var(--fiveUnder);
 }
 .bg-condor {
@@ -332,6 +340,7 @@
 }
 .bg-overPar {
   background-color: var(--overPar);
+  box-shadow: var(--sh-overPar);
 }
 .sh-redLight {
   box-shadow: var(--sh-redLight);
