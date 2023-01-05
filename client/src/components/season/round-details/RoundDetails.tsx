@@ -12,6 +12,7 @@ import { DataGod } from 'data/dataGod'
 import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
+import { CURRENT_SEASON } from 'utils/constants'
 
 type Props = {
   round: RoundDataInterface
@@ -33,6 +34,8 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
   const hardCourse = courseData.filter((course) => course.alias === round.hardCourse)[0]
 
+  const upcomingRound = round.scores.length === 0 && round.season === CURRENT_SEASON
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -46,11 +49,12 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
         round={{ season: round.season, round: round.round }}
         easyCourse={easyCourse}
         hardCourse={hardCourse}
+        upcomingRound={upcomingRound}
       />
-      {roundDetailsMode === 'full' && (
+      {!upcomingRound && roundDetailsMode === 'full' && (
         <Scorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
       )}
-      {roundDetailsMode === 'easy' && (
+      {!upcomingRound && roundDetailsMode === 'easy' && (
         <>
           <CourseScorecard course={easyCourse} />
           {DataGod.getCourseLeaderboard([...round.scores], 'easy').map((playerRound) => (
@@ -62,7 +66,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           ))}
         </>
       )}
-      {roundDetailsMode === 'hard' && (
+      {!upcomingRound && roundDetailsMode === 'hard' && (
         <>
           <CourseScorecard course={hardCourse} />
           {DataGod.getCourseLeaderboard([...round.scores], 'hard').map((playerRound) => (
@@ -74,7 +78,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           ))}
         </>
       )}
-      {roundDetailsMode === 'aces' && (
+      {!upcomingRound && roundDetailsMode === 'aces' && (
         <>
           <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
           <StatScorecard
@@ -111,7 +115,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
             ))}
         </>
       )}
-      {roundDetailsMode === 'coconuts' && (
+      {!upcomingRound && roundDetailsMode === 'coconuts' && (
         <>
           <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
           {DataGod.getCoconutRounds({ season: round.season, round: round.round }).scores.map(
@@ -125,8 +129,8 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           )}
         </>
       )}
-      {roundDetailsMode === 'race' && <RaceToTheFinish round={round} />}
-      {roundDetailsMode !== 'race' && <ScorecardLegend />}
+      {!upcomingRound && roundDetailsMode === 'race' && <RaceToTheFinish round={round} />}
+      {!upcomingRound && roundDetailsMode !== 'race' && <ScorecardLegend />}
     </div>
   )
 }

@@ -19707,5 +19707,12 @@ export const season7Data: RoundDataInterface[] = [
         numStrokeOut: 4
       }
     ]
+  },
+  {
+    season: 7,
+    round: 12,
+    easyCourse: '20E',
+    hardCourse: 'SWH',
+    scores: []
   }
 ]

@@ -26,14 +26,14 @@ const nonCharacterRegex = /[^a-zA-Z0-9]/g
 
 export abstract class DataGod {
   // PRIVATE UTIL METHODS * PRIVATE UTIL METHODS * PRIVATE UTIL METHODS
-  private static getSeasonData(season: number) {
+  static getSeasonData(season: number) {
     switch (season) {
       case 7:
         return season7Data
       case 6:
         return season6Data
       default:
-        return season7Data
+        return []
     }
   }
 

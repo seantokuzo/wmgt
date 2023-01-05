@@ -8,14 +8,16 @@ import { season7Data } from 'data/round-data/s7-round-data'
 import { nanoid } from 'nanoid'
 import { DataGod } from 'data/dataGod'
 import { useAppContext } from 'context/appContext'
+import ComingSoon from 'components/ComingSoon'
 
 type Props = {
   round: { season: number; round: number }
   easyCourse: CourseInterface
   hardCourse: CourseInterface
+  upcomingRound: boolean
 }
 
-const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
+const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upcomingRound }) => {
   const { windowSize } = useAppContext()
   const {
     roundDetailsMode,
@@ -30,7 +32,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
     showEasyCourse || roundDetailsMode === 'easy' ? easyCourse.alias : hardCourse.alias
 
   const toggleRoundBtn = (nextNotPrev: boolean) => {
-    const seasonData = round.season === 6 ? season6Data : season7Data
+    const seasonData = DataGod.getSeasonData(round.season)
     const roundIndex = seasonData.findIndex((r) => r.round === round.round)
     const nextRound = seasonData[roundIndex + 1]
     const prevRound = seasonData[roundIndex - 1]
@@ -179,11 +181,13 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
           backgroundImage: `url(${courseFullImgLink.replaceAll('<COURSE>', courseAlias)})`
         }}
       >
-        <div className="w-auto mt-40">
-          {podiumSectionEl(podium.gold, '🏆')}
-          {podiumSectionEl(podium.silver, '🥈')}
-          {podiumSectionEl(podium.bronze, '🥉')}
-        </div>
+        {!upcomingRound && (
+          <div className="w-auto mt-40">
+            {podiumSectionEl(podium.gold, '🏆')}
+            {podiumSectionEl(podium.silver, '🥈')}
+            {podiumSectionEl(podium.bronze, '🥉')}
+          </div>
+        )}
       </div>
       {/* ***** PROBLEM DIV - TAILWIND IS STUUUPID ***** */}
       {/* ********** EASY / HARD COURSE LABELS ********** */}
@@ -207,14 +211,16 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse }) =>
         className="w-full md:w-3/4 max-w-xl px-1 mt-6
           flex flex-wrap justify-evenly items-center"
       >
-        {(Object.keys(modes) as RoundDetailsMode[]).map((m) => (
-          <RoundDetailBtn
-            key={`mode-btn-${m}`}
-            season={round.season}
-            btnText={modes[m]}
-            btnMode={m}
-          />
-        ))}
+        {!upcomingRound &&
+          (Object.keys(modes) as RoundDetailsMode[]).map((m) => (
+            <RoundDetailBtn
+              key={`mode-btn-${m}`}
+              season={round.season}
+              btnText={modes[m]}
+              btnMode={m}
+            />
+          ))}
+        {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />}
       </div>
     </div>
   )

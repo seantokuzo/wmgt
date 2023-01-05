@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { courseData } from 'data/course-data/wmgt-course-data'
-import { season7Data } from 'data/round-data/s7-round-data'
-import { season6Data } from 'data/round-data/s6-round-data'
 import { DataGod } from 'data/dataGod'
 import { nanoid } from 'nanoid'
+import { CURRENT_SEASON } from 'utils/constants'
 
 type Props = {
   season: number
 }
 
 const SeasonMenu: React.FC<Props> = ({ season }) => {
-  const seasonData = season === 7 ? season7Data : season === 6 ? season6Data : undefined
+  const seasonData = DataGod.getSeasonData(season)
 
   const { darkMode } = useAppContext()
   const { changeRoundDetailsMode, viewFrontNine, viewScorecard } = useSeasonContext()
@@ -24,7 +23,13 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
     // eslint-disable-next-line
   }, [])
 
-  const menuColors = (menuPart: 'outer' | 'bg-shadow' | 'round' | 'top-course') => {
+  const menuColors = (
+    menuPart: 'outer' | 'bg-shadow' | 'round' | 'top-course',
+    upcomingRound = false
+  ) => {
+    if (upcomingRound) {
+      return `border-2 brdr-s${season} bg-sh-s${season}`
+    }
     if (menuPart === 'outer') {
       return `brdr-s${season} bg-trans-s${season}`
     }
@@ -32,7 +37,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
       return `bg-sh-s${season}`
     }
     if (menuPart === 'round') {
-      return `bg-sh-s${season}`
+      return `border-l-2 brdr-s${season} bgfade-s${season}`
     }
     if (menuPart === 'top-course') {
       return `brdr-s${season}`
@@ -42,7 +47,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
   return (
     <div
       className={`w-full max-w-2xl rounded-lg px-2 py-4 my-6
-      font-scorenum uppercase text-center
+      font-scorenum text-center
       border-4 ${menuColors('outer')}
       last:mb-14
       flex flex-col justify-center items-center`}
@@ -52,24 +57,46 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
         text-3xl font-semibold
         rounded-md border-2
         shadow-basic
+        uppercase
         brdr-s${season}
         ${darkMode ? 'bg-black' : 'bg-white'}`}
       >
         {`SEASON ${season}`}
       </div>
+      {season !== CURRENT_SEASON && <div className="text-4xl mt-4">🏆</div>}
       {DataGod.getSeasonWinner(season).map((winner) => {
+        if (winner.flag === 'derp') {
+          return (
+            <div
+              key={nanoid()}
+              className={`mt-6 px-8 py-2
+              bgfade-s${season} border-black border-4 rounded-md
+              font-bold
+              flex flex-col jsutify-center items-center`}
+            >
+              {/* <div>{winner.player}</div> */}
+              <div>Current Round: {seasonData.length}</div>
+            </div>
+          )
+        }
         return (
-          <div className="flex" key={nanoid()}>
-            <div>{winner.flag}</div>
-            <div>{winner.player}</div>
+          <div
+            className="mt-4 px-8 py-2
+            bg-sh-gold brdr-gold border-2 rounded-md
+            flex justify-center items-center"
+            key={nanoid()}
+          >
+            {winner.flag && <div className="mr-4 text-2xl">{winner.flag}</div>}
+            <div className="text-2xl font-bold text-black">{winner.player}</div>
+            {winner.flag && <div className="ml-4 text-2xl">{winner.flag}</div>}
           </div>
         )
       })}
       <Link
         to={`/season/s${season}-summary`}
-        className={`w-max my-8 py-2 px-6
+        className={`w-max my-6 py-2 px-6
         text-lg font-semibold
-        rounded-md
+        rounded-md uppercase
         ${menuColors('bg-shadow')}
         hover:scale-105`}
       >
@@ -81,7 +108,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
           <h2 className="text-2xl font-semibold my-3">ROUND RESULTS</h2>
           <div
             className="w-full
-        flex flex-wrap justify-evenly items-center"
+            flex flex-wrap justify-evenly items-center"
           >
             {seasonData.map((round, i) => {
               const easyMoji = courseData.filter((c) => c.alias === round.easyCourse)[0].courseMoji
@@ -92,7 +119,10 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
                   className={`mx-2 my-3 px-4 py-2 rounded-lg
                   font-bold
                   flex flex-col justify-center items-center
-                  ${menuColors('round')}
+                  ${menuColors(
+                    'round',
+                    round.scores.length === 0 && round.season === CURRENT_SEASON
+                  )}
                   hover:scale-105`}
                   key={`${round.easyCourse}-${i}`}
                 >
