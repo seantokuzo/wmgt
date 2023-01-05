@@ -122,8 +122,9 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
             key={nanoid()}
           >
             <div
-              className={`w-min ml-1 ${windowSize.width >= 768 && 'flip'}`}
-              style={windowSize.width >= 768 ? { animationDelay: i * 500 + 'ms' } : {}}
+              className="w-min ml-1"
+              // className={`w-min ml-1 block ${windowSize.width >= 768 && 'flip'}`}
+              // style={windowSize.width >= 768 ? { animationDelay: i * 500 + 'ms' } : {}}
             >
               {medal}
             </div>
@@ -182,7 +183,7 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
         }}
       >
         {!upcomingRound && (
-          <div className="w-auto mt-40">
+          <div className="w-auto">
             {podiumSectionEl(podium.gold, '🏆')}
             {podiumSectionEl(podium.silver, '🥈')}
             {podiumSectionEl(podium.bronze, '🥉')}

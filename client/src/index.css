@@ -380,13 +380,14 @@
 /* ******************************** */
 .flip {
   animation: flip 4000ms linear infinite;
+  -webkit-animation: flip 4000ms linear infinite;
 }
 
 @keyframes flip {
   0% {
-    transform: rotateY(0turn);
+    transform: rotateY(0deg);
   }
   100% {
-    transform: rotateY(1turn);
+    transform: rotateY(360deg);
   }
 }
