@@ -14,7 +14,7 @@ import { SeasonContextProvider } from 'context/season/seasonContext'
 import { useEffect } from 'react'
 import { season6Data } from 'data/round-data/s6-round-data'
 import SeasonSummary from 'components/season/summary/SeasonSummary'
-import DataTester from 'DataTester'
+// import DataTester from 'DataTester'
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
 
@@ -106,7 +106,7 @@ function App() {
         </Route>
         <Route path="player" element={<Player />} />
       </Routes>
-      <DataTester />
+      {/* <DataTester /> */}
     </div>
   )
 }

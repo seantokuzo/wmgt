@@ -1,7 +1,6 @@
 import { RoundDetailsMode } from 'context/season/seasonContext'
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
 import { allPlayersList, PlayerInterface } from './player-data/AllPlayersList'
-import { flagConverter } from './player-data/AllPlayersListRawFlag'
 import { PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
 import { season1OfficialResults } from './season-data/season1OfficialResults'
 import { season2OfficialResults } from './season-data/season2OfficialResults'
@@ -279,6 +278,7 @@ export abstract class DataGod {
     const goldMembers = roundObject.scores.filter((score) => score.roundRank === 1)
     const silverMembers = roundObject.scores.filter((score) => score.roundRank === 2)
     const bronzeMembers = roundObject.scores.filter((score) => score.roundRank === 3)
+
     const getFinishers = (members: [] | PlayerRoundInterface[]) => {
       return members.length === 0
         ? []
@@ -438,7 +438,7 @@ export abstract class DataGod {
     )[0]
     if (knownPlayer) {
       return {
-        player: player.player,
+        player: knownPlayer.player,
         totalPoints: player.seasonPoints,
         roundPoints: player.pointsByRound,
         flag: knownPlayer.flag

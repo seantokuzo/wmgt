@@ -75,8 +75,6 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
     )
   }
 
-  console.log(selectedHole)
-
   return (
     <div
       className="w-full max-w-6xl mt-5

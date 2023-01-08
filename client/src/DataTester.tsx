@@ -17,8 +17,8 @@
 // ****************************
 // import { checkScores, convertRawRoundData } from './data/in_progress/s6r12_raw-data'
 // import { convertRawRoundData } from './data/in_progress/s6r12_raw-data'
-import { checkScores } from './data/in_progress/s6r12_raw-data'
-checkScores(10)
+// import { checkScores } from './data/in_progress/s6r12_raw-data'
+// checkScores(10)
 // convertRawRoundData()
 // *******************************************************************
 
