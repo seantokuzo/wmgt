@@ -10,7 +10,6 @@ import { RoundDataInterface } from 'data/round-data/roundTypes'
 import CourseStats from './courseStats'
 import { Link } from 'react-router-dom'
 import HoleImg from 'components/HoleImg'
-import { useAppContext } from 'context/appContext'
 
 type Props = {
   course: CourseInterface
@@ -40,7 +39,6 @@ type StatTypes =
   | 'S7_ACES'
 
 const CourseDetails: React.FC<Props> = ({ course }) => {
-  const { windowSize } = useAppContext()
   const [selectedStat, setSelectedStat] = useState<StatTypes>('default')
   const [selectedHole, setSelectedHole] = useState<Hole>('')
 

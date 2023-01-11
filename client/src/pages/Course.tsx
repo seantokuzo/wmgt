@@ -17,7 +17,8 @@ const Course: React.FC = () => {
 
   return (
     <div
-      className={`w-full max-w-full bg-no-repeat bg-cover bg-center
+      className={`w-full max-w-7xl bg-no-repeat bg-cover bg-center
+      sh-basic
       flex flex-col justify-center items-center
       ${bgHeight}`}
       style={{
