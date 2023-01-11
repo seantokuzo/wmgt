@@ -1,3 +1,4 @@
+import { allPlayersList } from './AllPlayersList'
 import { season6PlayerList } from './season6FinalPlayerList'
 import { season7PlayerList } from './season7PlayerList'
 
@@ -50,9 +51,16 @@ export const getComboList = () => {
   const comboListFlags = comboList.map((player) => {
     return {
       player: player.player,
-      flag: flagConverter.filter((f) => f.link === player.flag)[0].flag
+      flag: flagConverter.filter((f) => f.link === player.flag)[0]
+        ? flagConverter.filter((f) => f.link === player.flag)[0].flag
+        : ''
     }
   })
+  const addedPlayers = comboListFlags.filter((p) => {
+    return allPlayersList.findIndex((player) => player.player === p.player) < 0
+  })
+
+  console.log('Added Players:', addedPlayers)
   console.log('Renamed Players: ', renamedPlayers)
   console.log('Combo List: ', comboListFlags)
 }

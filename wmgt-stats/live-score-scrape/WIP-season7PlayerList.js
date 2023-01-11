@@ -1,6 +1,4 @@
-import { PlayerInterface } from './AllPlayersList'
-
-export const season7PlayerList: PlayerInterface[] = [
+export const season7PlayerList = [
   {
     player: 'INDY',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'

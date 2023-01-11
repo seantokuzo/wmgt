@@ -2,6 +2,7 @@ import { useAppContext } from 'context/appContext'
 import { DataGod } from 'data/dataGod'
 import { SeasonPointsData } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
+import { CURRENT_SEASON } from 'utils/constants'
 
 export const rankStyle = (rank: number) => {
   return rank === 1
@@ -49,7 +50,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
   const { userPlayer } = useAppContext()
   // const seasonPointsData = DataGod.getSeasonSummaryPlayerPoints(season)
   const seasonPointsData =
-    season === 7
+    season === CURRENT_SEASON
       ? DataGod.getSeasonSummaryPlayerPoints(season)
       : DataGod.getSeasonSummaryFromOfficialResults(season)
 

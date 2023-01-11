@@ -2,7 +2,9 @@ const rowIds = {
   season3: '1124685350',
   season4: '742692426',
   season5: '842171123',
-  season6: '438689134'
+  season6: '438689134',
+  season6: '438689134',
+  season7: '261679476'
 }
 
 const getPlayerList = (rowId, firstRow, collection = []) => {
@@ -70,3 +72,4 @@ const getPlayerList = (rowId, firstRow, collection = []) => {
 // console.log(getPlayerList(rowIds.season4, 6))
 // console.log(getPlayerList(rowIds.season5, 6))
 // console.log(getPlayerList(rowIds.season6, 6))
+console.log(getPlayerList(rowIds.season7, 6))

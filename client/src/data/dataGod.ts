@@ -8,6 +8,7 @@ import { season3OfficialResults } from './season-data/season3OfficialResults'
 import { season4OfficialResults } from './season-data/season4OfficialResults'
 import { season5OfficialResults } from './season-data/season5OfficialResults'
 import { season6OfficialResults } from './season-data/season6OfficialResults'
+import { season7OfficialResults } from './season-data/season7OfficialResults'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
 import {
@@ -426,7 +427,7 @@ export abstract class DataGod {
       case 6:
         return season6OfficialResults
       default:
-        return season6OfficialResults
+        return season7OfficialResults
     }
   }
 
