@@ -4,6 +4,7 @@ import { DataGod } from 'data/dataGod'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
+import { CURRENT_SEASON } from 'utils/constants'
 
 type Props = {
   season: number
@@ -14,7 +15,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
   const { userPlayer } = useAppContext()
   // const seasonPointsData = DataGod.getSeasonSummaryPlayerPoints(season)
   const seasonPointsData =
-    season === 7
+    season === CURRENT_SEASON
       ? DataGod.getSeasonSummaryPlayerPoints(season)
       : DataGod.getSeasonSummaryFromOfficialResults(season)
 
