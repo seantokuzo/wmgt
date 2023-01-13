@@ -2,6 +2,7 @@ import { useAppContext } from 'context/appContext'
 import { DataGod } from 'data/dataGod'
 import { SeasonPointsData } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
+import { Link } from 'react-router-dom'
 import { CURRENT_SEASON } from 'utils/constants'
 
 export const rankStyle = (rank: number) => {
@@ -107,7 +108,8 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
           {player.totalPoints}
         </div>
         {player.roundPoints.map((point, i) => (
-          <div
+          <Link
+            to={`/season/s${season}r${i + 1}`}
             className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
               ${
                 DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
@@ -116,7 +118,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
             key={nanoid()}
           >
             {point}
-          </div>
+          </Link>
         ))}
       </div>
     )

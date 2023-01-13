@@ -114,6 +114,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
           >
             {/* POINTS */}
             <div className="w-full px-2 flex justify-between items-center">
+              {/* IF SEASON 7 MAKE ROUND POINT BOXES LINK TO ROUND DETAILS PAGES */}
               {season === 7 &&
                 player.roundPoints.map((point, i) => (
                   <Link
@@ -128,15 +129,16 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
                     </div>
                     <div
                       className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
-                  ${
-                    DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
-                    'opacity-25'
-                  }`}
+                      ${
+                        DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
+                        'opacity-25'
+                      }`}
                     >
                       {point}
                     </div>
                   </Link>
                 ))}
+              {/* IF NOT SEASON 7 NO LINKS TO ROUND DETAILS */}
               {season !== 7 &&
                 player.roundPoints.map((point, i) => (
                   <div
