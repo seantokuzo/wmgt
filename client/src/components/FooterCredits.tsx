@@ -5,10 +5,10 @@ const FooterCredits = () => {
   const statGOAT = (GOAT: string) => {
     return (
       <div
-        className="px-4 py-1
+        className="mx-1 px-4 py-1 min-w-[5rem]
         bg-sh-gold
         border-2 brdr-gold rounded-md
-        text-black font-bold font-scorenum"
+        text-black font-bold font-scorenum text-center"
       >
         {GOAT}
       </div>
@@ -21,7 +21,9 @@ const FooterCredits = () => {
         className="text-xxs md:text-xs
         flex justify-between items-center"
       >
-        {statGOAT('Crudzilla')}
+        {statGOAT('ElJorge')}
+        {statGOAT('steven_T')}
+        {statGOAT('FIRE_321')}
         <div className="w-max flex justify-center items-center mx-6 md:mx-10 lg:mx-12 text-center">
           {windowSize.width < 768 ? (
             <div className="flex flex-col">
@@ -32,7 +34,9 @@ const FooterCredits = () => {
             <div className="">Powered with stats by</div>
           )}
         </div>
-        {statGOAT('steven_T')}
+        {statGOAT('Mau')}
+        {statGOAT('Crudzilla')}
+        {statGOAT('ichibuho')}
       </div>
     </footer>
   )

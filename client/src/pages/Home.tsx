@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         <PageLink path="course" />
         <PageLink path="player" />
       </nav>
-      <FooterCredits />
+      {/* <FooterCredits /> */}
     </div>
   )
 }
