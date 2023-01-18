@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import SeasonMenu from '../components/season/SeasonMenu'
 import { useEffect } from 'react'
 import { useSeasonContext } from 'context/season/seasonContext'
+import { CURRENT_SEASON } from 'utils/constants'
 
 const Season: React.FC = () => {
   const { pathname } = useLocation()
@@ -18,6 +19,7 @@ const Season: React.FC = () => {
     <div className="w-full flex flex-col justify-center items-center">
       {pathname === '/season' && (
         <>
+          <SeasonMenu season={CURRENT_SEASON} />
           <SeasonMenu season={7} />
           <SeasonMenu season={6} />
           <SeasonMenu season={5} />

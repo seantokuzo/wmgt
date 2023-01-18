@@ -11,6 +11,7 @@ import { season6OfficialResults } from './season-data/season6OfficialResults'
 import { season7OfficialResults } from './season-data/season7OfficialResults'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
+import { season8Data } from './round-data/s8-round-data'
 import {
   PlayerSeasonResultsOfficial,
   SeasonResultsOfficial
@@ -28,6 +29,8 @@ export abstract class DataGod {
   // PRIVATE UTIL METHODS * PRIVATE UTIL METHODS * PRIVATE UTIL METHODS
   static getSeasonData(season: number) {
     switch (season) {
+      case 8:
+        return season8Data
       case 7:
         return season7Data
       case 6:

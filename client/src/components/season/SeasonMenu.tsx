@@ -72,10 +72,11 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
               className={`mt-6 px-8 py-2
               bgfade-s${season} border-black border-4 rounded-md
               font-bold
-              flex flex-col jsutify-center items-center`}
+              flex flex-col justify-center items-center`}
             >
               {/* <div>{winner.player}</div> */}
-              <div>Current Round: {seasonData.length}</div>
+              <div>Current Round</div>
+              <div className="text-2xl">{seasonData.length}</div>
             </div>
           )
         }
@@ -102,7 +103,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
       >
         Season Summary
       </Link>
-      {seasonData && (
+      {seasonData.length > 0 && (
         <>
           <div className={`w-3/4 my-2 ${menuColors('outer')} border-2`}></div>
           <h2 className="text-2xl font-semibold my-3">ROUND RESULTS</h2>

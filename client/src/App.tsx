@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Course from 'pages/Course'
 import CourseDetails from 'components/course/CourseDetails'
@@ -5,15 +6,15 @@ import Header from 'components/Header'
 import Home from 'pages/Home'
 import Player from 'pages/Player'
 import Season from 'pages/Season'
+import RoundDetails from 'components/season/round-details/RoundDetails'
+import SeasonSummary from 'components/season/summary/SeasonSummary'
+import { SeasonContextProvider } from 'context/season/seasonContext'
+import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
 import { courseData } from 'data/course-data/wmgt-course-data'
-import { nanoid } from 'nanoid'
-import { season7Data } from 'data/round-data/s7-round-data'
-import RoundDetails from 'components/season/round-details/RoundDetails'
-import { SeasonContextProvider } from 'context/season/seasonContext'
-import { useEffect } from 'react'
 import { season6Data } from 'data/round-data/s6-round-data'
-import SeasonSummary from 'components/season/summary/SeasonSummary'
+import { season7Data } from 'data/round-data/s7-round-data'
+import { season8Data } from 'data/round-data/s8-round-data'
 import DataTester from 'DataTester'
 
 export type PagePath = '/' | 'season' | 'course' | 'player'
@@ -64,6 +65,15 @@ function App() {
             </SeasonContextProvider>
           }
         >
+          {/* SEASON 8 ROUTES */}
+          <Route path="s8-summary" element={<SeasonSummary season={8} />} />
+          {season8Data.map((round) => (
+            <Route
+              path={`s${round.season}r${round.round}`}
+              element={<RoundDetails round={round} />}
+              key={nanoid()}
+            />
+          ))}
           {/* SEASON 7 ROUTES */}
           <Route path="s7-summary" element={<SeasonSummary season={7} />} />
           {season7Data.map((round) => (
