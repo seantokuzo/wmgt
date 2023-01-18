@@ -8,6 +8,7 @@ import Player from 'pages/Player'
 import Season from 'pages/Season'
 import RoundDetails from 'components/season/round-details/RoundDetails'
 import SeasonSummary from 'components/season/summary/SeasonSummary'
+import WhereArtThou from 'pages/WhereArtThou'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
@@ -66,7 +67,10 @@ function App() {
           }
         >
           {/* SEASON 8 ROUTES */}
-          <Route path="s8-summary" element={<SeasonSummary season={8} />} />
+
+          {/* ADD THIS AFTER ROUND 1 OFFICIAL RESULTS ADD */}
+          {/* <Route path="s8-summary" element={<SeasonSummary season={8} />} /> */}
+
           {season8Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
@@ -115,6 +119,7 @@ function App() {
           ))}
         </Route>
         <Route path="player" element={<Player />} />
+        <Route path="*" element={<WhereArtThou />} />
       </Routes>
       <DataTester />
     </div>

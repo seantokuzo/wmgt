@@ -93,19 +93,25 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
           </div>
         )
       })}
-      <Link
-        to={`/season/s${season}-summary`}
-        className={`w-max my-6 py-2 px-6
+      {/* TODO */}
+      {/* DELETE CONDITIONAL ONCE S8 HAS SOME SUMMARY DATA */}
+      {season !== 8 && (
+        <Link
+          to={`/season/s${season}-summary`}
+          className={`w-max my-6 py-2 px-6
         text-lg font-semibold
         rounded-md uppercase
         ${menuColors('bg-shadow')}
         hover:scale-105`}
-      >
-        Season Summary
-      </Link>
+        >
+          Season Summary
+        </Link>
+      )}
       {seasonData.length > 0 && (
         <>
-          <div className={`w-3/4 my-2 ${menuColors('outer')} border-2`}></div>
+          {/* TODO */}
+          {/* DELETE CONDITIONAL ONCE S8 HAS SOME SUMMARY DATA */}
+          {season !== 8 && <div className={`w-3/4 my-2 ${menuColors('outer')} border-2`}></div>}
           <h2 className="text-2xl font-semibold my-3">ROUND RESULTS</h2>
           <div
             className="w-full
