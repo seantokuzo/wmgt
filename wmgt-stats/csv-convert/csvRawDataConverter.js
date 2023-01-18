@@ -6,8 +6,8 @@ import { allPlayersList } from './AllPlayersList.js'
 
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 
-const easyCourse = courseData.filter((c) => c.alias === 'SLE')[0]
-const hardCourse = courseData.filter((c) => c.alias === 'GBH')[0]
+const easyCourse = courseData.filter((c) => c.alias === 'QVE')[0]
+const hardCourse = courseData.filter((c) => c.alias === 'OGH')[0]
 
 const checkScores = (csvData) => {
   const duplicatePlayers = csvData.reduce((acc, curr, i) => {
@@ -144,8 +144,8 @@ const convertRawRoundData = (csvData) => {
 // checkScores(s7r12csvData)
 // convertRawRoundData(s7r12csvData)
 
-// checkScores(s6r9csvData)
-// convertRawRoundData(s6r9csvData)
+checkScores(s6r9csvData)
+convertRawRoundData(s6r9csvData)
 
-checkScores(s6r8csvData)
-convertRawRoundData(s6r8csvData)
+// checkScores(s6r8csvData)
+// convertRawRoundData(s6r8csvData)
