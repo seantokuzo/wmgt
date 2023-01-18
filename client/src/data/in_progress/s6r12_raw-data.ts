@@ -1758,22 +1758,7 @@ export const season6RawData: RawRoundData[] = [
       }
     ]
   },
-  // {
-  //   season: 6,
-  //   round: 9,
-  //   easyCourse: 'QVE',
-  //   hardCourse: 'OGH',
-  //   scores: [
-  //     {
-  //       player: '',
-  //       group: 0,
-  //       easyScorecard: [],
-  //       easyRoundScore: 0,
-  //       hardScorecard: [],
-  //       hardRoundScore: 0
-  //     },
-  //   ]
-  // },
+  // { season: 6, round: 9, easyCourse: 'QVE', hardCourse: 'OGH', scores: [] },
   // { season: 6, round: 8, easyCourse: 'SLE', hardCourse: 'GBH', scores: [] },
   // { season: 6, round: 7, easyCourse: 'LBE', hardCourse: 'CBH', scores: [] },
   // { season: 6, round: 6, easyCourse: 'EDE', hardCourse: 'BBH', scores: [] },
