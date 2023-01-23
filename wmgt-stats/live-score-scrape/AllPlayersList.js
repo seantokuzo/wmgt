@@ -1,9 +1,4 @@
-export interface PlayerInterface {
-  player: string
-  flag: string
-}
-
-export const allPlayersList: PlayerInterface[] = [
+export const allPlayersList = [
   {
     player: 'INDY',
     flag: '🇺🇸'
@@ -69,7 +64,7 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'Rolyt',
+    player: 'rolyt',
     flag: '🇺🇸'
   },
   {
@@ -105,11 +100,11 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'KCROB',
+    player: 'KCRob',
     flag: '🇺🇸'
   },
   {
-    player: 'SqueezyJibbZ',
+    player: 'Squeezy_JibbZ',
     flag: '🇵🇳'
   },
   {
@@ -181,11 +176,11 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'RaineDrop184',
+    player: 'rainedrop184',
     flag: '🇺🇸'
   },
   {
-    player: '4whlr',
+    player: '4Whlr',
     flag: '🇺🇸'
   },
   {
@@ -433,7 +428,7 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'Southern_jenn_76',
+    player: 'southren_jenn_76',
     flag: '🇺🇸'
   },
   {
@@ -685,127 +680,11 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'FugoHallarin#7863',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'NERD_HULK_HOGAN',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'akamiked#7904',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'crowsteve',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Ptarmigan61',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'CHI CHI RODRIGUEZ',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'gavinthehole',
-    flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
-  },
-  {
-    player: 'Kinghenryclub',
-    flag: '🇦🇺'
-  },
-  {
-    player: 'TheRick',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'HunterT',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Iro',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'seppe',
-    flag: '🇵🇪'
-  },
-  {
-    player: 'SherlockJake',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'AvaKor',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'PlanetXtreme',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'WaltSobchak',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Asylum',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'DarthGrogu187',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Karrrrrrdo',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'MaxPikachu',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Philadelphia1510',
+    player: 'Seve',
     flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿'
   },
   {
-    player: 'ReflectingStorms',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'SoupSpoon#5195',
-    flag: '🇨🇦'
-  },
-  {
-    player: 'Talisman-',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Birdie1951',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Davex73',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Derrick.healey5',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Kirbo',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'Olsums',
-    flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
-  },
-  {
-    player: 'Southern_jenn_76',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'VegasPickles',
-    flag: '🇺🇸'
+    player: 'Ronsgard',
+    flag: '🇳🇴'
   }
 ]

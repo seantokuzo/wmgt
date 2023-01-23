@@ -35,19 +35,19 @@
 // ****************************
 // FLAG CONVERSION
 // ****************************
-// import { flagConverter, allPlayersListRawFlag } from 'data/player-data/AllPlayersListRawFlag'
-// const notFound = allPlayersListRawFlag.filter(
-//   (player) => !flagConverter.some((p) => p.link === player.flag)
-// )
-// console.log('Flag Not Found: ', notFound)
-// const withFlag = allPlayersListRawFlag.map((player) => {
-//   return {
-//     player: player.player,
-//     flag: flagConverter.filter((flag) => flag.link === player.flag)[0].flag
-//   }
-// })
-// console.log(allPlayersListRawFlag.length)
-// console.log(withFlag)
+import { flagConverter, allPlayersListRawFlag } from 'data/player-data/AllPlayersListRawFlag'
+const notFound = allPlayersListRawFlag.filter(
+  (player) => !flagConverter.some((p) => p.link === player.flag)
+)
+console.log('Flag Not Found: ', notFound)
+const withFlag = allPlayersListRawFlag.map((player) => {
+  return {
+    player: player.player,
+    flag: flagConverter.filter((flag) => flag.link === player.flag)[0].flag
+  }
+})
+console.log(allPlayersListRawFlag.length)
+console.log(withFlag)
 // *******************************************************************
 
 const DataTester = () => {

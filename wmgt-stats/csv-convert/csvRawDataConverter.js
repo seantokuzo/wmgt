@@ -1,6 +1,6 @@
-import { s7r12csvData } from './s7r12-raw-data.js'
-import { s6r9csvData } from './s6r9-raw-data.js'
-import { s6r8csvData } from './s6r8-raw-data.js'
+// import { s7r12csvData } from './s7r12-raw-data.js'
+// import { s6r9csvData } from './s6r9-raw-data.js'
+// import { s6r8csvData } from './s6r8-raw-data.js'
 import { courseData } from './wmgt-course-data.js'
 import { allPlayersList } from './AllPlayersList.js'
 

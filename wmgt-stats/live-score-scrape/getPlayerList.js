@@ -4,7 +4,8 @@ console.log(season7PlayerList.length)
 
 const rowIds = {
   season6: '261679476',
-  season7: '261679476'
+  season7: '261679476',
+  season8: '261679476'
 }
 
 const getPlayerList = (rowId, firstRow, collection = []) => {
