@@ -4,7 +4,6 @@ import { DataGod } from 'data/dataGod'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
-import { CURRENT_SEASON } from 'utils/constants'
 
 type Props = {
   season: number
@@ -15,7 +14,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
   const { userPlayer } = useAppContext()
   // const seasonPointsData = DataGod.getSeasonSummaryPlayerPoints(season)
   const seasonPointsData =
-    season === CURRENT_SEASON
+    season === 9
       ? DataGod.getSeasonSummaryPlayerPoints(season)
       : DataGod.getSeasonSummaryFromOfficialResults(season)
 
@@ -115,7 +114,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
             {/* POINTS */}
             <div className="w-full px-2 flex justify-between items-center">
               {/* IF SEASON 7 MAKE ROUND POINT BOXES LINK TO ROUND DETAILS PAGES */}
-              {season === 7 &&
+              {(season === 7 || season === 8) &&
                 player.roundPoints.map((point, i) => (
                   <Link
                     to={`/season/s${season}r${i + 1}`}
@@ -140,6 +139,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
                 ))}
               {/* IF NOT SEASON 7 NO LINKS TO ROUND DETAILS */}
               {season !== 7 &&
+                season !== 8 &&
                 player.roundPoints.map((point, i) => (
                   <div
                     className="w-fit flex flex-col justify-center items-center"

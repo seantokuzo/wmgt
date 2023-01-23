@@ -9,6 +9,7 @@ import { season4OfficialResults } from './season-data/season4OfficialResults'
 import { season5OfficialResults } from './season-data/season5OfficialResults'
 import { season6OfficialResults } from './season-data/season6OfficialResults'
 import { season7OfficialResults } from './season-data/season7OfficialResults'
+import { season8OfficialResults } from './season-data/season8OfficialResults'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
 import { season8Data } from './round-data/s8-round-data'
@@ -50,7 +51,10 @@ export abstract class DataGod {
     if (round.season === 6) {
       return season6Data.filter((r) => r.round === round.round)[0]
     }
-    return season7Data.filter((r) => r.round === round.round)[0]
+    if (round.season === 7) {
+      return season7Data.filter((r) => r.round === round.round)[0]
+    }
+    return season8Data.filter((r) => r.round === round.round)[0]
   }
 
   private static getRoundFromRoundNum(seasonData: RoundDataInterface[], round: number) {
@@ -429,8 +433,10 @@ export abstract class DataGod {
         return season5OfficialResults
       case 6:
         return season6OfficialResults
-      default:
+      case 7:
         return season7OfficialResults
+      default:
+        return season8OfficialResults
     }
   }
 

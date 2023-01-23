@@ -64,7 +64,7 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'rolyt',
+    player: 'Rolyt',
     flag: '🇺🇸'
   },
   {
@@ -100,11 +100,11 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'KCRob',
+    player: 'KCROB',
     flag: '🇺🇸'
   },
   {
-    player: 'Squeezy_JibbZ',
+    player: 'SqueezyJibbZ',
     flag: '🇵🇳'
   },
   {
@@ -176,11 +176,11 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'rainedrop184',
+    player: 'RaineDrop184',
     flag: '🇺🇸'
   },
   {
-    player: '4Whlr',
+    player: '4whlr',
     flag: '🇺🇸'
   },
   {
@@ -425,10 +425,6 @@ export const allPlayersList = [
   },
   {
     player: 'miketunes',
-    flag: '🇺🇸'
-  },
-  {
-    player: 'southren_jenn_76',
     flag: '🇺🇸'
   },
   {
@@ -680,11 +676,127 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'Seve',
+    player: 'FugoHallarin#7863',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'NERD_HULK_HOGAN',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'akamiked#7904',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'crowsteve',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Ptarmigan61',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'CHI CHI RODRIGUEZ',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'gavinthehole',
+    flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
+  },
+  {
+    player: 'Kinghenryclub',
+    flag: '🇦🇺'
+  },
+  {
+    player: 'TheRick',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'HunterT',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Iro',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'seppe',
+    flag: '🇵🇪'
+  },
+  {
+    player: 'SherlockJake',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'AvaKor',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'PlanetXtreme',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'WaltSobchak',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Asylum',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'DarthGrogu187',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Karrrrrrdo',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'MaxPikachu',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Philadelphia1510',
     flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿'
   },
   {
-    player: 'Ronsgard',
-    flag: '🇳🇴'
+    player: 'ReflectingStorms',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'SoupSpoon#5195',
+    flag: '🇨🇦'
+  },
+  {
+    player: 'Talisman-',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Birdie1951',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Davex73',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Derrick.healey5',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Kirbo',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Olsums',
+    flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
+  },
+  {
+    player: 'Southern_jenn_76',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'VegasPickles',
+    flag: '🇺🇸'
   }
 ]

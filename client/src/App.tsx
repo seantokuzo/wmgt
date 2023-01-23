@@ -69,8 +69,7 @@ function App() {
           {/* SEASON 8 ROUTES */}
 
           {/* ADD THIS AFTER ROUND 1 OFFICIAL RESULTS ADD */}
-          {/* <Route path="s8-summary" element={<SeasonSummary season={8} />} /> */}
-
+          <Route path="s8-summary" element={<SeasonSummary season={8} />} />
           {season8Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}

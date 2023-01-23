@@ -801,11 +801,11 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
   },
   {
-    player: 'Southern_jenn_76',
+    player: 'VegasPickles',
     flag: '🇺🇸'
   },
   {
-    player: 'VegasPickles',
-    flag: '🇺🇸'
+    player: 'Ronsgard',
+    flag: '🇳🇴'
   }
 ]
