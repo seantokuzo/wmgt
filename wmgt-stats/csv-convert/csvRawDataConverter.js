@@ -1,4 +1,5 @@
-import { s6r7csvData } from './s6r7-raw-data.js'
+import { s6r6csvData } from './s6r6-raw-data.js'
+// import { s6r7csvData } from './s6r7-raw-data.js'
 // import { s6r8csvData } from './s6r8-raw-data.js'
 // import { s6r9csvData } from './s6r9-raw-data.js'
 // import { s7r12csvData } from './s7r12-raw-data.js'
@@ -8,8 +9,8 @@ import { allPlayersList } from './AllPlayersList.js'
 
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 
-const easyCourse = courseData.filter((c) => c.alias === 'LBE')[0]
-const hardCourse = courseData.filter((c) => c.alias === 'CBH')[0]
+const easyCourse = courseData.filter((c) => c.alias === 'EDE')[0]
+const hardCourse = courseData.filter((c) => c.alias === 'BBH')[0]
 
 const checkScores = (csvData) => {
   const duplicatePlayers = csvData.reduce((acc, curr, i) => {
@@ -155,5 +156,8 @@ const convertRawRoundData = (csvData) => {
 // checkScores(s6r8csvData)
 // convertRawRoundData(s6r8csvData)
 
-checkScores(s6r7csvData)
-convertRawRoundData(s6r7csvData)
+// checkScores(s6r7csvData)
+// convertRawRoundData(s6r7csvData)
+
+checkScores(s6r6csvData)
+convertRawRoundData(s6r6csvData)

@@ -685,7 +685,7 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'FugoHallarin#7863',
+    player: 'FugoHallarin',
     flag: '🇺🇸'
   },
   {
@@ -693,7 +693,7 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'akamiked#7904',
+    player: 'akamiked',
     flag: '🇺🇸'
   },
   {
@@ -774,6 +774,10 @@ export const allPlayersList: PlayerInterface[] = [
   },
   {
     player: 'SoupSpoon#5195',
+    flag: '🇨🇦'
+  },
+  {
+    player: 'SoupSpoon',
     flag: '🇨🇦'
   },
   {
