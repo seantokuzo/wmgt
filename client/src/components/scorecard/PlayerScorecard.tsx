@@ -13,7 +13,7 @@ type Props = {
   acesData?: { easyCourseNumAces: number[]; hardCourseNumAces: number[] }
 }
 
-export const holeNameParColWidth = 'w-[25%] sm:w-[25%] md:w-[25%] lg:w-[24%] pr-2 flex justify-end'
+export const holeNameParColWidth = 'w-[25%] sm:w-[25%] md:w-[25%] lg:w-[26%] pr-2 flex justify-end'
 
 const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData }) => {
   const { userPlayer, darkMode, windowSize } = useAppContext()
@@ -102,8 +102,6 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
   ]
 
   const season = +pathname.split('/season/')[1].split('r')[0].split('s')[1]
-
-  const seasonColor = season === 7 ? 'indigo-500' : season === 6 ? 'emerald-500' : 'emerald-500'
 
   return (
     <div

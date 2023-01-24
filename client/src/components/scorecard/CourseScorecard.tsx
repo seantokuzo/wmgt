@@ -235,7 +235,11 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
         <div className="w-12 sm:w-14 md:w-18 lg:w-20 text-xs text-center"></div>
       </div>
       {/* ****** PARS ROW ****** */}
-      <div className="w-full text-xs flex justify-between items-center px-0 sm:px-2 md:px-0">
+      <div
+        className="w-full px-0 sm:px-2 md:px-0
+        text-xs
+        flex justify-between items-center "
+      >
         <div className={`${holeNameParColWidth} text-xs`}>PAR</div>
         <div className="w-full flex justify-between items-center sm:px-2">
           {holesToMap.map((par) => (

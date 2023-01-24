@@ -106,19 +106,33 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         >
           {player.totalPoints}
         </div>
-        {player.roundPoints.map((point, i) => (
-          <Link
-            to={`/season/s${season}r${i + 1}`}
-            className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
+        {(season === 7 || season === 8) &&
+          player.roundPoints.map((point, i) => (
+            <Link
+              to={`/season/s${season}r${i + 1}`}
+              className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
               ${
                 DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
                 'opacity-25'
               }`}
-            key={nanoid()}
-          >
-            {point}
-          </Link>
-        ))}
+              key={nanoid()}
+            >
+              {point}
+            </Link>
+          ))}
+        {(season !== 7 && season !== 8) &&
+          player.roundPoints.map((point, i) => (
+            <div
+              className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
+              ${
+                DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
+                'opacity-25'
+              }`}
+              key={nanoid()}
+            >
+              {point}
+            </div>
+          ))}
       </div>
     )
   }
