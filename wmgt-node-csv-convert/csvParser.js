@@ -1,8 +1,11 @@
 import fs from "fs"
 import { parse } from "csv-parse"
 
-const csvFile = "./s6r6.csv"
-const writeFileName = "s6r6"
+const csvFile = "./s6r5.csv"
+const writeFileName = "s6r5"
+
+// const csvFile = "./s6r6.csv"
+// const writeFileName = "s6r6"
 
 // const csvFile = "./s6r7.csv"
 // const writeFileName = "s6r7"
