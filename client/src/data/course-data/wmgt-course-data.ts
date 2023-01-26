@@ -14,6 +14,7 @@ export type CourseList =
   | 'Labyrinth'
   | '20K Leagues'
   | 'Myst'
+  | 'Atlantis'
 
 export type CourseAlias =
   | 'TTE'
@@ -46,6 +47,8 @@ export type CourseAlias =
   | '20H'
   | 'MYE'
   | 'MYH'
+  | 'ATE'
+  | 'ATH'
 
 export enum CourseMoji {
   TouristTrap = '🌴',
@@ -62,7 +65,8 @@ export enum CourseMoji {
   ElDorado = '🐊',
   Labyrinth = '🦉',
   TwentyK = '🐙',
-  Myst = '📚'
+  Myst = '📚',
+  Atlantis = '🐋'
 }
 
 export interface CourseInterface {
@@ -314,6 +318,22 @@ export const courseData: CourseInterface[] = [
     courseMoji: CourseMoji.Myst,
     par: 63,
     parByHole: [3, 3, 3, 3, 3, 3, 5, 3, 4, 3, 3, 4, 4, 3, 4, 3, 4, 5]
+  },
+  {
+    course: 'Atlantis',
+    difficulty: 'Easy',
+    alias: 'ATE',
+    courseMoji: CourseMoji.Atlantis,
+    par: 59,
+    parByHole: [3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 4, 3, 3, 4, 3, 3, 3]
+  },
+  {
+    course: 'Atlantis',
+    difficulty: 'Hard',
+    alias: 'ATH',
+    courseMoji: CourseMoji.Atlantis,
+    par: 59,
+    parByHole: [3, 3, 3, 3, 3, 3, 3, 2, 4, 3, 4, 4, 3, 3, 3, 4, 3, 5]
   }
 ]
 
@@ -355,5 +375,7 @@ export const coursesWithImages: CourseAlias[] = [
   'EDE',
   // 'EDH',
   '20E'
-  // '20H'
+  // '20H',
+  // 'ATE',
+  // 'ATH'
 ]

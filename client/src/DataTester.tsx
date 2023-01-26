@@ -50,6 +50,20 @@
 // console.log(withFlag)
 // *******************************************************************
 
+// ****************************
+// NEW COURSE CHECKER
+// ****************************
+// import { courseData, CourseInterface } from 'data/course-data/wmgt-course-data'
+// console.log(
+//   'Courses with parByHole Problems: ',
+//   courseData.reduce((acc: CourseInterface[], curr) => {
+//     if (curr.parByHole.reduce((a, b) => a + b, 0) !== curr.par) {
+//       acc.push(curr)
+//     }
+//     return acc
+//   }, [])
+// )
+
 const DataTester = () => {
   return <div className="hidden"></div>
 }
