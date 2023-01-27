@@ -177,9 +177,9 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
       <div className="w-full max-w-4xl flex justify-evenly items-center">
         {windowSize.width >= 768 && toggleRoundBtn(false)}
         <div
-          className={`flex flex-col justify-center items-center my-4 ${
-            (roundDetailsMode === 'full' || roundDetailsMode === 'aces') && 'cursor-pointer'
-          }`}
+          className={`
+          flex flex-col justify-center items-center my-4
+          ${roundDetailsMode !== 'easy' && roundDetailsMode !== 'hard' && 'cursor-pointer'}`}
           onClick={() => {
             if (roundDetailsMode === 'easy' || roundDetailsMode === 'hard') return
             toggleCourse()
@@ -200,6 +200,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
               ? '🥥 Coconuts 🥥'
               : '🏇 Race to the Finish 🏇'}
           </p>
+          {roundDetailsMode === 'coconuts' && <p className="mb-1 text-base">(No holes over par)</p>}
           <p className="mt-1">Click a hole to see details</p>
         </div>
         {windowSize.width >= 768 && toggleRoundBtn(true)}
