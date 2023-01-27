@@ -11,7 +11,7 @@ const SeasonSummaryMenu: React.FC<Props> = ({ season, summaryMode, setSummaryMod
   const modeChangeBtn = (mode: SummaryMode, btnText: string) => {
     return (
       <button
-        className={`w-1/2 min-w-fit my-2 py-4 px-8
+        className={`w-full my-2 py-4 px-8
         text-base font-bold
         border-2 brdr-s${season} rounded-lg
         ${summaryMode !== mode && `bg-none`}
@@ -27,7 +27,7 @@ const SeasonSummaryMenu: React.FC<Props> = ({ season, summaryMode, setSummaryMod
 
   return (
     <div
-      className="w-full max-w-xl
+      className="w-max max-w-xl min-w-max
       mt-4 px-4
       flex flex-col justify-evenly items-center"
     >
