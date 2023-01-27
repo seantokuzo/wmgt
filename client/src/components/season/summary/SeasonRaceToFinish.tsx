@@ -16,14 +16,16 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
 
   // TODO
   // FIX Y-AXIS TICKS
-  const lowScore = Math.min(
+  const maxValue = Math.max(
     ...Object.values(raceData[raceData.length - 1]).map((v) => (typeof v === 'number' ? v : 99))
   )
-  const checkFive = (num: number): number => (num % 5 !== 0 ? checkFive(num - 1) : num)
-  const closestFive = checkFive(lowScore)
-  const yAxisTicks = new Array(Math.abs(closestFive / 5)).fill('').map((_slot, i) => {
-    return closestFive + 5 * i
+
+  const checkTen = (num: number): number => (num % 10 !== 0 ? checkTen(num + 1) : num)
+  const closestTen = checkTen(maxValue)
+  const yAxisTicks = new Array(Math.abs(closestTen / 10) + 1).fill('').map((_slot, i) => {
+    return 10 * i
   })
+  console.log(yAxisTicks)
 
   const xAxisTicks: string[] = new Array(raceData.length)
     .fill('')
@@ -51,7 +53,7 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
             ? Math.floor(windowSize.height * 0.95)
             : windowSize.width > windowSize.height
             ? Math.floor(windowSize.height * 0.67)
-            : Math.floor(windowSize.height * 0.5)
+            : Math.floor(windowSize.height * 0.65)
         }
         data={raceData}
         margin={{
@@ -85,7 +87,7 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
             marginBottom: '0.5rem'
           }}
         />
-        <Legend margin={{ top: 0, left: 0, bottom: 36, right: 0 }} verticalAlign="top" />
+        <Legend margin={{ top: 0, left: 0, bottom: 40, right: 0 }} verticalAlign="top" />
         {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
         {Object.keys(raceData[0])
           .filter((k) => k !== 'week')

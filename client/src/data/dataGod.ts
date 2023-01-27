@@ -469,10 +469,18 @@ export abstract class DataGod {
     const starterObject = {
       week: 0,
       ...topTenRunningTotals.reduce((acc, player) => {
+        const rank =
+          player.seasonRank === 1
+            ? '🥇'
+            : player.seasonRank === 2
+            ? '🥈'
+            : player.seasonRank === 3
+            ? '🥉'
+            : player.seasonRank
         return {
           ...acc,
           // [player.seasonRank + ' ' + player.player + ' ' + player.flag]: 0
-          [player.seasonRank + ' ' + player.player]: 0
+          [rank + ' ' + player.player]: 0
         }
       }, {})
     }
@@ -483,10 +491,18 @@ export abstract class DataGod {
         return {
           week: i + 1,
           ...topTenRunningTotals.reduce((acc, player) => {
+            const rank =
+              player.seasonRank === 1
+                ? '🥇'
+                : player.seasonRank === 2
+                ? '🥈'
+                : player.seasonRank === 3
+                ? '🥉'
+                : player.seasonRank
             return {
               ...acc,
               // [player.seasonRank + ' ' + player.player + ' ' + player.flag]: player.runningTotal[i]
-              [player.seasonRank + ' ' + player.player]: player.runningTotal[i]
+              [rank + ' ' + player.player]: player.runningTotal[i]
             }
           }, {})
         }
