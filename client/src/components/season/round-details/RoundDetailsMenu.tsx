@@ -176,7 +176,6 @@ const RoundDetailsMenu: React.FC<Props> = ({ round, easyCourse, hardCourse, upco
           </div>
         )}
       </div>
-      {/* ***** PROBLEM DIV - TAILWIND IS STUUUPID ***** */}
       {/* ********** EASY / HARD COURSE LABELS ********** */}
       <div
         className={`w-full bg-s${round.season} sh-basic
