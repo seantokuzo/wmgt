@@ -14,6 +14,8 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
 
   const raceData = DataGod.getSeasonTopTenRunningPointTotal(season, userPlayer)
 
+  // TODO
+  // FIX Y-AXIS TICKS
   const lowScore = Math.min(
     ...Object.values(raceData[raceData.length - 1]).map((v) => (typeof v === 'number' ? v : 99))
   )
@@ -23,7 +25,7 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
     return closestFive + 5 * i
   })
 
-  const xAxisTicks: string[] = new Array(19)
+  const xAxisTicks: string[] = new Array(raceData.length)
     .fill('')
     .map((_slot, i) => {
       return `${i * 2}`
