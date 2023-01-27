@@ -5,12 +5,13 @@ import SeasonSummaryMenu from './SeasonSummaryMenu'
 import SeasonLeaderboardFull from './SeasonLeaderboardFull'
 import SeasonLeaderboardSmall from './SeasonLeaderboardSmall'
 import ComingSoon from 'components/ComingSoon'
+import SeasonRaceToFinish from './SeasonRaceToFinish'
 
 type Props = {
   season: number
 }
 
-export type SummaryMode = 'leaderboard' | 'stat-leaders'
+export type SummaryMode = 'leaderboard' | 'race'
 
 const SeasonSummary: React.FC<Props> = ({ season }) => {
   const [summaryMode, setSummaryMode] = useState<SummaryMode>('leaderboard')
@@ -45,7 +46,8 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
       {summaryMode === 'leaderboard' && windowSize.width < 768 && (
         <SeasonLeaderboardSmall season={season} />
       )}
-      {summaryMode === 'stat-leaders' && <ComingSoon text="🔨 Not so Fast 🪚" />}
+      {summaryMode === 'race' && <SeasonRaceToFinish season={season} />}
+      {/* {summaryMode === 'race' && <ComingSoon text="🔨 Not so Fast 🪚" />} */}
     </div>
   )
 }

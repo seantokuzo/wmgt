@@ -64,6 +64,10 @@
 //   }, [])
 // )
 
+// SEASON POINTS RACE TO THE FINISH
+// import { DataGod } from 'data/dataGod'
+// console.log(DataGod.getSeasonTopTenRunningPointTotal(7))
+
 const DataTester = () => {
   return <div className="hidden"></div>
 }

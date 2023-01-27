@@ -440,6 +440,63 @@ export abstract class DataGod {
     }
   }
 
+  static getSeasonTopTenRunningPointTotal(season: number, addedPlayer?: string) {
+    const topTen = this.getSeasonOfficialResultsData(season).results.filter(
+      (player) => player.seasonRank <= 10
+    )
+    if (topTen.findIndex((p) => p.player === addedPlayer) < 0) {
+      topTen.push(
+        ...this.getSeasonOfficialResultsData(season).results.filter((p) => p.player === addedPlayer)
+      )
+    }
+
+    const topTenRunningTotals = topTen.map((player) => {
+      const runningTotal = player.pointsByRound.reduce((acc: number[], curr, i) => {
+        const currTotal = this.getTotalSeasonPoints(
+          player.pointsByRound.slice(0, i + 1).sort((a, b) => a - b)
+        )
+        acc.push(currTotal)
+        return acc
+      }, [])
+      return {
+        player: player.player,
+        // flag: allPlayersList.filter((p) => p.player === player.player)[0].flag || '',
+        seasonRank: player.seasonRank,
+        runningTotal
+      }
+    })
+
+    const starterObject = {
+      week: 0,
+      ...topTenRunningTotals.reduce((acc, player) => {
+        return {
+          ...acc,
+          // [player.seasonRank + ' ' + player.player + ' ' + player.flag]: 0
+          [player.seasonRank + ' ' + player.player]: 0
+        }
+      }, {})
+    }
+
+    const convertedRunningTotal = new Array(topTenRunningTotals[0].runningTotal.length)
+      .fill('')
+      .map((_slot, i) => {
+        return {
+          week: i + 1,
+          ...topTenRunningTotals.reduce((acc, player) => {
+            return {
+              ...acc,
+              // [player.seasonRank + ' ' + player.player + ' ' + player.flag]: player.runningTotal[i]
+              [player.seasonRank + ' ' + player.player]: player.runningTotal[i]
+            }
+          }, {})
+        }
+      })
+
+    // console.log(convertedRunningTotal)
+
+    return [starterObject, ...convertedRunningTotal]
+  }
+
   static tryToConvertPlayerFlag(player: PlayerSeasonResultsOfficial) {
     const knownPlayer = allPlayersList.filter(
       (p) =>

@@ -32,7 +32,7 @@ const SeasonSummaryMenu: React.FC<Props> = ({ season, summaryMode, setSummaryMod
       flex flex-col justify-evenly items-center"
     >
       {modeChangeBtn('leaderboard', 'Leaderboard')}
-      {modeChangeBtn('stat-leaders', 'Stat Leaders')}
+      {modeChangeBtn('race', 'Race to the Finish')}
     </div>
   )
 }

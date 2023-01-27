@@ -1,36 +1,21 @@
-import PlayerSelector from 'components/PlayerSelector'
 import { useAppContext } from 'context/appContext'
+import PlayerSelector from 'components/PlayerSelector'
 import { DataGod } from 'data/dataGod'
-import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 import { LineChart, XAxis, YAxis, CartesianGrid, Tooltip, Line, Legend } from 'recharts'
+import { lineColors } from '../round-details/RaceToTheFinish'
 
 type Props = {
-  round: RoundDataInterface
+  season: number
 }
 
-export const lineColors = {
-  one: '#10b981',
-  two: '#6366f1',
-  three: '#fb923c',
-  four: '#ef4444',
-  five: '#65a30d',
-  six: '#1e40af',
-  seven: '#a1a1aa',
-  eight: '#99f6e4',
-  nine: '#0ea5e9',
-  ten: '#fef08a'
-}
-
-const RaceToTheFinish: React.FC<Props> = ({ round }) => {
+const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
   const { windowSize, userPlayer } = useAppContext()
-  const convertedRound = DataGod.getRaceToFinishData(round, userPlayer)
-  console.log(convertedRound)
+
+  const raceData = DataGod.getSeasonTopTenRunningPointTotal(season, userPlayer)
 
   const lowScore = Math.min(
-    ...Object.values(convertedRound[convertedRound.length - 1]).map((v) =>
-      typeof v === 'number' ? v : 99
-    )
+    ...Object.values(raceData[raceData.length - 1]).map((v) => (typeof v === 'number' ? v : 99))
   )
   const checkFive = (num: number): number => (num % 5 !== 0 ? checkFive(num - 1) : num)
   const closestFive = checkFive(lowScore)
@@ -66,7 +51,7 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
             ? Math.floor(windowSize.height * 0.67)
             : Math.floor(windowSize.height * 0.5)
         }
-        data={convertedRound}
+        data={raceData}
         margin={{
           top: 20,
           right: 0,
@@ -76,14 +61,13 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
       >
         <CartesianGrid strokeDasharray="1 1" />
         <XAxis
-          label={{ value: 'Hole', position: 'top' }}
-          dataKey="hole"
-          name="Hole"
+          label={{ value: 'Week', position: 'top' }}
+          dataKey="week"
+          name="Week"
           ticks={xAxisTicks}
         />
         <YAxis
-          label={{ value: 'Score', angle: -90, position: 'right' }}
-          reversed={true}
+          label={{ value: 'Points', angle: -90, position: 'right' }}
           domain={['dataMin', 'dataMax']}
           ticks={yAxisTicks}
         />
@@ -101,8 +85,8 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
         />
         <Legend margin={{ top: 0, left: 0, bottom: 36, right: 0 }} verticalAlign="top" />
         {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-        {Object.keys(convertedRound[0])
-          .filter((k) => k !== 'hole')
+        {Object.keys(raceData[0])
+          .filter((k) => k !== 'week')
           .map((player, i) => (
             <Line
               key={nanoid()}
@@ -143,4 +127,4 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
   )
 }
 
-export default RaceToTheFinish
+export default SeasonRaceToFinish
