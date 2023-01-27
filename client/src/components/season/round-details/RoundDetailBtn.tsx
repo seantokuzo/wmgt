@@ -24,6 +24,7 @@ const RoundDetailBtn: React.FC<Props> = ({ season, btnText, btnMode }) => {
       flex justify-center hover:scale-105
       rounded-xl sh-basic
       ${colors()}`}
+      title={btnMode === 'coconuts' ? 'No holes over par' : undefined}
       onClick={() => changeRoundDetailsMode(btnMode)}
     >
       {btnText}
