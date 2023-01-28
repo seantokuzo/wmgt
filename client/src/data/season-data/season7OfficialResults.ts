@@ -116,7 +116,7 @@ export const season7OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBP0RQ80xNpAaSyN9L8NfPUXOgDReAnQqLZt1LblLPXEUdWaa585lqpDGQU578P4Ym2dwZXrBWOFO_MfabRygXlwpg=s26-w26-h20'
     },
     {
-      player: 'Squeezy_JibbZ',
+      player: 'SqueezyJibbZ',
       seasonRank: 15,
       seasonPoints: 85,
       pointsByRound: [7, 0, 1, 13, 1, 9, 12, 16, 7, 12, 9, 7],
@@ -340,7 +340,7 @@ export const season7OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBP0RQ80xNpAaSyN9L8NfPUXOgDReAnQqLZt1LblLPXEUdWaa585lqpDGQU578P4Ym2dwZXrBWOFO_MfabRygXlwpg=s26-w26-h20'
     },
     {
-      player: 'KCRob',
+      player: 'KCROB',
       seasonRank: 41,
       seasonPoints: 54,
       pointsByRound: [9, 0, 0, 0, 1, 9, 9, 7, 5, 9, 5, 0],
@@ -436,7 +436,7 @@ export const season7OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBN0f-VHRDB7OQPPMcYnA_ZT44m6ShhkA3K9YgLyxb34vjNOz0zUD8UVuHODrgq3l4mWfbdY0TqvsUFHIzZ1TeEbeuw=s26-w26-h20'
     },
     {
-      player: 'rainedrop184',
+      player: 'RaineDrop184',
       seasonRank: 53,
       seasonPoints: 46,
       pointsByRound: [5, 2, 6, 5, 4, 7, 5, 3, 4, 4, 9, 5],
@@ -524,7 +524,7 @@ export const season7OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBP8yKx7JVLiUZrtS2HagK1DcZTNcnH0Gji3JFbXaU7M9dDRjAmWqMQ9wh4wdExdX7U9MxcXfN4cf13U7oeVCpdOwvw=s26-w26-h20'
     },
     {
-      player: 'rolyt',
+      player: 'Rolyt',
       seasonRank: 63,
       seasonPoints: 38,
       pointsByRound: [6, 0, 4, 9, 7, 5, 0, 7, 0, 0, 0, 0],
@@ -572,7 +572,7 @@ export const season7OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBNaFovIoSAA9Odz3TZ92iiHQKtcpgmMtiL3wULa15H4M-Aje-TAoGKa2xdh4d_kN-3ydpxlU_-pevjoRk8IdOG8skM=s26-w26-h20'
     },
     {
-      player: '4Whlr',
+      player: '4whlr',
       seasonRank: 72,
       seasonPoints: 30,
       pointsByRound: [6, 6, 0, 0, 0, 0, 0, 14, 0, 0, 0, 4],
@@ -836,7 +836,7 @@ export const season7OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBOOptDJXIbC3V0U_MhjmceGUaolQ8K6IRhY4h9Xwtd6EAez6f4wFKPbrMmk9P_gYSFQVtaJhN3nRBYRhiVu4HHCOMs=s26-w26-h20'
     },
     {
-      player: 'southren_jenn_76',
+      player: 'Southern_jenn_76',
       seasonRank: 103,
       seasonPoints: 9,
       pointsByRound: [1, 1, 0, 0, 0, 1, 5, 1, 0, 0, 0, 0],

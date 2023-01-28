@@ -46,7 +46,7 @@ export const s6r9csvData = [
   },
   {
     roundRank: 5,
-    player: 'BANKERPOPS',
+    player: 'Bankerpops',
     easyScorecard: [2, 2, 2, 2, 1, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 3, 3, 3],
     hardScorecard: [2, 3, 2, 2, 3, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 3, 5, 2],
     easyRoundScore: -15,
@@ -334,7 +334,7 @@ export const s6r9csvData = [
   },
   {
     roundRank: 35,
-    player: 'Rainedrop184',
+    player: 'RaineDrop184',
     easyScorecard: [2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 3, 2, 2, 3, 2, 3, 3],
     hardScorecard: [2, 3, 3, 3, 3, 3, 3, 2, 3, 3, 4, 2, 2, 2, 3, 3, 4, 3],
     easyRoundScore: -13,
@@ -523,7 +523,7 @@ export const s6r9csvData = [
   },
   {
     roundRank: 56,
-    player: 'RICH8523',
+    player: 'Rich8523',
     easyScorecard: [2, 2, 1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 4, 2, 4],
     hardScorecard: [1, 3, 3, 3, 3, 2, 3, 3, 3, 4, 3, 2, 2, 2, 6, 5, 5, 2],
     easyRoundScore: -11,
@@ -613,7 +613,7 @@ export const s6r9csvData = [
   },
   {
     roundRank: 68,
-    player: 'Brit_The_Elder',
+    player: 'Brit The Elder',
     easyScorecard: [2, 2, 3, 4, 3, 3, 2, 2, 2, 2, 2, 3, 3, 2, 2, 3, 3, 2],
     hardScorecard: [3, 3, 2, 2, 2, 2, 2, 5, 4, 3, 2, 5, 6, 2, 2, 4, 5, 2],
     easyRoundScore: -9,
@@ -622,7 +622,7 @@ export const s6r9csvData = [
   },
   {
     roundRank: 68,
-    player: 'KCRob',
+    player: 'KCROB',
     easyScorecard: [2, 2, 2, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 3, 2, 4, 7, 2],
     hardScorecard: [2, 3, 2, 4, 3, 3, 2, 3, 5, 3, 4, 2, 2, 2, 2, 4, 4, 3],
     easyRoundScore: -6,
@@ -631,7 +631,7 @@ export const s6r9csvData = [
   },
   {
     roundRank: 71,
-    player: 'Grezza',
+    player: 'GREZZA',
     easyScorecard: [2, 2, 3, 5, 3, 3, 3, 2, 3, 2, 3, 3, 2, 4, 2, 2, 3, 2],
     hardScorecard: [2, 2, 4, 2, 2, 2, 3, 2, 4, 3, 4, 2, 2, 2, 2, 4, 4, 7],
     easyRoundScore: -5,
@@ -712,7 +712,7 @@ export const s6r9csvData = [
   },
   {
     roundRank: 80,
-    player: 'southren_jenn_76',
+    player: 'Southern_jenn_76',
     easyScorecard: [2, 2, 5, 3, 2, 3, 2, 2, 3, 4, 4, 2, 3, 5, 2, 5, 7, 2],
     hardScorecard: [2, 3, 3, 2, 2, 4, 4, 2, 8, 4, 6, 2, 2, 2, 4, 7, 4, 8],
     easyRoundScore: 4,

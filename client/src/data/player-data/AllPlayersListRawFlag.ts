@@ -136,7 +136,7 @@ export const allPlayersListRawFlag: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
-    player: 'rolyt',
+    player: 'Rolyt',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
@@ -172,11 +172,11 @@ export const allPlayersListRawFlag: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
-    player: 'KCRob',
+    player: 'KCROB',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
-    player: 'Squeezy_JibbZ',
+    player: 'SqueezyJibbZ',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMp87IHHuYmhBs2WC86hKuPr8j4CkFpXqQvmNw4B7TKVT1msV1gxeRPygXC9p_qINuZ3PUgnY86CaWb4QXBIIK5cA=s26-w26-h20'
   },
   {
@@ -248,7 +248,7 @@ export const allPlayersListRawFlag: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
-    player: 'rainedrop184',
+    player: 'RaineDrop184',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {

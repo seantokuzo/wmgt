@@ -53,7 +53,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -4
       },
       {
-        player: 'Brit_The_Elder',
+        player: 'Brit The Elder',
         group: 2,
         easyScorecard: [2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 3, 2, 2, 3, 2, 1, 2, 7],
         easyRoundScore: -13,
@@ -141,7 +141,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -3
       },
       {
-        player: 'Grezza',
+        player: 'GREZZA',
         group: 5,
         easyScorecard: [2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 3, 2, 2, 2, 2, 2, 2, 4],
         easyRoundScore: -14,
@@ -149,7 +149,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: 1
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         group: 5,
         easyScorecard: [2, 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 1, 1, 2, 4],
         easyRoundScore: -19,
@@ -205,7 +205,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -15
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         group: 8,
         easyScorecard: [1, 2, 2, 4, 2, 2, 3, 4, 2, 3, 4, 2, 2, 3, 2, 7, 4, 10],
         easyRoundScore: 2,
@@ -365,7 +365,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -5
       },
       {
-        player: 'SqueezyJibbz',
+        player: 'SqueezyJibbZ',
         group: 13,
         easyScorecard: [1, 2, 2, 2, 2, 2, 3, 3, 1, 2, 2, 2, 2, 3, 2, 1, 2, 5],
         easyRoundScore: -18,
@@ -501,7 +501,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -13
       },
       {
-        player: 'RICH8523',
+        player: 'Rich8523',
         group: 19,
         easyScorecard: [2, 2, 2, 3, 3, 3, 3, 2, 1, 3, 2, 2, 3, 2, 2, 1, 2, 10],
         easyRoundScore: -9,
@@ -533,7 +533,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -8
       },
       {
-        player: 'Rainedrop184',
+        player: 'RaineDrop184',
         group: 20,
         easyScorecard: [2, 2, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 3, 2, 3, 2, 2, 4],
         easyRoundScore: -17,
@@ -621,7 +621,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -7
       },
       {
-        player: 'Brit_The_Elder',
+        player: 'Brit The Elder',
         group: 2,
         easyScorecard: [2, 2, 3, 2, 2, 2, 2, 2, 3, 4, 2, 2, 2, 2, 2, 3, 2, 3],
         easyRoundScore: -18,
@@ -653,7 +653,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -9
       },
       {
-        player: 'Grezza',
+        player: 'GREZZA',
         group: 3,
         easyScorecard: [2, 3, 3, 4, 3, 3, 2, 2, 4, 3, 2, 4, 3, 2, 3, 1, 3, 1],
         easyRoundScore: -12,
@@ -701,7 +701,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -9
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         group: 5,
         easyScorecard: [1, 3, 2, 2, 3, 2, 2, 3, 4, 2, 2, 3, 2, 2, 4, 1, 3, 3],
         easyRoundScore: -16,
@@ -797,7 +797,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -3
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         group: 9,
         easyScorecard: [2, 2, 3, 3, 3, 4, 2, 3, 3, 4, 2, 4, 3, 3, 5, 1, 6, 4],
         easyRoundScore: -3,
@@ -1005,7 +1005,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -8
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         group: 16,
         easyScorecard: [3, 2, 3, 2, 2, 4, 2, 2, 2, 2, 2, 3, 3, 2, 3, 2, 3, 2],
         easyRoundScore: -16,
@@ -1101,7 +1101,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -10
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         group: 21,
         easyScorecard: [3, 3, 4, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 3, 3, 2, 4, 3],
         easyRoundScore: -13,
@@ -1261,7 +1261,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -12
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         group: 6,
         easyScorecard: [2, 2, 2, 3, 3, 3, 3, 3, 2, 3, 2, 4, 3, 3, 2, 1, 2, 2],
         easyRoundScore: -21,
@@ -1317,7 +1317,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -11
       },
       {
-        player: 'rolyt',
+        player: 'Rolyt',
         group: 7,
         easyScorecard: [2, 2, 2, 4, 3, 2, 2, 3, 2, 2, 2, 3, 2, 2, 3, 1, 2, 2],
         easyRoundScore: -25,
@@ -1477,7 +1477,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -2
       },
       {
-        player: '4Whlr',
+        player: '4whlr',
         group: 14,
         easyScorecard: [3, 2, 1, 3, 3, 2, 2, 3, 5, 3, 2, 3, 3, 2, 1, 1, 2, 1],
         easyRoundScore: -24,
@@ -1541,7 +1541,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -1
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         group: 16,
         easyScorecard: [2, 2, 2, 3, 3, 2, 2, 2, 2, 3, 3, 3, 2, 2, 1, 2, 1, 3],
         easyRoundScore: -26,
@@ -1770,7 +1770,7 @@ export const season6RawData: RawRoundData[] = [
     hardCourse: 'QVH',
     scores: [
       {
-        player: 'Skorpzz',
+        player: 'skorpzz',
         group: 1,
         easyScorecard: [3, 2, 2, 5, 2, 1, 2, 4, 1, 3, 3, 2, 2, 2, 2, 2, 2, 3],
         easyRoundScore: -20,
@@ -1906,7 +1906,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -10
       },
       {
-        player: 'Brit_The_Elder',
+        player: 'Brit The Elder',
         group: 5,
         easyScorecard: [2, 3, 1, 3, 2, 2, 2, 2, 2, 4, 2, 6, 1, 2, 2, 3, 2, 3],
         easyRoundScore: -19,
@@ -1922,7 +1922,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -2
       },
       {
-        player: 'Tmoes',
+        player: 'tmoes',
         group: 5,
         easyScorecard: [2, 3, 2, 3, 2, 2, 2, 2, 2, 4, 2, 3, 1, 2, 2, 1, 2, 4],
         easyRoundScore: -22,
@@ -1962,7 +1962,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -14
       },
       {
-        player: 'Grezza',
+        player: 'GREZZA',
         group: 7,
         easyScorecard: [2, 2, 2, 3, 2, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3],
         easyRoundScore: -22,
@@ -2010,7 +2010,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -13
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         group: 9,
         easyScorecard: [2, 4, 3, 8, 2, 2, 5, 2, 4, 1, 4, 3, 3, 2, 2, 3, 2, 4],
         easyRoundScore: -7,
@@ -2290,7 +2290,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -12
       },
       {
-        player: 'BANKERPOPS',
+        player: 'Bankerpops',
         group: 19,
         easyScorecard: [3, 4, 2, 3, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 1, 2, 3],
         easyRoundScore: -21,
@@ -2322,7 +2322,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -20
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         group: 20,
         easyScorecard: [2, 3, 2, 3, 2, 2, 2, 2, 1, 5, 2, 2, 2, 2, 1, 1, 2, 3],
         easyRoundScore: -24,
@@ -2354,7 +2354,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -15
       },
       {
-        player: 'SqueezyJibbz',
+        player: 'SqueezyJibbZ',
         group: 21,
         easyScorecard: [3, 2, 2, 3, 2, 1, 3, 1, 2, 3, 2, 2, 2, 2, 2, 2, 3, 3],
         easyRoundScore: -23,
@@ -2410,7 +2410,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: 18
       },
       {
-        player: 'Rainedrop184',
+        player: 'RaineDrop184',
         group: 23,
         easyScorecard: [2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 6],
         easyRoundScore: -19,
@@ -2426,7 +2426,7 @@ export const season6RawData: RawRoundData[] = [
         hardRoundScore: -11
       },
       {
-        player: 'RICH8523',
+        player: 'Rich8523',
         group: 24,
         easyScorecard: [2, 5, 2, 2, 2, 1, 2, 3, 2, 5, 2, 3, 2, 2, 2, 3, 2, 4],
         easyRoundScore: -17,

@@ -102,11 +102,11 @@ export const season6PlayerList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
-    player: 'KCRob',
+    player: 'KCROB',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
-    player: 'SqueezyJibbz',
+    player: 'SqueezyJibbZ',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBNOhjYbL7BcdyvIb-JkbPPoVKAg-Eoslfy9tV6-_BTBRCwQZc3joe-G_1k_EZ8pQuLxe3_8SEusVtqRP8VuHlPgDCQ=s26-w26-h20'
   },
   {
@@ -178,7 +178,7 @@ export const season6PlayerList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
-    player: 'Rainedrop184',
+    player: 'RaineDrop184',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
@@ -206,7 +206,7 @@ export const season6PlayerList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
-    player: 'BANKERPOPS',
+    player: 'Bankerpops',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
@@ -286,7 +286,7 @@ export const season6PlayerList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
-    player: 'Tmoes',
+    player: 'tmoes',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPKWF4MeMCZOBrPkO05pWeBIGGYzlaB-To0TWqWw9wsY1O9y7BGmFw_BBU-8eG7X9VmLvUVYOltCNaMsmZTzwsxvi8=s26-w26-h20'
   },
   {
@@ -302,11 +302,11 @@ export const season6PlayerList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
-    player: 'Brit_The_Elder',
+    player: 'Brit The Elder',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOnUdGoZERgbzKCZhIZTz9TS7uhIvy9mF0qPJGYtQqUTJRzQojOYCTn0YZ_NWcqaOy7d2H7UVmBwb4sNUflxmnuygQ=s26-w26-h20'
   },
   {
-    player: 'RICH8523',
+    player: 'Rich8523',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
@@ -314,7 +314,7 @@ export const season6PlayerList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {
-    player: 'Grezza',
+    player: 'GREZZA',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBNuxBjH7ajzRkd-Qg9uV6uVSE-t3PNVIpJ-TFaFlco42wGEAyACllfjFJcqw-OYIE1k0yh8zeWdoRlgDqGxa-qPHHg=s26-w26-h20'
   },
   {
@@ -450,7 +450,7 @@ export const season6PlayerList: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBNVBdxr094wa71F0RS-1jlRq8BS7cAKmeSNyO85o6zYgVtqJCZXvV_MIMurXy62R5hnnbmhplubJn43hgnI3MPMp1k=s26-w26-h20'
   },
   {
-    player: 'Skorpzz',
+    player: 'skorpzz',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBOV9mcIyCEU3E_8qOoqzfvbqNfcbzhXOHc3uXqChFs0mIcYgVWXACVwRK_-JtgAB_oyc3pe3AXEmDKIl_MiJH_MFQ=s26-w26-h20'
   },
   {

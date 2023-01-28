@@ -370,7 +370,7 @@ export const s7r12csvData = [
   },
   {
     roundRank: 42,
-    player: 'Rainedrop184',
+    player: 'RaineDrop184',
     easyScorecard: [2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 2, 3, 2, 4, 1, 2, 2],
     hardScorecard: [4, 2, 3, 2, 3, 2, 3, 4, 2, 2, 3, 2, 1, 2, 3, 4, 3, 2],
     easyRoundScore: -15,
@@ -523,7 +523,7 @@ export const s7r12csvData = [
   },
   {
     roundRank: 59,
-    player: 'Brit_The_Elder',
+    player: 'Brit The Elder',
     easyScorecard: [2, 1, 2, 2, 2, 2, 2, 3, 4, 3, 2, 2, 3, 2, 3, 3, 2, 2],
     hardScorecard: [2, 2, 7, 2, 3, 4, 5, 4, 3, 2, 4, 2, 3, 2, 3, 3, 3, 2],
     easyRoundScore: -17,

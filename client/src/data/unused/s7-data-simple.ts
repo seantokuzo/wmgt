@@ -166,7 +166,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 1,
     rank: 15,
-    player: 'KCRob',
+    player: 'KCROB',
     easyScore: -19,
     hardScore: -13,
     totalScore: -32
@@ -319,7 +319,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 1,
     rank: 34,
-    player: 'Squeezy_JibbZ',
+    player: 'SqueezyJibbZ',
     easyScore: -19,
     hardScore: -8,
     totalScore: -27
@@ -427,7 +427,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 1,
     rank: 39,
-    player: 'rolyt',
+    player: 'Rolyt',
     easyScore: -14,
     hardScore: -11,
     totalScore: -25
@@ -472,7 +472,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 1,
     rank: 50,
-    player: 'rainedrop184',
+    player: 'RaineDrop184',
     easyScore: -14,
     hardScore: -10,
     totalScore: -24
@@ -778,7 +778,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 1,
     rank: 86,
-    player: 'southren_jenn_76',
+    player: 'Southern_jenn_76',
     easyScore: -10,
     hardScore: 8,
     totalScore: -2
@@ -994,7 +994,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 2,
     rank: 20,
-    player: 'Brit_The_Elder',
+    player: 'Brit The Elder',
     easyScore: -18,
     hardScore: -18,
     totalScore: -36
@@ -1480,7 +1480,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 2,
     rank: 73,
-    player: 'rainedrop184',
+    player: 'RaineDrop184',
     easyScore: -14,
     hardScore: -7,
     totalScore: -21
@@ -1606,7 +1606,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 2,
     rank: 88,
-    player: 'southren_jenn_76',
+    player: 'Southern_jenn_76',
     easyScore: -10,
     hardScore: 22,
     totalScore: 12
@@ -1822,7 +1822,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 3,
     rank: 23,
-    player: 'Brit_The_Elder',
+    player: 'Brit The Elder',
     easyScore: -16,
     hardScore: -8,
     totalScore: -24
@@ -1957,7 +1957,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 3,
     rank: 37,
-    player: 'rainedrop184',
+    player: 'RaineDrop184',
     easyScore: -12,
     hardScore: -8,
     totalScore: -20
@@ -2110,7 +2110,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 3,
     rank: 52,
-    player: 'rolyt',
+    player: 'Rolyt',
     easyScore: -7,
     hardScore: -8,
     totalScore: -15
@@ -2317,7 +2317,7 @@ export const season7AllRoundsSimple = [
     season: 7,
     round: 3,
     rank: 78,
-    player: 'Squeezy_JibbZ',
+    player: 'SqueezyJibbZ',
     easyScore: 18,
     hardScore: 18,
     totalScore: 36

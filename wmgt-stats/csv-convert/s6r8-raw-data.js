@@ -1,7 +1,7 @@
 export const s6r8csvData = [
   {
     roundRank: 1,
-    player: "INDY",
+    player: 'INDY',
     easyScorecard: [1, 1, 1, 1, 1, 2, 3, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 4],
     hardScorecard: [2, 2, 3, 2, 2, 4, 2, 2, 4, 2, 2, 3, 3, 2, 2, 2, 2, 2],
     easyRoundScore: -32,
@@ -10,7 +10,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 2,
-    player: "McLovin",
+    player: 'McLovin',
     easyScorecard: [1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 2, 3, 2, 3, 2, 2, 1, 3],
     hardScorecard: [2, 2, 3, 2, 3, 4, 3, 1, 4, 3, 4, 2, 3, 2, 1, 1, 2, 3],
     easyRoundScore: -30,
@@ -19,7 +19,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 3,
-    player: "Zanetti",
+    player: 'Zanetti',
     easyScorecard: [1, 1, 1, 2, 3, 2, 2, 1, 2, 2, 1, 2, 2, 3, 3, 2, 1, 3],
     hardScorecard: [2, 3, 4, 3, 2, 2, 3, 2, 3, 3, 3, 2, 3, 2, 2, 2, 2, 3],
     easyRoundScore: -30,
@@ -28,7 +28,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 4,
-    player: "ElJorge",
+    player: 'ElJorge',
     easyScorecard: [2, 1, 2, 2, 2, 2, 3, 1, 2, 2, 2, 3, 2, 3, 2, 2, 1, 2],
     hardScorecard: [2, 2, 3, 2, 4, 3, 3, 2, 2, 4, 3, 3, 3, 2, 1, 2, 2, 3],
     easyRoundScore: -28,
@@ -37,7 +37,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 4,
-    player: "ForRealForReal",
+    player: 'ForRealForReal',
     easyScorecard: [1, 2, 1, 3, 1, 2, 5, 1, 1, 2, 2, 2, 2, 3, 3, 2, 2, 3],
     hardScorecard: [1, 2, 3, 3, 3, 2, 3, 2, 2, 3, 3, 2, 2, 2, 1, 4, 2, 4],
     easyRoundScore: -26,
@@ -46,7 +46,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 4,
-    player: "Rolyt",
+    player: 'Rolyt',
     easyScorecard: [1, 2, 2, 2, 1, 2, 4, 1, 2, 2, 1, 2, 2, 2, 3, 2, 2, 3],
     hardScorecard: [2, 2, 4, 2, 4, 3, 2, 2, 3, 2, 4, 3, 3, 2, 1, 2, 3, 2],
     easyRoundScore: -28,
@@ -55,7 +55,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 7,
-    player: "his.Dudeness",
+    player: 'his.Dudeness',
     easyScorecard: [1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 4, 2, 3, 3, 2, 2, 3],
     hardScorecard: [2, 2, 2, 2, 3, 4, 4, 2, 2, 2, 3, 4, 3, 2, 1, 2, 3, 2],
     easyRoundScore: -26,
@@ -64,7 +64,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 8,
-    player: "GreatGoose",
+    player: 'GreatGoose',
     easyScorecard: [1, 1, 2, 2, 1, 2, 2, 1, 2, 3, 2, 3, 2, 6, 2, 2, 1, 3],
     hardScorecard: [2, 2, 3, 2, 4, 5, 3, 2, 2, 2, 3, 2, 2, 5, 1, 1, 3, 2],
     easyRoundScore: -26,
@@ -73,7 +73,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 8,
-    player: "Toaster",
+    player: 'Toaster',
     easyScorecard: [1, 2, 2, 2, 1, 2, 3, 1, 2, 3, 2, 2, 2, 3, 2, 2, 2, 5],
     hardScorecard: [3, 2, 3, 2, 2, 3, 3, 2, 2, 3, 4, 3, 2, 3, 1, 2, 2, 3],
     easyRoundScore: -25,
@@ -82,7 +82,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 10,
-    player: "GUS",
+    player: 'GUS',
     easyScorecard: [2, 2, 1, 1, 2, 2, 2, 1, 1, 3, 3, 2, 2, 3, 2, 2, 2, 3],
     hardScorecard: [2, 2, 3, 4, 3, 3, 3, 2, 2, 3, 4, 3, 3, 2, 3, 2, 2, 3],
     easyRoundScore: -28,
@@ -91,7 +91,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 11,
-    player: "Dude_Lebowski",
+    player: 'Dude_Lebowski',
     easyScorecard: [2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 3, 4, 2, 2, 2, 3],
     hardScorecard: [2, 2, 2, 4, 4, 3, 2, 2, 2, 4, 6, 2, 4, 2, 2, 1, 2, 3],
     easyRoundScore: -27,
@@ -100,7 +100,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 12,
-    player: "Calassy",
+    player: 'Calassy',
     easyScorecard: [1, 2, 2, 2, 3, 2, 2, 1, 2, 2, 1, 3, 2, 4, 3, 2, 2, 3],
     hardScorecard: [3, 2, 2, 3, 3, 4, 3, 2, 2, 3, 3, 4, 2, 2, 2, 2, 2, 4],
     easyRoundScore: -25,
@@ -109,7 +109,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 12,
-    player: "FIRE_321",
+    player: 'FIRE_321',
     easyScorecard: [1, 2, 2, 2, 1, 2, 2, 1, 3, 3, 2, 2, 2, 3, 2, 2, 1, 3],
     hardScorecard: [2, 2, 2, 2, 2, 2, 4, 2, 5, 3, 5, 4, 1, 3, 2, 3, 2, 5],
     easyRoundScore: -28,
@@ -118,7 +118,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 12,
-    player: "YUK1N",
+    player: 'YUK1N',
     easyScorecard: [1, 1, 2, 2, 2, 2, 2, 1, 2, 1, 1, 3, 2, 5, 2, 2, 2, 2],
     hardScorecard: [2, 2, 3, 2, 3, 4, 3, 2, 5, 3, 6, 5, 2, 2, 1, 1, 3, 3],
     easyRoundScore: -29,
@@ -127,7 +127,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 15,
-    player: "4whlr",
+    player: '4whlr',
     easyScorecard: [1, 1, 2, 3, 3, 2, 4, 1, 3, 2, 2, 3, 2, 3, 2, 1, 2, 3],
     hardScorecard: [2, 2, 3, 3, 3, 3, 3, 2, 2, 4, 3, 3, 3, 2, 2, 1, 3, 4],
     easyRoundScore: -24,
@@ -136,7 +136,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 15,
-    player: "Midaswell",
+    player: 'Midaswell',
     easyScorecard: [2, 2, 2, 2, 2, 4, 3, 1, 2, 2, 2, 2, 2, 4, 2, 1, 2, 4],
     hardScorecard: [2, 2, 3, 2, 3, 3, 3, 2, 2, 4, 3, 3, 3, 2, 2, 3, 2, 3],
     easyRoundScore: -23,
@@ -145,7 +145,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 15,
-    player: "Sackdeqb",
+    player: 'Sackdeqb',
     easyScorecard: [1, 2, 2, 2, 2, 2, 3, 1, 3, 3, 2, 6, 2, 2, 3, 2, 2, 2],
     hardScorecard: [2, 2, 3, 3, 3, 2, 3, 2, 3, 3, 4, 5, 2, 2, 1, 2, 2, 2],
     easyRoundScore: -22,
@@ -154,7 +154,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 18,
-    player: "Bear313",
+    player: 'Bear313',
     easyScorecard: [2, 2, 1, 3, 1, 2, 3, 1, 2, 2, 1, 2, 2, 2, 3, 2, 2, 2],
     hardScorecard: [2, 2, 3, 4, 2, 6, 3, 1, 2, 4, 5, 6, 3, 2, 1, 3, 2, 3],
     easyRoundScore: -29,
@@ -163,7 +163,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 18,
-    player: "Blutes87",
+    player: 'Blutes87',
     easyScorecard: [1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 3, 2, 3, 2, 2, 2, 2],
     hardScorecard: [2, 3, 3, 4, 3, 4, 3, 3, 2, 3, 4, 3, 2, 2, 1, 6, 3, 3],
     easyRoundScore: -29,
@@ -172,7 +172,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 18,
-    player: "CleverFellow",
+    player: 'CleverFellow',
     easyScorecard: [2, 2, 1, 2, 1, 2, 2, 1, 2, 3, 1, 2, 2, 4, 2, 2, 2, 3],
     hardScorecard: [2, 2, 2, 4, 2, 4, 4, 3, 3, 4, 5, 6, 3, 2, 1, 2, 2, 2],
     easyRoundScore: -28,
@@ -181,7 +181,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 18,
-    player: "StrokeLimitReached",
+    player: 'StrokeLimitReached',
     easyScorecard: [1, 2, 2, 2, 3, 2, 2, 1, 3, 2, 1, 3, 2, 3, 2, 2, 1, 5],
     hardScorecard: [2, 3, 2, 2, 2, 3, 5, 2, 3, 4, 2, 5, 2, 4, 1, 2, 2, 4],
     easyRoundScore: -25,
@@ -190,7 +190,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 18,
-    player: "TIGERHOODS",
+    player: 'TIGERHOODS',
     easyScorecard: [1, 2, 2, 3, 1, 2, 2, 1, 3, 2, 2, 2, 2, 5, 3, 2, 2, 4],
     hardScorecard: [2, 2, 3, 4, 3, 3, 3, 2, 2, 4, 3, 4, 3, 2, 1, 1, 3, 3],
     easyRoundScore: -23,
@@ -199,7 +199,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 18,
-    player: "TrippinBill",
+    player: 'TrippinBill',
     easyScorecard: [1, 2, 1, 2, 2, 2, 3, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 4],
     hardScorecard: [2, 2, 3, 2, 3, 4, 3, 2, 2, 4, 3, 8, 2, 2, 2, 2, 5, 3],
     easyRoundScore: -29,
@@ -208,7 +208,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 24,
-    player: "BaruMonkey",
+    player: 'BaruMonkey',
     easyScorecard: [1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3, 2, 4, 3, 2, 2, 3],
     hardScorecard: [2, 2, 3, 2, 3, 5, 3, 2, 2, 3, 2, 5, 4, 2, 2, 3, 3, 3],
     easyRoundScore: -25,
@@ -217,7 +217,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 24,
-    player: "RICH8523",
+    player: 'Rich8523',
     easyScorecard: [1, 2, 2, 4, 1, 2, 3, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2],
     hardScorecard: [2, 4, 4, 2, 3, 3, 3, 2, 2, 3, 3, 4, 3, 4, 3, 2, 2, 3],
     easyRoundScore: -26,
@@ -226,7 +226,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 26,
-    player: "ARMY_OF_ONE",
+    player: 'ARMY_OF_ONE',
     easyScorecard: [2, 2, 1, 3, 2, 2, 3, 1, 2, 3, 2, 2, 2, 2, 3, 3, 1, 2],
     hardScorecard: [2, 2, 3, 3, 5, 7, 3, 2, 2, 3, 3, 4, 2, 2, 2, 2, 4, 2],
     easyRoundScore: -26,
@@ -235,7 +235,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 26,
-    player: "Captain_Sr",
+    player: 'Captain_Sr',
     easyScorecard: [1, 2, 2, 2, 2, 2, 3, 3, 1, 2, 1, 3, 2, 2, 2, 2, 3, 2],
     hardScorecard: [2, 2, 2, 4, 4, 3, 3, 2, 3, 3, 3, 4, 3, 2, 1, 2, 8, 3],
     easyRoundScore: -27,
@@ -244,7 +244,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 26,
-    player: "DERBY_DAZ",
+    player: 'DERBY_DAZ',
     easyScorecard: [1, 2, 2, 3, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
     hardScorecard: [2, 2, 3, 4, 3, 3, 3, 3, 2, 4, 3, 4, 3, 4, 2, 3, 3, 3],
     easyRoundScore: -27,
@@ -253,7 +253,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 26,
-    player: "Peach",
+    player: 'Peach',
     easyScorecard: [2, 2, 2, 2, 2, 2, 3, 1, 2, 3, 1, 4, 3, 4, 2, 2, 3, 3],
     hardScorecard: [2, 2, 3, 3, 3, 4, 3, 2, 2, 4, 4, 4, 2, 3, 1, 2, 2, 2],
     easyRoundScore: -21,
@@ -262,7 +262,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 30,
-    player: "B8Y",
+    player: 'B8Y',
     easyScorecard: [1, 2, 2, 5, 2, 2, 2, 1, 2, 1, 2, 2, 2, 6, 2, 2, 3, 3],
     hardScorecard: [2, 2, 2, 2, 4, 3, 4, 2, 3, 3, 6, 6, 2, 2, 1, 3, 1, 2],
     easyRoundScore: -22,
@@ -271,7 +271,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 30,
-    player: "Burn1",
+    player: 'Burn1',
     easyScorecard: [2, 2, 2, 3, 3, 2, 2, 1, 2, 3, 1, 2, 2, 3, 2, 2, 1, 5],
     hardScorecard: [2, 2, 3, 4, 4, 4, 2, 2, 4, 3, 3, 2, 3, 4, 2, 1, 4, 3],
     easyRoundScore: -24,
@@ -280,7 +280,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 32,
-    player: "DiscflingerADK",
+    player: 'DiscflingerADK',
     easyScorecard: [2, 2, 1, 3, 3, 2, 2, 1, 3, 2, 2, 3, 2, 2, 2, 2, 3, 3],
     hardScorecard: [2, 2, 3, 3, 4, 3, 3, 2, 4, 3, 3, 5, 3, 5, 2, 2, 2, 2],
     easyRoundScore: -24,
@@ -289,7 +289,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 32,
-    player: "Emill",
+    player: 'Emill',
     easyScorecard: [1, 1, 2, 2, 1, 2, 3, 1, 2, 4, 2, 3, 2, 3, 2, 2, 2, 6],
     hardScorecard: [2, 2, 3, 2, 2, 3, 6, 2, 6, 3, 4, 4, 2, 3, 1, 1, 2, 4],
     easyRoundScore: -23,
@@ -298,7 +298,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 32,
-    player: "Matt916",
+    player: 'Matt916',
     easyScorecard: [2, 2, 2, 1, 2, 2, 3, 1, 2, 3, 2, 2, 2, 3, 2, 2, 2, 3],
     hardScorecard: [2, 2, 2, 3, 3, 5, 3, 3, 2, 4, 5, 5, 3, 2, 1, 6, 2, 2],
     easyRoundScore: -26,
@@ -307,7 +307,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 32,
-    player: "Stewie",
+    player: 'Stewie',
     easyScorecard: [1, 2, 2, 1, 2, 2, 2, 1, 2, 4, 2, 2, 2, 4, 2, 2, 1, 3],
     hardScorecard: [2, 2, 3, 3, 3, 7, 3, 2, 2, 4, 7, 3, 1, 2, 3, 3, 4, 2],
     easyRoundScore: -27,
@@ -316,7 +316,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 36,
-    player: "G0nz0nater",
+    player: 'G0nz0nater',
     easyScorecard: [2, 2, 2, 3, 1, 2, 2, 1, 2, 2, 2, 2, 3, 4, 3, 3, 2, 3],
     hardScorecard: [3, 2, 2, 2, 3, 7, 3, 2, 2, 6, 4, 3, 2, 2, 1, 2, 2, 5],
     easyRoundScore: -23,
@@ -325,7 +325,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 36,
-    player: "Monsoon",
+    player: 'Monsoon',
     easyScorecard: [1, 3, 1, 3, 2, 3, 4, 1, 2, 2, 2, 2, 2, 4, 2, 2, 2, 3],
     hardScorecard: [2, 2, 2, 2, 4, 4, 5, 2, 2, 4, 3, 3, 4, 4, 1, 3, 2, 4],
     easyRoundScore: -23,
@@ -334,7 +334,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 36,
-    player: "Mulligan",
+    player: 'Mulligan',
     easyScorecard: [1, 2, 2, 2, 2, 2, 2, 1, 3, 2, 1, 2, 2, 5, 4, 3, 2, 3],
     hardScorecard: [2, 2, 3, 3, 4, 3, 3, 2, 2, 3, 6, 4, 3, 2, 4, 2, 3, 2],
     easyRoundScore: -23,
@@ -343,7 +343,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 39,
-    player: "BANKERPOPS",
+    player: 'Bankerpops',
     easyScorecard: [2, 2, 2, 3, 1, 2, 2, 1, 2, 3, 3, 4, 2, 2, 3, 2, 3, 4],
     hardScorecard: [3, 2, 3, 3, 3, 3, 3, 2, 2, 3, 3, 5, 3, 2, 1, 3, 5, 3],
     easyRoundScore: -21,
@@ -352,7 +352,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 39,
-    player: "Mau",
+    player: 'Mau',
     easyScorecard: [1, 2, 2, 3, 2, 2, 4, 1, 2, 2, 2, 4, 2, 3, 4, 2, 2, 3],
     hardScorecard: [2, 2, 3, 4, 3, 3, 3, 2, 2, 4, 3, 6, 3, 2, 2, 1, 3, 4],
     easyRoundScore: -21,
@@ -361,7 +361,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 39,
-    player: "SD_Diver",
+    player: 'SD_Diver',
     easyScorecard: [1, 2, 2, 2, 2, 2, 3, 1, 2, 5, 2, 2, 2, 2, 4, 1, 2, 3],
     hardScorecard: [3, 2, 3, 4, 2, 3, 3, 2, 4, 3, 3, 3, 3, 2, 5, 5, 2, 3],
     easyRoundScore: -24,
@@ -370,7 +370,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 42,
-    player: "Browner",
+    player: 'Browner',
     easyScorecard: [1, 2, 2, 4, 1, 2, 5, 1, 2, 3, 1, 2, 3, 2, 3, 2, 1, 3],
     hardScorecard: [1, 3, 3, 2, 3, 9, 2, 2, 3, 3, 7, 4, 3, 3, 1, 2, 2, 3],
     easyRoundScore: -24,
@@ -379,7 +379,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 42,
-    player: "Rainedrop184",
+    player: 'RaineDrop184',
     easyScorecard: [2, 2, 2, 2, 3, 2, 3, 1, 2, 3, 2, 2, 4, 3, 3, 2, 3, 3],
     hardScorecard: [2, 2, 3, 3, 4, 3, 3, 2, 2, 3, 3, 5, 3, 3, 2, 2, 3, 4],
     easyRoundScore: -20,
@@ -388,7 +388,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 42,
-    player: "Sarahloo1971",
+    player: 'Sarahloo1971',
     easyScorecard: [1, 2, 2, 2, 3, 2, 2, 1, 2, 2, 2, 3, 3, 5, 3, 2, 2, 3],
     hardScorecard: [2, 2, 2, 4, 4, 6, 4, 3, 2, 3, 3, 2, 2, 2, 4, 2, 3, 4],
     easyRoundScore: -22,
@@ -397,7 +397,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 42,
-    player: "Squeezy_Jibbz",
+    player: 'Squeezy_Jibbz',
     easyScorecard: [1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3, 2, 4, 3, 2, 2, 3],
     hardScorecard: [2, 2, 2, 3, 3, 5, 3, 3, 3, 2, 2, 4, 3, 2, 3, 5, 2, 8],
     easyRoundScore: -25,
@@ -406,7 +406,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 46,
-    player: "chileC.O.W.",
+    player: 'chileC.O.W.',
     easyScorecard: [1, 1, 1, 3, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 2, 3, 2, 2],
     hardScorecard: [2, 2, 3, 3, 3, 4, 4, 2, 2, 5, 3, 5, 3, 4, 4, 2, 6, 4],
     easyRoundScore: -28,
@@ -415,7 +415,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 46,
-    player: "deebee64",
+    player: 'deebee64',
     easyScorecard: [1, 2, 1, 1, 2, 2, 4, 1, 2, 2, 4, 3, 2, 3, 2, 2, 2, 3],
     hardScorecard: [2, 3, 2, 2, 4, 3, 3, 2, 6, 5, 3, 5, 2, 2, 5, 2, 4, 3],
     easyRoundScore: -25,
@@ -424,7 +424,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 48,
-    player: "Autodidactic",
+    player: 'Autodidactic',
     easyScorecard: [1, 3, 2, 2, 2, 2, 2, 1, 2, 3, 1, 2, 2, 5, 2, 2, 3, 4],
     hardScorecard: [2, 2, 4, 4, 2, 3, 3, 2, 4, 4, 4, 4, 3, 4, 3, 3, 3, 4],
     easyRoundScore: -23,
@@ -433,7 +433,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 48,
-    player: "Fatfat42",
+    player: 'Fatfat42',
     easyScorecard: [2, 2, 2, 2, 1, 2, 2, 2, 2, 3, 1, 2, 2, 5, 2, 2, 2, 3],
     hardScorecard: [4, 2, 3, 3, 4, 4, 4, 2, 3, 3, 4, 4, 3, 2, 5, 3, 3, 4],
     easyRoundScore: -25,
@@ -442,7 +442,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 50,
-    player: "D3bb13",
+    player: 'D3bb13',
     easyScorecard: [1, 1, 2, 3, 4, 2, 3, 4, 2, 2, 1, 2, 2, 3, 5, 2, 2, 3],
     hardScorecard: [3, 2, 3, 3, 4, 4, 4, 2, 3, 4, 3, 4, 3, 4, 1, 2, 5, 2],
     easyRoundScore: -20,
@@ -451,7 +451,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 50,
-    player: "Mike190",
+    player: 'Mike190',
     easyScorecard: [1, 2, 2, 3, 2, 2, 2, 1, 1, 3, 2, 2, 2, 5, 2, 3, 2, 3],
     hardScorecard: [2, 4, 3, 4, 3, 3, 3, 2, 3, 3, 3, 4, 3, 2, 5, 2, 6, 5],
     easyRoundScore: -24,
@@ -460,7 +460,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 50,
-    player: "Old-T",
+    player: 'Old-T',
     easyScorecard: [2, 2, 2, 3, 4, 2, 2, 2, 3, 2, 2, 2, 2, 4, 3, 2, 3, 4],
     hardScorecard: [4, 2, 3, 3, 4, 4, 3, 2, 3, 2, 4, 5, 3, 2, 1, 2, 4, 3],
     easyRoundScore: -18,
@@ -469,7 +469,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 50,
-    player: "Snow",
+    player: 'Snow',
     easyScorecard: [2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 2, 2, 2, 4, 3, 2, 2, 3],
     hardScorecard: [3, 2, 3, 4, 4, 5, 3, 3, 5, 4, 4, 2, 2, 2, 1, 2, 8, 3],
     easyRoundScore: -24,
@@ -478,7 +478,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 54,
-    player: "ichibuho",
+    player: 'ichibuho',
     easyScorecard: [1, 1, 1, 2, 2, 2, 3, 1, 2, 4, 1, 4, 2, 2, 2, 3, 3, 6],
     hardScorecard: [2, 2, 3, 3, 2, 5, 3, 2, 2, 6, 7, 4, 3, 2, 2, 2, 4, 5],
     easyRoundScore: -22,
@@ -487,7 +487,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 54,
-    player: "steven_T",
+    player: 'steven_T',
     easyScorecard: [1, 2, 2, 2, 1, 2, 4, 1, 2, 2, 2, 4, 2, 5, 2, 2, 2, 3],
     hardScorecard: [2, 4, 3, 4, 3, 5, 3, 2, 4, 3, 3, 5, 3, 4, 4, 3, 2, 3],
     easyRoundScore: -23,
@@ -496,7 +496,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 56,
-    player: "Anuebus",
+    player: 'Anuebus',
     easyScorecard: [2, 2, 2, 6, 2, 2, 3, 1, 2, 2, 2, 5, 2, 4, 3, 3, 2, 4],
     hardScorecard: [2, 2, 3, 3, 5, 3, 3, 3, 2, 3, 4, 3, 2, 2, 4, 3, 3, 3],
     easyRoundScore: -15,
@@ -505,7 +505,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 56,
-    player: "Froman",
+    player: 'Froman',
     easyScorecard: [2, 1, 2, 2, 4, 2, 4, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 5],
     hardScorecard: [2, 3, 3, 2, 4, 5, 4, 2, 2, 3, 2, 4, 3, 7, 2, 3, 4, 3],
     easyRoundScore: -20,
@@ -514,7 +514,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 56,
-    player: "HBKid",
+    player: 'HBKid',
     easyScorecard: [2, 1, 2, 2, 1, 2, 3, 1, 3, 3, 2, 3, 2, 3, 2, 2, 2, 3],
     hardScorecard: [2, 2, 3, 5, 4, 4, 2, 2, 2, 4, 4, 4, 2, 4, 3, 5, 8, 3],
     easyRoundScore: -25,
@@ -523,7 +523,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 56,
-    player: "Jed",
+    player: 'Jed',
     easyScorecard: [1, 3, 2, 3, 3, 2, 5, 1, 2, 3, 2, 3, 2, 5, 2, 2, 2, 6],
     hardScorecard: [2, 2, 2, 4, 2, 6, 2, 2, 3, 6, 2, 6, 1, 2, 3, 2, 3, 3],
     easyRoundScore: -15,
@@ -532,7 +532,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 56,
-    player: "Nick",
+    player: 'Nick',
     easyScorecard: [1, 2, 2, 3, 1, 2, 3, 3, 2, 3, 2, 2, 2, 5, 2, 2, 2, 3],
     hardScorecard: [2, 2, 3, 2, 3, 3, 3, 3, 3, 3, 4, 6, 3, 4, 3, 5, 4, 4],
     easyRoundScore: -22,
@@ -541,7 +541,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 61,
-    player: "AmberWave",
+    player: 'AmberWave',
     easyScorecard: [1, 1, 2, 2, 3, 2, 2, 1, 2, 3, 2, 2, 3, 5, 2, 2, 2, 3],
     hardScorecard: [3, 2, 3, 3, 5, 3, 4, 2, 3, 3, 3, 3, 2, 6, 1, 6, 8, 3],
     easyRoundScore: -24,
@@ -550,7 +550,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 61,
-    player: "Bartimaeus",
+    player: 'Bartimaeus',
     easyScorecard: [1, 2, 1, 3, 2, 2, 5, 1, 2, 2, 2, 4, 2, 5, 2, 3, 2, 4],
     hardScorecard: [5, 2, 2, 3, 3, 3, 2, 2, 5, 3, 5, 4, 3, 3, 3, 2, 3, 5],
     easyRoundScore: -19,
@@ -559,7 +559,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 61,
-    player: "NuttyGrandpa",
+    player: 'NuttyGrandpa',
     easyScorecard: [2, 2, 2, 2, 2, 2, 3, 1, 2, 4, 2, 1, 2, 6, 2, 2, 3, 2],
     hardScorecard: [3, 4, 3, 3, 2, 4, 4, 3, 3, 5, 4, 6, 2, 3, 1, 4, 4, 3],
     easyRoundScore: -22,
@@ -568,7 +568,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 61,
-    player: "Squidy19",
+    player: 'Squidy19',
     easyScorecard: [1, 1, 1, 2, 3, 2, 2, 1, 2, 4, 2, 5, 2, 5, 3, 3, 3, 4],
     hardScorecard: [3, 2, 3, 3, 6, 3, 3, 2, 2, 4, 5, 4, 3, 2, 1, 3, 4, 4],
     easyRoundScore: -18,
@@ -577,7 +577,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 61,
-    player: "bogibo",
+    player: 'bogibo',
     easyScorecard: [2, 2, 2, 2, 2, 2, 3, 1, 3, 2, 2, 2, 2, 4, 2, 1, 3, 7],
     hardScorecard: [2, 2, 3, 3, 4, 4, 3, 2, 4, 3, 3, 7, 3, 4, 3, 3, 2, 4],
     easyRoundScore: -20,
@@ -586,7 +586,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 66,
-    player: "strype9",
+    player: 'strype9',
     easyScorecard: [1, 2, 1, 6, 3, 2, 3, 1, 2, 4, 2, 2, 2, 3, 3, 2, 2, 4],
     hardScorecard: [4, 2, 2, 2, 4, 5, 4, 2, 2, 3, 5, 7, 3, 2, 3, 2, 4, 3],
     easyRoundScore: -19,
@@ -595,7 +595,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 66,
-    player: "the_dak",
+    player: 'the_dak',
     easyScorecard: [1, 2, 1, 2, 1, 2, 2, 1, 2, 3, 2, 2, 3, 4, 2, 2, 2, 4],
     hardScorecard: [5, 3, 3, 5, 5, 8, 3, 2, 2, 3, 3, 4, 3, 4, 1, 1, 7, 4],
     easyRoundScore: -26,
@@ -604,7 +604,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 68,
-    player: "Brit_The_Elder",
+    player: 'Brit The Elder',
     easyScorecard: [1, 3, 3, 3, 2, 2, 3, 1, 2, 2, 2, 2, 2, 3, 3, 2, 3, 3],
     hardScorecard: [2, 3, 3, 2, 4, 5, 2, 2, 6, 4, 4, 8, 3, 4, 2, 2, 4, 3],
     easyRoundScore: -22,
@@ -613,7 +613,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 68,
-    player: "Halfpint",
+    player: 'Halfpint',
     easyScorecard: [2, 2, 3, 3, 3, 4, 3, 2, 3, 2, 2, 2, 3, 4, 4, 2, 3, 3],
     hardScorecard: [7, 2, 3, 3, 3, 5, 3, 2, 2, 3, 3, 5, 2, 2, 2, 3, 3, 2],
     easyRoundScore: -14,
@@ -622,7 +622,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 70,
-    player: "Joaquinypunto",
+    player: 'Joaquinypunto',
     easyScorecard: [1, 2, 2, 2, 2, 3, 4, 1, 2, 3, 3, 3, 2, 4, 2, 3, 2, 4],
     hardScorecard: [4, 2, 3, 4, 5, 2, 5, 2, 5, 3, 3, 4, 2, 4, 5, 2, 3, 4],
     easyRoundScore: -19,
@@ -631,7 +631,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 70,
-    player: "The Master",
+    player: 'The Master',
     easyScorecard: [1, 2, 1, 4, 1, 2, 3, 1, 3, 4, 3, 3, 2, 3, 5, 3, 2, 4],
     hardScorecard: [2, 2, 3, 3, 6, 3, 3, 2, 5, 8, 4, 3, 3, 4, 2, 2, 2, 3],
     easyRoundScore: -17,
@@ -640,7 +640,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 72,
-    player: "Jennem",
+    player: 'Jennem',
     easyScorecard: [2, 2, 2, 4, 2, 2, 3, 1, 3, 3, 3, 2, 2, 3, 3, 3, 1, 5],
     hardScorecard: [3, 3, 3, 2, 3, 6, 3, 2, 7, 3, 5, 5, 3, 2, 1, 3, 2, 6],
     easyRoundScore: -18,
@@ -649,7 +649,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 73,
-    player: "Caramel",
+    player: 'Caramel',
     easyScorecard: [2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 3, 4, 2, 2, 4],
     hardScorecard: [3, 3, 3, 5, 3, 6, 3, 2, 3, 5, 7, 8, 3, 4, 5, 4, 6, 4],
     easyRoundScore: -26,
@@ -658,7 +658,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 73,
-    player: "WickedShack",
+    player: 'WickedShack',
     easyScorecard: [1, 2, 2, 4, 1, 2, 6, 1, 2, 3, 3, 3, 2, 3, 3, 4, 2, 3],
     hardScorecard: [2, 2, 3, 3, 7, 5, 3, 2, 2, 3, 7, 8, 4, 2, 4, 4, 5, 2],
     easyRoundScore: -17,
@@ -667,7 +667,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 73,
-    player: "theYell",
+    player: 'theYell',
     easyScorecard: [1, 2, 1, 4, 3, 2, 2, 3, 2, 3, 2, 2, 3, 4, 1, 2, 3, 4],
     hardScorecard: [5, 3, 3, 3, 5, 6, 3, 3, 7, 6, 4, 5, 4, 4, 2, 1, 3, 4],
     easyRoundScore: -20,
@@ -676,7 +676,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 76,
-    player: "ET154",
+    player: 'ET154',
     easyScorecard: [1, 3, 2, 3, 1, 2, 2, 1, 3, 4, 2, 3, 6, 5, 2, 2, 2, 6],
     hardScorecard: [3, 5, 3, 2, 2, 3, 4, 2, 2, 3, 4, 8, 5, 4, 2, 2, 8, 4],
     easyRoundScore: -14,
@@ -685,7 +685,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 77,
-    player: "southren_jenn_76",
+    player: 'Southern_jenn_76',
     easyScorecard: [2, 2, 2, 3, 2, 5, 1, 3, 2, 1, 3, 3, 3, 3, 3, 3, 3, 9],
     hardScorecard: [3, 3, 3, 2, 2, 3, 3, 2, 5, 8, 6, 4, 4, 2, 7, 2, 3, 2],
     easyRoundScore: -11,
@@ -694,7 +694,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 78,
-    player: "Beldemar",
+    player: 'Beldemar',
     easyScorecard: [2, 2, 2, 4, 2, 2, 4, 1, 2, 2, 1, 4, 3, 5, 2, 3, 2, 4],
     hardScorecard: [2, 3, 3, 3, 2, 3, 3, 3, 2, 6, 3, 4, 4, 4, 5, 6, 8, 8],
     easyRoundScore: -17,
@@ -703,7 +703,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 78,
-    player: "Lifeisgood",
+    player: 'Lifeisgood',
     easyScorecard: [1, 3, 2, 3, 2, 2, 4, 2, 2, 2, 2, 2, 3, 5, 3, 3, 3, 3],
     hardScorecard: [3, 3, 2, 2, 4, 4, 6, 2, 5, 4, 6, 8, 3, 5, 2, 7, 3, 3],
     easyRoundScore: -17,
@@ -712,7 +712,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 80,
-    player: "Tabbyland",
+    player: 'Tabbyland',
     easyScorecard: [2, 3, 3, 2, 2, 2, 2, 2, 3, 5, 2, 4, 3, 5, 4, 2, 2, 7],
     hardScorecard: [5, 3, 3, 3, 4, 4, 3, 3, 4, 7, 4, 3, 2, 5, 3, 2, 6, 2],
     easyRoundScore: -9,
@@ -721,7 +721,7 @@ export const s6r8csvData = [
   },
   {
     roundRank: 81,
-    player: "Midoriya",
+    player: 'Midoriya',
     easyScorecard: [3, 3, 2, 3, 1, 3, 5, 3, 3, 3, 2, 2, 4, 6, 3, 2, 3, 4],
     hardScorecard: [6, 5, 3, 3, 3, 4, 3, 2, 4, 3, 5, 8, 4, 5, 4, 2, 4, 2],
     easyRoundScore: -9,

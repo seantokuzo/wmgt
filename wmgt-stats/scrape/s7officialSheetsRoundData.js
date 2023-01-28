@@ -140,7 +140,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 15,
         easyRoundScore: -19,
         hardRoundScore: -13,
@@ -276,7 +276,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 34,
         easyRoundScore: -19,
         hardRoundScore: -8,
@@ -308,7 +308,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: '4Whlr',
+        player: '4whlr',
         roundRank: 39,
         easyRoundScore: -15,
         hardRoundScore: -10,
@@ -372,7 +372,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 6
       },
       {
-        player: 'rolyt',
+        player: 'Rolyt',
         roundRank: 39,
         easyRoundScore: -14,
         hardRoundScore: -11,
@@ -412,7 +412,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 5
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 50,
         easyRoundScore: -14,
         hardRoundScore: -10,
@@ -684,7 +684,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 1
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         roundRank: 86,
         easyRoundScore: -10,
         hardRoundScore: 8,
@@ -1034,7 +1034,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: '4Whlr',
+        player: '4whlr',
         roundRank: 39,
         easyRoundScore: -23,
         hardRoundScore: -7,
@@ -1314,7 +1314,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 2
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 73,
         easyRoundScore: -14,
         hardRoundScore: -7,
@@ -1426,7 +1426,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 1
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         roundRank: 88,
         easyRoundScore: -10,
         hardRoundScore: 22,
@@ -1744,7 +1744,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 6
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 37,
         easyRoundScore: -12,
         hardRoundScore: -8,
@@ -1880,7 +1880,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 4
       },
       {
-        player: 'rolyt',
+        player: 'Rolyt',
         roundRank: 52,
         easyRoundScore: -7,
         hardRoundScore: -8,
@@ -2064,7 +2064,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 1
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 78,
         easyRoundScore: 18,
         hardRoundScore: 18,
@@ -2158,7 +2158,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 13
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 7,
         easyRoundScore: -18,
         hardRoundScore: -15,
@@ -2214,7 +2214,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'rolyt',
+        player: 'Rolyt',
         roundRank: 17,
         easyRoundScore: -14,
         hardRoundScore: -15,
@@ -2502,7 +2502,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 5
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 50,
         easyRoundScore: -13,
         hardRoundScore: -5,
@@ -2980,7 +2980,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: 'rolyt',
+        player: 'Rolyt',
         roundRank: 28,
         easyRoundScore: -21,
         hardRoundScore: -11,
@@ -3172,7 +3172,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 4
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 52,
         easyRoundScore: -19,
         hardRoundScore: -5,
@@ -3356,7 +3356,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 1
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 77,
         easyRoundScore: 18,
         hardRoundScore: 18,
@@ -3364,7 +3364,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 1
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 77,
         easyRoundScore: 18,
         hardRoundScore: 18,
@@ -3466,7 +3466,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 11,
         easyRoundScore: -26,
         hardRoundScore: -14,
@@ -3490,7 +3490,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 13,
         easyRoundScore: -24,
         hardRoundScore: -15,
@@ -3618,7 +3618,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 30,
         easyRoundScore: -22,
         hardRoundScore: -10,
@@ -3746,7 +3746,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 5
       },
       {
-        player: 'rolyt',
+        player: 'Rolyt',
         roundRank: 45,
         easyRoundScore: -24,
         hardRoundScore: -2,
@@ -3922,7 +3922,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 2
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         roundRank: 69,
         easyRoundScore: -15,
         hardRoundScore: 0,
@@ -4056,7 +4056,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 12
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 8,
         easyRoundScore: -21,
         hardRoundScore: -20,
@@ -4104,7 +4104,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 14,
         easyRoundScore: -22,
         hardRoundScore: -15,
@@ -4336,7 +4336,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 5
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 42,
         easyRoundScore: -15,
         hardRoundScore: -11,
@@ -4360,7 +4360,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 5
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         roundRank: 46,
         easyRoundScore: -13,
         hardRoundScore: -12,
@@ -4622,7 +4622,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 18
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 4,
         easyRoundScore: -29,
         hardRoundScore: -19,
@@ -4638,7 +4638,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 15
       },
       {
-        player: '4Whlr',
+        player: '4whlr',
         roundRank: 6,
         easyRoundScore: -30,
         hardRoundScore: -16,
@@ -4846,7 +4846,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 31,
         easyRoundScore: -27,
         hardRoundScore: -12,
@@ -4854,7 +4854,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: 'rolyt',
+        player: 'Rolyt',
         roundRank: 31,
         easyRoundScore: -20,
         hardRoundScore: -19,
@@ -5086,7 +5086,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 3
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 62,
         easyRoundScore: -21,
         hardRoundScore: -10,
@@ -5230,7 +5230,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 1
       },
       {
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         roundRank: 80,
         easyRoundScore: -17,
         hardRoundScore: 12,
@@ -5476,7 +5476,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 7
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 25,
         easyRoundScore: -22,
         hardRoundScore: -9,
@@ -5596,7 +5596,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 5
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 42,
         easyRoundScore: -14,
         hardRoundScore: -10,
@@ -5644,7 +5644,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 4
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 46,
         easyRoundScore: -14,
         hardRoundScore: -8,
@@ -5898,7 +5898,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 12
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 8,
         easyRoundScore: -21,
         hardRoundScore: -16,
@@ -5946,7 +5946,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 16,
         easyRoundScore: -19,
         hardRoundScore: -16,
@@ -6170,7 +6170,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 4
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 45,
         easyRoundScore: -15,
         hardRoundScore: -8,
@@ -6544,7 +6544,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         roundRank: 19,
         easyRoundScore: -19,
         hardRoundScore: -12,
@@ -6552,7 +6552,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 9
       },
       {
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         roundRank: 19,
         easyRoundScore: -20,
         hardRoundScore: -11,
@@ -6696,7 +6696,7 @@ export const season7OfficialSheetData = [
         seasonPointsEarned: 5
       },
       {
-        player: 'KCRob',
+        player: 'KCROB',
         roundRank: 40,
         easyRoundScore: -14,
         hardRoundScore: -10,

@@ -48,7 +48,7 @@ export const season7PlayerList = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
-    player: 'Squeezy_JibbZ',
+    player: 'SqueezyJibbZ',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBMp87IHHuYmhBs2WC86hKuPr8j4CkFpXqQvmNw4B7TKVT1msV1gxeRPygXC9p_qINuZ3PUgnY86CaWb4QXBIIK5cA=s26-w26-h20'
   },
   {
@@ -152,7 +152,7 @@ export const season7PlayerList = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBND4pGXnEiAi1v_FZPYlSZUpHmghJwSs7eEIYI-QUXMxoDfq2U9ZMwssX1SsYpmeHELRAts_YowXnU5G25cOKKPt1M=s26-w26-h20'
   },
   {
-    player: 'KCRob',
+    player: 'KCROB',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
@@ -212,7 +212,7 @@ export const season7PlayerList = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
-    player: 'rainedrop184',
+    player: 'RaineDrop184',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
@@ -248,7 +248,7 @@ export const season7PlayerList = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPFNowk1LsbJNY2HG3ZsgIvxt70vubyqnKK7nvdoNZ1BCr736qz8-aFrNd53-uRm8n8AJfUCN9GzZMYab_ILVaXA5U=s26-w26-h20'
   },
   {
-    player: 'rolyt',
+    player: 'Rolyt',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
@@ -416,7 +416,7 @@ export const season7PlayerList = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPSXcOANPH0KSEs0x3t9-sdNo54g6ELzGp47QFRiaKkn7s2c6w6ecod71lnIpZR-8_xmPBfVj4FcxGivxF6oW0R0Kw=s26-w26-h20'
   },
   {
-    player: 'southren_jenn_76',
+    player: 'Southern_jenn_76',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {

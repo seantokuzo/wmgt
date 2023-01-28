@@ -400,7 +400,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 15,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 35,
         hardRoundTotal: 54,
         seasonPointsEarned: 9,
@@ -791,7 +791,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 34,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 35,
         hardRoundTotal: 59,
         seasonPointsEarned: 7,
@@ -1067,7 +1067,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 39,
-        player: 'rolyt',
+        player: 'Rolyt',
         easyRoundTotal: 40,
         hardRoundTotal: 56,
         seasonPointsEarned: 6,
@@ -1182,7 +1182,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 50,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 40,
         hardRoundTotal: 57,
         seasonPointsEarned: 5,
@@ -1964,7 +1964,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 86,
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         easyRoundTotal: 44,
         hardRoundTotal: 75,
         seasonPointsEarned: 1,
@@ -3766,7 +3766,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 73,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 46,
         hardRoundTotal: 61,
         seasonPointsEarned: 2,
@@ -4088,7 +4088,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 88,
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         easyRoundTotal: 50,
         hardRoundTotal: 90,
         seasonPointsEarned: 1,
@@ -4993,7 +4993,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 37,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 42,
         hardRoundTotal: 56,
         seasonPointsEarned: 6,
@@ -5384,7 +5384,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 52,
-        player: 'rolyt',
+        player: 'Rolyt',
         easyRoundTotal: 47,
         hardRoundTotal: 56,
         seasonPointsEarned: 4,
@@ -5913,7 +5913,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 78,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 44,
         hardRoundTotal: 58,
         seasonPointsEarned: 1,
@@ -6174,7 +6174,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 7,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 37,
         hardRoundTotal: 45,
         seasonPointsEarned: 13,
@@ -6335,7 +6335,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 17,
-        player: 'rolyt',
+        player: 'Rolyt',
         easyRoundTotal: 41,
         hardRoundTotal: 45,
         seasonPointsEarned: 9,
@@ -7163,7 +7163,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 50,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 42,
         hardRoundTotal: 55,
         seasonPointsEarned: 5,
@@ -8528,7 +8528,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 28,
-        player: 'rolyt',
+        player: 'Rolyt',
         easyRoundTotal: 40,
         hardRoundTotal: 50,
         seasonPointsEarned: 7,
@@ -9080,7 +9080,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 52,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 42,
         hardRoundTotal: 56,
         seasonPointsEarned: 4,
@@ -9586,7 +9586,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 77,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 45,
         hardRoundTotal: 47,
         seasonPointsEarned: 1,
@@ -9609,7 +9609,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 77,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 40,
         hardRoundTotal: 58,
         seasonPointsEarned: 1,
@@ -9916,7 +9916,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 11,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 37,
         hardRoundTotal: 47,
         seasonPointsEarned: 9,
@@ -9985,7 +9985,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 13,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 39,
         hardRoundTotal: 46,
         seasonPointsEarned: 9,
@@ -10353,7 +10353,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 30,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 41,
         hardRoundTotal: 51,
         seasonPointsEarned: 7,
@@ -10721,7 +10721,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 45,
-        player: 'rolyt',
+        player: 'Rolyt',
         easyRoundTotal: 39,
         hardRoundTotal: 59,
         seasonPointsEarned: 5,
@@ -11227,7 +11227,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 69,
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         easyRoundTotal: 48,
         hardRoundTotal: 61,
         seasonPointsEarned: 1,
@@ -11603,7 +11603,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 8,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 43,
         hardRoundTotal: 45,
         seasonPointsEarned: 12,
@@ -11741,7 +11741,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 14,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 42,
         hardRoundTotal: 50,
         seasonPointsEarned: 9,
@@ -12408,7 +12408,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 42,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 49,
         hardRoundTotal: 54,
         seasonPointsEarned: 5,
@@ -12477,7 +12477,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 46,
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         easyRoundTotal: 51,
         hardRoundTotal: 53,
         seasonPointsEarned: 5,
@@ -13221,7 +13221,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 4,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 35,
         hardRoundTotal: 45,
         seasonPointsEarned: 16,
@@ -13865,7 +13865,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 31,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 37,
         hardRoundTotal: 52,
         seasonPointsEarned: 7,
@@ -13888,7 +13888,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 31,
-        player: 'rolyt',
+        player: 'Rolyt',
         easyRoundTotal: 44,
         hardRoundTotal: 45,
         seasonPointsEarned: 7,
@@ -14555,7 +14555,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 62,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 43,
         hardRoundTotal: 54,
         seasonPointsEarned: 3,
@@ -14969,7 +14969,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 80,
-        player: 'southren_jenn_76',
+        player: 'Southern_jenn_76',
         easyRoundTotal: 47,
         hardRoundTotal: 76,
         seasonPointsEarned: 1,
@@ -15667,7 +15667,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 25,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 41,
         hardRoundTotal: 55,
         seasonPointsEarned: 7,
@@ -16012,7 +16012,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 42,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 49,
         hardRoundTotal: 54,
         seasonPointsEarned: 5,
@@ -16150,7 +16150,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 46,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 49,
         hardRoundTotal: 56,
         seasonPointsEarned: 4,
@@ -16871,7 +16871,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 8,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 41,
         hardRoundTotal: 44,
         seasonPointsEarned: 12,
@@ -17009,7 +17009,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 16,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 43,
         hardRoundTotal: 44,
         seasonPointsEarned: 9,
@@ -17653,7 +17653,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 45,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 47,
         hardRoundTotal: 52,
         seasonPointsEarned: 4,
@@ -18719,7 +18719,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 19,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 43,
         hardRoundTotal: 53,
         seasonPointsEarned: 9,
@@ -18742,7 +18742,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 19,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 42,
         hardRoundTotal: 54,
         seasonPointsEarned: 9,
@@ -19156,7 +19156,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 40,
-        player: 'KCRob',
+        player: 'KCROB',
         easyRoundTotal: 48,
         hardRoundTotal: 55,
         seasonPointsEarned: 5,
@@ -20406,7 +20406,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 27,
-        player: 'Squeezy_JibbZ',
+        player: 'SqueezyJibbZ',
         easyRoundTotal: 41,
         hardRoundTotal: 47,
         seasonPointsEarned: 1,
@@ -20659,7 +20659,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 42,
-        player: 'rainedrop184',
+        player: 'RaineDrop184',
         easyRoundTotal: 44,
         hardRoundTotal: 47,
         seasonPointsEarned: 1,

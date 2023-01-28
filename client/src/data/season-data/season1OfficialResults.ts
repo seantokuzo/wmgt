@@ -352,7 +352,7 @@ export const season1OfficialResults: SeasonResultsOfficial = {
       pointsByRound: [0, 3, 2, 7, 2, 2, 1, 1, 3, 3, 2, 4]
     },
     {
-      player: 'Grezza',
+      player: 'GREZZA',
       seasonRank: 59,
       seasonPoints: 23,
       pointsByRound: [1, 3, 3, 4, 4, 1, 1, 1, 4, 2, 2, 0]

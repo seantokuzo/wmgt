@@ -172,7 +172,7 @@ export const season3OfficialResults: SeasonResultsOfficial = {
       flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPSR0Q_risXKPxZWNNgNNno2YfHplJQCVcyj2FShjv9WcMjNgRbHzSwWXLoiStOkL4hSVJLF0Jua6QtFlyc1cLPuw=s26-w26-h20'
     },
     {
-      player: 'SqueezyJibbz',
+      player: 'SqueezyJibbZ',
       seasonRank: 25,
       seasonPoints: 66,
       pointsByRound: [0, 0, 8, 0, 5, 5, 16, 9, 8, 6, 9, 5],
@@ -599,7 +599,7 @@ export const season3OfficialResults: SeasonResultsOfficial = {
       flagLink: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPSR0Q_risXKPxZWNNgNNno2YfHplJQCVcyj2FShjv9WcMjNgRbHzSwWXLoiStOkL4hSVJLF0Jua6QtFlyc1cLPuw=s26-w26-h20'
     },
     {
-      player: '4Whlr',
+      player: '4whlr',
       seasonRank: 86,
       seasonPoints: 2,
       pointsByRound: [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0],

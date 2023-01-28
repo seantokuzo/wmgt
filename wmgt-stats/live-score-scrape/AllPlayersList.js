@@ -64,7 +64,7 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'rolyt',
+    player: 'Rolyt',
     flag: '🇺🇸'
   },
   {
@@ -100,11 +100,11 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'KCRob',
+    player: 'KCROB',
     flag: '🇺🇸'
   },
   {
-    player: 'Squeezy_JibbZ',
+    player: 'SqueezyJibbZ',
     flag: '🇵🇳'
   },
   {
@@ -176,11 +176,11 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'rainedrop184',
+    player: 'RaineDrop184',
     flag: '🇺🇸'
   },
   {
-    player: '4Whlr',
+    player: '4whlr',
     flag: '🇺🇸'
   },
   {
@@ -428,7 +428,7 @@ export const allPlayersList = [
     flag: '🇺🇸'
   },
   {
-    player: 'southren_jenn_76',
+    player: 'Southern_jenn_76',
     flag: '🇺🇸'
   },
   {
