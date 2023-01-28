@@ -1,8 +1,20 @@
 import fs from "fs"
 import { parse } from "csv-parse"
 
-const csvFile = "./s6r5.csv"
-const writeFileName = "s6r5"
+// const csvFile = "./s6r1.csv"
+// const writeFileName = "s6r1"
+
+// const csvFile = "./s6r2.csv"
+// const writeFileName = "s6r2"
+
+const csvFile = "./s6r3.csv"
+const writeFileName = "s6r3"
+
+// const csvFile = "./s6r4.csv"
+// const writeFileName = "s6r4"
+
+// const csvFile = "./s6r5.csv"
+// const writeFileName = "s6r5"
 
 // const csvFile = "./s6r6.csv"
 // const writeFileName = "s6r6"
@@ -24,6 +36,12 @@ const writeFileName = "s6r5"
 
 console.log(parse)
 
+const playerNameExceptions = (name) => {
+  if (name === "FugoHallerin") return "FugoHallarin"
+
+  return name
+}
+
 const csvData = []
 fs.createReadStream(csvFile)
   .pipe(parse({ delimiter: ":" }))
@@ -33,7 +51,7 @@ fs.createReadStream(csvFile)
     if (rowArr[0] === "Pos" || rowArr.length < 10) return
     const formattedPlayerResults = {
       roundRank: +rowArr[0],
-      player: rowArr[1],
+      player: playerNameExceptions(rowArr[1]),
       easyScorecard: rowArr.slice(2, 20).map((strNum) => +strNum),
       hardScorecard: rowArr.slice(20, 38).map((strNum) => +strNum),
       easyRoundScore: +rowArr[38],
@@ -41,10 +59,8 @@ fs.createReadStream(csvFile)
       totalToPar: +rowArr[40]
     }
     csvData.push(formattedPlayerResults)
-    //do something with csvrow
   })
   .on("end", function () {
-    //do something with csvData
     console.log(csvData)
     fs.writeFile(
       `${writeFileName}-raw-data.json`,

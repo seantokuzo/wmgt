@@ -13,7 +13,7 @@ export const rankStyle = (rank: number) => {
     ? 'bg-sh-bronze font-bold text-black'
     : rank <= 10
     ? 'bg-sh-topTenGreen font-bold text-black'
-    : ''
+    : 'border-l-2 border-b-2 border-white'
 }
 
 export const roundPointColor = (points: number) => {
@@ -120,7 +120,8 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
               {point}
             </Link>
           ))}
-        {(season !== 7 && season !== 8) &&
+        {season !== 7 &&
+          season !== 8 &&
           player.roundPoints.map((point, i) => (
             <div
               className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative

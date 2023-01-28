@@ -24,6 +24,8 @@ type RoundIdentifier = {
   round: number
 }
 
+export type PlayerSeasonAceTotals = { player: string; roundAceCount: number }
+
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 
 export abstract class DataGod {
@@ -612,5 +614,77 @@ export abstract class DataGod {
       .map((player) => {
         return this.tryToConvertPlayerFlag(player)
       })
+  }
+
+  static getSeasonHoleInOneLeaders(season: number) {
+    const seasonData = this.getSeasonData(season)
+
+    if (seasonData.length === 0) return []
+
+    const holeInOneCounts = seasonData.map((round) => {
+      return (round.scores as PlayerRoundInterface[])
+        .reduce((acc: PlayerSeasonAceTotals[], player: PlayerRoundInterface) => {
+          const easyAceCount = player.easyScorecard.reduce(
+            (aceAcc: number, score: number): number => {
+              return score === 1 ? aceAcc + 1 : aceAcc
+            },
+            0
+          )
+          const hardAceCount = player.hardScorecard.reduce(
+            (aceAcc: number, score: number): number => {
+              return score === 1 ? aceAcc + 1 : aceAcc
+            },
+            0
+          )
+          return [
+            ...acc,
+            {
+              player: player.player,
+              roundAceCount: easyAceCount + hardAceCount
+            }
+          ]
+        }, [])
+        .sort((a, b) => b.roundAceCount - a.roundAceCount)
+    })
+
+    // console.log(holeInOneCounts)
+
+    const playerSeasonAceTotals = holeInOneCounts.reduce(
+      (acc: PlayerSeasonAceTotals[], round: PlayerSeasonAceTotals[]) => {
+        round.map((player) => {
+          // PLAYER NOT ON ACC YET
+          if (acc.findIndex((p) => p.player === player.player) < 0) {
+            acc.push(player)
+          } else {
+            // PLAYER ON ACC ALREADY - ADD TO TOTAL
+            const playerAccIndex = acc.findIndex((p) => p.player === player.player)
+            acc[playerAccIndex] = {
+              player: acc[playerAccIndex].player,
+              roundAceCount: acc[playerAccIndex].roundAceCount + player.roundAceCount
+            }
+          }
+        })
+        return acc
+      },
+      []
+    )
+
+    const playerSeasonAceTotalsWithRank = playerSeasonAceTotals
+      .map((player) => {
+        const rank = playerSeasonAceTotals.reduce((acc: number, p) => {
+          if (p.roundAceCount > player.roundAceCount) return acc + 1
+          return acc
+        }, 1)
+        return {
+          rank,
+          flag: allPlayersList.filter((p) => p.player === player.player)[0]
+            ? allPlayersList.filter((p) => p.player === player.player)[0].flag
+            : '',
+          ...player
+        }
+      })
+      .sort((a, b) => a.rank - b.rank)
+
+    return playerSeasonAceTotalsWithRank
   }
 }

@@ -492,7 +492,7 @@ export const season8Data: RoundDataInterface[] = [
       },
       {
         roundRank: 21,
-        player: 'FugoHallerin',
+        player: 'FugoHallarin',
         easyRoundTotal: 38,
         hardRoundTotal: 48,
         seasonPointsEarned: 1,

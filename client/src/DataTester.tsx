@@ -68,6 +68,12 @@
 // import { DataGod } from 'data/dataGod'
 // console.log(DataGod.getSeasonTopTenRunningPointTotal(7))
 
+// GET HOLE IN ONE LEADERS FROM SEASON
+// import { DataGod } from "data/dataGod"
+// console.log(DataGod.getSeasonHoleInOneLeaders(8))
+// console.log(DataGod.getSeasonHoleInOneLeaders(7))
+// console.log(DataGod.getSeasonHoleInOneLeaders(5))
+
 const DataTester = () => {
   return <div className="hidden"></div>
 }

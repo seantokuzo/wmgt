@@ -25,7 +25,6 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
   const yAxisTicks = new Array(Math.abs(closestTen / 10) + 1).fill('').map((_slot, i) => {
     return 10 * i
   })
-  console.log(yAxisTicks)
 
   const xAxisTicks: string[] = new Array(raceData.length)
     .fill('')

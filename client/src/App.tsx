@@ -8,6 +8,7 @@ import Player from 'pages/Player'
 import Season from 'pages/Season'
 import RoundDetails from 'components/season/round-details/RoundDetails'
 import SeasonSummary from 'components/season/summary/SeasonSummary'
+import SeasonStats from 'components/season/stats/SeasonStats'
 import WhereArtThou from 'pages/WhereArtThou'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { nanoid } from 'nanoid'
@@ -67,9 +68,8 @@ function App() {
           }
         >
           {/* SEASON 8 ROUTES */}
-
-          {/* ADD THIS AFTER ROUND 1 OFFICIAL RESULTS ADD */}
           <Route path="s8-summary" element={<SeasonSummary season={8} />} />
+          <Route path="s8-stats" element={<SeasonStats season={8} />} />
           {season8Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
@@ -79,6 +79,7 @@ function App() {
           ))}
           {/* SEASON 7 ROUTES */}
           <Route path="s7-summary" element={<SeasonSummary season={7} />} />
+          <Route path="s7-stats" element={<SeasonStats season={7} />} />
           {season7Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
@@ -88,6 +89,7 @@ function App() {
           ))}
           {/* SEASON 6 ROUTES */}
           <Route path="s6-summary" element={<SeasonSummary season={6} />} />
+          <Route path="s6-stats" element={<SeasonStats season={6} />} />
           {season6Data.map((round) => (
             <Route
               path={`s${round.season}r${round.round}`}
