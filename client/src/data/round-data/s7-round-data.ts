@@ -883,7 +883,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 39,
-        player: '4Whlr',
+        player: '4whlr',
         easyRoundTotal: 39,
         hardRoundTotal: 57,
         seasonPointsEarned: 6,
@@ -2961,7 +2961,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 39,
-        player: '4Whlr',
+        player: '4whlr',
         easyRoundTotal: 37,
         hardRoundTotal: 61,
         seasonPointsEarned: 6,
@@ -13267,7 +13267,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 6,
-        player: '4Whlr',
+        player: '4whlr',
         easyRoundTotal: 34,
         hardRoundTotal: 48,
         seasonPointsEarned: 14,
@@ -20820,7 +20820,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 49,
-        player: '4Whlr',
+        player: '4whlr',
         easyRoundTotal: 42,
         hardRoundTotal: 51,
         seasonPointsEarned: 1,
@@ -21303,7 +21303,7 @@ export const season7Data: RoundDataInterface[] = [
       },
       {
         roundRank: 70,
-        player: 'Seppe',
+        player: 'seppe',
         easyRoundTotal: 50,
         hardRoundTotal: 67,
         seasonPointsEarned: 1,

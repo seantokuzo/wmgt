@@ -622,7 +622,7 @@ export const s7r12csvData = [
   },
   {
     roundRank: 70,
-    player: 'Seppe',
+    player: 'seppe',
     easyScorecard: [2, 3, 4, 3, 2, 2, 3, 4, 3, 2, 2, 2, 4, 2, 6, 2, 2, 2],
     hardScorecard: [2, 4, 8, 3, 3, 3, 2, 5, 3, 4, 3, 2, 3, 2, 8, 5, 4, 3],
     easyRoundScore: -9,

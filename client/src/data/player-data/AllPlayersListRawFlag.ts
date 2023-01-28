@@ -252,7 +252,7 @@ export const allPlayersListRawFlag: PlayerInterface[] = [
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {
-    player: '4Whlr',
+    player: '4whlr',
     flag: 'https://lh3.googleusercontent.com/docsubipk/ADszHBPf6t-Mvt-r0EC5Wr8vXH8Yeda3XRzc-rsVX9SPCbPqzNjGu5QmTDUHg0tZGBs82U2BZkSaH_nT-wRm9ZYGVyJIXg=s26-w26-h20'
   },
   {

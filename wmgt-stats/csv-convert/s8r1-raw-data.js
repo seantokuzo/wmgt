@@ -640,7 +640,7 @@ export const s8r1csvData = [
   },
   {
     roundRank: 72,
-    player: 'Seppe',
+    player: 'seppe',
     easyScorecard: [3, 2, 1, 2, 3, 2, 3, 4, 3, 4, 2, 3, 2, 2, 2, 1, 2, 4],
     hardScorecard: [4, 3, 2, 3, 3, 2, 4, 2, 4, 2, 2, 2, 2, 7, 2, 2, 2, 5],
     easyRoundScore: -21,
