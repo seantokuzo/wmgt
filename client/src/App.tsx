@@ -19,8 +19,10 @@ import { season7Data } from 'data/round-data/s7-round-data'
 import { season8Data } from 'data/round-data/s8-round-data'
 import DataTester from 'DataTester'
 import TournamentInfo from 'pages/TournamentInfo'
+import Contact from 'pages/Contact'
+import ContactThankYou from 'pages/ContactThankYou'
 
-export type PagePath = '/' | 'season' | 'course' | 'player' | 'tournament-info'
+export type PagePath = '/' | 'season' | 'course' | 'player' | 'tournament-info' | 'contact'
 
 function App() {
   const { darkMode, changeWindowSize } = useAppContext()
@@ -49,6 +51,15 @@ function App() {
     return () => window.removeEventListener('resize', resizeListener)
     // eslint-disable-next-line
   }, [])
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode')
+    } else {
+      document.body.classList.remove('dark-mode')
+      return
+    }
+  }, [darkMode])
 
   return (
     <div
@@ -122,6 +133,9 @@ function App() {
         </Route>
         <Route path="player" element={<Player />} />
         <Route path="tournament-info" element={<TournamentInfo />} />
+        <Route path="contact" element={<Contact />}>
+          <Route path="thankyou" element={<ContactThankYou />} />
+        </Route>
         <Route path="*" element={<WhereArtThou />} />
       </Routes>
       <DataTester />

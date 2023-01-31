@@ -60,6 +60,16 @@
   --overPar: theme('colors.lime.700');
 }
 
+body {
+  width: 100%;
+  min-width: 100vw;
+  background-color: white;
+}
+
+.dark-mode {
+  background-color: black;
+}
+
 .app-container {
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
@@ -105,6 +115,9 @@
 }
 .bg-sh-gold {
   background-color: var(--gold);
+  box-shadow: var(--sh-gold);
+}
+.sh-gold {
   box-shadow: var(--sh-gold);
 }
 .brdr-gold {

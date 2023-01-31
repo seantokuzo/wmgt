@@ -15,11 +15,11 @@ const FooterCredits = () => {
     )
   }
 
-  if (windowSize.width < 768) {
+  if (windowSize.width < 768 && windowSize.width < windowSize.height) {
     return (
       <footer className="w-full max-w-full absolute bottom-3 flex flex-col justify-center items-center text-xxs md:text-xs">
         <div className="">Powered with stats by</div>
-        <div className="mt-1 w-full flex flex-wrap justify-center items-center mx-6 md:mx-10 lg:mx-12 text-center">
+        <div className=" mt-1 w-full flex flex-col justify-center items-center mx-6 md:mx-10 lg:mx-12 text-center">
           <div className="flex justify-evenly items-center">
             {statGOAT('ElJorge')}
             {statGOAT('steven_T')}
