@@ -30,7 +30,7 @@ const TournamentInfo = () => {
         )}
         {linkEl(
           'https://dqvo64m7q9ujvqa-wmgt.adb.us-ashburn-1.oraclecloudapps.com/ords/r/wmgt/wmgt/home',
-          'Stats by El Jorge'
+          'Stats by ElJorge'
         )}
         {linkEl(
           'https://docs.google.com/spreadsheets/d/178w1i4wpq5D4H6QFgib_4RGaGqOuYN6xJYwjikYdUf0/edit#gid=1780620131',
