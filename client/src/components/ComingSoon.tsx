@@ -8,7 +8,7 @@ const ComingSoon: React.FC<Props> = ({ text, season }) => {
     <div
       className={`w-full max-w-xl p-8 my-8 font-bold text-center
       text-xl md:text-2xl lg:text-4xl uppercase
-      rounded-md animate-bounce
+      rounded-md
       border-4
       ${
         !season

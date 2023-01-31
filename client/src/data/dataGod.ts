@@ -687,4 +687,29 @@ export abstract class DataGod {
 
     return playerSeasonAceTotalsWithRank
   }
+
+  static getCourseRounds = (course: CourseAlias) => {
+    const appearedIn = []
+    if (course[2] === 'E') {
+      // TODO
+      // WHEN IN SEASON 9
+      // if (season8Data.filter((r) => r.easyCourse === course)[0])
+      //   appearedIn.push(season6Data.filter((r) => r.easyCourse === course)[0])
+      if (season7Data.filter((r) => r.easyCourse === course)[0])
+        appearedIn.push(season7Data.filter((r) => r.easyCourse === course)[0])
+      if (season6Data.filter((r) => r.easyCourse === course)[0])
+        appearedIn.push(season6Data.filter((r) => r.easyCourse === course)[0])
+    }
+    if (course[2] === 'H') {
+      // WHEN IN SEASON 9
+      // if (season8Data.filter((r) => r.easyCourse === course)[0])
+      //   appearedIn.push(season6Data.filter((r) => r.easyCourse === course)[0])
+      if (season7Data.filter((r) => r.hardCourse === course)[0])
+        appearedIn.push(season7Data.filter((r) => r.hardCourse === course)[0])
+      if (season6Data.filter((r) => r.hardCourse === course)[0])
+        appearedIn.push(season6Data.filter((r) => r.hardCourse === course)[0])
+      // TODO
+    }
+    return appearedIn
+  }
 }

@@ -112,13 +112,19 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
             onClick={() => handlePlayerClick(player.player)}
           >
             {/* POINTS */}
-            <div className="w-full px-2 flex justify-between items-center">
+            <div
+              className={`${
+                player.roundPoints.length < 11 ? 'w-fit mx-1' : 'w-full'
+              } px-2 flex justify-between items-center`}
+            >
               {/* IF SEASON 7 MAKE ROUND POINT BOXES LINK TO ROUND DETAILS PAGES */}
               {(season === 7 || season === 8) &&
                 player.roundPoints.map((point, i) => (
                   <Link
                     to={`/season/s${season}r${i + 1}`}
-                    className="w-fit flex flex-col justify-center items-center"
+                    className={`w-fit ${
+                      player.roundPoints.length < 11 && 'mx-1'
+                    } flex flex-col justify-center items-center`}
                     key={nanoid()}
                   >
                     <div
@@ -142,7 +148,9 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
                 season !== 8 &&
                 player.roundPoints.map((point, i) => (
                   <div
-                    className="w-fit flex flex-col justify-center items-center"
+                    className={`w-fit ${
+                      player.roundPoints.length < 11 && 'mx-1'
+                    } flex flex-col justify-center items-center`}
                     onClick={() => handlePlayerClick(player.player)}
                     key={nanoid()}
                   >

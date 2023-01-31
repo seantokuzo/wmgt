@@ -1,6 +1,5 @@
 import fs from "fs"
 import { parse } from "csv-parse"
-import { playerNameExceptions } from "../player-list-scraper-new/playerNameExceptions"
 
 // const csvFile = "./s6r1.csv"
 // const writeFileName = "s6r1"
@@ -8,34 +7,35 @@ import { playerNameExceptions } from "../player-list-scraper-new/playerNameExcep
 // const csvFile = "./s6r2.csv"
 // const writeFileName = "s6r2"
 
-const csvFile = "./s6r3.csv"
-const writeFileName = "s6r3"
+// const csvFile = "./s6r3.csv"
+// const writeFileName = "s6r3"
 
-// const csvFile = "./s6r4.csv"
-// const writeFileName = "s6r4"
+const csvFile = "./s8r2.csv"
+const writeFileName = "s8r2"
 
-// const csvFile = "./s6r5.csv"
-// const writeFileName = "s6r5"
+const nonCharacterRegex = /[^a-zA-Z0-9]/g
+export const regexPlayerName = (player) => {
+  return player.replaceAll(nonCharacterRegex, "").toLowerCase()
+}
 
-// const csvFile = "./s6r6.csv"
-// const writeFileName = "s6r6"
 
-// const csvFile = "./s6r7.csv"
-// const writeFileName = "s6r7"
+const playerNameExceptions = (name) => {
+  if (regexPlayerName(name) === regexPlayerName("FugoHallerin")) return "FugoHallarin"
+  if (regexPlayerName(name) === regexPlayerName("southren_jenn_76")) return "Southern_jenn_76"
+  if (regexPlayerName(name) === regexPlayerName("seppemarotta")) return "seppe"
+  if (regexPlayerName(name) === regexPlayerName("b0gibo")) return "bogibo"
+  if (regexPlayerName(name) === regexPlayerName("Snowraver1")) return "Snow"
+  if (regexPlayerName(name) === regexPlayerName("Jorge")) return "ElJorge"
+  if (regexPlayerName(name) === regexPlayerName("seve15")) return "Seve"
+  if (regexPlayerName(name) === regexPlayerName("GinjaNinja")) return "GingaNinja19"
+  if (regexPlayerName(name) === regexPlayerName("TrickDicky")) return "TrickyDicky"
+  if (regexPlayerName(name) === regexPlayerName("StevieCymru")) return "SteveSkillman"
+  if (regexPlayerName(name) === regexPlayerName("Toaster87")) return "Toaster"
+  if (regexPlayerName(name) === regexPlayerName("NickJones5")) return "Nickjone5"
 
-// const csvFile = "./s6r8.csv"
-// const writeFileName = "s6r8"
+  return name
+}
 
-// const csvFile = "./s6r9.csv"
-// const writeFileName = "s6r9"
-
-// const csvFile = "./s7r12.csv"
-// const writeFileName = "s7r12"
-
-// const csvFile = "./s8r1.csv"
-// const writeFileName = "s8r1"
-
-console.log(parse)
 
 const csvData = []
 fs.createReadStream(csvFile)

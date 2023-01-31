@@ -25,7 +25,7 @@ export const lineColors = {
 const RaceToTheFinish: React.FC<Props> = ({ round }) => {
   const { windowSize, userPlayer } = useAppContext()
   const convertedRound = DataGod.getRaceToFinishData(round, userPlayer)
-  console.log(convertedRound)
+  // console.log(convertedRound)
 
   const lowScore = Math.min(
     ...Object.values(convertedRound[convertedRound.length - 1]).map((v) =>
@@ -48,7 +48,7 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <div className="my-4 flex flex-col justify-center items-center">
-        {/* {!userPlayer && <div className="my-2">Add a Player</div>} */}
+        {!userPlayer && <div className="my-2">Add a Player</div>}
         <PlayerSelector />
       </div>
       <LineChart

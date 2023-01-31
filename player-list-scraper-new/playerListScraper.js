@@ -1,11 +1,7 @@
-import { allPlayersList } from "./AllPlayersList-S8R2.js"
 import { flagConverter } from "./flagConverter.js"
+import { allPlayersList } from "./AllPlayersList-S8R2.js"
 import { playerNameExceptions } from "./playerNameExceptions.js"
-
-export const regexPlayerName = (player) => {
-  const nonCharacterRegex = /[^a-zA-Z0-9]/g
-  return player.replaceAll(nonCharacterRegex, "").toLowerCase()
-}
+import { regexPlayerName } from "./regexPlayerName.js"
 
 const getPlayerList = (rowId, firstRow, collection = []) => {
   if (document.getElementById(`${rowId}R${firstRow}`)) {

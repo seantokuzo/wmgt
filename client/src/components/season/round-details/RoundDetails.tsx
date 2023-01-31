@@ -14,6 +14,7 @@ import { nanoid } from 'nanoid'
 import { CURRENT_SEASON } from 'utils/constants'
 import RoundDetailBtn from './RoundDetailBtn'
 import ComingSoon from 'components/ComingSoon'
+import UpcomingRound from './UpcomingRound'
 
 type Props = {
   round: RoundDataInterface
@@ -65,7 +66,10 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
               btnMode={m}
             />
           ))}
-        {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />}
+        {/* {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />} */}
+        {upcomingRound && (
+          <UpcomingRound easyCourse={round.easyCourse} hardCourse={round.hardCourse} />
+        )}
       </div>
       {!upcomingRound && roundDetailsMode === 'full' && (
         <Scorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
