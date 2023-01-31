@@ -18,8 +18,9 @@ import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { season8Data } from 'data/round-data/s8-round-data'
 import DataTester from 'DataTester'
+import TournamentInfo from 'pages/TournamentInfo'
 
-export type PagePath = '/' | 'season' | 'course' | 'player'
+export type PagePath = '/' | 'season' | 'course' | 'player' | 'tournament-info'
 
 function App() {
   const { darkMode, changeWindowSize } = useAppContext()
@@ -120,6 +121,7 @@ function App() {
           ))}
         </Route>
         <Route path="player" element={<Player />} />
+        <Route path="tournament-info" element={<TournamentInfo />} />
         <Route path="*" element={<WhereArtThou />} />
       </Routes>
       <DataTester />

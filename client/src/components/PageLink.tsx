@@ -22,13 +22,14 @@ const PageLink: React.FC<{ path: PagePath }> = ({ path }) => {
     <Link
       to={path}
       className={`rounded-lg hover:scale-105
-        text-base md:text-lg font-semibold
+        text-base md:text-lg font-semibold text-center
         flex justify-center items-center
         ${homeBtnSelected(path)}
-        ${path !== '/' && 'w-1/2 my-2 px-4 py-1.5 bg-wmgYellow sh-wmgYellowSm text-black'}
+        ${path !== '/' && 'w-1/2 min-w-max my-2 px-4 py-1.5 bg-wmgYellow sh-wmgYellowSm text-black'}
         ${path === '/' && 'w-fit rounded-[100%] p-2'}`}
     >
-      {path !== '/' && path.toUpperCase()}
+      {path === 'tournament-info' && 'TOURNAMENT INFO'}
+      {path !== '/' && path !== 'tournament-info' && path.toUpperCase()}
       {path === '/' && <i className="fa-solid fa-house"></i>}
     </Link>
   )
