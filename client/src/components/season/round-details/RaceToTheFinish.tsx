@@ -69,7 +69,7 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
         data={convertedRound}
         margin={{
           top: 20,
-          right: 0,
+          right: 35,
           left: 0,
           bottom: 30
         }}
@@ -99,7 +99,7 @@ const RaceToTheFinish: React.FC<Props> = ({ round }) => {
             marginBottom: '0.5rem'
           }}
         />
-        <Legend margin={{ top: 0, left: 0, bottom: 36, right: 0 }} verticalAlign="top" />
+        <Legend margin={{ top: 0, left: 0, bottom: 40, right: 0 }} verticalAlign="top" />
         {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
         {Object.keys(convertedRound[0])
           .filter((k) => k !== 'hole')

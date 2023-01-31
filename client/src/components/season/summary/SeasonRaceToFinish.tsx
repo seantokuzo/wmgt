@@ -39,7 +39,7 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
     .reverse()
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
+    <div className="w-full mb-24 flex flex-col justify-center items-center">
       <div className="my-4 flex flex-col justify-center items-center">
         {/* {!userPlayer && <div className="my-2">Add a Player</div>} */}
         <PlayerSelector />
@@ -47,7 +47,7 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
       <LineChart
         width={
           windowSize.height > windowSize.width
-            ? Math.floor(windowSize.width * 0.95)
+            ? Math.floor(windowSize.width * 0.85)
             : Math.floor(windowSize.width * 0.75) <= 1200
             ? Math.floor(windowSize.width * 0.75)
             : 1200
@@ -62,9 +62,9 @@ const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
         data={raceData}
         margin={{
           top: 20,
-          right: 0,
+          right: 15,
           left: 0,
-          bottom: 30
+          bottom: 50
         }}
       >
         <CartesianGrid strokeDasharray="1 1" />
