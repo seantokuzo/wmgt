@@ -74,6 +74,10 @@
 // console.log(DataGod.getSeasonHoleInOneLeaders(7))
 // console.log(DataGod.getSeasonHoleInOneLeaders(5))
 
+// SORT COURSES BY PAR (IN STROKES)
+// import { courseData } from 'data/course-data/wmgt-course-data'
+// console.log(courseData.sort((a, b) => a.par - b.par).map((c) => ({ course: c.alias, par: c.par })))
+
 const DataTester = () => {
   return <div className="hidden"></div>
 }

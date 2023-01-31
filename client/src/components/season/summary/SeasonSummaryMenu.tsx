@@ -27,8 +27,7 @@ const SeasonSummaryMenu: React.FC<Props> = ({ season, summaryMode, setSummaryMod
 
   return (
     <div
-      className="w-max max-w-xl min-w-max
-      mt-4 px-4
+      className="w-max max-w-xl min-w-max px-4
       flex flex-col justify-evenly items-center"
     >
       {modeChangeBtn('leaderboard', 'Leaderboard')}

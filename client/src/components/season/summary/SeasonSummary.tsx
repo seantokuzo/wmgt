@@ -4,7 +4,6 @@ import { useAppContext } from 'context/appContext'
 import SeasonSummaryMenu from './SeasonSummaryMenu'
 import SeasonLeaderboardFull from './SeasonLeaderboardFull'
 import SeasonLeaderboardSmall from './SeasonLeaderboardSmall'
-import ComingSoon from 'components/ComingSoon'
 import SeasonRaceToFinish from './SeasonRaceToFinish'
 
 type Props = {
@@ -35,6 +34,11 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
       >
         <p>SEASON MENU</p>
       </Link>
+      <div
+        className={`mt-5 mb-4 px-16 py-3
+        rounded-md bg-sh-gold border-2 brdr-gold
+        text-black text-4xl font-bold`}
+      >{`Season ${season}`}</div>
       <SeasonSummaryMenu
         season={season}
         summaryMode={summaryMode}
@@ -47,7 +51,6 @@ const SeasonSummary: React.FC<Props> = ({ season }) => {
         <SeasonLeaderboardSmall season={season} />
       )}
       {summaryMode === 'race' && <SeasonRaceToFinish season={season} />}
-      {/* {summaryMode === 'race' && <ComingSoon text="🔨 Not so Fast 🪚" />} */}
     </div>
   )
 }

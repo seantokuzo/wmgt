@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useAppContext } from 'context/appContext'
 import PlayerSelector from 'components/PlayerSelector'
 import { DataGod } from 'data/dataGod'
@@ -11,6 +12,10 @@ type Props = {
 
 const SeasonRaceToFinish: React.FC<Props> = ({ season }) => {
   const { windowSize, userPlayer } = useAppContext()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const raceData = DataGod.getSeasonTopTenRunningPointTotal(season, userPlayer)
 

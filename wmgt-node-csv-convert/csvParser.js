@@ -1,5 +1,6 @@
 import fs from "fs"
 import { parse } from "csv-parse"
+import { playerNameExceptions } from "../player-list-scraper-new/playerNameExceptions"
 
 // const csvFile = "./s6r1.csv"
 // const writeFileName = "s6r1"
@@ -35,12 +36,6 @@ const writeFileName = "s6r3"
 // const writeFileName = "s8r1"
 
 console.log(parse)
-
-const playerNameExceptions = (name) => {
-  if (name === "FugoHallerin") return "FugoHallarin"
-
-  return name
-}
 
 const csvData = []
 fs.createReadStream(csvFile)
