@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
 
 const CoursesMenu: React.FC = () => {
-  const { darkMode, courseData } = useAppContext()
+  const { darkMode, windowSize, courseData } = useAppContext()
 
   const colors = darkMode
     ? 'bg-wmgBrown cl-wmgYellow sh-wmgBrown'
@@ -13,7 +13,7 @@ const CoursesMenu: React.FC = () => {
       {courseData.map((course) => (
         <Link
           to={`/course/${course.alias.toLowerCase()}`}
-          className={`w-2/5 max-w-xs min-h-[7rem]
+          className={`w-2/5 max-w-xs ${windowSize.width >= 768 ? 'min-h-[7rem]' : 'min-h-[9rem]'}
           m-2 px-4 py-3
           hover:scale-105
           transition ease-in
