@@ -1,4 +1,3 @@
-import FooterCredits from 'components/FooterCredits'
 import { FaDiscord } from 'react-icons/fa'
 
 const TournamentInfo = () => {
