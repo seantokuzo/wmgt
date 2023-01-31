@@ -75,7 +75,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
               flex flex-col justify-center items-center`}
             >
               {/* <div>{winner.player}</div> */}
-              <div>Current Round</div>
+              <div>Next Round</div>
               <div className="text-2xl">{seasonData.length}</div>
             </div>
           )
