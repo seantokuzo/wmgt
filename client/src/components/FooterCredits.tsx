@@ -5,10 +5,11 @@ const FooterCredits = () => {
   const statGOAT = (GOAT: string) => {
     return (
       <div
-        className={`mx-1 px-4 py-1 min-w-[5rem]
-        bg-sh-gold
-        border-2 brdr-gold rounded-md
-        text-black font-bold font-scorenum text-center ${GOAT === 'DERP' && 'opacity-0'}`}
+        className="mx-1 px-2 py-1
+        min-w-[5rem] sm:min-w-[5.5rem]
+        text-xxxs sm:text-xxs
+        text-black font-bold font-scorenum text-center
+        bg-sh-gold border-2 brdr-gold rounded-md"
       >
         {GOAT}
       </div>
@@ -17,17 +18,26 @@ const FooterCredits = () => {
 
   if (windowSize.width < 768 && windowSize.width < windowSize.height) {
     return (
-      <footer className="w-full max-w-full absolute bottom-3 flex flex-col justify-center items-center text-xxs md:text-xs">
+      <footer
+        className={`w-full max-w-full mb-2 ${
+          windowSize.height > 600 ? 'absolute bottom-3' : 'mt-10'
+        } flex flex-col justify-center items-center text-xxs md:text-xs`}
+      >
         <div className="">Powered with stats by</div>
-        <div className=" mt-1 w-full flex flex-col justify-center items-center mx-6 md:mx-10 lg:mx-12 text-center">
+        <div
+          className="w-full mt-1 text-center
+          mx-6 md:mx-10 lg:mx-12
+          flex flex-col justify-center items-center"
+        >
           <div className="flex justify-evenly items-center">
             {statGOAT('ElJorge')}
             {statGOAT('steven_T')}
             {statGOAT('FIRE_321')}
+            {statGOAT('Mau')}
           </div>
           <div className="mt-2 flex justify-evenly items-center">
-            {statGOAT('Mau')}
-            {statGOAT('👑 Bear313')}
+            {statGOAT('Bear313')}
+            {statGOAT('TrippinBill')}
             {statGOAT('Crudzilla')}
             {statGOAT('ichibuho')}
           </div>
@@ -37,20 +47,20 @@ const FooterCredits = () => {
   }
 
   return (
-    <footer className="w-full absolute bottom-3 flex justify-center items-center">
+    <footer className="w-full px-4 absolute bottom-3 flex justify-center items-center">
       <div
         className="text-xxs md:text-xs
         flex justify-between items-center"
       >
-        {statGOAT('DERP')}
         {statGOAT('ElJorge')}
         {statGOAT('steven_T')}
         {statGOAT('FIRE_321')}
-        <div className="w-max flex justify-center items-center mx-6 md:mx-10 lg:mx-12 text-center">
+        {statGOAT('Mau')}
+        <div className="w-max flex justify-center items-center mx-3 md:mx-6 lg:mx-8 text-center">
           <div className="">Powered with stats by</div>
         </div>
-        {statGOAT('Mau')}
-        {statGOAT('👑 Bear313')}
+        {statGOAT('Bear313')}
+        {statGOAT('TrippinBill')}
         {statGOAT('Crudzilla')}
         {statGOAT('ichibuho')}
       </div>

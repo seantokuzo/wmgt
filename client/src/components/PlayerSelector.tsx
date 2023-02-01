@@ -58,7 +58,7 @@ const PlayerSelector = () => {
         </div>
         <input
           className={`w-full px-2 py-1 mx-3
-          text-xs text-center
+          text-xxs sm:text-sm text-center
           border-2 rounded-md
           ${inputStyle}`}
           type="text"

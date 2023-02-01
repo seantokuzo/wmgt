@@ -17,7 +17,8 @@ const Header: React.FC = () => {
       </div>
       <div className="w-1/2 flex flex-col justify-center items-center">
         <h1
-          className={`${!darkMode ? 'text-black' : 'cl-wmgYellow'} font-orb text-2xl font-semibold`}
+          className={`${!darkMode ? 'text-black' : 'cl-wmgYellow'}
+          font-orb text-xl sm:text-2xl font-semibold`}
         >
           WMGT STATS
         </h1>
