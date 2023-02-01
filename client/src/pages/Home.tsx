@@ -33,7 +33,7 @@ const Home: React.FC = () => {
           to={`/season/s${CURRENT_SEASON}r${currentRound}`}
           className={`w-1/2 min-w-max my-2 px-4 py-1.5
           bg-wmgYellow sh-wmgYellowSm
-          rounded-lg hover:scale-105
+          rounded-lg hover:scale-105 transition-all
           text-sm sm:text-base md:text-lg
           text-black font-semibold text-center uppercase
           flex justify-center items-center`}
