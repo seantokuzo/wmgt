@@ -103,7 +103,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
         text-lg font-semibold
         rounded-md uppercase
         ${menuColors('bg-shadow')}
-        hover:scale-105`}
+        hover:scale-105 transition-all`}
           >
             Season Summary
           </Link>
@@ -115,7 +115,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
         text-lg font-semibold
         rounded-md uppercase
         ${menuColors('bg-shadow')}
-        hover:scale-105`}
+        hover:scale-105 transition-all`}
           >
             Stat Leaders
           </Link>
@@ -142,7 +142,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
                     'round',
                     round.scores.length === 0 && round.season === CURRENT_SEASON
                   )}
-                  hover:scale-105`}
+                  hover:scale-105 transition-all`}
                   key={`${round.easyCourse}-${i}`}
                 >
                   <div

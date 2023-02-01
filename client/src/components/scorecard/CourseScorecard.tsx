@@ -66,7 +66,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             bg-sh-s${currentRound.season}
             rounded-full
             flex flex-col justify-center items-center
-            hover:scale-110`}
+            hover:scale-110 transition-all`}
         >
           {`R${nextNotPrev ? nextRound.round : prevRound.round}`}
           <i className={`fa-solid ${nextNotPrev ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>

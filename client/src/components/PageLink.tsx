@@ -21,7 +21,7 @@ const PageLink: React.FC<{ path: PagePath }> = ({ path }) => {
   return (
     <Link
       to={path}
-      className={`rounded-lg hover:scale-105
+      className={`rounded-lg hover:scale-105 transition-all
         text-sm sm:text-base md:text-lg
         font-semibold text-center uppercase
         flex justify-center items-center

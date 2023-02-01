@@ -40,7 +40,8 @@ const SeasonStats: React.FC<Props> = ({ season }) => {
       <Link
         to="/season"
         className={`px-4 py-2 text-2xl md:text-3xl font-semibold
-          flex justify-center items-center hover:shadow-lg hover:scale-105
+          flex justify-center items-center hover:shadow-lg
+          hover:scale-105 transition-all
           text-white rounded-md
           bg-sh-s${season}`}
       >

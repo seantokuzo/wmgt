@@ -61,7 +61,8 @@ function App() {
 
   return (
     <div
-      className={`app-container w-full min-w-screen h-full font-reg m-0
+      className={`app-container w-full min-w-screen h-full
+      font-reg m-0
       ${bgColor}
       ${textColor}
       flex flex-col justify-start items-center`}

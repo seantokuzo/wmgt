@@ -33,7 +33,7 @@ const Header: React.FC = () => {
               ? 'bg-wmgYellow sh-wmgYellowSm text-black'
               : 'bg-none cl-wmgYellow brdr-wmgYellow border-2'
           }
-          rounded-full hover:scale-110
+          rounded-full hover:scale-110 transition-all
           flex justify-center items-center`}
         >
           <BsMailbox className="text-xl md:text-2xl text-center" />

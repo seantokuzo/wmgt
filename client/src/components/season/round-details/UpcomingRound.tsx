@@ -56,7 +56,7 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
       <button
         className={`min-w-1/4 px-4 py-2 mx-[0.5rem] my-2
       text-sm sm:text-base md:text-lg lg:text-xl
-      flex justify-center hover:scale-105
+      flex justify-center hover:scale-105 transition-all
       rounded-xl sh-basic
       ${colors(easy)}`}
         onClick={() => viewCourse(easy ? 'easy' : 'hard')}

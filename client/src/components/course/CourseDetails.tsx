@@ -151,7 +151,7 @@ const CourseDetails: React.FC<Props> = ({ course }) => {
                 to="/course"
                 className="w-10 h-10 sm:w-8 sm:h-8 p-2 sm:py-2 text-xl sm:text-base md:text-lg lg:text-xl
                 flex justify-center items-center
-                hover:shadow-lg hover:scale-105
+                hover:shadow-lg hover:scale-105 transition-all
                 border-2 brdr-wmgBrown rounded-[100%]"
               >
                 <i className="fa-solid fa-arrow-left"></i>

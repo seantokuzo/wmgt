@@ -71,7 +71,7 @@ export default function Contact() {
         className="mt-4 px-6 py-3
         bg-amber-400 sh-gold brdr-gold border-2 rounded-md
         text-xl text-black font-bold uppercase
-        hover:scale-110"
+        hover:scale-110 transition-all"
       >
         send message
       </button>
