@@ -22,8 +22,6 @@ import TournamentInfo from 'pages/TournamentInfo'
 import Contact from 'pages/Contact'
 import ContactThankYou from 'pages/ContactThankYou'
 
-export type PagePath = '/' | 'season' | 'course' | 'player' | 'tournament-info' | 'contact'
-
 function App() {
   const { darkMode, changeWindowSize } = useAppContext()
 

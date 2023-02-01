@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
-import { PagePath } from 'App'
 import { useAppContext } from 'context/appContext'
+export type PagePath = '/' | 'season' | 'course' | 'player' | 'tournament-info' | 'contact'
 
 const PageLink: React.FC<{ path: PagePath }> = ({ path }) => {
   const { pathname } = useLocation()
@@ -22,7 +22,8 @@ const PageLink: React.FC<{ path: PagePath }> = ({ path }) => {
     <Link
       to={path}
       className={`rounded-lg hover:scale-105
-        text-base md:text-lg font-semibold text-center
+        text-sm sm:text-base md:text-lg
+        font-semibold text-center uppercase
         flex justify-center items-center
         ${homeBtnSelected(path)}
         ${path !== '/' && 'w-1/2 min-w-max my-2 px-4 py-1.5 bg-wmgYellow sh-wmgYellowSm text-black'}
