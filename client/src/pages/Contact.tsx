@@ -61,6 +61,11 @@ export default function Contact() {
         maxLength={400}
         required
       />
+      <input
+        type="hidden"
+        name="_next"
+        value="https://walkabout-mini-golf-tournament-stats.netlify.app/contact/thankyou"
+      ></input>
       <button
         type="submit"
         className="mt-4 px-6 py-3
@@ -70,11 +75,6 @@ export default function Contact() {
       >
         send message
       </button>
-      <input
-        type="hidden"
-        name="_next"
-        value="https://walkabout-mini-golf-tournament-stats.netlify.app/contact/thankyou"
-      ></input>
     </form>
   )
 
