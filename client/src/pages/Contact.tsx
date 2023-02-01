@@ -13,9 +13,10 @@ export default function Contact() {
     <form
       className="flex flex-col justify-center items-center"
       name="contact"
-      method="POST"
       action="https://formsubmit.co/38042c1553ef5f2587e7306e98faf815"
+      // action="https://formsubmit.co/2fa702bb7180b1de86a943b3b462dc5a"
       // action="https://formsubmit.co/ichibuho@gmail.com"
+      method="POST"
     >
       <h3 className="text-center">See any errors? Have any comments?</h3>
       <h3 className="text-center">Shoot me a message!</h3>
