@@ -19,7 +19,7 @@ const TournamentInfo = () => {
   return (
     <div className="w-[80%] max-w-xl px-2 flex flex-col justify-center items-center text-center">
       <div className="w-full max-w-sm flex flex-col justify-center items-center">
-        <h3>To Join Check Out the Official Walkabout Mini-Golf Tournament Discord Here:</h3>
+        <h3>To Join Check Out the Official Walkabout Mini Golf Tournament Discord Here:</h3>
         {linkEl('https://discord.gg/wmg', 'discord')}
       </div>
       <div className="w-full max-w-sm mt-4 flex flex-col justify-center items-center">
