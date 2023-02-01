@@ -13,7 +13,7 @@ export default function Contact() {
     <form
       className="flex flex-col justify-center items-center"
       name="contact"
-      // action="https://formsubmit.co/el/boraxu"
+      // action="https://formsubmit.co/ichibuho@gmail.com"
       action="https://formsubmit.co/2fa702bb7180b1de86a943b3b462dc5a"
       method="POST"
     >
