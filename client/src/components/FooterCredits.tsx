@@ -27,7 +27,7 @@ const FooterCredits = () => {
           </div>
           <div className="mt-2 flex justify-evenly items-center">
             {statGOAT('Mau')}
-            {statGOAT('Bear313')}
+            {statGOAT('👑 Bear313')}
             {statGOAT('Crudzilla')}
             {statGOAT('ichibuho')}
           </div>
@@ -50,7 +50,7 @@ const FooterCredits = () => {
           <div className="">Powered with stats by</div>
         </div>
         {statGOAT('Mau')}
-        {statGOAT('Bear313')}
+        {statGOAT('👑 Bear313')}
         {statGOAT('Crudzilla')}
         {statGOAT('ichibuho')}
       </div>
