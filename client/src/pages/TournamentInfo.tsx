@@ -41,7 +41,7 @@ const TournamentInfo = () => {
             'https://docs.google.com/spreadsheets/d/1m6Ide8yaRJZCiSA6hQZXv3Ukh2JbbSuCH8DPgt3DPXs/edit#gid=261679476',
             'Official Results'
           )}
-          {linkEl('https://apex.oracle.com/pls/apex/r/jrimblas/wmgt/home', 'Stats by ElJorge')}
+          {linkEl('https://rimblas.com/wmgt', 'Stats by ElJorge')}
           {linkEl(
             'https://docs.google.com/spreadsheets/d/178w1i4wpq5D4H6QFgib_4RGaGqOuYN6xJYwjikYdUf0/edit#gid=1780620131',
             'Stats by steven_T'
