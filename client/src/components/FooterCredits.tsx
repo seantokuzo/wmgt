@@ -5,10 +5,10 @@ const FooterCredits = () => {
   const statGOAT = (GOAT: string) => {
     return (
       <div
-        className="mx-1 px-4 py-1 min-w-[5rem]
+        className={`mx-1 px-4 py-1 min-w-[5rem]
         bg-sh-gold
         border-2 brdr-gold rounded-md
-        text-black font-bold font-scorenum text-center"
+        text-black font-bold font-scorenum text-center ${GOAT === 'DERP' && 'opacity-0'}`}
       >
         {GOAT}
       </div>
@@ -27,6 +27,7 @@ const FooterCredits = () => {
           </div>
           <div className="mt-2 flex justify-evenly items-center">
             {statGOAT('Mau')}
+            {statGOAT('Bear313')}
             {statGOAT('Crudzilla')}
             {statGOAT('ichibuho')}
           </div>
@@ -41,6 +42,7 @@ const FooterCredits = () => {
         className="text-xxs md:text-xs
         flex justify-between items-center"
       >
+        {statGOAT('DERP')}
         {statGOAT('ElJorge')}
         {statGOAT('steven_T')}
         {statGOAT('FIRE_321')}
@@ -48,6 +50,7 @@ const FooterCredits = () => {
           <div className="">Powered with stats by</div>
         </div>
         {statGOAT('Mau')}
+        {statGOAT('Bear313')}
         {statGOAT('Crudzilla')}
         {statGOAT('ichibuho')}
       </div>
