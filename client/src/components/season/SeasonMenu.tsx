@@ -67,7 +67,8 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
       {DataGod.getSeasonWinner(season).map((winner) => {
         if (winner.flag === 'derp') {
           return (
-            <div
+            <Link
+              to={`/season/s${CURRENT_SEASON}r${seasonData.length}`}
               key={nanoid()}
               className={`mt-6 px-8 py-2
               bgfade-s${season} border-black border-4 rounded-md
@@ -77,7 +78,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
               {/* <div>{winner.player}</div> */}
               <div>Next Round</div>
               <div className="text-2xl">{seasonData.length}</div>
-            </div>
+            </Link>
           )
         }
         return (
