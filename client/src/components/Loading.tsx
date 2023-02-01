@@ -12,7 +12,9 @@ const Loading: React.FC = () => {
         <img src="/img/the_dude.png" alt="The Dude" className="animate-revspin w-3/4 mb-1" />
       </div>
       {pathname !== '/contact/thankyou' && (
-        <h3 className="mt-3 text-3xl animate-bounce">Loading</h3>
+        <h3 className="mt-6 text-3xl max-w-xs text-center">
+          {pathname === '/player' ? "I swear I'm working on it" : 'Loading'}
+        </h3>
       )}
     </div>
   )
