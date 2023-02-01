@@ -1,9 +1,10 @@
-import ComingSoon from 'components/ComingSoon'
+import PlayerSelector from 'components/PlayerSelector'
 import { useAppContext } from 'context/appContext'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseAlias, courseData } from 'data/course-data/wmgt-course-data'
 import { DataGod } from 'data/dataGod'
 import { allPlayersList } from 'data/player-data/AllPlayersList'
+import { PlayerRoundInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -15,7 +16,7 @@ type Props = {
 }
 
 const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
-  const { darkMode } = useAppContext()
+  const { darkMode, userPlayer } = useAppContext()
   const { showEasyCourse, viewCourse } = useSeasonContext()
 
   useEffect(() => {
@@ -25,6 +26,20 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
   }, [])
 
   const appearedIn = DataGod.getCourseRounds(showEasyCourse ? easyCourse : hardCourse)
+  const sortedScores = appearedIn.map((round) => {
+    if (showEasyCourse) {
+      const sortedEasy = round.scores.sort((a, b) => a.easyRoundScore - b.easyRoundScore)
+      return {
+        ...round,
+        scores: sortedEasy
+      }
+    }
+    const sortedHard = round.scores.sort((a, b) => a.hardRoundScore - b.hardRoundScore)
+    return {
+      ...round,
+      scores: sortedHard
+    }
+  })
 
   const easyCourseData = courseData.filter((c) => c.alias === easyCourse)[0]
   const hardCourseData = courseData.filter((c) => c.alias === hardCourse)[0]
@@ -69,6 +84,17 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
         }`
   }
 
+  const playerScoresEl = (score: PlayerRoundInterface, index: number) => {
+    return (
+      <>
+        <p className="text-left">
+          {allPlayersList.filter((p) => p.player === score.player)[0].flag + ' ' + score.player}
+        </p>
+        <p className="ml-6">{showEasyCourse ? score.easyRoundScore : score.hardRoundScore}</p>
+      </>
+    )
+  }
+
   return (
     <div className="w-full flex flex-col justify-center items-center">
       {/* <ComingSoon text="Upcoming Round" season={CURRENT_SEASON} /> */}
@@ -83,50 +109,88 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
           <p>{showEasyCourse ? `${easyCourseData.course}` : `${hardCourseData.course}`}</p>
           <p>{courseLabelText()}</p>
         </div>
+        <div className="my-3 flex flex-col justify-center items-center">
+          <p>Add Player</p>
+          <PlayerSelector />
+        </div>
         {appearedIn.length > 0 && <p>Appeared In</p>}
         {appearedIn.length > 0 ? (
-          appearedIn.map((r) => {
+          sortedScores.map((r, index) => {
             return (
-              <div className="w-fit flex flex-col justify-center items-center" key={nanoid()}>
+              <div
+                className={`w-fit ${
+                  index === sortedScores.length - 1 ? 'mb-8' : 'mb-3'
+                } flex flex-col justify-center items-center`}
+                key={nanoid()}
+              >
                 <Link
                   to={`/season/s${r.season}r${r.round}`}
                   className="w-full my-2 px-4 py-3
                 bg-sh-gold brdr-gold border-2 rounded-md
                 text-black text-center"
                 >
-                  <p
-                    className="
-                text-xl font-bold"
-                  >{`Season ${r.season} Round ${r.round}`}</p>
-                  <p className="text-xxs">(Click for Details)</p>
+                  <p className="text-xl font-bold">{`Season ${r.season} Round ${r.round}`}</p>
+                  <p className="text-xxs">(Click to see Round)</p>
                 </Link>
-                <p
-                  className={`w-full border-b-2 ${
-                    darkMode ? 'border-white' : 'border-black'
-                  } text-center`}
-                >
-                  Top Ten Scores
-                </p>
                 <div className="w-fit">
-                  {[
-                    ...r.scores.sort((a, b) => {
-                      if (showEasyCourse) {
-                        return a.easyRoundScore - b.easyRoundScore
-                      }
-                      return a.hardRoundScore - b.hardRoundScore
-                    })
-                  ].map((score, i) => {
-                    if (i <= 9) {
+                  {userPlayer &&
+                    r.scores.filter((p) => p.player === userPlayer)[0] &&
+                    sortedScores[index].scores
+                      .filter((s) => {
+                        if (showEasyCourse) {
+                          return s.easyRoundScore <= sortedScores[index].scores[9].easyRoundScore
+                        }
+                        return s.hardRoundScore <= sortedScores[index].scores[9].hardRoundScore
+                      })
+                      .findIndex((s) => s.player === userPlayer) < 0 && (
+                      <div className={`my-2`}>
+                        <p
+                          className={`w-full border-b-2 ${
+                            darkMode ? 'border-white' : 'border-black'
+                          } text-center`}
+                        >
+                          {"Selected Player's Score"}
+                        </p>
+                        <div
+                          className={`w-full py-1 flex justify-between items-center px-2 rounded-b-md bg-sh-s${r.season}`}
+                        >
+                          {playerScoresEl(
+                            r.scores.filter((p) => p.player === userPlayer)[0],
+                            index
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  <p
+                    className={`w-full border-b-2 ${
+                      darkMode ? 'border-white' : 'border-black'
+                    } text-center`}
+                  >
+                    Top Ten Scores
+                  </p>
+                  {r.scores.map((score) => {
+                    if (
+                      (showEasyCourse &&
+                        score.easyRoundScore <= sortedScores[index].scores[9].easyRoundScore) ||
+                      (!showEasyCourse &&
+                        score.hardRoundScore <= sortedScores[index].scores[9].hardRoundScore)
+                    ) {
                       return (
-                        <div className={`w-full flex justify-between items-center`} key={nanoid()}>
-                          <p className="text-left">
+                        <div
+                          className={`w-full px-2 rounded-md flex justify-between items-center ${
+                            score.player === userPlayer && `py-1 bg-sh-s${r.season}`
+                          }`}
+                          key={nanoid()}
+                        >
+                          {playerScoresEl(score, index)}
+                          {/* <p className="text-left">
                             {allPlayersList.filter((p) => p.player === score.player)[0].flag +
                               ' ' +
                               score.player}
                           </p>
                           <p className="ml-6">
                             {showEasyCourse ? score.easyRoundScore : score.hardRoundScore}
-                          </p>
+                          </p> */}
                         </div>
                       )
                     }
