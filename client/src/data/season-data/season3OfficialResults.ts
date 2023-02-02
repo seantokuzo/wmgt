@@ -660,7 +660,7 @@ export const season3OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBPSR0Q_risXKPxZWNNgNNno2YfHplJQCVcyj2FShjv9WcMjNgRbHzSwWXLoiStOkL4hSVJLF0Jua6QtFlyc1cLPuw=s26-w26-h20'
     },
     {
-      player: 'GinjaNinja',
+      player: 'GingaNinja19',
       seasonRank: 82,
       seasonPoints: 3,
       pointsByRound: [2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
