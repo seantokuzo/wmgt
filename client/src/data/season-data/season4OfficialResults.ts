@@ -76,7 +76,7 @@ export const season4OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBMvd-vLFgwNHdJ7yYH-BEPnpNGPxcH_IH5hj6fSjzp4Asb03UEr6WR6zYkR1SnVFB0qWSwVWesiNNr8aGlMnU-Gu7U=s26-w26-h20'
     },
     {
-      player: 'Jorge',
+      player: 'ElJorge',
       seasonRank: 10,
       seasonPoints: 100,
       pointsByRound: [21, 6, 9, 9, 21, 9, 9, 8, 8, 9, 13, 5],
