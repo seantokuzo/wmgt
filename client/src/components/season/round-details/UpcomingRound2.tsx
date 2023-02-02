@@ -15,7 +15,7 @@ type Props = {
   hardCourse: CourseAlias
 }
 
-const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
+const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
   const { darkMode, userPlayer } = useAppContext()
   const { showEasyCourse, viewCourse } = useSeasonContext()
 
@@ -176,7 +176,7 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
   }
 
   return (
-    <div className="w-full md:w-1/2 flex flex-col justify-center items-center border-2">
+    <div className="w-1/2 min-w-[48rem] flex flex-col justify-center items-center">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="w-full my-3 flex flex-col justify-center items-center">
           <p>Add Player</p>
@@ -197,4 +197,4 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
   )
 }
 
-export default UpcomingRound
+export default UpcomingRound2

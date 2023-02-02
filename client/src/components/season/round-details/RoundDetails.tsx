@@ -13,7 +13,9 @@ import { RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
 import { CURRENT_SEASON } from 'utils/constants'
 import RoundDetailBtn from './RoundDetailBtn'
+import UpcomingRound from './UpcomingRound'
 import UpcomingRound2 from './UpcomingRound2'
+import { useAppContext } from 'context/appContext'
 
 type Props = {
   round: RoundDataInterface
@@ -29,6 +31,7 @@ export const modes = {
 }
 
 const RoundDetails: React.FC<Props> = ({ round }) => {
+  const { windowSize } = useAppContext()
   const { showEasyCourse, roundDetailsMode } = useSeasonContext()
 
   const easyCourse = courseData.filter((course) => course.alias === round.easyCourse)[0]
@@ -67,8 +70,10 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           ))}
         {/* {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />} */}
       </div>
-      {upcomingRound && (
+      {upcomingRound && windowSize.width >= 768 ? (
         <UpcomingRound2 easyCourse={round.easyCourse} hardCourse={round.hardCourse} />
+      ) : (
+        <UpcomingRound easyCourse={round.easyCourse} hardCourse={round.hardCourse} />
       )}
       {!upcomingRound && roundDetailsMode === 'full' && (
         <Scorecard round={round} easyCourse={easyCourse} hardCourse={hardCourse} />
