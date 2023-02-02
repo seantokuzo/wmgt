@@ -1,6 +1,6 @@
 import { RoundDataInterface } from './roundTypes'
 
-export const season6Data: RoundDataInterface[] = [
+export const season5Data: RoundDataInterface[] = [
   // { season: 5, round: 1, easyCourse: 'OGE', hardCourse: 'AMH', scores: [] },
   // { season: 5, round: 2, easyCourse: 'GBE', hardCourse: 'CBH', scores: [] },
   // { season: 5, round: 3, easyCourse: 'SSE', hardCourse: 'TSH', scores: [] },
