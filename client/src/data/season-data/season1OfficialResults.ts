@@ -64,7 +64,7 @@ export const season1OfficialResults: SeasonResultsOfficial = {
       pointsByRound: [9, 12, 11, 9, 7, 13, 14, 14, 9, 14, 0, 7]
     },
     {
-      player: 'HarrisonJames',
+      player: 'HarrisonJamesG',
       seasonRank: 11,
       seasonPoints: 86,
       pointsByRound: [7, 9, 7, 11, 15, 8, 16, 9, 9, 3, 9, 8]
