@@ -76,7 +76,7 @@ export const season1OfficialResults: SeasonResultsOfficial = {
       pointsByRound: [7, 7, 11, 13, 10, 9, 5, 5, 14, 7, 5, 15]
     },
     {
-      player: 'Stewiestewie',
+      player: 'Stewie',
       seasonRank: 11,
       seasonPoints: 86,
       pointsByRound: [8, 12, 8, 8, 18, 4, 5, 6, 7, 7, 5, 18]
@@ -190,7 +190,7 @@ export const season1OfficialResults: SeasonResultsOfficial = {
       pointsByRound: [7, 8, 4, 5, 8, 9, 9, 8, 6, 4, 8, 9]
     },
     {
-      player: 'Yodamuffin',
+      player: 'Yoda',
       seasonRank: 32,
       seasonPoints: 65,
       pointsByRound: [9, 8, 9, 5, 9, 9, 9, 4, 3, 0, 0, 7]

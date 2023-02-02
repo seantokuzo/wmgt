@@ -24,6 +24,8 @@ export const playerNameExceptions = (name) => {
   if (regexPlayerName(name) === regexPlayerName("TommyG123")) return "TommyG"
   if (regexPlayerName(name) === regexPlayerName("Brad91")) return "Brad."
   if (regexPlayerName(name) === regexPlayerName("Brad")) return "Brad."
+  if (regexPlayerName(name) === regexPlayerName("Stewiestewie")) return "Stewie"
+  if (regexPlayerName(name) === regexPlayerName("Yodamuffin")) return "Yoda"
 
   return name
 }
