@@ -104,7 +104,10 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
       </div>
       <div className="w-full flex flex-col justify-center items-center">
         <div
-          className={`w-1/2 min-w-max my-4 px-6 py-3 text-xl font-bold rounded-md bg-sh-s${CURRENT_SEASON} border-2 brdr-s${CURRENT_SEASON} text-center`}
+          className={`w-1/2 min-w-max my-4 px-6 py-3
+          bg-sh-s${CURRENT_SEASON}
+          border-2 brdr-s${CURRENT_SEASON} rounded-md
+          text-xl font-bold text-center`}
         >
           <p>{showEasyCourse ? `${easyCourseData.course}` : `${hardCourseData.course}`}</p>
           <p>{courseLabelText()}</p>
