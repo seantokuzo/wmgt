@@ -1356,7 +1356,7 @@ export const season5OfficialResults: SeasonResultsOfficial = {
         'https://lh3.googleusercontent.com/docsubipk/ADszHBPSR0Q_risXKPxZWNNgNNno2YfHplJQCVcyj2FShjv9WcMjNgRbHzSwWXLoiStOkL4hSVJLF0Jua6QtFlyc1cLPuw=s26-w26-h20'
     },
     {
-      player: 'Snowraver1',
+      player: 'Snow',
       seasonRank: 163,
       seasonPoints: 1,
       pointsByRound: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
