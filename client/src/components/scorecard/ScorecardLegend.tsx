@@ -8,29 +8,40 @@ const ScorecardLegend = () => {
 
   if (roundDetailsMode === 'aces') {
     return (
-      <div
-        className="w-auto
+      <div className="w-auto flex flex-col justify-center items-center">
+        <p className="w-full text-center text-red-400 text-sm md:text-base">Rare Aces by:</p>
+        <div
+          className="w-fit py-1 px-3 my-1
+          bg-sh-gold border-2 brdr-gold rounded-md
+          text-xs sm:text-sm text-center text-black font-semibold"
+        >
+          {'steven_T'}
+        </div>
+        {/* <p className="w-full border-b-2 border-red-400"></p> */}
+        <div
+          className="w-auto
         text-xxxs sm:text-xs md:text-sm uppercase
         flex sm:flex-row justify-evenly items-center"
-      >
-        <div className="flex flex-col justify-center items-center m-1">
-          <div className="w-2/5 sm:w-2/3 text-center mb-1">ONLY ACE ON HOLE</div>
-          <div
-            className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
+        >
+          <div className="w-1/2 flex flex-col justify-center items-center m-1">
+            <div className="w-1/2 sm:w-2/3 text-center mb-1">ONLY ACE ON HOLE</div>
+            <div
+              className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
             bg-sh-gold rounded-full
             flex flex-col justify-center items-center`}
-          >
-            🌵
+            >
+              🌵
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center m-1">
-          <div className="w-2/5 sm:w-2/3 text-center mb-1">ONE OF TWO ACES ON HOLE</div>
-          <div
-            className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
+          <div className="w-1/2 flex flex-col justify-center items-center m-1">
+            <div className="w-1/2 sm:w-2/3 text-center mb-1">ONE OF TWO ACES ON HOLE</div>
+            <div
+              className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
             bg-sh-silver rounded-full            
             flex flex-col justify-center items-center`}
-          >
-            🦆
+            >
+              🦆
+            </div>
           </div>
         </div>
       </div>
