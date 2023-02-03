@@ -1,7 +1,5 @@
 import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Course from 'pages/Course'
-import CourseDetails from 'components/course/CourseDetails'
 import Header from 'components/Header'
 import Home from 'pages/Home'
 import Player from 'pages/Player'
@@ -13,7 +11,6 @@ import WhereArtThou from 'pages/WhereArtThou'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
-import { courseData } from 'data/course-data/wmgt-course-data'
 import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { season8Data } from 'data/round-data/s8-round-data'
@@ -21,6 +18,9 @@ import DataTester from 'DataTester'
 import TournamentInfo from 'pages/TournamentInfo'
 import Contact from 'pages/Contact'
 import ContactThankYou from 'pages/ContactThankYou'
+// import Course from 'pages/Course'
+// import CourseDetails from 'components/course/CourseDetails'
+// import { courseData } from 'data/course-data/wmgt-course-data'
 // import Test from 'pages/Test'
 
 function App() {
@@ -122,7 +122,7 @@ function App() {
           {/* WHEN ADDING SEASON DATA MAP ROUTES HERE */}
           {/* SAME MAPPING AS season7Data ABOVE */}
         </Route>
-        <Route path="course" element={<Course />}>
+        {/* <Route path="course" element={<Course />}>
           {courseData.map((course) => (
             <Route
               path={course.alias.toLowerCase()}
@@ -130,7 +130,7 @@ function App() {
               key={nanoid()}
             />
           ))}
-        </Route>
+        </Route> */}
         <Route path="player" element={<Player />} />
         <Route path="tournament-info" element={<TournamentInfo />} />
         <Route path="contact" element={<Contact />}>
