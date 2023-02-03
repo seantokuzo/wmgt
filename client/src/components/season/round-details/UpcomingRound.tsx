@@ -76,7 +76,7 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
   const courseLabelEl = (easy: boolean) => {
     return (
       <div
-        className={`w-[80%] min-w-max my-4 px-6 py-3
+        className={`w-[80%] max-w-xs min-w-max my-4 px-6 py-3
           ${
             easy
               ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'

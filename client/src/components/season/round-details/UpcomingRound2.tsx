@@ -74,12 +74,12 @@ const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
 
   const playerScoresEl = (score: PlayerRoundInterface, easy: boolean) => {
     return (
-      <>
+      <div className='w-full flex justify-between'>
         <p className="text-left">
           {allPlayersList.filter((p) => p.player === score.player)[0].flag + ' ' + score.player}
         </p>
         <p className="ml-6">{easy ? score.easyRoundScore : score.hardRoundScore}</p>
-      </>
+      </div>
     )
   }
 
@@ -176,7 +176,7 @@ const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
           {!userPlayer && <p>Add Player</p>}
           <PlayerSelector />
         </div>
-        <div className="w-full mt-4 flex justify-center items-start">
+        <div className="w-full max-w-3xl mt-4 flex justify-center items-start">
           <div className="w-1/2 flex flex-col justify-center items-center">
             {courseLabel(easyCourseData, true)}
             {courseHistoryEl(easyAppearedIn, true)}
