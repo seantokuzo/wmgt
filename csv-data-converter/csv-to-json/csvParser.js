@@ -7,11 +7,11 @@ import { parse } from "csv-parse"
 // const csvFile = "./s6r2.csv"
 // const writeFileName = "s6r2"
 
-// const csvFile = "./s6r3.csv"
-// const writeFileName = "s6r3"
+const csvFile = "./s6r3.csv"
+const writeFileName = "s6r3"
 
-const csvFile = "./s8r2.csv"
-const writeFileName = "s8r2"
+// const csvFile = "./s8r2.csv"
+// const writeFileName = "s8r2"
 
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 export const regexPlayerName = (player) => {

@@ -14,7 +14,6 @@ import { useAppContext } from 'context/appContext'
 import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { season8Data } from 'data/round-data/s8-round-data'
-import DataTester from 'DataTester'
 import TournamentInfo from 'pages/TournamentInfo'
 import Contact from 'pages/Contact'
 import ContactThankYou from 'pages/ContactThankYou'
@@ -22,6 +21,7 @@ import ContactThankYou from 'pages/ContactThankYou'
 // import CourseDetails from 'components/course/CourseDetails'
 // import { courseData } from 'data/course-data/wmgt-course-data'
 // import Test from 'pages/Test'
+// import DataTester from 'DataTester'
 
 function App() {
   const { darkMode, changeWindowSize } = useAppContext()
@@ -139,7 +139,7 @@ function App() {
         {/* <Route path="test" element={<Test />} /> */}
         <Route path="*" element={<WhereArtThou />} />
       </Routes>
-      <DataTester />
+      {/* <DataTester /> */}
     </div>
   )
 }

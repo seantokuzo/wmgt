@@ -1,3 +1,4 @@
+import { s6r3csvData } from "./s6r3-raw-data.js"
 // import { s6r5csvData } from './s6r5-raw-data.js'
 // import { s6r6csvData } from './s6r6-raw-data.js'
 // import { s6r7csvData } from './s6r7-raw-data.js'
@@ -5,7 +6,7 @@
 // import { s6r9csvData } from './s6r9-raw-data.js'
 // import { s7r12csvData } from './s7r12-raw-data.js'
 // import { s8r1csvData } from './s8r1-raw-data.js'
-import { s8r2csvData } from "./s8r2-raw-data.js"
+// import { s8r2csvData } from "./s8r2-raw-data.js"
 import { courseData } from "./wmgt-course-data.js"
 import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8R2.js"
 import { playerNameExceptions } from "../../player-list-scraper/playerNameExceptions.js"
@@ -14,8 +15,8 @@ import { regexPlayerName } from "../../player-list-scraper/regexPlayerName.js"
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 
 // GET COURSE DATA FOR CURRENT ROUND COURSES
-const easyCourse = courseData.filter((c) => c.alias === "MYE")[0]
-const hardCourse = courseData.filter((c) => c.alias === "GBH")[0]
+const easyCourse = courseData.filter((c) => c.alias === "TSE")[0]
+const hardCourse = courseData.filter((c) => c.alias === "TTH")[0]
 
 const checkScores = (csvData) => {
   // CHECK FOR ANY DUPLICATE PLAYERS
@@ -64,9 +65,7 @@ const convertRawRoundData = (csvData) => {
       (score, i) => score - hardCourse.parByHole[i]
     )
     const playerName = allPlayersList.filter(
-      (p) =>
-        p.player.replaceAll(nonCharacterRegex, "").toLowerCase() ===
-        score.player.replaceAll(nonCharacterRegex, "").toLowerCase()
+      (p) => regexPlayerName(p.player) === regexPlayerName(score.player)
     )[0]
     return {
       roundRank: 1,
@@ -175,8 +174,8 @@ const convertRawRoundData = (csvData) => {
   console.log(rankAdded)
 }
 
-checkScores(s8r2csvData)
-convertRawRoundData(s8r2csvData)
+// checkScores(s8r2csvData)
+// convertRawRoundData(s8r2csvData)
 
 // checkScores(s8r1csvData)
 // convertRawRoundData(s8r1csvData)
@@ -198,3 +197,6 @@ convertRawRoundData(s8r2csvData)
 
 // checkScores(s6r5csvData)
 // convertRawRoundData(s6r5csvData)
+
+checkScores(s6r3csvData)
+convertRawRoundData(s6r3csvData)
