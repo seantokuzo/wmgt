@@ -16,6 +16,7 @@ import RoundDetailBtn from './RoundDetailBtn'
 import UpcomingRound from './UpcomingRound'
 import UpcomingRound2 from './UpcomingRound2'
 import { useAppContext } from 'context/appContext'
+import NoCoconuts from 'components/scorecard/NoCoconuts'
 
 type Props = {
   round: RoundDataInterface
@@ -143,14 +144,19 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
       {!upcomingRound && roundDetailsMode === 'coconuts' && (
         <>
           <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
-          {DataGod.getCoconutRounds({ season: round.season, round: round.round }).scores.map(
-            (playerRound) => (
-              <PlayerScorecard
-                playerRound={playerRound}
-                coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
-                key={nanoid()}
-              />
+          {DataGod.getCoconutRounds({ season: round.season, round: round.round }).scores.length >
+          0 ? (
+            DataGod.getCoconutRounds({ season: round.season, round: round.round }).scores.map(
+              (playerRound) => (
+                <PlayerScorecard
+                  playerRound={playerRound}
+                  coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
+                  key={nanoid()}
+                />
+              )
             )
+          ) : (
+            <NoCoconuts />
           )}
         </>
       )}

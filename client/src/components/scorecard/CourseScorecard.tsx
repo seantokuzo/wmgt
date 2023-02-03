@@ -187,6 +187,15 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
         >
           <h2 className="text-lg lg:text-xl text-center">{`${course.courseMoji} ${course.course} ${course.difficulty} ${course.courseMoji}`}</h2>
           <p className="text-sm lg:text-base">{'(' + course.alias + ')'}</p>
+          {roundDetailsMode === 'coconuts' && (
+            <div
+              className="w-fit py-1 px-3 my-1
+              bg-sh-gold border-2 brdr-gold rounded-md
+              text-center text-black font-bold"
+            >
+              {"steven_T's"}
+            </div>
+          )}
           <p className="text-sm lg:text-base text-red-400 mt-1">
             {roundDetailsMode === 'full'
               ? 'Full Results'
