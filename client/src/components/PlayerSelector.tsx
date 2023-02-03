@@ -28,11 +28,12 @@ const PlayerSelector = () => {
 
   if (userPlayer)
     return (
-      <div className="w-full flex justify-center items-baseline">
+      <div className="w-full flex justify-center items-center">
         <i className="fa-solid fa-delete-left opacity-0"></i>
         <div
           className="mx-3 py-1 px-4 rounded-md
         border-2 brdr-gold bg-sh-gold
+        text-xxs sm:text-xs md:text-sm
         text-black font-bold"
         >
           {userPlayer}
