@@ -191,7 +191,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             <div
               className="w-fit py-1 px-3 my-1
               bg-sh-gold border-2 brdr-gold rounded-md
-              text-center text-black font-bold"
+              text-xs sm:text-sm text-center text-black font-semibold"
             >
               {"steven_T's"}
             </div>
