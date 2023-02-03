@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useAppContext } from 'context/appContext'
+import { courseData } from 'data/course-data/wmgt-course-data'
 
 const CoursesMenu: React.FC = () => {
-  const { darkMode, windowSize, courseData } = useAppContext()
+  const { darkMode, windowSize } = useAppContext()
 
   const colors = darkMode
     ? 'bg-wmgBrown cl-wmgYellow sh-wmgBrown'
