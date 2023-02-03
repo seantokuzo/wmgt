@@ -1,37 +1,38 @@
+import { CourseAlias } from 'data/course-data/wmgt-course-data'
 import { createContext, useReducer, useContext } from 'react'
 import { ActionType } from './actions'
 import reducer from './reducer'
-import { courseData, CourseInterface } from 'data/course-data/wmgt-course-data'
 
 export type WindowSize = { width: number; height: number }
 export type AlertType = 'danger' | 'success' | ''
 
 export interface StateInterface {
-  userPlayer: string
   windowSize: WindowSize
   darkMode: boolean
-  courseData: CourseInterface[]
   isLoading: boolean
   showAlert: boolean
   alertType: AlertType
   alertText: string
+  userPlayer: string
+  selectedCourse: CourseAlias | ''
 }
 
 const localUser = localStorage.getItem('userPlayer')
 
 export const initialState: StateInterface = {
-  userPlayer: localUser ? JSON.parse(localUser) : '',
   windowSize: { width: window.innerWidth, height: window.innerHeight },
   darkMode: true,
-  courseData: courseData,
   isLoading: false,
   showAlert: false,
   alertType: '',
-  alertText: ''
+  alertText: '',
+  userPlayer: localUser ? JSON.parse(localUser) : '',
+  selectedCourse: ''
 }
 
 interface AppContextInterface extends StateInterface {
   chooseUserPlayer: (userPlayer: string) => void
+  chooseCourse: (course: CourseAlias | '') => void
   changeWindowSize: (newSize: WindowSize) => void
   displayAlert: (alertType: AlertType, msg: string) => void
   clearAlert: () => void
@@ -41,6 +42,7 @@ interface AppContextInterface extends StateInterface {
 const AppContext = createContext<AppContextInterface>({
   ...initialState,
   chooseUserPlayer: () => null,
+  chooseCourse: () => null,
   changeWindowSize: () => null,
   displayAlert: () => null,
   clearAlert: () => null,
@@ -57,6 +59,10 @@ const AppContextProvider = ({ children }: Props) => {
   const chooseUserPlayer = (userPlayer: string) => {
     dispatch({ type: ActionType.CHOOSE_USER_PLAYER, payload: { userPlayer } })
     localStorage.setItem('userPlayer', JSON.stringify(userPlayer))
+  }
+
+  const chooseCourse = (course: CourseAlias | '') => {
+    dispatch({ type: ActionType.SELECT_COURSE, payload: { selectedCourse: course } })
   }
 
   const changeWindowSize = (newSize: WindowSize) => {
@@ -83,6 +89,7 @@ const AppContextProvider = ({ children }: Props) => {
       value={{
         ...state,
         chooseUserPlayer,
+        chooseCourse,
         changeWindowSize,
         displayAlert,
         clearAlert,

@@ -9,6 +9,7 @@ import { nanoid } from 'nanoid'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CURRENT_SEASON } from 'utils/constants'
+import NoTournamentData from './NoTournamentData'
 
 type Props = {
   easyCourse: CourseAlias
@@ -68,23 +69,29 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
 
   const courseLabelText = () => {
     return showEasyCourse
-      ? `${
-          easyCourseData.courseMoji +
-          ' ' +
-          easyCourseData.difficulty +
-          ' ' +
-          easyCourseData.courseMoji
-        }`
-      : `${
-          hardCourseData.courseMoji +
-          ' ' +
-          hardCourseData.difficulty +
-          ' ' +
-          hardCourseData.courseMoji
-        }`
+      ? `${easyCourseData.courseMoji + ' Easy ' + easyCourseData.courseMoji}`
+      : `${hardCourseData.courseMoji + ' Hard ' + hardCourseData.courseMoji}`
   }
 
-  const playerScoresEl = (score: PlayerRoundInterface, index: number) => {
+  const courseLabelEl = (easy: boolean) => {
+    return (
+      <div
+        className={`w-[80%] min-w-max my-4 px-6 py-3
+          ${
+            easy
+              ? 'bg-easyCourse sh-easyCourse brdr-easyCourse'
+              : 'bg-hardCourse sh-hardCourse brdr-hardCourse'
+          }
+          border-2 rounded-md
+          text-xl font-bold text-center`}
+      >
+        <p>{easy ? `${easyCourseData.course}` : `${hardCourseData.course}`}</p>
+        <p>{courseLabelText()}</p>
+      </div>
+    )
+  }
+
+  const playerScoresEl = (score: PlayerRoundInterface) => {
     return (
       <>
         <p className="text-left">
@@ -96,27 +103,23 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
   }
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-      {/* <ComingSoon text="Upcoming Round" season={CURRENT_SEASON} /> */}
-      <div className="flex">
+    <div className="w-full flex flex-col justify-center items-center font-scorenum">
+      <div
+        className={`bg-sh-s${CURRENT_SEASON} px-6 py-2 rounded-lg border-2 brdr-s${CURRENT_SEASON} font-bold uppercase`}
+      >
+        UPCOMING ROUND
+      </div>
+      <p className="text-xs mt-2">(See below for course history)</p>
+      <div className="mt-2 flex justify-evenly items-center">
         {courseToggleBtn(true)}
         {courseToggleBtn(false)}
       </div>
       <div className="w-full flex flex-col justify-center items-center">
-        <div
-          className={`w-1/2 min-w-max my-4 px-6 py-3
-          bg-sh-s${CURRENT_SEASON}
-          border-2 brdr-s${CURRENT_SEASON} rounded-md
-          text-xl font-bold text-center`}
-        >
-          <p>{showEasyCourse ? `${easyCourseData.course}` : `${hardCourseData.course}`}</p>
-          <p>{courseLabelText()}</p>
-        </div>
+        {courseLabelEl(showEasyCourse)}
         <div className="my-3 flex flex-col justify-center items-center">
-          <p>Add Player</p>
+          {!userPlayer && <p>Add Player</p>}
           <PlayerSelector />
         </div>
-        {appearedIn.length > 0 && <p>Appeared In</p>}
         {appearedIn.length > 0 ? (
           sortedScores.map((r, index) => {
             return (
@@ -129,8 +132,8 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
                 <Link
                   to={`/season/s${r.season}r${r.round}`}
                   className="w-full my-2 px-4 py-3
-                bg-sh-gold brdr-gold border-2 rounded-md
-                text-black text-center"
+                  bg-sh-gold brdr-gold border-2 rounded-md
+                  text-black text-center"
                 >
                   <p className="text-xl font-bold">{`Season ${r.season} Round ${r.round}`}</p>
                   <p className="text-xxs">(Click to see Round)</p>
@@ -157,10 +160,7 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
                         <div
                           className={`w-full py-1 flex justify-between items-center px-2 rounded-b-md bg-sh-s${r.season}`}
                         >
-                          {playerScoresEl(
-                            r.scores.filter((p) => p.player === userPlayer)[0],
-                            index
-                          )}
+                          {playerScoresEl(r.scores.filter((p) => p.player === userPlayer)[0])}
                         </div>
                       </div>
                     )}
@@ -185,15 +185,7 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
                           }`}
                           key={nanoid()}
                         >
-                          {playerScoresEl(score, index)}
-                          {/* <p className="text-left">
-                            {allPlayersList.filter((p) => p.player === score.player)[0].flag +
-                              ' ' +
-                              score.player}
-                          </p>
-                          <p className="ml-6">
-                            {showEasyCourse ? score.easyRoundScore : score.hardRoundScore}
-                          </p> */}
+                          {playerScoresEl(score)}
                         </div>
                       )
                     }
@@ -203,13 +195,7 @@ const UpcomingRound: React.FC<Props> = ({ easyCourse, hardCourse }) => {
             )
           })
         ) : (
-          <div
-            className="w-fit max-w-[80%] my-4 py-3 px-6
-              bg-sh-silver border-2 brdr-silver rounded-md
-              text-black font-bold text-2xl text-center"
-          >
-            First Time in Tournament
-          </div>
+          <NoTournamentData />
         )}
       </div>
     </div>

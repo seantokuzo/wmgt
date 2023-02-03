@@ -1,3 +1,4 @@
+import { CourseAlias } from 'data/course-data/wmgt-course-data'
 import { ActionType } from './actions'
 import { StateInterface, AlertType, WindowSize } from './appContext'
 
@@ -16,6 +17,10 @@ type Action =
       type: ActionType.UPDATE_WINDOW_SIZE
       payload: { newSize: WindowSize }
     }
+  | {
+      type: ActionType.SELECT_COURSE
+      payload: { selectedCourse: CourseAlias | '' }
+    }
 
 const reducer = (state: StateInterface, action: Action): StateInterface => {
   switch (action.type) {
@@ -23,6 +28,11 @@ const reducer = (state: StateInterface, action: Action): StateInterface => {
       return {
         ...state,
         userPlayer: action.payload.userPlayer
+      }
+    case ActionType.SELECT_COURSE:
+      return {
+        ...state,
+        selectedCourse: action.payload.selectedCourse
       }
     case ActionType.UPDATE_WINDOW_SIZE:
       return {

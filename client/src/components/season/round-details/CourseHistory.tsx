@@ -1,30 +1,19 @@
 import PlayerSelector from 'components/PlayerSelector'
 import { useAppContext } from 'context/appContext'
-import { useSeasonContext } from 'context/season/seasonContext'
 import { CourseAlias, courseData, CourseInterface } from 'data/course-data/wmgt-course-data'
 import { DataGod } from 'data/dataGod'
 import { allPlayersList } from 'data/player-data/AllPlayersList'
 import { PlayerRoundInterface, RoundDataInterface } from 'data/round-data/roundTypes'
 import { nanoid } from 'nanoid'
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { CURRENT_SEASON } from 'utils/constants'
 import NoTournamentData from './NoTournamentData'
 
 type Props = {
-  easyCourse: CourseAlias
-  hardCourse: CourseAlias
+  course: CourseAlias | ''
 }
 
-const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
+const CourseHistory: React.FC<Props> = ({ course }) => {
   const { darkMode, userPlayer } = useAppContext()
-  const { viewCourse } = useSeasonContext()
-
-  useEffect(() => {
-    viewCourse('easy')
-    // window.scrollTo(0, 0)
-    // eslint-disable-next-line
-  }, [])
 
   const sortScores = (appearedIn: RoundDataInterface[], easy: boolean) =>
     appearedIn.map((round) => {
@@ -42,16 +31,19 @@ const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
       }
     })
 
-  const easyAppearedIn = sortScores(DataGod.getCourseRounds(easyCourse), true)
-  const hardAppearedIn = sortScores(DataGod.getCourseRounds(hardCourse), false)
+  const isEasy = course[2] === 'E'
+  const appearedIn = course ? sortScores(DataGod.getCourseRounds(course), isEasy) : []
 
-  const easyCourseData = courseData.filter((c) => c.alias === easyCourse)[0]
-  const hardCourseData = courseData.filter((c) => c.alias === hardCourse)[0]
+  const selectedCourseData = courseData.filter((c) => c.alias === course)[0]
 
-  const courseLabelText = (easy: boolean) => {
-    return easy
-      ? `${easyCourseData.courseMoji + ' Easy ' + easyCourseData.courseMoji}`
-      : `${hardCourseData.courseMoji + ' Hard ' + hardCourseData.courseMoji}`
+  const courseLabelText = () => {
+    return `${
+      selectedCourseData.courseMoji +
+      ' ' +
+      selectedCourseData.difficulty +
+      ' ' +
+      selectedCourseData.courseMoji
+    }`
   }
 
   const courseLabel = (courseData: CourseInterface, easy: boolean) => {
@@ -67,7 +59,7 @@ const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
           text-xl font-bold text-center`}
       >
         <p>{courseData.course}</p>
-        <p>{courseLabelText(easy)}</p>
+        <p>{courseLabelText()}</p>
       </div>
     )
   }
@@ -164,31 +156,25 @@ const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
   }
 
   return (
-    <div className="w-1/2 min-w-[48rem] flex flex-col justify-center items-center font-scorenum">
-      <div className="w-full my-3 flex flex-col justify-center items-center">
-        <div
-          className={`bg-sh-s${CURRENT_SEASON} px-6 py-2 rounded-lg border-2 brdr-s${CURRENT_SEASON} font-bold uppercase`}
-        >
-          UPCOMING ROUND
-        </div>
-        <p className="text-xs mt-2">(See below for course history)</p>
-        <div className="min-w-[4rem] my-3 flex flex-col justify-center items-center">
-          {!userPlayer && <p>Add Player</p>}
-          <PlayerSelector />
-        </div>
-        <div className="w-full mt-4 flex justify-center items-start">
-          <div className="w-1/2 flex flex-col justify-center items-center">
-            {courseLabel(easyCourseData, true)}
-            {courseHistoryEl(easyAppearedIn, true)}
+    <>
+      {course ? (
+        <>
+          <div className="w-full min-w-[4rem] my-3 flex flex-col justify-center items-center">
+            {!userPlayer && <p>Add Player</p>}
+            <PlayerSelector />
           </div>
-          <div className="w-1/2 flex flex-col justify-center items-center">
-            {courseLabel(hardCourseData, false)}
-            {courseHistoryEl(hardAppearedIn, false)}
+          <div className="w-full mt-4 flex justify-center items-start">
+            <div className="w-1/2 flex flex-col justify-center items-center">
+              {courseLabel(selectedCourseData, isEasy)}
+              {courseHistoryEl(appearedIn, isEasy)}
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </>
+      ) : (
+        <p>Select a Course</p>
+      )}
+    </>
   )
 }
 
-export default UpcomingRound2
+export default CourseHistory

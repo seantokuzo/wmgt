@@ -70,9 +70,10 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           ))}
         {/* {upcomingRound && <ComingSoon text="Upcoming Round" season={round.season} />} */}
       </div>
-      {upcomingRound && windowSize.width >= 768 ? (
+      {upcomingRound && windowSize.width >= 768 && (
         <UpcomingRound2 easyCourse={round.easyCourse} hardCourse={round.hardCourse} />
-      ) : (
+      )}
+      {upcomingRound && windowSize.width < 768 && (
         <UpcomingRound easyCourse={round.easyCourse} hardCourse={round.hardCourse} />
       )}
       {!upcomingRound && roundDetailsMode === 'full' && (

@@ -8,7 +8,6 @@ const Home: React.FC = () => {
   const { darkMode, windowSize } = useAppContext()
 
   const currentRound = DataGod.getSeasonData(CURRENT_SEASON).length
-  console.log(currentRound)
 
   return (
     <div
