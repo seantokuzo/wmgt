@@ -9,7 +9,9 @@ const ScorecardLegend = () => {
   if (roundDetailsMode === 'aces') {
     return (
       <div className="w-auto flex flex-col justify-center items-center">
-        <p className="w-full text-center text-red-400 text-sm md:text-base">Rare Aces by:</p>
+        <p className="w-full mt-1 text-center text-red-400 text-xs sm:text-sm md:text-base">
+          Rare Aces by:
+        </p>
         <div
           className="w-fit py-1 px-3 my-1
           bg-sh-gold border-2 brdr-gold rounded-md
