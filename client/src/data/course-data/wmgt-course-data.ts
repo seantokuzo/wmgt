@@ -359,7 +359,7 @@ export const coursesWithImages: CourseAlias[] = [
   'TSE',
   'TSH',
   'BBE',
-  // 'BBH',
+  'BBH',
   'QVE',
   'QVH',
   'SWE',
@@ -371,7 +371,7 @@ export const coursesWithImages: CourseAlias[] = [
   'GBE',
   'GBH',
   'SLE',
-  // 'SLH',
+  'SLH',
   'EDE',
   // 'EDH',
   '20E'
