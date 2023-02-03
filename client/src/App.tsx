@@ -21,7 +21,7 @@ import DataTester from 'DataTester'
 import TournamentInfo from 'pages/TournamentInfo'
 import Contact from 'pages/Contact'
 import ContactThankYou from 'pages/ContactThankYou'
-import Test from 'pages/Test'
+// import Test from 'pages/Test'
 
 function App() {
   const { darkMode, changeWindowSize } = useAppContext()
@@ -136,7 +136,7 @@ function App() {
         <Route path="contact" element={<Contact />}>
           <Route path="thankyou" element={<ContactThankYou />} />
         </Route>
-        <Route path="test" element={<Test />} />
+        {/* <Route path="test" element={<Test />} /> */}
         <Route path="*" element={<WhereArtThou />} />
       </Routes>
       <DataTester />
