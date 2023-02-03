@@ -159,10 +159,7 @@ const CourseHistory: React.FC<Props> = ({ course }) => {
     <>
       {course ? (
         <>
-          <div className="w-full min-w-[4rem] my-3 flex flex-col justify-center items-center">
-            {!userPlayer && <p>Add Player</p>}
-            <PlayerSelector />
-          </div>
+          <div className="w-full min-w-[4rem] my-3 flex flex-col justify-center items-center"></div>
           <div className="w-full mt-4 flex justify-center items-start">
             <div className="w-1/2 flex flex-col justify-center items-center">
               {courseLabel(selectedCourseData, isEasy)}
