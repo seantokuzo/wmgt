@@ -42,10 +42,7 @@ const TournamentInfo = () => {
             'Official Results'
           )}
           {linkEl('https://rimblas.com/wmgt', 'Stats by ElJorge')}
-          {linkEl(
-            'https://docs.google.com/spreadsheets/d/178w1i4wpq5D4H6QFgib_4RGaGqOuYN6xJYwjikYdUf0/edit#gid=1780620131',
-            'Stats by steven_T'
-          )}
+          {linkEl('https://bit.ly/wmgt8stats', 'Stats by steven_T')}
         </div>
       </div>
       <FooterCredits />
