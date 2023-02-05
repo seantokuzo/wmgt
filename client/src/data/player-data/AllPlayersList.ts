@@ -1549,6 +1549,18 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
+    player: 'WhiskerWitch',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'TebowTimeFTW',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Garfield',
+    flag: '🇺🇸'
+  },
+  {
     player: 'SpicyP',
     flag: ''
   },

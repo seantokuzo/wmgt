@@ -1544,6 +1544,18 @@ export const allPlayersList = [
     flag: "🇺🇸",
   },
   {
+    player: "WhiskerWitch",
+    flag: "🇺🇸",
+  },
+  {
+    player: "TebowTimeFTW",
+    flag: "🇺🇸",
+  },
+  {
+    player: "Garfield",
+    flag: "🇺🇸",
+  },
+  {
     player: "SpicyP",
     flag: "",
   },
