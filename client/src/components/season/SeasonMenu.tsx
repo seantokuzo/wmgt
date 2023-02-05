@@ -77,7 +77,11 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
             >
               {/* <div>{winner.player}</div> */}
               <div>Next Round</div>
-              <div className="text-2xl">{seasonData.length}</div>
+              <div className="text-2xl">
+                {seasonData[seasonData.length - 1].scores.length > 0
+                  ? seasonData.length + 1
+                  : seasonData.length}
+              </div>
             </Link>
           )
         }
