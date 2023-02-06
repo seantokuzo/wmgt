@@ -131,7 +131,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
             .map((playerRound) => (
               <PlayerScorecard
                 playerRound={playerRound}
-                coursePars={hardCourse.parByHole}
+                coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
                 acesData={DataGod.getRoundAcesPerHole({
                   season: round.season,
                   round: round.round
