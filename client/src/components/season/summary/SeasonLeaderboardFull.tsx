@@ -106,21 +106,34 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         >
           {player.totalPoints}
         </div>
-        {(season === 7 || season === 8) &&
-          player.roundPoints.map((point, i) => (
-            <Link
-              to={`/season/s${season}r${i + 1}`}
-              className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
+        {(season === 6 || season === 7 || season === 8) &&
+          [...player.roundPoints, ...new Array(12 - player.roundPoints.length).fill('')].map(
+            (point, i) =>
+              point ? (
+                <Link
+                  to={`/season/s${season}r${i + 1}`}
+                  className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
               ${
                 DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
                 'opacity-25'
               }`}
-              key={nanoid()}
-            >
-              {point}
-            </Link>
-          ))}
-        {season !== 7 &&
+                  key={nanoid()}
+                >
+                  {point}
+                </Link>
+              ) : (
+                <div
+                  className={`${pointColClasses} ${roundPointColor(point)} ${flex} relative
+                  ${
+                    DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
+                    'opacity-25'
+                  } ${!point && 'opacity-0'}`}
+                  key={nanoid()}
+                ></div>
+              )
+          )}
+        {season !== 6 &&
+          season !== 7 &&
           season !== 8 &&
           player.roundPoints.map((point, i) => (
             <div
@@ -157,7 +170,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         </div>
 
         {/* eslint-disable-next-line */}
-        {seasonPointsData[0].roundPoints.map((_slot, i) => (
+        {new Array(12).fill('').map((_slot, i) => (
           <div className={`${pointColClasses} ${flex}`} key={nanoid()}>{`R${i + 1}`}</div>
         ))}
       </div>
