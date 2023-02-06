@@ -118,7 +118,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
               } px-2 flex justify-between items-center`}
             >
               {/* IF SEASON 7 MAKE ROUND POINT BOXES LINK TO ROUND DETAILS PAGES */}
-              {(season === 7 || season === 8) &&
+              {(season === 6 || season === 7 || season === 8) &&
                 player.roundPoints.map((point, i) => (
                   <Link
                     to={`/season/s${season}r${i + 1}`}
@@ -144,7 +144,8 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
                   </Link>
                 ))}
               {/* IF NOT SEASON 7 NO LINKS TO ROUND DETAILS */}
-              {season !== 7 &&
+              {season !== 6 &&
+                season !== 7 &&
                 season !== 8 &&
                 player.roundPoints.map((point, i) => (
                   <div
