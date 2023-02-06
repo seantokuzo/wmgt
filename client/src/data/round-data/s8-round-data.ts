@@ -6787,7 +6787,7 @@ export const season8Data: RoundDataInterface[] = [
       }
     ]
   },
-  // { season: 8, round: 4, easyCourse: '', hardCourse: '', scores: [] }
+  { season: 8, round: 4, easyCourse: 'LBE', hardCourse: '20H', scores: [] }
   // { season: 8, round: 5, easyCourse: '', hardCourse: '', scores: [] }
   // { season: 8, round: 6, easyCourse: '', hardCourse: '', scores: [] }
   // { season: 8, round: 7, easyCourse: '', hardCourse: '', scores: [] }

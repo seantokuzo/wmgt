@@ -22,7 +22,7 @@ const UpcomingRound2: React.FC<Props> = ({ easyCourse, hardCourse }) => {
 
   useEffect(() => {
     viewCourse('easy')
-    // window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
     // eslint-disable-next-line
   }, [])
 

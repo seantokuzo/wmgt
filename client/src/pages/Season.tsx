@@ -12,6 +12,7 @@ const Season: React.FC = () => {
     viewCourse('easy')
     viewFrontNine()
     viewScorecard()
+    window.scrollTo(0, 0)
     // eslint-disable-next-line
   }, [pathname])
 
