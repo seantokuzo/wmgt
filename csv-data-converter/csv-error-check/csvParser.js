@@ -1,8 +1,8 @@
 import fs from "fs"
 import { parse } from "csv-parse"
 
-// const csvFile = "./S8R3_DB.csv"
-const csvFile = "./S8R3_Official.csv"
+const csvFileDB = "./S8R3_DB.csv"
+const csvFileOfficial = "./S8R3_Official.csv"
 
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 export const regexPlayerName = (player) => {
@@ -32,11 +32,49 @@ const playerNameExceptions = (name) => {
   return name
 }
 
-const csvData = []
-fs.createReadStream(csvFile)
+const dbResults = []
+
+await fs
+  .createReadStream(csvFileDB)
   .pipe(parse({ delimiter: ":" }))
-  .on("data", function (csvrow) {
-    const rowArr = csvrow[0].split(",")
+  .on("data", function (csvRow) {
+    const rowArr = csvRow[0].split(",")
+    // console.log(rowArr)
+    // console.log(rowArr.length)
+    if (rowArr[0] === "Pos" || rowArr.length < 40) return
+    const formattedPlayerResults = {
+      roundRank: +rowArr[0],
+      player: playerNameExceptions(rowArr[1]),
+      easyRoundScore: +rowArr[38],
+      hardRoundScore: +rowArr[39],
+      totalToPar: +rowArr[40],
+    }
+    dbResults.push(formattedPlayerResults)
+  })
+  .on("end", function () {
+    fs.writeFile(
+      `db-raw-data.json`,
+      JSON.stringify(dbResults),
+      {
+        encoding: "utf-8",
+      },
+      (err) => {
+        if (err) {
+          console.log("Oops, you suck at programming")
+          console.log(err)
+        } else {
+          console.log("File written you sexy beast")
+        }
+      }
+    )
+  })
+
+const officialResults = []
+fs.createReadStream(csvFileOfficial)
+  .pipe(parse({ delimiter: ":" }))
+  .on("data", function (csvRow) {
+    console.log(csvRow)
+    const rowArr = csvRow[0].split(",")
     console.log(rowArr)
     if (rowArr.length < 1) return
     const formattedPlayerResults = {
@@ -46,13 +84,12 @@ fs.createReadStream(csvFile)
       hardRoundScore: +rowArr[3],
       totalToPar: +rowArr[4],
     }
-    csvData.push(formattedPlayerResults)
+    officialResults.push(formattedPlayerResults)
   })
   .on("end", function () {
-    console.log(csvData)
     fs.writeFile(
-      `${csvFile}-raw-data.json`,
-      JSON.stringify(csvData),
+      `official-raw-data.json`,
+      JSON.stringify(officialResults),
       {
         encoding: "utf-8",
       },

@@ -1,5 +1,5 @@
 import { flagConverter } from "./flagConverter.js"
-import { allPlayersList } from "./AllPlayersList-S8R2.js"
+import { allPlayersList } from "./AllPlayersList-S8R3.js"
 import { playerNameExceptions } from "./playerNameExceptions.js"
 import { regexPlayerName } from "./regexPlayerName.js"
 

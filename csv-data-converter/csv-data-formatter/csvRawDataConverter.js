@@ -9,7 +9,7 @@
 // import { s8r2csvData } from "./s8r2-raw-data.js"
 import { s8r3csvData } from "./s8r3-raw-data.js"
 import { courseData } from "./wmgt-course-data.js"
-import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8R2.js"
+import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8R3.js"
 import { playerNameExceptions } from "../../player-list-scraper/playerNameExceptions.js"
 import { regexPlayerName } from "../../player-list-scraper/regexPlayerName.js"
 
