@@ -1,5 +1,33 @@
 import { allPlayersList } from "../player-list-scraper/AllPlayersList-S8R3.js"
 
+const nonCharacterRegex = /[^a-zA-Z0-9]/g
+export const regexPlayerName = (player) => {
+  return player.replaceAll(nonCharacterRegex, "").toLowerCase()
+}
+
+export const playerNameExceptions = (name) => {
+  if (regexPlayerName(name) === regexPlayerName("FugoHallerin"))
+    return "FugoHallarin"
+  if (regexPlayerName(name) === regexPlayerName("southren_jenn_76"))
+    return "Southern_jenn_76"
+  if (regexPlayerName(name) === regexPlayerName("seppemarotta")) return "seppe"
+  if (regexPlayerName(name) === regexPlayerName("b0gibo")) return "bogibo"
+  if (regexPlayerName(name) === regexPlayerName("Snowraver1")) return "Snow"
+  if (regexPlayerName(name) === regexPlayerName("Jorge")) return "ElJorge"
+  if (regexPlayerName(name) === regexPlayerName("seve15")) return "Seve"
+  if (regexPlayerName(name) === regexPlayerName("GinjaNinja"))
+    return "GingaNinja19"
+  if (regexPlayerName(name) === regexPlayerName("TrickDicky"))
+    return "TrickyDicky"
+  if (regexPlayerName(name) === regexPlayerName("StevieCymru"))
+    return "SteveSkillman"
+  if (regexPlayerName(name) === regexPlayerName("Toaster87")) return "Toaster"
+  if (regexPlayerName(name) === regexPlayerName("NickJones5"))
+    return "Nickjone5"
+
+  return name
+}
+
 const getSeasonSummary = (rowId, firstRow, collection = []) => {
   if (document.getElementById(`${rowId}R${firstRow}`)) {
     const rowEl = document.getElementById(`${rowId}R${firstRow}`).parentElement
@@ -15,14 +43,30 @@ const getSeasonSummary = (rowId, firstRow, collection = []) => {
 
     if (rowCellsArray.length < 1) return collection
 
-    const player = allPlayersList.filter(
-      (p) => p.player === rowCellsArray[1]
-    )[0].player
+    let player
+    if (
+      allPlayersList.filter(
+        (p) =>
+          regexPlayerName(p.player) ===
+          regexPlayerName(playerNameExceptions(rowCellsArray[1]))
+      )[0]
+    ) {
+      player = allPlayersList.filter(
+        (p) =>
+          regexPlayerName(p.player) ===
+          regexPlayerName(playerNameExceptions(rowCellsArray[1]))
+      )[0].player
+    }
+
+    if (!player) return console.log(player)
 
     collection.push({
       player,
       seasonRank: +rowCellsArray[0],
-      seasonPoints: +rowCellsArray[2],
+      seasonPoints:
+        rowCellsArray.slice(3).length < 9
+          ? rowCellsArray.slice(3).reduce((acc, curr) => acc + +curr, 0)
+          : +rowCellsArray[2],
       pointsByRound: rowCellsArray.slice(3).map((p) => +p),
     })
 
@@ -31,4 +75,21 @@ const getSeasonSummary = (rowId, firstRow, collection = []) => {
   return collection
 }
 
-console.log(getSeasonSummary(0, 0))
+const withoutRank = getSeasonSummary(0, 0)
+
+const sortedResults = withoutRank.sort(
+  (a, b) => b.seasonPoints - a.seasonPoints
+)
+
+const rankAdded = sortedResults.map((player) => {
+  const rank = sortedResults.reduce((acc, s) => {
+    return s.seasonPoints > player.seasonPoints ? acc + 1 : acc
+  }, 1)
+  return {
+    ...player,
+    seasonRank: rank,
+  }
+})
+console.log(rankAdded)
+
+// const withRank =
