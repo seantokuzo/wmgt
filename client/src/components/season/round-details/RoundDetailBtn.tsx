@@ -13,7 +13,7 @@ const RoundDetailBtn: React.FC<Props> = ({ season, btnText, btnMode }) => {
   const colors = () => {
     if (roundDetailsMode === btnMode) return `bg-sh-s${season}`
 
-    const bg = darkMode ? 'bg-black' : 'bg-white'
+    const bg = darkMode ? 'bg-black' : 'bg-white sh-basic'
     return bg + ` border-2 brdr-s${season}`
   }
 
@@ -22,7 +22,7 @@ const RoundDetailBtn: React.FC<Props> = ({ season, btnText, btnMode }) => {
       className={`min-w-1/4 px-4 py-2 mx-[0.5rem] my-2
       text-sm sm:text-base md:text-lg lg:text-xl
       flex justify-center hover:scale-105 transition-all
-      rounded-xl sh-basic
+      rounded-xl
       ${colors()}`}
       title={btnMode === 'coconuts' ? 'No holes over par' : undefined}
       onClick={() => changeRoundDetailsMode(btnMode)}

@@ -8,9 +8,9 @@ const ScorecardLegend = () => {
 
   if (roundDetailsMode === 'aces' || roundDetailsMode === 'badges') {
     return (
-      <div className="w-auto flex flex-col justify-center items-center">
+      <div className="w-auto my-6 flex flex-col justify-center items-center">
         <p className="w-full mt-1 text-center text-red-400 text-xs sm:text-sm md:text-base">
-          Rare Aces by:
+          {roundDetailsMode === 'aces' ? 'Ace Badges by:' : 'Rare Score Badges by:'}
         </p>
         <div
           className="w-fit py-1 px-3 my-1
@@ -29,7 +29,7 @@ const ScorecardLegend = () => {
             <div className="w-1/2 flex flex-col justify-center items-center m-1">
               <div
                 className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-              text-xxs sm:text-xs md:text-sm
+              text-xxs sm:text-xs md:text-sm lg:text-base
               flex flex-col justify-center items-center`}
               >
                 💎
@@ -70,7 +70,7 @@ const ScorecardLegend = () => {
                 🪲
               </div>
               <div className="w-1/2 sm:w-2/3 text-center mt-1">
-                NON ACE LOW SCORE (MAX 3 PLAYERS)
+                NON-ACE LOW SCORE (MAX 3 PLAYERS)
               </div>
             </div>
           )}
@@ -82,7 +82,7 @@ const ScorecardLegend = () => {
   const legendItemEl = (label: string, score: number) => {
     return (
       <div
-        className="min-w-min m-1 mx-3 md:mx-4 lg:mx-5
+        className="min-w-min my-1 mx-3 md:mx-4 lg:mx-5
         flex flex-col justify-center items-center"
       >
         <div className="mb-1">{label}</div>
