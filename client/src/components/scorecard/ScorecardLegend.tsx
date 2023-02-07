@@ -6,7 +6,7 @@ const ScorecardLegend = () => {
   const { darkMode } = useAppContext()
   const { roundDetailsMode } = useSeasonContext()
 
-  if (roundDetailsMode === 'aces') {
+  if (roundDetailsMode === 'aces' || roundDetailsMode === 'badges') {
     return (
       <div className="w-auto flex flex-col justify-center items-center">
         <p className="w-full mt-1 text-center text-red-400 text-xs sm:text-sm md:text-base">
@@ -21,30 +21,59 @@ const ScorecardLegend = () => {
         </div>
         {/* <p className="w-full border-b-2 border-red-400"></p> */}
         <div
-          className="w-auto
-        text-xxxs sm:text-xs md:text-sm uppercase
-        flex sm:flex-row justify-evenly items-center"
+          className="w-auto mt-2
+          text-xxxs sm:text-xs md:text-sm uppercase
+          flex justify-evenly items-start"
         >
+          {roundDetailsMode === 'aces' && (
+            <div className="w-1/2 flex flex-col justify-center items-center m-1">
+              <div
+                className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
+              text-xxs sm:text-xs md:text-sm
+              flex flex-col justify-center items-center`}
+              >
+                💎
+              </div>
+              <div className="w-1/2 sm:w-2/3 text-center mt-1">MOST ACES IN ROUND</div>
+            </div>
+          )}
           <div className="w-1/2 flex flex-col justify-center items-center m-1">
-            <div className="w-1/2 sm:w-2/3 text-center mb-1">ONLY ACE ON HOLE</div>
             <div
               className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-            bg-sh-gold rounded-full
-            flex flex-col justify-center items-center`}
+              bg-sh-gold rounded-full
+              text-xxs sm:text-xs md:text-sm
+              flex flex-col justify-center items-center`}
             >
               🌵
             </div>
+            <div className="w-1/2 sm:w-2/3 text-center mt-1">ONLY ACE ON HOLE</div>
           </div>
           <div className="w-1/2 flex flex-col justify-center items-center m-1">
-            <div className="w-1/2 sm:w-2/3 text-center mb-1">ONE OF TWO ACES ON HOLE</div>
             <div
               className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-            bg-sh-silver rounded-full            
-            flex flex-col justify-center items-center`}
+              bg-sh-silver rounded-full            
+              text-xxs sm:text-xs md:text-sm
+              flex flex-col justify-center items-center`}
             >
               🦆
             </div>
+            <div className="w-1/2 sm:w-2/3 text-center mt-1">ONE OF TWO ACES ON HOLE</div>
           </div>
+          {roundDetailsMode === 'badges' && (
+            <div className="w-1/2 flex flex-col justify-center items-center m-1">
+              <div
+                className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
+                bg-sh-bronze rounded-full            
+                text-xxs sm:text-xs md:text-sm
+                flex flex-col justify-center items-center`}
+              >
+                🪲
+              </div>
+              <div className="w-1/2 sm:w-2/3 text-center mt-1">
+                NON ACE LOW SCORE (MAX 3 PLAYERS)
+              </div>
+            </div>
+          )}
         </div>
       </div>
     )

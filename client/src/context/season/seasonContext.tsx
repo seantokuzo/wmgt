@@ -2,7 +2,7 @@ import { createContext, useReducer, useContext } from 'react'
 import { SeasonActionType } from './seasonActions'
 import seasonReducer from './seasonReducer'
 
-export type RoundDetailsMode = 'full' | 'easy' | 'hard' | 'aces' | 'coconuts' | 'race'
+export type RoundDetailsMode = 'full' | 'easy' | 'hard' | 'aces' | 'coconuts' | 'race' | 'badges'
 
 export interface SeasonStateInterface {
   roundDetailsMode: RoundDetailsMode

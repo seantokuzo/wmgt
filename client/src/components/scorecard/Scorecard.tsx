@@ -27,6 +27,7 @@ const Scorecard: React.FC<Props> = ({ round, easyCourse, hardCourse }) => {
         <PlayerScorecard
           playerRound={playerRound}
           coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
+          roundObj={round}
           key={nanoid()}
         />
       ))}

@@ -712,4 +712,132 @@ export abstract class DataGod {
     }
     return appearedIn
   }
+
+  static convertAllScoresIntoLowestScorePerHoleArray = (allScores: number[][]) => {
+    return new Array(18)
+      .fill('')
+      .map((_slot, i) => {
+        return allScores.reduce((acc: number[], score: number[]) => {
+          acc.push(score[i])
+          return acc
+        }, [])
+      })
+      .map((scores) => Math.min(...scores))
+  }
+
+  static countUpLowHoleScorers = (lowScoresArr: number[], allLowScores: number[][]) => {
+    return lowScoresArr.map((score, i) => {
+      return allLowScores.reduce((acc: number, s: number[]) => {
+        if (s[i] === score) return acc + 1
+        return acc
+      }, 0)
+    })
+  }
+
+  static getRoundLowScoresPerHole = (season: number, round: number) => {
+    const roundData = this.getSeasonData(season).filter((r) => r.round === round)[0]
+    const allEasyScores = roundData.scores.map((score) => score.easyScorecard)
+    const allHardScores = roundData.scores.map((score) => score.hardScorecard)
+    const lowScoresEasy = this.convertAllScoresIntoLowestScorePerHoleArray(allEasyScores)
+    const lowScoresHard = this.convertAllScoresIntoLowestScorePerHoleArray(allHardScores)
+
+    return {
+      allEasyScores,
+      allHardScores,
+      lowScoresEasy,
+      lowScoresHard
+    }
+  }
+
+  static getNumPlayersWithHoleLowScore = (season: number, round: number) => {
+    const { allEasyScores, allHardScores, lowScoresEasy, lowScoresHard } =
+      this.getRoundLowScoresPerHole(season, round)
+
+    const lowScoreCountEasy = this.countUpLowHoleScorers(lowScoresEasy, allEasyScores)
+    const lowScoreCountHard = this.countUpLowHoleScorers(lowScoresHard, allHardScores)
+
+    return {
+      lowScoresEasy,
+      lowScoreCountEasy,
+      lowScoresHard,
+      lowScoreCountHard
+    }
+  }
+
+  static getOnlyBadgeRounds = (roundObj: RoundIdentifier) => {
+    const { season, round } = roundObj
+    const roundScores = this.getSeasonData(season).filter((r) => r.round === round)[0].scores
+    const { lowScoresEasy, lowScoreCountEasy, lowScoresHard, lowScoreCountHard } =
+      this.getNumPlayersWithHoleLowScore(season, round)
+
+    const badgeRoundsRaw = roundScores
+      .map((score) => {
+        const easyBadges = score.easyScorecard.map((holeScore, i) => {
+          if (holeScore === lowScoresEasy[i]) {
+            if (lowScoresEasy[i] === 1 && lowScoreCountEasy[i] === 1) return '🌵'
+            if (lowScoresEasy[i] === 1 && lowScoreCountEasy[i] === 2) return '🦆'
+            if (lowScoresEasy[i] !== 1 && lowScoreCountEasy[i] <= 3) return '🪲'
+            return ''
+          }
+          return ''
+        })
+        const hardBadges = score.hardScorecard.map((holeScore, i) => {
+          if (holeScore === lowScoresHard[i]) {
+            if (lowScoresHard[i] === 1 && lowScoreCountHard[i] === 1) return '🌵'
+            if (lowScoresHard[i] === 1 && lowScoreCountHard[i] === 2) return '🦆'
+            if (lowScoresHard[i] !== 1 && lowScoreCountHard[i] <= 3) return '🪲'
+            return ''
+          }
+          return ''
+        })
+        return { player: score.player, easyBadges, hardBadges }
+      })
+      .filter(
+        (s) =>
+          s.easyBadges.includes('🌵') ||
+          s.easyBadges.includes('🦆') ||
+          s.easyBadges.includes('🪲') ||
+          s.hardBadges.includes('🌵') ||
+          s.hardBadges.includes('🦆') ||
+          s.hardBadges.includes('🪲')
+      )
+
+    // return badgeRounds
+    const badgePlayers = badgeRoundsRaw.map((p) => p.player)
+    const badgeRounds = roundScores
+      .filter((s) => badgePlayers.includes(s.player))
+      .map((score) => {
+        const playerBadgeData = badgeRoundsRaw.filter((b) => b.player === score.player)[0]
+        return {
+          ...score,
+          easyScorecard: playerBadgeData.easyBadges,
+          hardScorecard: playerBadgeData.hardBadges
+        }
+      })
+    return badgeRounds
+  }
+
+  static getRoundDiamondWinner = (roundObj: RoundIdentifier) => {
+    const { season, round } = roundObj
+    const roundScores = this.getSeasonData(season).filter((r) => r.round === round)[0].scores
+    const aceData = roundScores.map((score) => {
+      return {
+        player: score.player,
+        numAces:
+          score.easyScorecard.reduce((acc, curr) => {
+            if (curr === 1) return acc + 1
+            return acc
+          }, 0) +
+          score.hardScorecard.reduce((acc, curr) => {
+            if (curr === 1) return acc + 1
+            return acc
+          }, 0)
+      }
+    })
+    const sortedByAcesCount = aceData.sort((a, b) => b.numAces - a.numAces)
+    const diamondWinners = sortedByAcesCount.filter(
+      (player) => player.numAces === sortedByAcesCount[0].numAces
+    )
+    return diamondWinners
+  }
 }

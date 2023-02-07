@@ -32,6 +32,30 @@ export interface PlayerRoundAces {
   hardAcesScorecard: AceScorecard[]
 }
 
+export interface BadgeRound {
+  roundRank: number
+  player: string
+  easyRoundTotal: number
+  hardRoundTotal: number
+  seasonPointsEarned: number
+  easyRoundScore: number
+  hardRoundScore: number
+  totalToPar: number
+  coconut: boolean
+  easyScorecard: string[]
+  hardScorecard: string[]
+  numPar: number
+  numBirdie: number
+  numEagle: number
+  numAlbatross: number
+  numCondor: number
+  numHoleInOne: number
+  numBogey: number
+  numDoubleBogey: number
+  numTripleBogey: number
+  numStrokeOut: number
+}
+
 export interface RoundDataInterface {
   season: number
   round: number

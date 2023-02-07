@@ -126,7 +126,9 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
         className="w-full max-w-4xl
           flex flex-col md:flex-row justify-center items-center"
       >
-        {(roundDetailsMode === 'full' || roundDetailsMode === 'aces') && (
+        {(roundDetailsMode === 'full' ||
+          roundDetailsMode === 'aces' ||
+          roundDetailsMode === 'badges') && (
           <ScorecardToggleBtn
             show={showEasyCourse}
             toggle={toggleCourse}
@@ -144,7 +146,7 @@ const CourseScorecard: React.FC<Props> = ({ course }) => {
             season={+rawSeasonRound[0]}
           />
         )}
-        {roundDetailsMode !== 'aces' && (
+        {roundDetailsMode !== 'aces' && roundDetailsMode !== 'badges' && (
           <ScorecardToggleBtn
             show={showScoreTracker}
             toggle={toggleScoreTracker}

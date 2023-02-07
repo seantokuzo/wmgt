@@ -5,17 +5,17 @@ import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
 import { holeSlotSizes } from './CourseScorecard'
 import { DataGod } from 'data/dataGod'
-import { useLocation } from 'react-router-dom'
 
 type Props = {
   playerRound: PlayerRoundInterface
   coursePars: number[]
+  roundObj: { season: number; round: number }
   acesData?: { easyCourseNumAces: number[]; hardCourseNumAces: number[] }
 }
 
 export const holeNameParColWidth = 'w-[25%] sm:w-[25%] md:w-[25%] lg:w-[26%] pr-2 flex justify-end'
 
-const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData }) => {
+const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, roundObj, acesData }) => {
   const { userPlayer, darkMode, windowSize } = useAppContext()
   const {
     roundDetailsMode,
@@ -25,7 +25,6 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     showFrontNine,
     toggleScorecardNine
   } = useSeasonContext()
-  const { pathname } = useLocation()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
   const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
 
@@ -101,7 +100,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
     'Holy 💩!'
   ]
 
-  const season = +pathname.split('/season/')[1].split('r')[0].split('s')[1]
+  const { season, round } = roundObj
 
   return (
     <div
@@ -129,6 +128,11 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
         overflow-hidden`}
       >
         {playerRound.player}
+        {DataGod.getRoundDiamondWinner(roundObj).findIndex(
+          (r) => r.player === playerRound.player
+        ) >= 0 &&
+          roundDetailsMode === 'aces' &&
+          ' 💎'}
       </div>
       {/* ****** ALL HOLE SCORES DIV ****** */}
       <div className="w-full flex justify-between items-center px-0 sm:px-2">
@@ -148,15 +152,15 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, acesData })
             <div className="">
               <div
                 className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-              ${!acesData && scoreDecoration(scoresForDecoration[i], true, darkMode)}
-              ${
-                scoreToDisplay(score, i) === '🌵'
-                  ? 'bg-sh-gold rounded-full cursor-pointer'
-                  : scoreToDisplay(score, i) === '🦆'
-                  ? 'bg-sh-silver shadow-insetsilver rounded-full cursor-pointer'
-                  : ''
-              }
-              flex flex-col justify-center items-center`}
+                ${!acesData && scoreDecoration(scoresForDecoration[i], true, darkMode)}
+                ${
+                  scoreToDisplay(score, i) === '🌵'
+                    ? 'bg-sh-gold rounded-full cursor-pointer'
+                    : scoreToDisplay(score, i) === '🦆'
+                    ? 'bg-sh-silver shadow-insetsilver rounded-full cursor-pointer'
+                    : ''
+                }
+                flex flex-col justify-center items-center`}
               >
                 <div
                   className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6

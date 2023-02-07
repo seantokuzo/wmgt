@@ -17,6 +17,7 @@ import UpcomingRound from './UpcomingRound'
 import UpcomingRound2 from './UpcomingRound2'
 import { useAppContext } from 'context/appContext'
 import NoCoconuts from 'components/scorecard/NoCoconuts'
+import BadgeScorecard from 'components/scorecard/BadgeScorecard'
 
 type Props = {
   round: RoundDataInterface
@@ -28,6 +29,7 @@ export const modes = {
   hard: 'Hard Course',
   aces: 'Aces',
   coconuts: 'Coconuts',
+  badges: 'Badges',
   race: 'Race to the Finish'
 }
 
@@ -87,6 +89,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
             <PlayerScorecard
               playerRound={playerRound}
               coursePars={easyCourse.parByHole}
+              roundObj={{ season: round.season, round: round.round }}
               key={nanoid()}
             />
           ))}
@@ -99,6 +102,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
             <PlayerScorecard
               playerRound={playerRound}
               coursePars={hardCourse.parByHole}
+              roundObj={{ season: round.season, round: round.round }}
               key={nanoid()}
             />
           ))}
@@ -132,6 +136,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
               <PlayerScorecard
                 playerRound={playerRound}
                 coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
+                roundObj={{ season: round.season, round: round.round }}
                 acesData={DataGod.getRoundAcesPerHole({
                   season: round.season,
                   round: round.round
@@ -151,6 +156,7 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
                 <PlayerScorecard
                   playerRound={playerRound}
                   coursePars={showEasyCourse ? easyCourse.parByHole : hardCourse.parByHole}
+                  roundObj={{ season: round.season, round: round.round }}
                   key={nanoid()}
                 />
               )
@@ -158,6 +164,16 @@ const RoundDetails: React.FC<Props> = ({ round }) => {
           ) : (
             <NoCoconuts />
           )}
+        </>
+      )}
+      {/* DataGod.getOnlyBadgeRounds({ season: 8, round: 3 }) */}
+      {!upcomingRound && roundDetailsMode === 'badges' && (
+        <>
+          <CourseScorecard course={showEasyCourse ? easyCourse : hardCourse} />
+          {DataGod.getOnlyBadgeRounds(round).length > 0 &&
+            DataGod.getOnlyBadgeRounds(round).map((playerRound) => (
+              <BadgeScorecard playerRound={playerRound} key={nanoid()} />
+            ))}
         </>
       )}
       {!upcomingRound && roundDetailsMode === 'race' && <RaceToTheFinish round={round} />}

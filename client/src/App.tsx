@@ -21,7 +21,7 @@ import ContactThankYou from 'pages/ContactThankYou'
 // import CourseDetails from 'components/course/CourseDetails'
 // import { courseData } from 'data/course-data/wmgt-course-data'
 // import Test from 'pages/Test'
-// import DataTester from 'DataTester'
+import DataTester from 'DataTester'
 
 function App() {
   const { darkMode, changeWindowSize } = useAppContext()
@@ -139,7 +139,7 @@ function App() {
         {/* <Route path="test" element={<Test />} /> */}
         <Route path="*" element={<WhereArtThou />} />
       </Routes>
-      {/* <DataTester /> */}
+      <DataTester />
     </div>
   )
 }

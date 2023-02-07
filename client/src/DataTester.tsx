@@ -78,6 +78,15 @@
 // import { courseData } from 'data/course-data/wmgt-course-data'
 // console.log(courseData.sort((a, b) => a.par - b.par).map((c) => ({ course: c.alias, par: c.par })))
 
+// BEETLES
+import { DataGod } from 'data/dataGod'
+console.log(DataGod.getOnlyBadgeRounds({ season: 8, round: 2 }))
+console.log(DataGod.getRoundDiamondWinner({ season: 8, round: 2 }))
+console.log(DataGod.getCoconutRounds({ season: 8, round: 2 }).scores.map((s) => s.player))
+console.log(DataGod.getOnlyBadgeRounds({ season: 8, round: 3 }))
+console.log(DataGod.getRoundDiamondWinner({ season: 8, round: 3 }))
+console.log(DataGod.getCoconutRounds({ season: 8, round: 3 }).scores.map((s) => s.player))
+
 const DataTester = () => {
   return <div className="hidden"></div>
 }
