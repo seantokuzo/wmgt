@@ -1,3 +1,4 @@
+import { s6r2csvData } from "./s6r2-raw-data.js"
 // import { s6r3csvData } from "./s6r3-raw-data.js"
 // import { s6r5csvData } from './s6r5-raw-data.js'
 // import { s6r6csvData } from './s6r6-raw-data.js'
@@ -7,7 +8,7 @@
 // import { s7r12csvData } from './s7r12-raw-data.js'
 // import { s8r1csvData } from './s8r1-raw-data.js'
 // import { s8r2csvData } from "./s8r2-raw-data.js"
-import { s8r3csvData } from "./s8r3-raw-data.js"
+// import { s8r3csvData } from "./s8r3-raw-data.js"
 import { courseData } from "./wmgt-course-data.js"
 import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8R3.js"
 import { playerNameExceptions } from "../../player-list-scraper/playerNameExceptions.js"
@@ -16,8 +17,8 @@ import { regexPlayerName } from "../../player-list-scraper/regexPlayerName.js"
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 
 // GET COURSE DATA FOR CURRENT ROUND COURSES
-const easyCourse = courseData.filter((c) => c.alias === "EDE")[0]
-const hardCourse = courseData.filter((c) => c.alias === "OGH")[0]
+const easyCourse = courseData.filter((c) => c.alias === "GBE")[0]
+const hardCourse = courseData.filter((c) => c.alias === "SLH")[0]
 
 const checkScores = (csvData) => {
   // CHECK FOR ANY DUPLICATE PLAYERS
@@ -175,8 +176,8 @@ const convertRawRoundData = (csvData) => {
   console.log(rankAdded)
 }
 
-checkScores(s8r3csvData)
-convertRawRoundData(s8r3csvData)
+checkScores(s6r2csvData)
+convertRawRoundData(s6r2csvData)
 
 // checkScores(s5r12csvData)
 // convertRawRoundData(s5r12csvData)
