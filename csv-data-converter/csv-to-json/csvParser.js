@@ -2,7 +2,7 @@ import fs from "fs"
 import { parse } from "csv-parse"
 
 // const csvFile = "./s5r12.csv"
-const csvFile = "./s6r2.csv"
+const csvFile = "./s6r1.csv"
 
 const writeFileName = csvFile.split("/")[1].split(".")[0]
 
