@@ -1052,10 +1052,6 @@ export const allPlayersList = [
     flag: "🇺🇸",
   },
   {
-    player: "NickYaHeard",
-    flag: "🇺🇸",
-  },
-  {
     player: "ALubedParrot",
     flag: "🇺🇸",
   },

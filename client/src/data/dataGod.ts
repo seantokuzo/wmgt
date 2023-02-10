@@ -10,6 +10,7 @@ import { season5OfficialResults } from './season-data/season5OfficialResults'
 import { season6OfficialResults } from './season-data/season6OfficialResults'
 import { season7OfficialResults } from './season-data/season7OfficialResults'
 import { season8OfficialResults } from './season-data/season8OfficialResults'
+import { season5Data } from './round-data/s5-round-data'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
 import { season8Data } from './round-data/s8-round-data'
@@ -38,6 +39,8 @@ export abstract class DataGod {
         return season7Data
       case 6:
         return season6Data
+      case 5:
+        return season5Data
       default:
         return []
     }
@@ -50,13 +53,16 @@ export abstract class DataGod {
   }
 
   private static getRoundFromSeason(round: { season: number; round: number }) {
-    if (round.season === 6) {
-      return season6Data.filter((r) => r.round === round.round)[0]
+    switch (round.season) {
+      case 5:
+        return season5Data.filter((r) => r.round === round.round)[0]
+      case 6:
+        return season6Data.filter((r) => r.round === round.round)[0]
+      case 7:
+        return season7Data.filter((r) => r.round === round.round)[0]
+      default:
+        return season8Data.filter((r) => r.round === round.round)[0]
     }
-    if (round.season === 7) {
-      return season7Data.filter((r) => r.round === round.round)[0]
-    }
-    return season8Data.filter((r) => r.round === round.round)[0]
   }
 
   private static getRoundFromRoundNum(seasonData: RoundDataInterface[], round: number) {

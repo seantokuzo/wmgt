@@ -1,8 +1,8 @@
 import fs from "fs"
 import { parse } from "csv-parse"
 
-const csvFileDB = "./S8R3_DB.csv"
-const csvFileOfficial = "./S8R3_Official.csv"
+const csvFileDB = "./DB.csv"
+const csvFileOfficial = "./Official.csv"
 
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 export const regexPlayerName = (player) => {

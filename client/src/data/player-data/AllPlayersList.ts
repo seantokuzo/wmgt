@@ -1057,7 +1057,7 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'NickYaHeard',
+    player: 'Nick',
     flag: '🇺🇸'
   },
   {

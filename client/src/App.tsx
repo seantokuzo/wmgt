@@ -11,6 +11,7 @@ import WhereArtThou from 'pages/WhereArtThou'
 import { SeasonContextProvider } from 'context/season/seasonContext'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
+import { season5Data } from 'data/round-data/s5-round-data'
 import { season6Data } from 'data/round-data/s6-round-data'
 import { season7Data } from 'data/round-data/s7-round-data'
 import { season8Data } from 'data/round-data/s8-round-data'
@@ -111,6 +112,14 @@ function App() {
           ))}
           {/* SEASON 5 ROUTES */}
           <Route path="s5-summary" element={<SeasonSummary season={5} />} />
+          <Route path="s5-stats" element={<SeasonStats season={5} />} />
+          {season5Data.map((round) => (
+            <Route
+              path={`s${round.season}r${round.round}`}
+              element={<RoundDetails round={round} />}
+              key={nanoid()}
+            />
+          ))}
           {/* SEASON 4 ROUTES */}
           <Route path="s4-summary" element={<SeasonSummary season={4} />} />
           {/* SEASON 3 ROUTES */}

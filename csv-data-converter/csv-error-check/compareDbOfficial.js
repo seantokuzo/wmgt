@@ -34,8 +34,8 @@ const dbRaw = await fetch("./db-raw-data.json")
 const dbData = await dbRaw.json()
 const officialRaw = await fetch("./official-raw-data.json")
 const officialData = await officialRaw.json()
-console.log(dbData)
-console.log(officialData)
+// console.log(dbData)
+// console.log(officialData)
 
 const compareResults = (dbData, officialData) => {
   if (dbData.length !== officialData.length) {
