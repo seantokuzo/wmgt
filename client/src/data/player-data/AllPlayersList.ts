@@ -1057,10 +1057,6 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
-    player: 'Nick',
-    flag: '🇺🇸'
-  },
-  {
     player: 'ALubedParrot',
     flag: '🇺🇸'
   },
@@ -1558,6 +1554,14 @@ export const allPlayersList: PlayerInterface[] = [
   },
   {
     player: 'Garfield',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Brian_oConner',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Sruss22',
     flag: '🇺🇸'
   },
   {

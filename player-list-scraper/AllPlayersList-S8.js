@@ -1552,6 +1552,14 @@ export const allPlayersList = [
     flag: "🇺🇸",
   },
   {
+    player: "Brian_oConner",
+    flag: "🇺🇸",
+  },
+  {
+    player: "Sruss22",
+    flag: "🇺🇸",
+  },
+  {
     player: "SpicyP",
     flag: "",
   },

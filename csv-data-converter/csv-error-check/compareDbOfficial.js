@@ -1,6 +1,6 @@
 // import { s8r3_DB } from "./S8R3_DB.csv-raw-data.js"
 // import { s8r3_Official } from "./S8R3_Official.csv-raw-data.js"
-import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8R3.js"
+import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8.js"
 
 const nonCharacterRegex = /[^a-zA-Z0-9]/g
 export const regexPlayerName = (player) => {
