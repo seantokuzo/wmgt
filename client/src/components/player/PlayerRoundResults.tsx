@@ -29,15 +29,20 @@ const PlayerRoundResults = () => {
   const appearedInMenu = () => {
     return (
       <>
-        <div className="border-2 brdr-gold bg-sh-gold py-3 px-4 rounded-md text-black font-bold uppercase">
-          Player Appeared In:
+        <div className="border-2 brdr-gold bg-sh-gold py-3 px-4 rounded-md text-black font-bold text-center">
+          <p className="underline">{userPlayer}</p>
+          <p className="uppercase">Player Appeared In:</p>
         </div>
         <p className="mt-2">(Select a Round for Details)</p>
         <div className="w-full max-w-2xl mt-4 flex flex-col justify-center items-center">
           {seasonsPlayed.map((season) => {
             return (
               <div className="flex flex-col justify-center items-center" key={nanoid()}>
-                <p className={`mt-3 mb-1 brdr-s${season} border-2 bg-sh-s${season}`}>
+                <p
+                  className={`mt-3 mb-2 px-10 py-2
+                  text-xxs sm:text-sm md:text-base lg:text-lg font-bold font-scorenum
+                  bg-sh-s${season} rounded-md`}
+                >
                   {'Season ' + season}
                 </p>
                 <div className="max-w-xl flex flex-wrap justify-center items-center">
@@ -46,8 +51,9 @@ const PlayerRoundResults = () => {
                       return (
                         <div
                           className={`w-[8rem] mx-2 my-4 px-4 py-2
-                      text-center
-                      brdr-s${round.season} border-2 rounded-md`}
+                          text-center cursor-pointer hover:scale-105 transition-all
+                          brdr-s${round.season} border-2 rounded-md`}
+                          onClick={() => setSelectedRound({ season, round: round.round })}
                           key={nanoid()}
                         >
                           <p>{'Round ' + round.round}</p>
@@ -70,9 +76,22 @@ const PlayerRoundResults = () => {
     )
   }
 
+  const selectedRoundDetails = () => {
+    return (
+      <div>
+        <button className="px-3 py-2 border-2 rounded-md" onClick={() => setSelectedRound('')}>
+          Back to Rounds
+        </button>
+        <div>CHECK OUT THESE DETAILS!</div>
+        <div>{`Season ${selectedRound.season} Round ${selectedRound.round}`}</div>
+      </div>
+    )
+  }
+
   return (
     <div className="mt-4 flex flex-col justify-center items-center">
       {!selectedRound && appearedInMenu()}
+      {selectedRound && selectedRoundDetails()}
     </div>
   )
 }

@@ -26,6 +26,7 @@ const Player: React.FC = () => {
 
   return (
     <div className="w-full px-10 flex flex-col justify-center items-center">
+      {/* <Loading /> */}
       <PlayerStatsMenu setPlayerMode={setPlayerMode} playerMode={playerMode} />
       {!userPlayer && <NoPlayerSelected />}
       {userPlayer &&
