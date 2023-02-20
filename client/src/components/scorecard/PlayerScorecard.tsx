@@ -1,5 +1,5 @@
 import { useSeasonContext } from 'context/season/seasonContext'
-import { PlayerRoundInterface } from 'data/round-data/roundTypes'
+import { PlayerRoundInterface, RoundIdentifier } from 'data/round-data/roundTypes'
 import { scoreDecoration } from './scorecardUtils'
 import { nanoid } from 'nanoid'
 import { useAppContext } from 'context/appContext'
@@ -9,7 +9,7 @@ import { DataGod } from 'data/dataGod'
 type Props = {
   playerRound: PlayerRoundInterface
   coursePars: number[]
-  roundObj: { season: number; round: number }
+  roundObj: RoundIdentifier
   acesData?: { easyCourseNumAces: number[]; hardCourseNumAces: number[] }
 }
 

@@ -12,7 +12,7 @@ type Props = {
   course: CourseInterface
   hole: number
   exit: () => void
-  setHole: React.Dispatch<SetStateAction<Hole>>
+  setHole: patch<SetStateAction<Hole>>
   round?: boolean
 }
 

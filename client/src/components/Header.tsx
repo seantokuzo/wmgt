@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         >
           WMGT STATS
         </h1>
-        <PlayerSelector />
+        {!pathname.startsWith('/player') && <PlayerSelector />}
       </div>
       <div className="w-1/7 h-full flex justify-start items-center">
         <Link

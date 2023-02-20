@@ -83,9 +83,18 @@
 // console.log(DataGod.getOnlyBadgeRounds({ season: 8, round: 2 }))
 // console.log(DataGod.getRoundDiamondWinner({ season: 8, round: 2 }))
 // console.log(DataGod.getCoconutRounds({ season: 8, round: 2 }).scores.map((s) => s.player))
-// console.log(DataGod.getOnlyBadgeRounds({ season: 8, round: 3 }))
-// console.log(DataGod.getRoundDiamondWinner({ season: 8, round: 3 }))
-// console.log(DataGod.getCoconutRounds({ season: 8, round: 3 }).scores.map((s) => s.player))
+// console.log(
+//   DataGod.getOnlyBadgeRounds({ season: 8, round: 3 }).map((p) => ({
+//     player: p.player,
+//     easyScorecard: p.easyScorecard,
+//     hardScorecard: p.hardScorecard
+//   }))
+// )
+// console.log('Diamond Winner: ', DataGod.getRoundDiamondWinner({ season: 8, round: 3 }))
+// console.log(
+//   'Coconuts: ',
+//   DataGod.getCoconutRounds({ season: 8, round: 3 }).scores.map((s) => s.player)
+// )
 
 const DataTester = () => {
   return <div className="hidden"></div>

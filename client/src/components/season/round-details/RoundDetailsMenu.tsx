@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { useSeasonContext } from 'context/season/seasonContext'
 import { nanoid } from 'nanoid'
 import { DataGod } from 'data/dataGod'
-
 import { useAppContext } from 'context/appContext'
+import { RoundIdentifier } from 'data/round-data/roundTypes'
 
 type Props = {
-  round: { season: number; round: number }
+  round: RoundIdentifier
   easyCourse: CourseInterface
   hardCourse: CourseInterface
   upcomingRound: boolean

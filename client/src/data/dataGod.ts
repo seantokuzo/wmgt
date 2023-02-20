@@ -1,7 +1,7 @@
 import { RoundDetailsMode } from 'context/season/seasonContext'
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
 import { allPlayersList, PlayerInterface } from './player-data/AllPlayersList'
-import { PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
+import { BadgeRound, PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
 import { season1OfficialResults } from './season-data/season1OfficialResults'
 import { season2OfficialResults } from './season-data/season2OfficialResults'
 import { season3OfficialResults } from './season-data/season3OfficialResults'
@@ -52,7 +52,7 @@ export abstract class DataGod {
     )[0]
   }
 
-  private static getRoundFromSeason(round: { season: number; round: number }) {
+  private static getRoundFromSeason(round: RoundIdentifier) {
     switch (round.season) {
       case 5:
         return season5Data.filter((r) => r.round === round.round)[0]
@@ -285,7 +285,7 @@ export abstract class DataGod {
     return scores.sort((a, b) => a.hardRoundScore - b.hardRoundScore)
   }
 
-  static getRoundPodium(round: { season: number; round: number }): {
+  static getRoundPodium(round: RoundIdentifier): {
     gold: PlayerInterface[]
     silver: PlayerInterface[]
     bronze: PlayerInterface[]
@@ -770,7 +770,7 @@ export abstract class DataGod {
     }
   }
 
-  static getOnlyBadgeRounds = (roundObj: RoundIdentifier) => {
+  static getOnlyBadgeRounds = (roundObj: RoundIdentifier): BadgeRound[] => {
     const { season, round } = roundObj
     const roundScores = this.getSeasonData(season).filter((r) => r.round === round)[0].scores
     const { lowScoresEasy, lowScoreCountEasy, lowScoresHard, lowScoreCountHard } =

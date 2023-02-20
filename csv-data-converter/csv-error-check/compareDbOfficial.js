@@ -42,7 +42,7 @@ const compareResults = (dbData, officialData) => {
     console.log("Different amount of players")
   }
 
-  let scoreErrors = []
+  let DBscoreErrors = []
   let newPlayers = []
   let playerNotInDB = []
   let playerNotReportedInOfficial = []
@@ -74,7 +74,7 @@ const compareResults = (dbData, officialData) => {
       !scoreChecks.hardCheck ||
       !scoreChecks.totalCheck
     ) {
-      scoreErrors.push(scoreChecks)
+      DBscoreErrors.push(scoreChecks)
     }
 
     const dbScore = dbData.filter((p) => p.player === score.player)[0]
@@ -109,7 +109,7 @@ const compareResults = (dbData, officialData) => {
     playerNotInDB,
     playerNotReportedInOfficial,
     newPlayers,
-    scoreErrors,
+    DBscoreErrors,
   }
 }
 

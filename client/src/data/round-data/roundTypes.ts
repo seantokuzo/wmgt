@@ -70,3 +70,8 @@ export interface SeasonPointsData {
   player: string
   flag: string
 }
+
+export interface RoundIdentifier {
+  season: number
+  round: number
+}
