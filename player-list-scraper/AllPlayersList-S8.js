@@ -1560,6 +1560,22 @@ export const allPlayersList = [
     flag: "🇺🇸",
   },
   {
+    player: "ChicagoBry",
+    flag: "🇺🇸",
+  },
+  {
+    player: "Steakfest",
+    flag: "🇺🇸",
+  },
+  {
+    player: "Easy_ice",
+    flag: "🇺🇸",
+  },
+  {
+    player: "Nicolas",
+    flag: "🇨🇦",
+  },
+  {
     player: "SpicyP",
     flag: "",
   },

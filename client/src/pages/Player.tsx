@@ -1,9 +1,9 @@
-import Loading from 'components/Loading'
-import NoPlayerSelected from 'components/player/NoPlayerSelected'
-import PlayerRoundResults from 'components/player/PlayerRoundResults'
-import PlayerStatsMenu from 'components/player/PlayerStatsMenu'
-import { useAppContext } from 'context/appContext'
 import { useState } from 'react'
+import Loading from 'components/Loading'
+// import NoPlayerSelected from 'components/player/NoPlayerSelected'
+// import PlayerRoundResults from 'components/player/PlayerRoundResults'
+// import PlayerStatsMenu from 'components/player/PlayerStatsMenu'
+// import { useAppContext } from 'context/appContext'
 
 export type PlayerStatsMode =
   | 'round-results'
@@ -21,21 +21,20 @@ export const playerStatModes = {
 }
 
 const Player: React.FC = () => {
-  const [playerMode, setPlayerMode] = useState<PlayerStatsMode>('round-results')
-  const { userPlayer } = useAppContext()
+  // const [playerMode, setPlayerMode] = useState<PlayerStatsMode>('round-results')
+  // const { userPlayer } = useAppContext()
 
   return (
     <div className="w-full px-10 flex flex-col justify-center items-center">
-      {/* <Loading /> */}
-      <PlayerStatsMenu setPlayerMode={setPlayerMode} playerMode={playerMode} />
+      <Loading />
+      {/* <PlayerStatsMenu setPlayerMode={setPlayerMode} playerMode={playerMode} />
       {!userPlayer && <NoPlayerSelected />}
       {userPlayer &&
-        // playerMode === 'round-results' ||
         (playerMode === 'season-badges' ||
           playerMode === 'all-time-badges' ||
           playerMode === 'shot-stats' ||
           playerMode === 'course-stats') && <Loading />}
-      {playerMode === 'round-results' && <PlayerRoundResults />}
+      {playerMode === 'round-results' && <PlayerRoundResults />} */}
     </div>
   )
 }

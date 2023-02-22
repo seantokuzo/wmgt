@@ -4,8 +4,6 @@ import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8.js"
 import { playerNameExceptions } from "../../player-list-scraper/playerNameExceptions.js"
 import { regexPlayerName } from "../../player-list-scraper/regexPlayerName.js"
 
-const nonCharacterRegex = /[^a-zA-Z0-9]/g
-
 // GET COURSE DATA FOR CURRENT ROUND COURSES
 const easyCourse = courseData.filter((c) => c.alias === "SLE")[0]
 const hardCourse = courseData.filter((c) => c.alias === "TTH")[0]

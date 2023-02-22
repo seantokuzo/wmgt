@@ -1,10 +1,9 @@
+import { useState } from 'react'
 import { useAppContext } from 'context/appContext'
 import { PlayerDataGod } from 'data/playerDataGod'
 import { RoundIdentifier } from 'data/round-data/roundTypes'
-import { nanoid } from 'nanoid'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import NoStatsForPlayer from './NoStatsForPlayer'
+import { nanoid } from 'nanoid'
 
 const PlayerRoundResults = () => {
   const [selectedRound, setSelectedRound] = useState<RoundIdentifier | ''>('')
@@ -83,7 +82,9 @@ const PlayerRoundResults = () => {
           Back to Rounds
         </button>
         <div>CHECK OUT THESE DETAILS!</div>
-        <div>{`Season ${selectedRound.season} Round ${selectedRound.round}`}</div>
+        <div>{`Season ${(selectedRound as RoundIdentifier).season} Round ${
+          (selectedRound as RoundIdentifier).round
+        }`}</div>
       </div>
     )
   }
