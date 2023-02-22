@@ -1,7 +1,7 @@
 import fs from "fs"
 import { parse } from "csv-parse"
 
-const csvFile = "./s8r5.csv"
+const csvFile = "./s5r6.csv"
 
 const writeFileName = csvFile.split("/")[1].split(".")[0]
 
@@ -10,7 +10,7 @@ export const regexPlayerName = (player) => {
   return player.replaceAll(nonCharacterRegex, "").toLowerCase()
 }
 
-export const playerNameExceptions = (name) => {
+const playerNameExceptions = (name) => {
   if (regexPlayerName(name) === regexPlayerName("FugoHallerin")) return "FugoHallarin"
   if (regexPlayerName(name) === regexPlayerName("southren_jenn_76")) return "Southern_jenn_76"
   if (regexPlayerName(name) === regexPlayerName("seppemarotta")) return "seppe"
@@ -31,6 +31,7 @@ export const playerNameExceptions = (name) => {
   if (regexPlayerName(name) === regexPlayerName("Brad")) return "Brad."
   if (regexPlayerName(name) === regexPlayerName("Stewiestewie")) return "Stewie"
   if (regexPlayerName(name) === regexPlayerName("Yodamuffin")) return "Yoda"
+  if (regexPlayerName(name) === regexPlayerName("TakeItToTheBank")) return "CoryDoesShots"
 
   return name
 }

@@ -1,12 +1,14 @@
-import { s8r5csvData } from "./s8r5-raw-data.js"
+import { s5r6csvData } from "./s5r6-raw-data.js"
 import { courseData } from "./wmgt-course-data.js"
 import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8.js"
-import { playerNameExceptions } from "../../player-list-scraper/playerNameExceptions.js"
-import { regexPlayerName } from "../../player-list-scraper/regexPlayerName.js"
+import {
+  regexPlayerName,
+  playerNameExceptions,
+} from "../../player-list-scraper/playerNameExceptions.js"
 
 // GET COURSE DATA FOR CURRENT ROUND COURSES
 const easyCourse = courseData.filter((c) => c.alias === "SLE")[0]
-const hardCourse = courseData.filter((c) => c.alias === "TTH")[0]
+const hardCourse = courseData.filter((c) => c.alias === "BBH")[0]
 
 const checkScores = (csvData) => {
   // CHECK FOR ANY DUPLICATE PLAYERS
@@ -164,5 +166,5 @@ const convertRawRoundData = (csvData) => {
   console.log(rankAdded)
 }
 
-checkScores(s8r5csvData)
-convertRawRoundData(s8r5csvData)
+checkScores(s5r6csvData)
+convertRawRoundData(s5r6csvData)
