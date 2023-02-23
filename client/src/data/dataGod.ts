@@ -318,6 +318,42 @@ export abstract class DataGod {
     return [...numberArray.slice(0, index), ...numberArray.slice(index + 1)]
   }
 
+  // TODO - CHATGPT IMPLEMENTATION OF FINDING LOWEST SCORES
+  // TODO MORE ACCURATE WITH GOOGLE SHEETS FORMULA
+  // TODO MORE TESTING NEEDED - TOTAL POINTS STILL WRONG
+  // static seekAndReturnLowest(points: number[]): number[] {
+  //   const length = points.length
+
+  //   if (length < 5 || length > 12) {
+  //     return []
+  //   }
+
+  //   const numLowest = length === 10 ? 2 : length === 11 ? 3 : length === 12 ? 4 : 1
+
+  //   const lowestIndices: number[] = []
+
+  //   for (let i = 0; i < numLowest; i++) {
+  //     let lowestIndex = i
+
+  //     for (let j = i + 1; j < length; j++) {
+  //       if (points[j] < points[lowestIndex]) {
+  //         lowestIndex = j
+  //       }
+  //     }
+
+  //     lowestIndices.push(lowestIndex)
+
+  //     // Swap current index with lowest index to avoid duplicate indices
+  //     ;[points[i], points[lowestIndex]] = [points[lowestIndex], points[i]]
+  //   }
+
+  //   return lowestIndices.sort()
+  // }
+
+  // static getIndexesOfUnusedSeasonPoints(points: number[]) {
+  //   return this.seekAndReturnLowest([...points])
+  // }
+
   static seekAndReturnLowest(points: number[], whichLowest: number): number {
     const sortedPoints = [...points].sort((a, b) => a - b)
     if (whichLowest === 1) {
