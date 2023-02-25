@@ -1,40 +1,37 @@
 import { useState } from 'react'
 import Loading from 'components/Loading'
-// import NoPlayerSelected from 'components/player/NoPlayerSelected'
-// import PlayerRoundResults from 'components/player/PlayerRoundResults'
-// import PlayerStatsMenu from 'components/player/PlayerStatsMenu'
-// import { useAppContext } from 'context/appContext'
+import NoPlayerSelected from 'components/player/NoPlayerSelected'
+import PlayerRoundResults from 'components/player/PlayerRoundResults'
+import PlayerStatsMenu from 'components/player/PlayerStatsMenu'
+import { useAppContext } from 'context/appContext'
 
-export type PlayerStatsMode =
-  | 'round-results'
-  | 'season-badges'
-  | 'all-time-badges'
-  | 'shot-stats'
-  | 'course-stats'
+export type PlayerStatsMode = 'round-results' | 'course-stats' | 'shot-stats'
+// | 'season-badges'
+// | 'all-time-badges'
 
 export const playerStatModes = {
   roundResults: 'round-results',
-  seasonBadges: 'season-badges',
-  allTimeBadges: 'all-time-badges',
-  shotStats: 'shot-stats',
-  courseStats: 'course-stats'
+  courseStats: 'course-stats',
+  shotStats: 'shot-stats'
+  // seasonBadges: 'season-badges',
+  // allTimeBadges: 'all-time-badges'
 }
 
 const Player: React.FC = () => {
-  // const [playerMode, setPlayerMode] = useState<PlayerStatsMode>('round-results')
-  // const { userPlayer } = useAppContext()
+  const [playerMode, setPlayerMode] = useState<PlayerStatsMode>('round-results')
+  const { userPlayer } = useAppContext()
 
   return (
     <div className="w-full px-10 flex flex-col justify-center items-center">
-      <Loading />
-      {/* <PlayerStatsMenu setPlayerMode={setPlayerMode} playerMode={playerMode} />
+      {/* <Loading /> */}
+      <PlayerStatsMenu setPlayerMode={setPlayerMode} playerMode={playerMode} />
       {!userPlayer && <NoPlayerSelected />}
       {userPlayer &&
-        (playerMode === 'season-badges' ||
-          playerMode === 'all-time-badges' ||
-          playerMode === 'shot-stats' ||
+        (playerMode === 'shot-stats' ||
+          // playerMode === 'season-badges' ||
+          // playerMode === 'all-time-badges' ||
           playerMode === 'course-stats') && <Loading />}
-      {playerMode === 'round-results' && <PlayerRoundResults />} */}
+      {playerMode === 'round-results' && <PlayerRoundResults />}
     </div>
   )
 }

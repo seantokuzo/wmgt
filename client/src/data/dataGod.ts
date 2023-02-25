@@ -87,6 +87,10 @@ export abstract class DataGod {
     })
   }
 
+  static getCourseData(course: CourseAlias) {
+    return courseData.filter((c) => c.alias === course)[0]
+  }
+
   static getCoursePars(course: CourseAlias) {
     return courseData.filter((c) => c.alias === course)[0].parByHole
   }

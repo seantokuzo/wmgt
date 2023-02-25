@@ -44,6 +44,7 @@
   --sh-bronze: inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;
   --sh-topTenGreen: inset 6px 6px 6px #709f25, inset -6px -6px 6px #d6ff45;
   --sh-season8: inset 6px 6px 6px #0f7033, inset -6px -6px 6px #1dd661;
+  --sh-season8-out: 5px 5px 10px #0f6d32, -5px -5px 10px #1dd962;
   --sh-season7: inset 6px 6px 6px #37309e, inset -6px -6px 6px #675cff;
   --sh-season6:inset 6px 6px 6px #036848, inset -6px -6px 6px #07c58a;
   --sh-season5: inset 6px 6px 12px #ad6529, inset -6px -6px 12px #ffbf4f;
@@ -192,6 +193,9 @@ body {
 }
 .bg-trans-s8 {
   background-color: var(--season8trans);
+}
+.sh-out-s8 {
+  box-shadow: var(--sh-season8-out);
 }
 
 /* ***** SEASON 7 COLORS ***** */

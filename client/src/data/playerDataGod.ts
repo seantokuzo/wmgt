@@ -1,6 +1,12 @@
+import { DataGod } from './dataGod'
 import { CourseAlias, courseData } from './course-data/wmgt-course-data'
 import { allPlayersList, PlayerInterface } from './player-data/AllPlayersList'
-import { BadgeRound, PlayerRoundInterface, RoundDataInterface } from './round-data/roundTypes'
+import {
+  BadgeRound,
+  PlayerRoundInterface,
+  RoundDataInterface,
+  RoundIdentifier
+} from './round-data/roundTypes'
 import { season1OfficialResults } from './season-data/season1OfficialResults'
 import { season2OfficialResults } from './season-data/season2OfficialResults'
 import { season3OfficialResults } from './season-data/season3OfficialResults'
@@ -38,5 +44,19 @@ export abstract class PlayerDataGod {
       })
 
     return allPlayerRounds
+  }
+
+  static getPlayerRoundData(round: RoundIdentifier | '', player: string): RoundDataInterface | [] {
+    if (round) {
+      const seasonData = DataGod.getSeasonData(round.season)
+      const roundData = seasonData.filter((r) => r.round === round.round)[0] || []
+      const playerScore = roundData.scores.filter((s) => s.player === player)[0]
+
+      return {
+        ...roundData,
+        scores: [playerScore]
+      }
+    }
+    return []
   }
 }
