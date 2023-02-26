@@ -63,7 +63,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
         className={`w-5/6 mt-1 pb-1
           border-b-2 border-l-2 rounded-bl-md
           brdr-s${season}
-          ${isUser && `bg-trans-s${season}`}
+          ${player.player === userPlayer && `bg-trans-s${season}`}
           cursor-pointer
           flex flex-col justify-center items-center`}
         key={nanoid()}
@@ -137,7 +137,7 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
                       ${
                         DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
                         'opacity-25'
-                      }`}
+                      } ${point < 10 && 'bg-black'}`}
                     >
                       {point}
                     </div>
@@ -165,7 +165,8 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
                   ${
                     DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
                     'opacity-25'
-                  }`}
+                  }
+                  ${point < 10 && 'bg-black'}`}
                     >
                       {point}
                     </div>
@@ -205,9 +206,9 @@ const SeasonLeaderboardSmall: React.FC<Props> = ({ season }) => {
         </div>
       </div>
       {/* ****** PLAYER SEASON POINTS DATA ****** */}
-      {userPlayer &&
+      {/* {userPlayer &&
         seasonPointsData.findIndex((p) => p.player === userPlayer) >= 0 &&
-        playerSeasonSummaryEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)}
+        playerSeasonSummaryEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)} */}
       {seasonPointsData.map((player) => playerSeasonSummaryEl(player))}
     </div>
   )

@@ -61,14 +61,14 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
   const totalColClasses = `w-8 h-8 lg:w-10 lg:h-10 p-2 ml-4 mr-2 text-base lg:text-base text-center font-bold`
   const pointColClasses = 'w-7 h-7 lg:w-10 lg:h-10 ml-2 text-sm lg:text-base text-center rounded-md'
 
-  const playerRowEl = (player: PlayerBasicSeasonInfo, isUser = false) => {
+  const playerRowEl = (player: PlayerBasicSeasonInfo) => {
     const seasonRank = getRank(player.player, seasonPointsData)
 
     return (
       <div
         className={`w-full my-2 px-2
         ${
-          isUser &&
+          player.player === userPlayer &&
           `border-l-2 border-b-2 brdr-s${season}
           bg-trans-s${season} py-2 rounded-md`
         }
@@ -79,10 +79,7 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         <div className={`${flagColClasses} ${flex}`}>{player.flag}</div>
         <div
           className={`rounded-sm ${playerColClasses} ${
-            player.player === userPlayer &&
-            !isUser &&
-            seasonRank > 10 &&
-            `border-b-2 brdr-s${season} bgfade-s${season}`
+            seasonRank > 10 && `border-b-2 brdr-s${season} bgfade-s${season}`
           }
           ${
             seasonRank === 1
@@ -116,7 +113,8 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
               ${
                 DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
                 'opacity-25'
-              }`}
+              }
+              ${point < 10 && 'bg-black'}`}
                   key={nanoid()}
                 >
                   {point}
@@ -141,7 +139,8 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
               ${
                 DataGod.getIndexesOfUnusedSeasonPoints(player.roundPoints).includes(i) &&
                 'opacity-25'
-              }`}
+              }
+              ${point < 10 && 'bg-black'}`}
               key={nanoid()}
             >
               {point}
@@ -175,9 +174,9 @@ const SeasonLeaderboardFull: React.FC<Props> = ({ season }) => {
         ))}
       </div>
       {/* ****** PLAYER SEASON POINTS DATA ****** */}
-      {userPlayer &&
+      {/* {userPlayer &&
         seasonPointsData.findIndex((p) => p.player === userPlayer) >= 0 &&
-        playerRowEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)}
+        playerRowEl(seasonPointsData.filter((p) => p.player === userPlayer)[0], true)} */}
       {seasonPointsData.map((player) => playerRowEl(player))}
     </div>
   )
