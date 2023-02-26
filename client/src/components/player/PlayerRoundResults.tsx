@@ -7,9 +7,11 @@ import { nanoid } from 'nanoid'
 import CourseScorecard from 'components/scorecard/CourseScorecard'
 import { DataGod } from 'data/dataGod'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
+import PlayerStatsScorecard from './PlayerStatsScorecard'
 
 const PlayerRoundResults = () => {
   const [selectedRound, setSelectedRound] = useState<RoundIdentifier | ''>('')
+  // const [selectedRound, setSelectedRound] = useState<RoundIdentifier | ''>({ season: 8, round: 1 })
   const { userPlayer } = useAppContext()
 
   const allPlayerRounds = PlayerDataGod.getPlayerRoundsPerSeason(userPlayer)
@@ -33,13 +35,18 @@ const PlayerRoundResults = () => {
   const appearedInMenu = () => {
     return (
       <>
+        {/* TOP LABEL */}
         <div className="py-1 font-bold text-center">
-          <p className="uppercase">Rounds played:</p>
+          <p className="text-lg md:text-2xl lg:text-3xl underline font-bold uppercase">
+            Rounds results
+          </p>
+          {/* <p className="text-xs md:text-sm lg:text-base mt-3">(Select a Round for Details)</p> */}
         </div>
-        {/* <p className="text-xs md:text-sm lg:text-base mt-3">(Select a Round for Details)</p> */}
-        <div className="w-full max-w-4xl flex flex-col justify-center items-center">
+        {/* ROUND DETAILS CONTAINER */}
+        <div className="w-full max-w-4xl flex flex-col justify-center items-center font-orb">
           {seasonsPlayed.map((season) => {
             return (
+              // SEASON ROUNDS CONTAINER
               <div className="flex flex-col justify-center items-center" key={nanoid()}>
                 <p
                   className={`mt-3 mb-2 px-10 py-2
@@ -48,12 +55,14 @@ const PlayerRoundResults = () => {
                 >
                   {'Season ' + season}
                 </p>
+                {/* ROUNDS CONTAINER */}
                 <div className="w-full flex flex-wrap justify-center items-center">
                   {allPlayerRounds.map((round) => {
                     if (round.season === season) {
                       const easyCourse = DataGod.getCourseData(round.easyCourse)
                       const hardCourse = DataGod.getCourseData(round.hardCourse)
                       return (
+                        // EACH ROUND DETAILS CONTAINER
                         <div
                           className={`w-fit mx-2 my-4
                           text-center cursor-pointer hover:scale-105 transition-all
@@ -62,8 +71,9 @@ const PlayerRoundResults = () => {
                           // onClick={() => setSelectedRound({ season, round: round.round })}
                           key={nanoid()}
                         >
+                          {/* ROUND LABEL */}
                           <div
-                            className={`w-full px-6 py-1
+                            className={`w-full px-7 py-1
                             text-lg font-bold font-scorenum
                             bgfade-s${round.season}
                             brdr-s${round.season} border-b-[1px]`}
@@ -76,40 +86,45 @@ const PlayerRoundResults = () => {
                           >
                           Go to Round
                         </Link> */}
+                          {/* SCORES AND COURSES DETAILS - MIDDLE PART */}
                           <div
                             className="w-full mt-2
                             text-xxs sm:text-xs md:text-sm lg:text-base
                             flex justify-evenly items-center"
                           >
+                            {/* EASY COURSE DEETS */}
                             <div className="ml-2 md:ml-3 flex flex-col justify-center items-center">
                               <div>{easyCourse.courseMoji}</div>
-                              <div>{easyCourse.alias}</div>
+                              <div className="tracking-wider">{easyCourse.alias}</div>
                               <div>{round.scores[0].easyRoundScore}</div>
                             </div>
+                            {/* TOTAL SCORE */}
                             <div
                               className={`w-8 h-8 md:w-10 md:h-10
                               mx-2 md:mx-3
                               rounded-full p-1
                               bg-sh-s${round.season}
-                              brdr-s${round.season} border-2
                               flex flex-col justify-center items-center
-                              text-black font-bold`}
+                              text-xs sm:text-sm md:text-base
+                              text-black font-bold font-orb`}
                             >
                               {round.scores[0].totalToPar}
                             </div>
+                            {/* HARD COURSE DEETS */}
                             <div
                               className="mr-2 md:mr-3
-                              flex flex-col justify-center items-center">
+                              flex flex-col justify-center items-center"
+                            >
                               <div>{hardCourse.courseMoji}</div>
-                              <div>{hardCourse.alias}</div>
+                              <div className="tracking-wider">{hardCourse.alias}</div>
                               <div>{round.scores[0].hardRoundScore}</div>
                             </div>
                           </div>
-                          <div className="w-full mt-2 flex flex-col justify-center items-center">
-                            {/* <div className="w-full text-xxs mt-2 uppercase">finish</div> */}
-                            <div
-                              className={`w-full py-1
-                              text-sm font-bold text-black
+                          {/* ROUND RANK CONTAINER */}
+                          {/* <div className="w-full text-xxs mt-2 uppercase">finish</div> */}
+                          <div
+                            className={`w-full py-1 mt-2
+                              text-sm font-bold text-black font-scorenum
                               flex flex-col justify-center items-center
                               ${
                                 round.scores[0].roundRank === 1
@@ -122,16 +137,15 @@ const PlayerRoundResults = () => {
                                   ? 'bg-sh-topTenGreen text-black'
                                   : `bg-sh-s${round.season}`
                               } border-b-2 brdr-s${round.season} rounded-b-md`}
-                            >
-                              {round.scores[0].roundRank}
-                              {round.scores[0].roundRank === 1
-                                ? 'st'
-                                : round.scores[0].roundRank === 2
-                                ? 'nd'
-                                : round.scores[0].roundRank === 3
-                                ? 'rd'
-                                : 'th'}
-                            </div>
+                          >
+                            {round.scores[0].roundRank}
+                            {round.scores[0].roundRank.toString().endsWith('1')
+                              ? 'st'
+                              : round.scores[0].roundRank.toString().endsWith('2')
+                              ? 'nd'
+                              : round.scores[0].roundRank.toString().endsWith('3')
+                              ? 'rd'
+                              : 'th'}
                           </div>
                         </div>
                       )
@@ -147,8 +161,13 @@ const PlayerRoundResults = () => {
   }
 
   const selectedRoundDetails = () => {
+    console.log(selectedRoundData)
+
     return (
-      <div>
+      <div
+        className="w-full mt-4
+        flex flex-col justify-center items-center"
+      >
         <button className="px-3 py-2 border-2 rounded-md" onClick={() => setSelectedRound('')}>
           Back to Rounds
         </button>
@@ -156,6 +175,7 @@ const PlayerRoundResults = () => {
         <div>{`Season ${(selectedRound as RoundIdentifier).season} Round ${
           (selectedRound as RoundIdentifier).round
         }`}</div>
+        <PlayerStatsScorecard roundData={selectedRoundData as RoundDataInterface} />
       </div>
     )
   }
