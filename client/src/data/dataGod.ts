@@ -425,16 +425,16 @@ export abstract class DataGod {
 
   static getIndexesOfUnusedSeasonPoints(points: number[]) {
     // console.log(points.length)
-    if (points.length <= 8) {
+    if (points.length <= 4) {
       return []
     }
-    if (points.length === 9) {
+    if (points.length === 5) {
       return [this.seekAndReturnLowest([...points], 1)]
     }
-    if (points.length === 10) {
+    if (points.length === 6) {
       return [this.seekAndReturnLowest([...points], 1), this.seekAndReturnLowest([...points], 2)]
     }
-    if (points.length === 11) {
+    if (points.length === 7) {
       return [
         this.seekAndReturnLowest([...points], 1),
         this.seekAndReturnLowest([...points], 2),
