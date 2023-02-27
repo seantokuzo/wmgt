@@ -8,6 +8,7 @@ import CourseScorecard from 'components/scorecard/CourseScorecard'
 import { DataGod } from 'data/dataGod'
 import PlayerScorecard from 'components/scorecard/PlayerScorecard'
 import PlayerStatsScorecard from './PlayerStatsScorecard'
+import { Link } from 'react-router-dom'
 
 const PlayerRoundResults = () => {
   const [selectedRound, setSelectedRound] = useState<RoundIdentifier | ''>('')
@@ -40,7 +41,9 @@ const PlayerRoundResults = () => {
           <p className="text-lg md:text-2xl lg:text-3xl underline font-bold uppercase">
             Rounds results
           </p>
-          {/* <p className="text-xs md:text-sm lg:text-base mt-3">(Select a Round for Details)</p> */}
+          <p className="text-xxs sm:text-xs md:text-sm lg:text-base mt-3">
+            (Select a Round for Details)
+          </p>
         </div>
         {/* ROUND DETAILS CONTAINER */}
         <div className="w-full max-w-4xl flex flex-col justify-center items-center font-orb">
@@ -63,7 +66,8 @@ const PlayerRoundResults = () => {
                       const hardCourse = DataGod.getCourseData(round.hardCourse)
                       return (
                         // EACH ROUND DETAILS CONTAINER
-                        <div
+                        <Link
+                          to={`/season/s${season}r${round.round}`}
                           className={`w-fit mx-2 my-4
                           text-center cursor-pointer hover:scale-105 transition-all
                           flex flex-col justify-center items-center
@@ -80,12 +84,6 @@ const PlayerRoundResults = () => {
                           >
                             {'Round ' + round.round}
                           </div>
-                          {/* <Link
-                          to={`/season/s${season}r${round.round}`}
-                          className="underline text-xxs"
-                          >
-                          Go to Round
-                        </Link> */}
                           {/* SCORES AND COURSES DETAILS - MIDDLE PART */}
                           <div
                             className="w-full mt-2
@@ -147,7 +145,7 @@ const PlayerRoundResults = () => {
                               ? 'rd'
                               : 'th'}
                           </div>
-                        </div>
+                        </Link>
                       )
                     }
                   })}
