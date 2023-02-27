@@ -1,4 +1,3 @@
-import { s5r6csvData } from "./s5r6-raw-data.js"
 import { courseData } from "./wmgt-course-data.js"
 import { allPlayersList } from "../../player-list-scraper/AllPlayersList-S8.js"
 import {
@@ -6,11 +5,15 @@ import {
   playerNameExceptions,
 } from "../../player-list-scraper/playerNameExceptions.js"
 
+const res = await fetch("../csv-to-json/current-round-raw-data.json")
+const currentRoundData = await res.json()
+
 // GET COURSE DATA FOR CURRENT ROUND COURSES
-const easyCourse = courseData.filter((c) => c.alias === "SLE")[0]
-const hardCourse = courseData.filter((c) => c.alias === "BBH")[0]
+const easyCourse = courseData.filter((c) => c.alias === "")[0]
+const hardCourse = courseData.filter((c) => c.alias === "")[0]
 
 const checkScores = (csvData) => {
+  if (!easyCourse || !hardCourse) return console.log("💥 Add Courses 💥")
   // CHECK FOR ANY DUPLICATE PLAYERS
   const duplicatePlayers = csvData.reduce((acc, curr, i) => {
     const withoutPlayer = [...csvData]
@@ -49,6 +52,7 @@ const checkScores = (csvData) => {
 
 // CONVERT THE RAW DATA PULLED FROM CSV INTO MY FORMAT
 const convertRawRoundData = (csvData) => {
+  if (!easyCourse || !hardCourse) return console.log("💥 Add Courses 💥")
   const withoutRankOrPoints = csvData.map((score) => {
     const easyScores = score.easyScorecard.map(
       (score, i) => score - easyCourse.parByHole[i]
@@ -166,5 +170,5 @@ const convertRawRoundData = (csvData) => {
   console.log(rankAdded)
 }
 
-checkScores(s5r6csvData)
-convertRawRoundData(s5r6csvData)
+checkScores(currentRoundData)
+convertRawRoundData(currentRoundData)

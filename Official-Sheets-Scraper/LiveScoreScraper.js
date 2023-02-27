@@ -77,10 +77,7 @@ const getSeasonSummary = (rowId, firstRow, collection = []) => {
     collection.push({
       player,
       seasonRank: +rowCellsArray[0],
-      seasonPoints:
-        rowCellsArray.slice(3).length < 9
-          ? rowCellsArray.slice(3).reduce((acc, curr) => acc + +curr, 0)
-          : +rowCellsArray[2],
+      seasonPoints: +rowCellsArray[2],
       pointsByRound: rowCellsArray.slice(3).map((p) => +p),
     })
 

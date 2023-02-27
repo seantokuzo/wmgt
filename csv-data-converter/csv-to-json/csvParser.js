@@ -1,9 +1,9 @@
 import fs from "fs"
 import { parse } from "csv-parse"
 
-const csvFile = "./s5r6.csv"
+const csvFile = "./DB.csv"
 
-const writeFileName = csvFile.split("/")[1].split(".")[0]
+const writeFileName = "current-round-raw-data.json"
 
 export const nonCharacterRegex = /[^a-zA-Z0-9]/g
 export const regexPlayerName = (player) => {
@@ -57,7 +57,7 @@ fs.createReadStream(csvFile)
   .on("end", function () {
     console.log(csvData)
     fs.writeFile(
-      `${writeFileName}-raw-data.json`,
+      writeFileName,
       JSON.stringify(csvData),
       {
         encoding: "utf-8"
