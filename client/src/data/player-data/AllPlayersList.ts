@@ -42,7 +42,7 @@ export const allPlayersList: PlayerInterface[] = [
   },
   {
     player: 'GreatGoose',
-    flag: '🇵🇷'
+    flag: '🇮🇲'
   },
   {
     player: 'Mau',
@@ -1587,6 +1587,14 @@ export const allPlayersList: PlayerInterface[] = [
   {
     player: 'JakAttack89',
     flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
+  },
+  {
+    player: 'FarmBoy710',
+    flag: '🇨🇦'
+  },
+  {
+    player: 'Neo Impossible',
+    flag: '🇺🇸'
   },
   {
     player: 'SpicyP',
