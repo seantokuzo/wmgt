@@ -425,16 +425,16 @@ export abstract class DataGod {
 
   static getIndexesOfUnusedSeasonPoints(points: number[]) {
     // console.log(points.length)
-    if (points.length <= 4) {
+    if (points.length <= 2) {
       return []
     }
-    if (points.length === 5) {
+    if (points.length <= 5) {
       return [this.seekAndReturnLowest([...points], 1)]
     }
-    if (points.length === 6) {
+    if (points.length <= 7) {
       return [this.seekAndReturnLowest([...points], 1), this.seekAndReturnLowest([...points], 2)]
     }
-    if (points.length === 7) {
+    if (points.length <= 10) {
       return [
         this.seekAndReturnLowest([...points], 1),
         this.seekAndReturnLowest([...points], 2),
@@ -451,16 +451,16 @@ export abstract class DataGod {
   }
 
   static getTotalSeasonPoints(points: number[]) {
-    if (points.length <= 8) {
+    if (points.length <= 2) {
       return points.reduce((a, b) => a + b, 0)
     }
-    if (points.length === 9) {
+    if (points.length <= 5) {
       return points.slice(1).reduce((a, b) => a + b, 0)
     }
-    if (points.length === 10) {
+    if (points.length <= 7) {
       return points.slice(2).reduce((a, b) => a + b, 0)
     }
-    if (points.length === 11) {
+    if (points.length <= 10) {
       return points.slice(3).reduce((a, b) => a + b, 0)
     }
     // if (points.length >= 8) {}
@@ -492,6 +492,7 @@ export abstract class DataGod {
     const topTen = this.getSeasonOfficialResultsData(season).results.filter(
       (player) => player.seasonRank <= 10
     )
+
     if (topTen.findIndex((p) => p.player === addedPlayer) < 0) {
       topTen.push(
         ...this.getSeasonOfficialResultsData(season).results.filter((p) => p.player === addedPlayer)
@@ -499,7 +500,7 @@ export abstract class DataGod {
     }
 
     const topTenRunningTotals = topTen.map((player) => {
-      const runningTotal = player.pointsByRound.reduce((acc: number[], curr, i) => {
+      const runningTotal = player.pointsByRound.reduce((acc: number[], _curr, i) => {
         const currTotal = this.getTotalSeasonPoints(
           player.pointsByRound.slice(0, i + 1).sort((a, b) => a - b)
         )
