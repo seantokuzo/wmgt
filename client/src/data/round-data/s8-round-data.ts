@@ -17406,8 +17406,8 @@ export const season8Data: RoundDataInterface[] = [
         numStrokeOut: 0
       }
     ]
-  }
-  // { season: 8, round: 9, easyCourse: '', hardCourse: '', scores: [] }
+  },
+  { season: 8, round: 9, easyCourse: 'GBE', hardCourse: 'EDE', scores: [] }
   // { season: 8, round: 10, easyCourse: '', hardCourse: '', scores: [] }
   // { season: 8, round: 11, easyCourse: '', hardCourse: '', scores: [] }
   // { season: 8, round: 12, easyCourse: '', hardCourse: '', scores: [] }
