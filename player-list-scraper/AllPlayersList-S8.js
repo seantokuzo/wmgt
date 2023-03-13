@@ -1592,6 +1592,10 @@ export const allPlayersList = [
     flag: "🇺🇸",
   },
   {
+    player: "NanaNorma",
+    flag: "🇬🇧",
+  },
+  {
     player: "SpicyP",
     flag: "",
   },
