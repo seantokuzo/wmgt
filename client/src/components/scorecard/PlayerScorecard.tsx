@@ -26,7 +26,8 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, roundObj, a
     toggleScorecardNine
   } = useSeasonContext()
   const scorecard = showEasyCourse ? playerRound.easyScorecard : playerRound.hardScorecard
-  const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
+  // const playerScore = scorecard.reduce((a, b) => a + b, 0) - coursePars.reduce((a, b) => a + b, 0)
+  const playerScore = showEasyCourse ? playerRound.easyRoundScore : playerRound.hardRoundScore
 
   const scoresToMap = DataGod.getPlayerScorecard(
     'map',
