@@ -1596,6 +1596,14 @@ export const allPlayersList = [
     flag: "🇬🇧",
   },
   {
+    player: "Jali143",
+    flag: "🇺🇸",
+  },
+  {
+    player: "Wonton-ninja",
+    flag: "🇺🇸",
+  },
+  {
     player: "SpicyP",
     flag: "",
   },
