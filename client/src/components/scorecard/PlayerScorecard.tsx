@@ -153,7 +153,15 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, roundObj, a
             <div className="">
               <div
                 className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8
-                ${!acesData && scoreDecoration(scoresForDecoration[i], true, darkMode)}
+                ${
+                  !acesData &&
+                  scoreDecoration(
+                    scoresForDecoration[i],
+                    true,
+                    darkMode,
+                    0 - coursePars[i] === scoresForDecoration[i]
+                  )
+                }
                 ${
                   scoreToDisplay(score, i) === '🌵'
                     ? 'bg-sh-gold rounded-full cursor-pointer'
@@ -165,7 +173,15 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, roundObj, a
               >
                 <div
                   className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6
-                  ${!acesData && scoreDecoration(scoresForDecoration[i], false, darkMode)}
+                  ${
+                    !acesData &&
+                    scoreDecoration(
+                      scoresForDecoration[i],
+                      false,
+                      darkMode,
+                      0 - coursePars[i] === scoresForDecoration[i]
+                    )
+                  }
                   ${showScoreTracker ? 'text-xxxs sm:text-xs' : 'text-xxs sm:text-sm'}
                   ${
                     scoreToDisplay(score, i) === '🌵' || scoreToDisplay(score, i) === '🦆'
@@ -179,7 +195,7 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, roundObj, a
                   ${acesData && 'rounded-full'}
                   flex flex-col justify-center items-center`}
                 >
-                  {scoreToDisplay(score, i)}
+                  {scoreToDisplay(score, i) || 'X'}
                 </div>
               </div>
             </div>

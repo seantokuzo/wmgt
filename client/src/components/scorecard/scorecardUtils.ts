@@ -1,5 +1,10 @@
-export const scoreDecoration = (score: number, outer: boolean, darkMode: boolean) => {
-  if (score === 0) return ''
+export const scoreDecoration = (
+  score: number,
+  outer: boolean,
+  darkMode: boolean,
+  isBlank: boolean
+) => {
+  if (score === 0 || isBlank) return ''
   const border1px = 'border-[1px]'
   if (score <= -5) {
     if (outer) return border1px + ' fiveUnder rounded-full'
