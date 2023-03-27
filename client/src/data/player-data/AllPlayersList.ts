@@ -1609,6 +1609,22 @@ export const allPlayersList: PlayerInterface[] = [
     flag: '🇺🇸'
   },
   {
+    player: 'LeBigCat23',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'tmac42',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Sloppytah',
+    flag: '🇺🇸'
+  },
+  {
+    player: 'Chromedome449',
+    flag: '🇺🇸'
+  },
+  {
     player: 'SpicyP',
     flag: ''
   },
