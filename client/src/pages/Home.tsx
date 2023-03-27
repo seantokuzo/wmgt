@@ -8,6 +8,10 @@ const Home: React.FC = () => {
   const { darkMode, windowSize } = useAppContext()
 
   const currentRound = DataGod.getSeasonData(CURRENT_SEASON).length
+  const label =
+    DataGod.getSeasonData(CURRENT_SEASON)[currentRound - 1].scores.length > 0
+      ? 'Latest Round'
+      : 'Next Round'
 
   return (
     <div
@@ -37,7 +41,7 @@ const Home: React.FC = () => {
           text-black font-semibold text-center uppercase
           flex justify-center items-center`}
         >
-          Next Round
+          {label}
         </Link>
       </div>
       <img className="w-full max-w-xl" src="/img/wmg_logo.png" alt="Walkabout Mini Golf Logo" />
