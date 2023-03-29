@@ -87,12 +87,12 @@ const ScorecardLegend = () => {
       >
         <div className="mb-1">{label}</div>
         <div
-          className={`w-5 md:w-8 h-5 md:h-8 ${scoreDecoration(score, true, darkMode)}
+          className={`w-5 md:w-8 h-5 md:h-8 ${scoreDecoration(score, true, darkMode, false)}
           flex flex-col justify-center items-center`}
         >
           <div
             className={`w-4 md:w-6 h-4 md:h-6 ${
-              label === 'ACE' ? 'ace rounded-full' : scoreDecoration(score, false, darkMode)
+              label === 'ACE' ? 'ace rounded-full' : scoreDecoration(score, false, darkMode, false)
             }
             flex flex-col justify-center items-center`}
           >
