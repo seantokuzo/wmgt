@@ -21133,7 +21133,7 @@ export const season8Data: RoundDataInterface[] = [
         easyRoundScore: 36,
         hardRoundScore: 36,
         totalToPar: 72,
-        coconut: true,
+        coconut: false,
         easyScorecard: [2, 1, 2, 2, 2, 2, 3, 2, 2, 3, 2, 2, 2, 2, 4, 2, 2, 2],
         hardScorecard: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         numPar: 1,
