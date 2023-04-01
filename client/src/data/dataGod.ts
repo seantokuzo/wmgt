@@ -101,8 +101,8 @@ export abstract class DataGod {
     const roundData = seasonData.filter((r) => r.round === round.round)[0]
     const coconutScores = roundData.scores.filter((score) => {
       return (
-        score.easyScorecard.every((s, i) => s <= this.getCoursePars(roundData.easyCourse)[i]) &&
-        score.hardScorecard.every((s, i) => s <= this.getCoursePars(roundData.hardCourse)[i])
+        score.easyScorecard.every((s, i) => s <= this.getCoursePars(roundData.easyCourse)[i] && s !== 0) &&
+        score.hardScorecard.every((s, i) => s <= this.getCoursePars(roundData.hardCourse)[i] && s !== 0)
       )
     })
     const stevenTally = roundData.scores.filter((s) => s.coconut)
