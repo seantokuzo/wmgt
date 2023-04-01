@@ -195,7 +195,13 @@ const PlayerScorecard: React.FC<Props> = ({ playerRound, coursePars, roundObj, a
                   ${acesData && 'rounded-full'}
                   flex flex-col justify-center items-center`}
                 >
-                  {scoreToDisplay(score, i) || 'X'}
+                  {scoreToDisplay(score, i) === 0 && !showScoreTracker
+                    ? 'X'
+                    : scoreToDisplay(score, i) === 0
+                    ? 0
+                    : scoreToDisplay(score, i)
+                    ? scoreToDisplay(score, i)
+                    : ''}
                 </div>
               </div>
             </div>
