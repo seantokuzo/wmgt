@@ -5,4 +5,7 @@
 /scrapers-old
 /processed-data
 /csv-data-converter/csv-to-json/node_modules
+/csv-data-converter/csv-error-check/node_modules
+/csv-data-converter/csv-error-check/*.csv
+/csv-data-converter/csv-error-check/*.json
 /z_errorChecks

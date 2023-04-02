@@ -16,7 +16,10 @@ const compareResults = (dbData, officialData) => {
     console.log("Different amount of players")
   }
 
-  let DBscoreErrors = []
+  let rankErrors = []
+  let easyScoreErrors = []
+  let hardScoreErrors = []
+  let totalScoreErrors = []
   let newPlayers = []
   let playerNotInDB = []
   let playerNotReportedInOfficial = []
@@ -42,14 +45,10 @@ const compareResults = (dbData, officialData) => {
         score.easyRoundScore + score.hardRoundScore === score.totalToPar,
     }
 
-    if (
-      !scoreChecks.rankCheck ||
-      !scoreChecks.easyCheck ||
-      !scoreChecks.hardCheck ||
-      !scoreChecks.totalCheck
-    ) {
-      DBscoreErrors.push(scoreChecks)
-    }
+    if (!scoreChecks.rankCheck) rankErrors.push(scoreChecks)
+    if (!scoreChecks.easyCheck) easyScoreErrors.push(scoreChecks)
+    if (!scoreChecks.hardCheck) hardScoreErrors.push(scoreChecks)
+    if (!scoreChecks.totalCheck) totalScoreErrors.push(scoreChecks)
 
     const dbScore = dbData.filter((p) => p.player === score.player)[0]
   })
@@ -83,7 +82,10 @@ const compareResults = (dbData, officialData) => {
     playerNotInDB,
     playerNotReportedInOfficial,
     newPlayers,
-    DBscoreErrors,
+    rankErrors,
+    easyScoreErrors,
+    hardScoreErrors,
+    totalScoreErrors,
   }
 }
 
