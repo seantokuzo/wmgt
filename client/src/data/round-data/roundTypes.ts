@@ -17,6 +17,7 @@ export interface PlayerRoundInterface {
   numEagle: number
   numAlbatross: number
   numCondor: number
+  numWayBelowPar?: number
   numHoleInOne: number
   numBogey: number
   numDoubleBogey: number
@@ -49,6 +50,7 @@ export interface BadgeRound {
   numEagle: number
   numAlbatross: number
   numCondor: number
+  numWayBelowPar?: number
   numHoleInOne: number
   numBogey: number
   numDoubleBogey: number
