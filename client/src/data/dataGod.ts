@@ -101,8 +101,12 @@ export abstract class DataGod {
     const roundData = seasonData.filter((r) => r.round === round.round)[0]
     const coconutScores = roundData.scores.filter((score) => {
       return (
-        score.easyScorecard.every((s, i) => s <= this.getCoursePars(roundData.easyCourse)[i] && s !== 0) &&
-        score.hardScorecard.every((s, i) => s <= this.getCoursePars(roundData.hardCourse)[i] && s !== 0)
+        score.easyScorecard.every(
+          (s, i) => s <= this.getCoursePars(roundData.easyCourse)[i] && s !== 0
+        ) &&
+        score.hardScorecard.every(
+          (s, i) => s <= this.getCoursePars(roundData.hardCourse)[i] && s !== 0
+        )
       )
     })
     const stevenTally = roundData.scores.filter((s) => s.coconut)
@@ -248,7 +252,7 @@ export abstract class DataGod {
     showScoreTracker: boolean,
     showFrontNine: boolean
   ): number[] {
-    const holeScores = scorecard.map((score, i) => score - coursePars[i])
+    const holeScores = scorecard.map((score, i) => (score === 0 ? 2 : score - coursePars[i]))
     const startingCount =
       showEasyCourse || roundDetailsMode === 'hard' ? 0 : playerRound.easyRoundScore
     const scoreTracker = holeScores.map((score, i) => {
@@ -434,7 +438,7 @@ export abstract class DataGod {
     if (points.length <= 7) {
       return [this.seekAndReturnLowest([...points], 1), this.seekAndReturnLowest([...points], 2)]
     }
-    if (points.length <= 10) {
+    if (points.length <= 11) {
       return [
         this.seekAndReturnLowest([...points], 1),
         this.seekAndReturnLowest([...points], 2),
