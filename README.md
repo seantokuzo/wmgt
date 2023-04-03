@@ -5,7 +5,7 @@
   <img align="center" height="299px" alt="Mobile site preview" src="https://seantokuzo-bucket.s3.us-west-1.amazonaws.com/ProjectAssets/WMGT_Site-previews/wmgt_sm-Home.png">
 </p>
 <h1 align="center">Walkabout Mini Golf Tournament</h1>
-<h3 align="center">Results and Stats</h3>
+<h3 align="center">An interactive site for results and stats</h3>
 <br>
 <h4>Check it out at:<h4>
 <a href="https://walkabout-mini-golf-tournament-stats.netlify.app/" target="_blank" rel="noreferrer noopener">
