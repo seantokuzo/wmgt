@@ -54,11 +54,11 @@ const checkScores = (csvData) => {
 const convertRawRoundData = (csvData) => {
   if (!easyCourse || !hardCourse) return console.log("💥 Add Courses 💥")
   const withoutRankOrPoints = csvData.map((score) => {
-    const easyScores = score.easyScorecard.map(
-      (score, i) => score - easyCourse.parByHole[i]
+    const easyScores = score.easyScorecard.map((score, i) =>
+      score === 0 ? "x" : score - easyCourse.parByHole[i]
     )
-    const hardScores = score.hardScorecard.map(
-      (score, i) => score - hardCourse.parByHole[i]
+    const hardScores = score.hardScorecard.map((score, i) =>
+      score === 0 ? "x" : score - hardCourse.parByHole[i]
     )
     const playerName = allPlayersList.filter(
       (p) => regexPlayerName(p.player) === regexPlayerName(score.player)
@@ -68,8 +68,8 @@ const convertRawRoundData = (csvData) => {
       player: playerName
         ? playerNameExceptions(playerName.player)
         : playerNameExceptions(score.player),
-      easyRoundTotal: score.easyScorecard.reduce((a, b) => a + b, 0),
-      hardRoundTotal: score.hardScorecard.reduce((a, b) => a + b, 0),
+      easyRoundTotal: easyCourse.par + score.easyRoundScore,
+      hardRoundTotal: hardCourse.par + score.hardRoundScore,
       seasonPointsEarned: 1,
       easyRoundScore: score.easyRoundScore,
       hardRoundScore: score.hardRoundScore,
@@ -112,6 +112,13 @@ const convertRawRoundData = (csvData) => {
         }, 0) +
         hardScores.reduce((acc, curr) => {
           return curr === -4 ? acc + 1 : acc
+        }, 0),
+      numWayBelowPar:
+        easyScores.reduce((acc, curr) => {
+          return curr <= -5 ? acc + 1 : acc
+        }, 0) +
+        hardScores.reduce((acc, curr) => {
+          return curr <= -5 ? acc + 1 : acc
         }, 0),
       numHoleInOne:
         score.easyScorecard.reduce((acc, curr) => {
