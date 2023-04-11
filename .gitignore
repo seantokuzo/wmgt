@@ -9,4 +9,5 @@
 /csv-data-converter/csv-error-check/node_modules
 /csv-data-converter/csv-error-check/*.csv
 /csv-data-converter/csv-error-check/*.json
+/Official-Sheets-Scraper/*.html
 /z_errorChecks
