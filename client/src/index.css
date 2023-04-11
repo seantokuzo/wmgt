@@ -7,6 +7,7 @@
   --silver: theme('colors.slate.400');
   --bronze: theme('colors.amber.700');
   --topTenGreen: theme('colors.lime.400');
+  --season9: theme('colors.red.800');
   --season8: theme('colors.green.600');
   --season7: theme('colors.indigo.500');
   --season6: theme('colors.emerald.500');
@@ -15,6 +16,7 @@
   --season3: theme('colors.sky.500');
   --season2: theme('colors.purple.400');
   --season1: theme('colors.stone.500');
+  --season9trans: rgb(153, 27, 27, 0.2);
   --season8trans: rgb(22, 163, 74, 0.2);
   --season7trans: rgba(99, 102, 241, 0.2);
   --season6trans: rgba(16, 185, 129, 0.2);
@@ -43,6 +45,8 @@
   --sh-silver: inset 6px 6px 6px #66707f, inset -6px -6px 6px #c2d6f1;
   --sh-bronze: inset 6px 6px 6px #7c3906, inset -6px -6px 6px #ec6d0c;
   --sh-topTenGreen: inset 6px 6px 6px #709f25, inset -6px -6px 6px #d6ff45;
+  --sh-season9: inset 6px 6px 6px #6a1313, inset -6px -6px 6px #c82323;
+  --sh-season9-out: 5px 5px 10px #671212, -5px -5px 10px #cb2424;
   --sh-season8: inset 6px 6px 6px #0f7033, inset -6px -6px 6px #1dd661;
   --sh-season8-out: 5px 5px 10px #0f6d32, -5px -5px 10px #1dd962;
   --sh-season7: inset 6px 6px 6px #37309e, inset -6px -6px 6px #675cff;
@@ -173,6 +177,30 @@ body {
 /* ******************************** */
 /* ***** SEASON COLOR CLASSES ***** */
 /* ******************************** */
+
+/* ***** SEASON 9 COLORS ***** */
+.bg-sh-s9 {
+  background-color: var(--season9);
+  box-shadow: var(--sh-season9);
+}
+.bg-s9 {
+  background-color: var(--season9);
+}
+.brdr-s9 {
+  border-color: var(--season9);
+}
+.cl-s9 {
+  color: var(--season9);
+}
+.bgfade-s9 {
+  background: linear-gradient(to left, var(--season9), rgba(0, 0, 0, 0));
+}
+.bg-trans-s9 {
+  background-color: var(--season9trans);
+}
+.sh-out-s9 {
+  box-shadow: var(--sh-season9-out);
+}
 
 /* ***** SEASON 8 COLORS ***** */
 .bg-sh-s8 {
