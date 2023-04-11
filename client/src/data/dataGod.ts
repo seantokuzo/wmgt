@@ -19,6 +19,7 @@ import {
   SeasonResultsOfficial
 } from './season-data/seasonResultsTypes'
 import { CURRENT_SEASON } from 'utils/constants'
+import { log } from 'console'
 
 type RoundIdentifier = {
   season: number
@@ -769,10 +770,12 @@ export abstract class DataGod {
   }
 
   static convertAllScoresIntoLowestScorePerHoleArray = (allScores: number[][]) => {
+    const allScoresNoPenalties = allScores.filter((scores) => !scores.every((s) => s === 0))
+
     return new Array(18)
       .fill('')
       .map((_slot, i) => {
-        return allScores.reduce((acc: number[], score: number[]) => {
+        return allScoresNoPenalties.reduce((acc: number[], score: number[]) => {
           acc.push(score[i])
           return acc
         }, [])
