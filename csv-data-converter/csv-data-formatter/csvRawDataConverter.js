@@ -31,10 +31,12 @@ const checkScores = (csvData) => {
   const scoreCheck = csvData.map((score) => {
     const easy =
       score.easyScorecard.reduce((a, b) => a + b, 0) - easyCourse.par ===
-      score.easyRoundScore
+        score.easyRoundScore ||
+      (score.easyScorecard.every((s) => s === 0) && score.easyRoundScore === 36)
     const hard =
       score.hardScorecard.reduce((a, b) => a + b, 0) - hardCourse.par ===
-      score.hardRoundScore
+        score.hardRoundScore ||
+      (score.hardScorecard.every((s) => s === 0) && score.hardRoundScore === 36)
     return { player: score.player, easy, hard }
   })
 
