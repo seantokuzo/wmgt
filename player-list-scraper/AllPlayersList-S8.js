@@ -1632,6 +1632,18 @@ export const allPlayersList = [
     flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
   },
   {
+    player: "Dancy",
+    flag: "🇨🇦",
+  },
+  {
+    player: "Nagle",
+    flag: "🇺🇸",
+  },
+  {
+    player: "Mehikan",
+    flag: "🇺🇸",
+  },
+  {
     player: "SpicyP",
     flag: "",
   },
