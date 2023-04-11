@@ -68,7 +68,7 @@ const PlayerRoundResults = () => {
                         // EACH ROUND DETAILS CONTAINER
                         <Link
                           to={`/season/s${season}r${round.round}`}
-                          className={`w-fit mx-2 my-4
+                          className={`w-fit min-w-[140px] md:min-w-[175px] mx-2 my-4
                           text-center cursor-pointer hover:scale-105 transition-all
                           flex flex-col justify-center items-center
                           brdr-s${round.season} border-x-2 border-t-2 rounded-md`}
@@ -159,8 +159,6 @@ const PlayerRoundResults = () => {
   }
 
   const selectedRoundDetails = () => {
-    console.log(selectedRoundData)
-
     return (
       <div
         className="w-full mt-4

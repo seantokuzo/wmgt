@@ -11,9 +11,13 @@ type Props = {
 const PlayerMenuBtn: React.FC<Props> = ({ playerMode, btnText, btnMode, setPlayerMode }) => {
   const colors = () => {
     if (playerMode === btnMode) {
-      return `bg-sh-s${CURRENT_SEASON}`
+      return `bg-sh-s8`
+      // TODO
+      // return `bg-sh-s${CURRENT_SEASON}`
     }
-    return `sh-out-s${CURRENT_SEASON}`
+    return `sh-out-s8`
+    // TODO
+    // return `sh-out-s${CURRENT_SEASON}`
   }
 
   return (

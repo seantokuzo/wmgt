@@ -20,7 +20,9 @@ const PlayerStatsMenu: React.FC<Props> = ({ playerMode, setPlayerMode }) => {
         <PlayerSelector />
       </div>
       <div
-        className={`w-fit max-w-[90%] px-5 py-3 flex flex-wrap justify-center items-center bg-s${CURRENT_SEASON} rounded-lg`}
+        // TODO
+        // className={`w-fit max-w-[90%] px-5 py-3 flex flex-wrap justify-center items-center bg-s${CURRENT_SEASON} rounded-lg`}
+        className={`w-fit max-w-[90%] px-5 py-3 flex flex-wrap justify-center items-center bg-s8 rounded-lg`}
       >
         {Object.values(playerStatModes).map((mode) => {
           return (

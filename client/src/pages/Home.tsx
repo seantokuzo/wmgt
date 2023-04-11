@@ -7,8 +7,12 @@ import PageLink from '../components/PageLink'
 const Home: React.FC = () => {
   const { darkMode, windowSize } = useAppContext()
 
-  const currentRound = DataGod.getSeasonData(CURRENT_SEASON).length
+  const currentRound =
+    DataGod.getSeasonData(CURRENT_SEASON).length === 0
+      ? 12
+      : DataGod.getSeasonData(CURRENT_SEASON).length
   const label =
+    DataGod.getSeasonData(CURRENT_SEASON).length === 0 ||
     DataGod.getSeasonData(CURRENT_SEASON)[currentRound - 1].scores.length > 0
       ? 'Latest Round'
       : 'Next Round'
@@ -33,7 +37,9 @@ const Home: React.FC = () => {
       <div className="w-full max-w-xl flex flex-col justify-center items-center">
         <PageLink path="tournament-info" />
         <Link
-          to={`/season/s${CURRENT_SEASON}r${currentRound}`}
+          to={`/season/s${
+            DataGod.getSeasonData(CURRENT_SEASON).length === 0 ? CURRENT_SEASON - 1 : CURRENT_SEASON
+          }r${currentRound}`}
           className={`w-1/2 min-w-max my-2 px-4 py-1.5
           bg-wmgYellow sh-wmgYellowSm
           rounded-lg hover:scale-105 transition-all
