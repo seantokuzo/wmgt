@@ -14,12 +14,13 @@ import { season5Data } from './round-data/s5-round-data'
 import { season6Data } from './round-data/s6-round-data'
 import { season7Data } from './round-data/s7-round-data'
 import { season8Data } from './round-data/s8-round-data'
+import { season9Data } from './round-data/s9-round-data'
 import {
   PlayerSeasonResultsOfficial,
   SeasonResultsOfficial
 } from './season-data/seasonResultsTypes'
 import { CURRENT_SEASON } from 'utils/constants'
-import { log } from 'console'
+import { season9OfficialResults } from './season-data/season9OfficialResults'
 
 type RoundIdentifier = {
   season: number
@@ -34,6 +35,8 @@ export abstract class DataGod {
   // PRIVATE UTIL METHODS * PRIVATE UTIL METHODS * PRIVATE UTIL METHODS
   static getSeasonData(season: number) {
     switch (season) {
+      case 9:
+        return season9Data
       case 8:
         return season8Data
       case 7:
@@ -61,8 +64,10 @@ export abstract class DataGod {
         return season6Data.filter((r) => r.round === round.round)[0]
       case 7:
         return season7Data.filter((r) => r.round === round.round)[0]
-      default:
+      case 8:
         return season8Data.filter((r) => r.round === round.round)[0]
+      default:
+        return season9Data.filter((r) => r.round === round.round)[0]
     }
   }
 
@@ -488,8 +493,10 @@ export abstract class DataGod {
         return season6OfficialResults
       case 7:
         return season7OfficialResults
-      default:
+      case 8:
         return season8OfficialResults
+      default:
+        return season9OfficialResults
     }
   }
 
@@ -745,8 +752,8 @@ export abstract class DataGod {
     if (course[2] === 'E') {
       // TODO
       // WHEN IN SEASON 9
-      // if (season8Data.filter((r) => r.easyCourse === course)[0])
-      //   appearedIn.push(season6Data.filter((r) => r.easyCourse === course)[0])
+      if (season8Data.filter((r) => r.easyCourse === course)[0])
+        appearedIn.push(season6Data.filter((r) => r.easyCourse === course)[0])
       if (season7Data.filter((r) => r.easyCourse === course)[0])
         appearedIn.push(season7Data.filter((r) => r.easyCourse === course)[0])
       if (season6Data.filter((r) => r.easyCourse === course)[0])
@@ -756,8 +763,8 @@ export abstract class DataGod {
     }
     if (course[2] === 'H') {
       // WHEN IN SEASON 9
-      // if (season8Data.filter((r) => r.easyCourse === course)[0])
-      //   appearedIn.push(season6Data.filter((r) => r.easyCourse === course)[0])
+      if (season8Data.filter((r) => r.easyCourse === course)[0])
+        appearedIn.push(season6Data.filter((r) => r.easyCourse === course)[0])
       if (season7Data.filter((r) => r.hardCourse === course)[0])
         appearedIn.push(season7Data.filter((r) => r.hardCourse === course)[0])
       if (season6Data.filter((r) => r.hardCourse === course)[0])
