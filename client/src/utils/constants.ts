@@ -1,3 +1,3 @@
-const CURRENT_SEASON = 8
+const CURRENT_SEASON = 9
 
 export { CURRENT_SEASON }
