@@ -13,7 +13,7 @@ const Loading: React.FC = () => {
       </div>
       {pathname !== '/contact/thankyou' && (
         <h3 className="mt-6 text-3xl max-w-xs text-center">
-          {pathname === '/player' ? "I swear I'm working on it" : 'Loading'}
+          {pathname === '/player' ? "Coming Soon" : 'Loading'}
         </h3>
       )}
     </div>
