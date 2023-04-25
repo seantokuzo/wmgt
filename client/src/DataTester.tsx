@@ -1,6 +1,9 @@
 // ****************************
 // DATA GOD CHECKER
 // ****************************
+// import { courseData } from 'data/course-data/wmgt-course-data'
+// console.log(courseData)
+
 // import { DataGod } from 'data/dataGod'
 // console.log(DataGod.getIndexesOfUnusedSeasonPoints([1, 99, 3, 99, 99, 99, 99, 99, 3, 99, 99, 2]))
 

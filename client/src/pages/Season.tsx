@@ -21,6 +21,7 @@ const Season: React.FC = () => {
       {pathname === '/season' && (
         <>
           {/* <SeasonMenu season={CURRENT_SEASON} /> */}
+          <SeasonMenu season={9} />
           <SeasonMenu season={8} />
           <SeasonMenu season={7} />
           <SeasonMenu season={6} />

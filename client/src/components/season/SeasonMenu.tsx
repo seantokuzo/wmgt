@@ -114,7 +114,7 @@ const SeasonMenu: React.FC<Props> = ({ season }) => {
             Season Summary
           </Link>
         )}
-        {season !== 1 && season !== 2 && season !== 3 && season !== 4 && (
+        {season !== 1 && season !== 2 && season !== 3 && season !== 4 && seasonData.length > 1 && (
           <Link
             to={`/season/s${season}-stats`}
             className={`w-full mt-3 mb-6 py-2 px-6

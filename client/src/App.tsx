@@ -18,6 +18,7 @@ import { season8Data } from 'data/round-data/s8-round-data'
 import TournamentInfo from 'pages/TournamentInfo'
 import Contact from 'pages/Contact'
 import ContactThankYou from 'pages/ContactThankYou'
+import { season9Data } from 'data/round-data/s9-round-data'
 // import Course from 'pages/Course'
 // import CourseDetails from 'components/course/CourseDetails'
 // import { courseData } from 'data/course-data/wmgt-course-data'
@@ -80,6 +81,16 @@ function App() {
             </SeasonContextProvider>
           }
         >
+          {/* SEASON 9 ROUTES */}
+          <Route path="s9-summary" element={<SeasonSummary season={9} />} />
+          <Route path="s9-stats" element={<SeasonStats season={9} />} />
+          {season9Data.map((round) => (
+            <Route
+              path={`s${round.season}r${round.round}`}
+              element={<RoundDetails round={round} />}
+              key={nanoid()}
+            />
+          ))}
           {/* SEASON 8 ROUTES */}
           <Route path="s8-summary" element={<SeasonSummary season={8} />} />
           <Route path="s8-stats" element={<SeasonStats season={8} />} />
