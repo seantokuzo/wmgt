@@ -1,6 +1,29 @@
 // ****************************
 // DATA GOD CHECKER
 // ****************************
+import { PlayerInterface, allPlayersList } from 'data/player-data/AllPlayersList'
+
+interface FlagObj {
+  flag: string
+  count: number
+}
+
+const flagCount = allPlayersList.reduce((acc: FlagObj[], curr) => {
+  if (acc.length === 0) {
+    acc.push({ flag: curr.flag, count: 1 })
+    return acc
+  }
+
+  const flagIndex = acc.findIndex((flagObj) => flagObj.flag === curr.flag)
+  if (flagIndex < 0) {
+    acc.push({ flag: curr.flag, count: 1 })
+    return acc
+  }
+  acc[flagIndex].count = acc[flagIndex].count + 1
+  return acc
+}, [])
+console.log(flagCount.sort((a, b) => b.count - a.count))
+
 // import { courseData } from 'data/course-data/wmgt-course-data'
 // console.log(courseData)
 
